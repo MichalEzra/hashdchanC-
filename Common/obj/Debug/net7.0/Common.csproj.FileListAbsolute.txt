@@ -1,0 +1,12 @@
+C:\Users\User\Desktop\תכנות\יד\C#\פרויקט C# השדכן\hashadchan\Common\bin\Debug\net7.0\Common.deps.json
+C:\Users\User\Desktop\תכנות\יד\C#\פרויקט C# השדכן\hashadchan\Common\bin\Debug\net7.0\Common.dll
+C:\Users\User\Desktop\תכנות\יד\C#\פרויקט C# השדכן\hashadchan\Common\bin\Debug\net7.0\Common.pdb
+C:\Users\User\Desktop\תכנות\יד\C#\פרויקט C# השדכן\hashadchan\Common\obj\Debug\net7.0\Common.GeneratedMSBuildEditorConfig.editorconfig
+C:\Users\User\Desktop\תכנות\יד\C#\פרויקט C# השדכן\hashadchan\Common\obj\Debug\net7.0\Common.AssemblyInfoInputs.cache
+C:\Users\User\Desktop\תכנות\יד\C#\פרויקט C# השדכן\hashadchan\Common\obj\Debug\net7.0\Common.AssemblyInfo.cs
+C:\Users\User\Desktop\תכנות\יד\C#\פרויקט C# השדכן\hashadchan\Common\obj\Debug\net7.0\Common.csproj.CoreCompileInputs.cache
+C:\Users\User\Desktop\תכנות\יד\C#\פרויקט C# השדכן\hashadchan\Common\obj\Debug\net7.0\Common.dll
+C:\Users\User\Desktop\תכנות\יד\C#\פרויקט C# השדכן\hashadchan\Common\obj\Debug\net7.0\refint\Common.dll
+C:\Users\User\Desktop\תכנות\יד\C#\פרויקט C# השדכן\hashadchan\Common\obj\Debug\net7.0\Common.pdb
+C:\Users\User\Desktop\תכנות\יד\C#\פרויקט C# השדכן\hashadchan\Common\obj\Debug\net7.0\ref\Common.dll
+C:\Users\User\Desktop\תכנות\יד\C#\פרויקט C# השדכן\hashadchan\Common\obj\Debug\net7.0\Common.csproj.AssemblyReference.cache

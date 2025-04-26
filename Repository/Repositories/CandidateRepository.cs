@@ -1,0 +1,89 @@
+﻿using Repository.Entities;
+using Repository.Interfaces;
+using System;
+using System.Collections.Generic;
+using System.Linq;
+using System.Text;
+using System.Threading.Tasks;
+
+namespace Repository.Repositories
+{
+    public class CandidateRepository : IRepository<Candidate>
+    {
+        private readonly IContext context;
+        public CandidateRepository(IContext context)
+        {
+            this.context = context;
+        }
+        public Candidate AddItem(Candidate item)
+        {
+            this.context.Candidates.Add(item);
+            this.context.Save();
+            return item;
+        }
+
+
+        public void DeleteItem(int id)
+        {
+            var candidate = GetById(id);
+            if (candidate == null)
+            {
+                throw new Exception("Candidate not found");
+            }
+            this.context.Candidates.Remove(candidate);
+            this.context.Save();
+        }
+
+        public List<Candidate> GetAll()
+        {
+            return context.Candidates.ToList();
+        }
+
+        public Candidate GetById(int id)
+        {
+            return context.Candidates.FirstOrDefault(x => x.Id == id);
+        }
+
+        public void UpdateItem(int id, Candidate item)
+        {
+            var candidate = GetById(id);
+            if (candidate == null)
+            {
+                throw new Exception("Candidate not found");
+            }
+            candidate.UserId = item.UserId;
+            candidate.CandidateId = item.CandidateId;
+            candidate.FirstName = item.FirstName;
+            candidate.LastName = item.LastName;
+            candidate.CandidateGender = item.CandidateGender;
+            candidate.Status = item.Status;
+            candidate.Age = item.Age;
+            candidate.CandidateSector = item.CandidateSector;
+            candidate.SubSector = item.SubSector; // תת מגזר
+            candidate.TorahLearning = item.TorahLearning; // לימוד תורה
+            candidate.Education = item.Education; // מוסד לימודים
+            candidate.JobOrStudies = item.JobOrStudies; // עיסוק
+            candidate.City = item.City; // עיר
+            candidate.ImageUrl = item.ImageUrl; // תמונה
+            candidate.Origin = item.Origin; // מוצא
+            candidate.Languages = item.Languages; // שפות
+            candidate.ReligiousOpenness = item.ReligiousOpenness; // פתיחות דתית
+            candidate.ClothingStyle = item.ClothingStyle; // סגנון לבוש
+            candidate.Height = item.Height; // גובה
+            candidate.Physique = item.Physique; // מבנה גוף
+            candidate.SkinTone = item.SkinTone; // צבע עור
+            candidate.HairColor = item.HairColor; // צבע שיער
+            candidate.Giving = item.Giving; // כמה נותנים
+            candidate.Expecting = item.Expecting; // כמה מבקשים
+            candidate.FamilyStatus = item.FamilyStatus; // מצב משפחתי
+            candidate.AvailableForProposals = item.AvailableForProposals; // פנוי להצעות
+            candidate.PreferredHeadCovering = item.PreferredHeadCovering; // כיסוי ראש מועדף
+            candidate.CandidatePhoneType = item.CandidatePhoneType; // סוג טלפון
+            candidate.Beard = item.Beard; // זקן
+            candidate.SmokingStatus = item.SmokingStatus; // עישון
+            candidate.License = item.License; // רישיון
+
+            context.Save();
+        }
+    }
+}

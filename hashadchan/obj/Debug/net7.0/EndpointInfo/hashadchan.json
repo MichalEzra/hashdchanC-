@@ -1,0 +1,765 @@
+{
+  "openapi": "3.0.1",
+  "info": {
+    "title": "hashadchan",
+    "version": "1.0"
+  },
+  "paths": {
+    "/api/Candidate": {
+      "get": {
+        "tags": [
+          "Candidate"
+        ],
+        "responses": {
+          "200": {
+            "description": "Success",
+            "content": {
+              "text/plain": {
+                "schema": {
+                  "type": "array",
+                  "items": {
+                    "type": "string"
+                  }
+                }
+              },
+              "application/json": {
+                "schema": {
+                  "type": "array",
+                  "items": {
+                    "type": "string"
+                  }
+                }
+              },
+              "text/json": {
+                "schema": {
+                  "type": "array",
+                  "items": {
+                    "type": "string"
+                  }
+                }
+              }
+            }
+          }
+        }
+      },
+      "post": {
+        "tags": [
+          "Candidate"
+        ],
+        "requestBody": {
+          "content": {
+            "multipart/form-data": {
+              "schema": {
+                "type": "object",
+                "properties": {
+                  "Id": {
+                    "type": "integer",
+                    "format": "int32"
+                  },
+                  "CandidateId": {
+                    "type": "integer",
+                    "format": "int32"
+                  },
+                  "FirstName": {
+                    "type": "string"
+                  },
+                  "LastName": {
+                    "type": "string"
+                  },
+                  "CandidateGender": {
+                    "$ref": "#/components/schemas/Gender"
+                  },
+                  "Status": {
+                    "$ref": "#/components/schemas/CandidateStatus"
+                  },
+                  "Age": {
+                    "type": "integer",
+                    "format": "int32"
+                  },
+                  "CandidateSector": {
+                    "$ref": "#/components/schemas/Sector"
+                  },
+                  "SubSector": {
+                    "$ref": "#/components/schemas/SubSector"
+                  },
+                  "TorahLearning": {
+                    "$ref": "#/components/schemas/TorahStudy"
+                  },
+                  "Education": {
+                    "$ref": "#/components/schemas/EducationInstitution"
+                  },
+                  "JobOrStudies": {
+                    "$ref": "#/components/schemas/Occupation"
+                  },
+                  "City": {
+                    "type": "string"
+                  },
+                  "ArrImage": {
+                    "type": "string",
+                    "format": "byte"
+                  },
+                  "fileImage": {
+                    "type": "string",
+                    "format": "binary"
+                  },
+                  "Origin": {
+                    "type": "string"
+                  },
+                  "Languages": {
+                    "$ref": "#/components/schemas/Language"
+                  },
+                  "ReligiousOpenness": {
+                    "$ref": "#/components/schemas/Openness"
+                  },
+                  "ClothingStyle": {
+                    "$ref": "#/components/schemas/ClothingStyle"
+                  },
+                  "Height": {
+                    "type": "number",
+                    "format": "double"
+                  },
+                  "Physique": {
+                    "$ref": "#/components/schemas/Physique"
+                  },
+                  "SkinTone": {
+                    "$ref": "#/components/schemas/SkinTone"
+                  },
+                  "HairColor": {
+                    "$ref": "#/components/schemas/HairColor"
+                  },
+                  "Giving": {
+                    "type": "number",
+                    "format": "double"
+                  },
+                  "Expecting": {
+                    "type": "number",
+                    "format": "double"
+                  },
+                  "FamilyStatus": {
+                    "$ref": "#/components/schemas/ParentsStatus"
+                  },
+                  "AvailableForProposals": {
+                    "type": "boolean"
+                  },
+                  "PreferredHeadCovering": {
+                    "$ref": "#/components/schemas/HeadCovering"
+                  },
+                  "CandidatePhoneType": {
+                    "$ref": "#/components/schemas/PhoneType"
+                  },
+                  "Beard": {
+                    "type": "boolean"
+                  },
+                  "SmokingStatus": {
+                    "$ref": "#/components/schemas/Smoking"
+                  },
+                  "License": {
+                    "type": "boolean"
+                  }
+                }
+              },
+              "encoding": {
+                "Id": {
+                  "style": "form"
+                },
+                "CandidateId": {
+                  "style": "form"
+                },
+                "FirstName": {
+                  "style": "form"
+                },
+                "LastName": {
+                  "style": "form"
+                },
+                "CandidateGender": {
+                  "style": "form"
+                },
+                "Status": {
+                  "style": "form"
+                },
+                "Age": {
+                  "style": "form"
+                },
+                "CandidateSector": {
+                  "style": "form"
+                },
+                "SubSector": {
+                  "style": "form"
+                },
+                "TorahLearning": {
+                  "style": "form"
+                },
+                "Education": {
+                  "style": "form"
+                },
+                "JobOrStudies": {
+                  "style": "form"
+                },
+                "City": {
+                  "style": "form"
+                },
+                "ArrImage": {
+                  "style": "form"
+                },
+                "fileImage": {
+                  "style": "form"
+                },
+                "Origin": {
+                  "style": "form"
+                },
+                "Languages": {
+                  "style": "form"
+                },
+                "ReligiousOpenness": {
+                  "style": "form"
+                },
+                "ClothingStyle": {
+                  "style": "form"
+                },
+                "Height": {
+                  "style": "form"
+                },
+                "Physique": {
+                  "style": "form"
+                },
+                "SkinTone": {
+                  "style": "form"
+                },
+                "HairColor": {
+                  "style": "form"
+                },
+                "Giving": {
+                  "style": "form"
+                },
+                "Expecting": {
+                  "style": "form"
+                },
+                "FamilyStatus": {
+                  "style": "form"
+                },
+                "AvailableForProposals": {
+                  "style": "form"
+                },
+                "PreferredHeadCovering": {
+                  "style": "form"
+                },
+                "CandidatePhoneType": {
+                  "style": "form"
+                },
+                "Beard": {
+                  "style": "form"
+                },
+                "SmokingStatus": {
+                  "style": "form"
+                },
+                "License": {
+                  "style": "form"
+                }
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "Success",
+            "content": {
+              "text/plain": {
+                "schema": {
+                  "$ref": "#/components/schemas/CandidateDto"
+                }
+              },
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/CandidateDto"
+                }
+              },
+              "text/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/CandidateDto"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/api/Candidate/{id}": {
+      "get": {
+        "tags": [
+          "Candidate"
+        ],
+        "parameters": [
+          {
+            "name": "id",
+            "in": "path",
+            "required": true,
+            "style": "simple",
+            "schema": {
+              "type": "integer",
+              "format": "int32"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Success",
+            "content": {
+              "text/plain": {
+                "schema": {
+                  "$ref": "#/components/schemas/CandidateDto"
+                }
+              },
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/CandidateDto"
+                }
+              },
+              "text/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/CandidateDto"
+                }
+              }
+            }
+          }
+        }
+      },
+      "put": {
+        "tags": [
+          "Candidate"
+        ],
+        "parameters": [
+          {
+            "name": "id",
+            "in": "path",
+            "required": true,
+            "style": "simple",
+            "schema": {
+              "type": "integer",
+              "format": "int32"
+            }
+          }
+        ],
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "type": "string"
+              }
+            },
+            "text/json": {
+              "schema": {
+                "type": "string"
+              }
+            },
+            "application/*+json": {
+              "schema": {
+                "type": "string"
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "Success"
+          }
+        }
+      },
+      "delete": {
+        "tags": [
+          "Candidate"
+        ],
+        "parameters": [
+          {
+            "name": "id",
+            "in": "path",
+            "required": true,
+            "style": "simple",
+            "schema": {
+              "type": "integer",
+              "format": "int32"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Success"
+          }
+        }
+      }
+    },
+    "/WeatherForecast": {
+      "get": {
+        "tags": [
+          "WeatherForecast"
+        ],
+        "operationId": "GetWeatherForecast",
+        "responses": {
+          "200": {
+            "description": "Success",
+            "content": {
+              "text/plain": {
+                "schema": {
+                  "type": "array",
+                  "items": {
+                    "$ref": "#/components/schemas/WeatherForecast"
+                  }
+                }
+              },
+              "application/json": {
+                "schema": {
+                  "type": "array",
+                  "items": {
+                    "$ref": "#/components/schemas/WeatherForecast"
+                  }
+                }
+              },
+              "text/json": {
+                "schema": {
+                  "type": "array",
+                  "items": {
+                    "$ref": "#/components/schemas/WeatherForecast"
+                  }
+                }
+              }
+            }
+          }
+        }
+      }
+    }
+  },
+  "components": {
+    "schemas": {
+      "CandidateDto": {
+        "type": "object",
+        "properties": {
+          "id": {
+            "type": "integer",
+            "format": "int32"
+          },
+          "candidateId": {
+            "type": "integer",
+            "format": "int32"
+          },
+          "firstName": {
+            "type": "string",
+            "nullable": true
+          },
+          "lastName": {
+            "type": "string",
+            "nullable": true
+          },
+          "candidateGender": {
+            "$ref": "#/components/schemas/Gender"
+          },
+          "status": {
+            "$ref": "#/components/schemas/CandidateStatus"
+          },
+          "age": {
+            "type": "integer",
+            "format": "int32"
+          },
+          "candidateSector": {
+            "$ref": "#/components/schemas/Sector"
+          },
+          "subSector": {
+            "$ref": "#/components/schemas/SubSector"
+          },
+          "torahLearning": {
+            "$ref": "#/components/schemas/TorahStudy"
+          },
+          "education": {
+            "$ref": "#/components/schemas/EducationInstitution"
+          },
+          "jobOrStudies": {
+            "$ref": "#/components/schemas/Occupation"
+          },
+          "city": {
+            "type": "string",
+            "nullable": true
+          },
+          "arrImage": {
+            "type": "string",
+            "format": "byte",
+            "nullable": true
+          },
+          "fileImage": {
+            "type": "string",
+            "format": "binary",
+            "nullable": true
+          },
+          "origin": {
+            "type": "string",
+            "nullable": true
+          },
+          "languages": {
+            "$ref": "#/components/schemas/Language"
+          },
+          "religiousOpenness": {
+            "$ref": "#/components/schemas/Openness"
+          },
+          "clothingStyle": {
+            "$ref": "#/components/schemas/ClothingStyle"
+          },
+          "height": {
+            "type": "number",
+            "format": "double"
+          },
+          "physique": {
+            "$ref": "#/components/schemas/Physique"
+          },
+          "skinTone": {
+            "$ref": "#/components/schemas/SkinTone"
+          },
+          "hairColor": {
+            "$ref": "#/components/schemas/HairColor"
+          },
+          "giving": {
+            "type": "number",
+            "format": "double"
+          },
+          "expecting": {
+            "type": "number",
+            "format": "double"
+          },
+          "familyStatus": {
+            "$ref": "#/components/schemas/ParentsStatus"
+          },
+          "availableForProposals": {
+            "type": "boolean"
+          },
+          "preferredHeadCovering": {
+            "$ref": "#/components/schemas/HeadCovering"
+          },
+          "candidatePhoneType": {
+            "$ref": "#/components/schemas/PhoneType"
+          },
+          "beard": {
+            "type": "boolean"
+          },
+          "smokingStatus": {
+            "$ref": "#/components/schemas/Smoking"
+          },
+          "license": {
+            "type": "boolean"
+          }
+        },
+        "additionalProperties": false
+      },
+      "CandidateStatus": {
+        "enum": [
+          0,
+          1,
+          2,
+          3,
+          4
+        ],
+        "type": "integer",
+        "format": "int32"
+      },
+      "ClothingStyle": {
+        "enum": [
+          0,
+          1,
+          2,
+          3,
+          4,
+          5
+        ],
+        "type": "integer",
+        "format": "int32"
+      },
+      "EducationInstitution": {
+        "enum": [
+          0,
+          1,
+          2,
+          3,
+          4,
+          5,
+          6
+        ],
+        "type": "integer",
+        "format": "int32"
+      },
+      "Gender": {
+        "enum": [
+          0,
+          1
+        ],
+        "type": "integer",
+        "format": "int32"
+      },
+      "HairColor": {
+        "enum": [
+          0,
+          1,
+          2,
+          3,
+          4
+        ],
+        "type": "integer",
+        "format": "int32"
+      },
+      "HeadCovering": {
+        "enum": [
+          0,
+          1,
+          2,
+          3,
+          4
+        ],
+        "type": "integer",
+        "format": "int32"
+      },
+      "Language": {
+        "enum": [
+          0,
+          1,
+          2,
+          3,
+          4,
+          5
+        ],
+        "type": "integer",
+        "format": "int32"
+      },
+      "Occupation": {
+        "enum": [
+          0,
+          1
+        ],
+        "type": "integer",
+        "format": "int32"
+      },
+      "Openness": {
+        "enum": [
+          0,
+          1,
+          2,
+          3,
+          4,
+          5,
+          6
+        ],
+        "type": "integer",
+        "format": "int32"
+      },
+      "ParentsStatus": {
+        "enum": [
+          0,
+          1,
+          2,
+          3,
+          4
+        ],
+        "type": "integer",
+        "format": "int32"
+      },
+      "PhoneType": {
+        "enum": [
+          0,
+          1,
+          2,
+          3,
+          4,
+          5,
+          6
+        ],
+        "type": "integer",
+        "format": "int32"
+      },
+      "Physique": {
+        "enum": [
+          0,
+          1,
+          2,
+          3
+        ],
+        "type": "integer",
+        "format": "int32"
+      },
+      "Sector": {
+        "enum": [
+          0,
+          1,
+          2,
+          3,
+          4,
+          5,
+          6
+        ],
+        "type": "integer",
+        "format": "int32"
+      },
+      "SkinTone": {
+        "enum": [
+          0,
+          1,
+          2,
+          3,
+          4
+        ],
+        "type": "integer",
+        "format": "int32"
+      },
+      "Smoking": {
+        "enum": [
+          0,
+          1,
+          2,
+          3
+        ],
+        "type": "integer",
+        "format": "int32"
+      },
+      "SubSector": {
+        "enum": [
+          0,
+          1,
+          2,
+          3,
+          4,
+          5,
+          6,
+          7,
+          8,
+          9
+        ],
+        "type": "integer",
+        "format": "int32"
+      },
+      "TorahStudy": {
+        "enum": [
+          0,
+          1,
+          2
+        ],
+        "type": "integer",
+        "format": "int32"
+      },
+      "WeatherForecast": {
+        "type": "object",
+        "properties": {
+          "date": {
+            "type": "string",
+            "format": "date"
+          },
+          "temperatureC": {
+            "type": "integer",
+            "format": "int32"
+          },
+          "temperatureF": {
+            "type": "integer",
+            "format": "int32",
+            "readOnly": true
+          },
+          "summary": {
+            "type": "string",
+            "nullable": true
+          }
+        },
+        "additionalProperties": false
+      }
+    }
+  }
+}
