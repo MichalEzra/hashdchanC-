@@ -83,3 +83,4 @@ C:\Users\User\Desktop\תכנות\יד\C#\פרויקט C# השדכן\hashadchan\h
 C:\Users\User\Desktop\תכנות\יד\C#\פרויקט C# השדכן\hashadchan\hashadchan\obj\Debug\net7.0\staticwebassets.upToDateCheck.txt
 C:\Users\User\Desktop\תכנות\יד\C#\פרויקט C# השדכן\hashadchan\hashadchan\bin\Debug\net7.0\Mock.dll
 C:\Users\User\Desktop\תכנות\יד\C#\פרויקט C# השדכן\hashadchan\hashadchan\bin\Debug\net7.0\Mock.pdb
+C:\Users\User\Desktop\תכנות\יד\C#\פרויקט C# השדכן\hashadchan\hashadchan\obj\Debug\net7.0\hashadchan.sourcelink.json

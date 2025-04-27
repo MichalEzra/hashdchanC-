@@ -10,3 +10,4 @@ C:\Users\User\Desktop\תכנות\יד\C#\פרויקט C# השדכן\hashadchan\R
 C:\Users\User\Desktop\תכנות\יד\C#\פרויקט C# השדכן\hashadchan\Repository\obj\Debug\net7.0\Repository.pdb
 C:\Users\User\Desktop\תכנות\יד\C#\פרויקט C# השדכן\hashadchan\Repository\obj\Debug\net7.0\ref\Repository.dll
 C:\Users\User\Desktop\תכנות\יד\C#\פרויקט C# השדכן\hashadchan\Repository\obj\Debug\net7.0\Repository.csproj.AssemblyReference.cache
+C:\Users\User\Desktop\תכנות\יד\C#\פרויקט C# השדכן\hashadchan\Repository\obj\Debug\net7.0\Repository.sourcelink.json

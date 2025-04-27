@@ -16,9 +16,12 @@ builder.Services.AddEndpointsApiExplorer();
 builder.Services.AddSwaggerGen();
 
 builder.Services.AddScoped<IService<CandidateDto>, CanditateService>();
+builder.Services.AddScoped<IService<UserDto>, UserService>();
 builder.Services.AddScoped<IRepository<Candidate>, CandidateRepository>();
+builder.Services.AddScoped<IRepository<User>, UserRepository>();
 builder.Services.AddAutoMapper(typeof(MyMapper));
 builder.Services.AddDbContext<IContext, Database>();
+
 
 var app = builder.Build();
 

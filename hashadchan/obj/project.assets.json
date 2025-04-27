@@ -3847,19 +3847,24 @@
     ]
   },
   "packageFolders": {
-    "C:\\Users\\s-sys\\.nuget\\packages\\": {}
+    "C:\\Users\\User\\.nuget\\packages\\": {},
+    "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages": {}
   },
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "L:\\שנה ב\\Full Stack\\מיכל עזרא\\c#++\\השדכן C# פרויקט\\hashdchanC-\\hashadchan\\hashadchan.csproj",
+      "projectUniqueName": "C:\\Users\\User\\Desktop\\תכנות\\יד\\C#\\פרויקט C# השדכן\\hashadchan\\hashadchan\\hashadchan.csproj",
       "projectName": "hashadchan",
-      "projectPath": "L:\\שנה ב\\Full Stack\\מיכל עזרא\\c#++\\השדכן C# פרויקט\\hashdchanC-\\hashadchan\\hashadchan.csproj",
-      "packagesPath": "C:\\Users\\s-sys\\.nuget\\packages\\",
-      "outputPath": "L:\\שנה ב\\Full Stack\\מיכל עזרא\\c#++\\השדכן C# פרויקט\\hashdchanC-\\hashadchan\\obj\\",
+      "projectPath": "C:\\Users\\User\\Desktop\\תכנות\\יד\\C#\\פרויקט C# השדכן\\hashadchan\\hashadchan\\hashadchan.csproj",
+      "packagesPath": "C:\\Users\\User\\.nuget\\packages\\",
+      "outputPath": "C:\\Users\\User\\Desktop\\תכנות\\יד\\C#\\פרויקט C# השדכן\\hashadchan\\hashadchan\\obj\\",
       "projectStyle": "PackageReference",
+      "fallbackFolders": [
+        "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages"
+      ],
       "configFilePaths": [
-        "C:\\Users\\s-sys\\AppData\\Roaming\\NuGet\\NuGet.Config",
+        "C:\\Users\\User\\AppData\\Roaming\\NuGet\\NuGet.Config",
+        "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.FallbackLocation.config",
         "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
       ],
       "originalTargetFrameworks": [
@@ -3867,18 +3872,17 @@
       ],
       "sources": {
         "C:\\Program Files (x86)\\Microsoft SDKs\\NuGetPackages\\": {},
-        "C:\\Program Files\\dotnet\\sdk\\7.0.306\\Sdks\\Microsoft.NET.Sdk.Web\\library-packs": {},
         "https://api.nuget.org/v3/index.json": {}
       },
       "frameworks": {
         "net7.0": {
           "targetAlias": "net7.0",
           "projectReferences": {
-            "L:\\שנה ב\\Full Stack\\מיכל עזרא\\c#++\\השדכן C# פרויקט\\hashdchanC-\\Mock\\Mock.csproj": {
-              "projectPath": "L:\\שנה ב\\Full Stack\\מיכל עזרא\\c#++\\השדכן C# פרויקט\\hashdchanC-\\Mock\\Mock.csproj"
+            "C:\\Users\\User\\Desktop\\תכנות\\יד\\C#\\פרויקט C# השדכן\\hashadchan\\Mock\\Mock.csproj": {
+              "projectPath": "C:\\Users\\User\\Desktop\\תכנות\\יד\\C#\\פרויקט C# השדכן\\hashadchan\\Mock\\Mock.csproj"
             },
-            "L:\\שנה ב\\Full Stack\\מיכל עזרא\\c#++\\השדכן C# פרויקט\\hashdchanC-\\Service\\Service.csproj": {
-              "projectPath": "L:\\שנה ב\\Full Stack\\מיכל עזרא\\c#++\\השדכן C# פרויקט\\hashdchanC-\\Service\\Service.csproj"
+            "C:\\Users\\User\\Desktop\\תכנות\\יד\\C#\\פרויקט C# השדכן\\hashadchan\\Service\\Service.csproj": {
+              "projectPath": "C:\\Users\\User\\Desktop\\תכנות\\יד\\C#\\פרויקט C# השדכן\\hashadchan\\Service\\Service.csproj"
             }
           }
         }
@@ -3887,7 +3891,13 @@
         "warnAsError": [
           "NU1605"
         ]
-      }
+      },
+      "restoreAuditProperties": {
+        "enableAudit": "true",
+        "auditLevel": "low",
+        "auditMode": "direct"
+      },
+      "SdkAnalysisLevel": "9.0.200"
     },
     "frameworks": {
       "net7.0": {
@@ -3921,7 +3931,7 @@
             "privateAssets": "all"
           }
         },
-        "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\7.0.306\\RuntimeIdentifierGraph.json"
+        "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\9.0.200\\RuntimeIdentifierGraph.json"
       }
     }
   }
