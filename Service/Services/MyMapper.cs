@@ -14,7 +14,6 @@ namespace Service.Services
         string path = Path.Combine(Environment.CurrentDirectory, "Images/");
         public MyMapper()
         {
-
             CreateMap<Candidate, CandidateDto>().ForMember("ArrImage", x => x.MapFrom(y => File.ReadAllBytes(path+y.ImageUrl)));
             CreateMap<CandidateDto, Candidate>().ForMember("ImageUrl", x => x.MapFrom(y => y.fileImage.FileName));
         }

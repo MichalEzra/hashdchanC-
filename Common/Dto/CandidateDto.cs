@@ -6,7 +6,8 @@ using System.Text;
 using System.Threading.Tasks;
 
 namespace Common.Dto
-{//נתונים לתצוגה 
+{
+    //נתונים לתצוגה 
     public class CandidateDto
     {
         public int Id { get; set; }
