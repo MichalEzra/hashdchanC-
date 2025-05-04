@@ -15,9 +15,9 @@ namespace Mock
         public DbSet<Matchmaker> Matchmakers { get; set; }
         public DbSet<User> Users { get; set; }
 
-        public void Save()
+        public async Task Save()
         {
-            SaveChanges();
+            await SaveChangesAsync();
         }
 
         protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)

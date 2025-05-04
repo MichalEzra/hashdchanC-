@@ -1,4 +1,5 @@
-﻿using Repository.Entities;
+﻿using Microsoft.EntityFrameworkCore;
+using Repository.Entities;
 using Repository.Interfaces;
 using System;
 using System.Collections.Generic;
@@ -15,38 +16,38 @@ namespace Repository.Repositories
         {
             this.context = context;
         }
-        public Candidate AddItem(Candidate item)
+        public async Task<Candidate> AddItem(Candidate item)
         {
-            this.context.Candidates.Add(item);
-            this.context.Save();
+            await this.context.Candidates.AddAsync(item);
+            await this.context.Save();
             return item;
         }
 
 
-        public void DeleteItem(int id)
+        public async Task DeleteItem(int id)
         {
-            var candidate = GetById(id);
+            var candidate =await GetById(id);
             if (candidate == null)
             {
                 throw new Exception("Candidate not found");
             }
             this.context.Candidates.Remove(candidate);
-            this.context.Save();
+            await this.context.Save();
         }
 
-        public List<Candidate> GetAll()
+        public async Task<List<Candidate>> GetAll()
         {
-            return context.Candidates.ToList();
+            return await context.Candidates.ToListAsync();
         }
 
-        public Candidate GetById(int id)
+        public async Task<Candidate> GetById(int id)
         {
-            return context.Candidates.FirstOrDefault(x => x.Id == id);
+            return await context.Candidates.FirstOrDefaultAsync(x => x.Id == id);
         }
 
-        public void UpdateItem(int id, Candidate item)
+        public async Task UpdateItem(int id, Candidate item)
         {
-            var candidate = GetById(id);
+            var candidate = await GetById(id);
             if (candidate == null)
             {
                 throw new Exception("Candidate not found");

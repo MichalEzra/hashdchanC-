@@ -1,4 +1,5 @@
-﻿using Repository.Entities;
+﻿using Microsoft.EntityFrameworkCore;
+using Repository.Entities;
 using Repository.Interfaces;
 using System;
 using System.Collections.Generic;
@@ -15,42 +16,37 @@ namespace Repository.Repositories
         {
             this.context = context;
         }
-        public Matchmaker AddItem(Matchmaker item)
+        public async Task<Matchmaker> AddItem(Matchmaker item)
         {
-            this.context.Matchmakers.Add(item);
-            this.context.Save();
+            await context.Matchmakers.AddAsync(item);
+            await context.Save();
             return item;
         }
 
-        //public void DeleteItem(int id)
-        //{
-        //    this.context.Matchmakers.Remove(GetById(id));
-        //    this.context.Save();
-        //}
-        public void DeleteItem(int id)
+        public async Task DeleteItem(int id)
         {
-            var matchmaker = GetById(id);
+            var matchmaker = await GetById(id);
             if (matchmaker == null)
             {
                 throw new Exception("Matchmaker not found");
             }
             this.context.Matchmakers.Remove(matchmaker);
-            this.context.Save();
+            await this.context.Save();
         }
 
-        public List<Matchmaker> GetAll()
+        public async Task<List<Matchmaker>> GetAll()
         {
-            return context.Matchmakers.ToList();
+            return await context.Matchmakers.ToListAsync();
         }
 
-        public Matchmaker GetById(int id)
+        public async Task<Matchmaker> GetById(int id)
         {
-            return context.Matchmakers.FirstOrDefault(x => x.Id == id);
+            return await context.Matchmakers.FirstOrDefaultAsync(x => x.Id == id);
         }
 
-        public void UpdateItem(int id, Matchmaker item)
+        public async Task UpdateItem(int id, Matchmaker item)
         {
-            var matchmaker = GetById(id);
+            var matchmaker = await GetById(id);
             if (matchmaker == null)
             {
                 throw new Exception("Matchmaker not found");

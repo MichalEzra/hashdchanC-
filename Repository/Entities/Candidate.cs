@@ -46,6 +46,7 @@ namespace Repository.Entities
         public bool Beard { get; set; }//זקן
         public Smoking SmokingStatus { get; set; } // עישון
         public bool License { get; set; }//רשיון
+       //public virtual User user { get; set; }
         ////פרטי משפחה
         //public FamilyStyle FamilyStyle { get; set; }//סגנון משפחה
 

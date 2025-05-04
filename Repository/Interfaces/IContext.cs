@@ -14,6 +14,6 @@ namespace Repository.Interfaces
         public DbSet<Candidate> Candidates { get; set; }
         public DbSet<Matchmaker> Matchmakers { get; set; }
         public DbSet<User> Users { get; set; }
-        public void Save();
+        public Task Save();
     }
 }

@@ -1,4 +1,5 @@
-﻿using Repository.Entities;
+﻿using Microsoft.EntityFrameworkCore;
+using Repository.Entities;
 using Repository.Interfaces;
 using System;
 using System.Collections.Generic;
@@ -15,36 +16,36 @@ namespace Repository.Repositories
         {
             this.context = context;
         }
-        public User AddItem(User item)
+        public async Task<User> AddItem(User item)
         {
-            this.context.Users.Add(item);
-            this.context.Save();
+            await this.context.Users.AddAsync(item);
+            await this.context.Save();
             return item;
         }
 
-        public void DeleteItem(int id)
+        public async Task DeleteItem(int id)
         {
-            var user = GetById(id);
+            var user =await GetById(id);
             if (user == null)
             {
                 throw new Exception("User not found");
             }
             this.context.Users.Remove(user);
-            this.context.Save();
+            await this.context.Save();
         }
 
-        public List<User> GetAll()
+        public async Task<List<User>> GetAll()
         {
-            return context.Users.ToList();
+            return await context.Users.ToListAsync();
         }
 
-        public User GetById(int id)
+        public async Task<User> GetById(int id)
         {
-            return context.Users.FirstOrDefault(x => x.Id == id);
+            return await context.Users.FirstOrDefaultAsync(x => x.Id == id);
         }
-        public void UpdateItem(int id, User updatedUser)
+        public async Task UpdateItem(int id, User updatedUser)
         {
-            var user = GetById(id);
+            var user = await GetById(id);
             if (user == null)
             {
                 throw new Exception("User not found");
@@ -61,5 +62,6 @@ namespace Repository.Repositories
             context.Save();
         }
 
+     
     }
 }
