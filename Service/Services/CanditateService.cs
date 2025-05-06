@@ -28,7 +28,7 @@ namespace Service.Services
 
         public async Task DeleteItem(int id)
         {
-            repository.DeleteItem(id);
+            await repository.DeleteItem(id);
         }
 
         public async Task<List<CandidateDto>> GetAll()
@@ -43,7 +43,7 @@ namespace Service.Services
 
         public async Task UpdateItem(int id, CandidateDto item)
         {
-            repository.UpdateItem(id, mapper.Map<CandidateDto, Candidate>(item));
+           await repository.UpdateItem(id, mapper.Map<CandidateDto, Candidate>(item));
         }
     }
 }

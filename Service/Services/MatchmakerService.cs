@@ -29,7 +29,7 @@ namespace Service.Services
 
         public async Task DeleteItem(int id)
         {
-            repository.DeleteItem(id);
+            await repository.DeleteItem(id);
         }
 
         public async Task<List<MatchmakerDto>> GetAll()
@@ -44,7 +44,7 @@ namespace Service.Services
 
         public async Task UpdateItem(int id, MatchmakerDto item)
         {
-            repository.UpdateItem(id, mapper.Map<MatchmakerDto, Matchmaker>(item));
+            await repository.UpdateItem(id, mapper.Map<MatchmakerDto, Matchmaker>(item));
         }
     }
 

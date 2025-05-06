@@ -25,3 +25,12 @@ C:\Users\User\Desktop\תכנות\יד\C#\פרויקט\hashdchanC-\Service\obj\De
 C:\Users\User\Desktop\תכנות\יד\C#\פרויקט\hashdchanC-\Service\obj\Debug\net7.0\Service.dll
 C:\Users\User\Desktop\תכנות\יד\C#\פרויקט\hashdchanC-\Service\obj\Debug\net7.0\refint\Service.dll
 C:\Users\User\Desktop\תכנות\יד\C#\פרויקט\hashdchanC-\Service\obj\Debug\net7.0\Service.pdb
+C:\Users\User\Desktop\תכנות\יד\C#\פרויקט\hashdchanC-\Service\bin\Debug\net7.0\Service.deps.json
+C:\Users\User\Desktop\תכנות\יד\C#\פרויקט\hashdchanC-\Service\bin\Debug\net7.0\Service.dll
+C:\Users\User\Desktop\תכנות\יד\C#\פרויקט\hashdchanC-\Service\bin\Debug\net7.0\Service.pdb
+C:\Users\User\Desktop\תכנות\יד\C#\פרויקט\hashdchanC-\Service\bin\Debug\net7.0\Common.dll
+C:\Users\User\Desktop\תכנות\יד\C#\פרויקט\hashdchanC-\Service\bin\Debug\net7.0\Repository.dll
+C:\Users\User\Desktop\תכנות\יד\C#\פרויקט\hashdchanC-\Service\bin\Debug\net7.0\Common.pdb
+C:\Users\User\Desktop\תכנות\יד\C#\פרויקט\hashdchanC-\Service\bin\Debug\net7.0\Repository.pdb
+C:\Users\User\Desktop\תכנות\יד\C#\פרויקט\hashdchanC-\Service\obj\Debug\net7.0\Service.csproj.Up2Date
+C:\Users\User\Desktop\תכנות\יד\C#\פרויקט\hashdchanC-\Service\obj\Debug\net7.0\ref\Service.dll

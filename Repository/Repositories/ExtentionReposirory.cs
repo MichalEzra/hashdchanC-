@@ -14,7 +14,7 @@ namespace Repository.Repositories
                                                       //מצביע למחלקה 
         public static IServiceCollection AddRepositorys(this IServiceCollection services)
         {
-            services.AddRepositorys();
+            
             // יוצר מופע עבור כל גולש ומזריק אותו למחלקה שמממשת את הממשק הזה 
             services.AddScoped<IRepository<Candidate>, CandidateRepository>();
             services.AddScoped<IRepository<Matchmaker>, MatchmakerRepository>();

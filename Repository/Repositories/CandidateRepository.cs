@@ -84,7 +84,7 @@ namespace Repository.Repositories
             candidate.SmokingStatus = item.SmokingStatus; // עישון
             candidate.License = item.License; // רישיון
 
-            context.Save();
+            await context.Save();
         }
     }
 }

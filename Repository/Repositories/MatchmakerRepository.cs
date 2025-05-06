@@ -85,7 +85,7 @@ namespace Repository.Repositories
 
             matchmaker.PhoneNumber = item.PhoneNumber;
 
-            context.Save();
+            await context.Save();
         }
     }
 }

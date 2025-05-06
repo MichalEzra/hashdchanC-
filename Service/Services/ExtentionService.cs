@@ -1,6 +1,7 @@
 ﻿using Common.Dto;
 using Microsoft.Extensions.DependencyInjection;
 using Repository.Entities;
+using Repository.Repositories;
 using Service.Interfasces;
 using System;
 using System.Collections.Generic;
@@ -14,6 +15,7 @@ namespace Service.Services
     {
         public static IServiceCollection AddServices(this IServiceCollection services)
         {
+            services.AddRepositorys();
             services.AddScoped<IService<CandidateDto>, CanditateService>();
             services.AddScoped<IService<MatchmakerDto>, MatchmakerService>();
             services.AddScoped<IService<UserDto>, UserService>();

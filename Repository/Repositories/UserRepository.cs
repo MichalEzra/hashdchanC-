@@ -59,7 +59,7 @@ namespace Repository.Repositories
             user.ContactPersonPhone = updatedUser.ContactPersonPhone;
             user.CandidatesList = updatedUser.CandidatesList ?? new List<Candidate>();
 
-            context.Save();
+            await context.Save();
         }
 
      
