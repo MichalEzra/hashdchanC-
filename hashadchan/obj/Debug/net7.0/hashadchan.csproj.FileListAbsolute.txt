@@ -84,3 +84,14 @@ C:\Users\User\Desktop\תכנות\יד\C#\פרויקט C# השדכן\hashadchan\h
 C:\Users\User\Desktop\תכנות\יד\C#\פרויקט C# השדכן\hashadchan\hashadchan\bin\Debug\net7.0\Mock.dll
 C:\Users\User\Desktop\תכנות\יד\C#\פרויקט C# השדכן\hashadchan\hashadchan\bin\Debug\net7.0\Mock.pdb
 C:\Users\User\Desktop\תכנות\יד\C#\פרויקט C# השדכן\hashadchan\hashadchan\obj\Debug\net7.0\hashadchan.sourcelink.json
+C:\Users\User\Desktop\תכנות\יד\C#\פרויקט\hashdchanC-\hashadchan\obj\Debug\net7.0\hashadchan.csproj.AssemblyReference.cache
+C:\Users\User\Desktop\תכנות\יד\C#\פרויקט\hashdchanC-\hashadchan\obj\Debug\net7.0\hashadchan.GeneratedMSBuildEditorConfig.editorconfig
+C:\Users\User\Desktop\תכנות\יד\C#\פרויקט\hashdchanC-\hashadchan\obj\Debug\net7.0\hashadchan.AssemblyInfoInputs.cache
+C:\Users\User\Desktop\תכנות\יד\C#\פרויקט\hashdchanC-\hashadchan\obj\Debug\net7.0\hashadchan.AssemblyInfo.cs
+C:\Users\User\Desktop\תכנות\יד\C#\פרויקט\hashdchanC-\hashadchan\obj\Debug\net7.0\hashadchan.csproj.CoreCompileInputs.cache
+C:\Users\User\Desktop\תכנות\יד\C#\פרויקט\hashdchanC-\hashadchan\obj\Debug\net7.0\hashadchan.MvcApplicationPartsAssemblyInfo.cs
+C:\Users\User\Desktop\תכנות\יד\C#\פרויקט\hashdchanC-\hashadchan\obj\Debug\net7.0\hashadchan.MvcApplicationPartsAssemblyInfo.cache
+C:\Users\User\Desktop\תכנות\יד\C#\פרויקט\hashdchanC-\hashadchan\obj\Debug\net7.0\hashadchan.sourcelink.json
+C:\Users\User\Desktop\תכנות\יד\C#\פרויקט\hashdchanC-\hashadchan\obj\Debug\net7.0\hashadchan.dll
+C:\Users\User\Desktop\תכנות\יד\C#\פרויקט\hashdchanC-\hashadchan\obj\Debug\net7.0\refint\hashadchan.dll
+C:\Users\User\Desktop\תכנות\יד\C#\פרויקט\hashdchanC-\hashadchan\obj\Debug\net7.0\hashadchan.pdb

@@ -1,17 +1,17 @@
 {
   "format": 1,
   "restore": {
-    "C:\\Users\\User\\Desktop\\תכנות\\יד\\C#\\פרויקט C# השדכן\\hashadchan\\hashadchan\\hashadchan.csproj": {}
+    "C:\\Users\\User\\Desktop\\תכנות\\יד\\C#\\פרויקט\\hashdchanC-\\hashadchan\\hashadchan.csproj": {}
   },
   "projects": {
-    "C:\\Users\\User\\Desktop\\תכנות\\יד\\C#\\פרויקט C# השדכן\\hashadchan\\Common\\Common.csproj": {
+    "C:\\Users\\User\\Desktop\\תכנות\\יד\\C#\\פרויקט\\hashdchanC-\\Common\\Common.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\Users\\User\\Desktop\\תכנות\\יד\\C#\\פרויקט C# השדכן\\hashadchan\\Common\\Common.csproj",
+        "projectUniqueName": "C:\\Users\\User\\Desktop\\תכנות\\יד\\C#\\פרויקט\\hashdchanC-\\Common\\Common.csproj",
         "projectName": "Common",
-        "projectPath": "C:\\Users\\User\\Desktop\\תכנות\\יד\\C#\\פרויקט C# השדכן\\hashadchan\\Common\\Common.csproj",
+        "projectPath": "C:\\Users\\User\\Desktop\\תכנות\\יד\\C#\\פרויקט\\hashdchanC-\\Common\\Common.csproj",
         "packagesPath": "C:\\Users\\User\\.nuget\\packages\\",
-        "outputPath": "C:\\Users\\User\\Desktop\\תכנות\\יד\\C#\\פרויקט C# השדכן\\hashadchan\\Common\\obj\\",
+        "outputPath": "C:\\Users\\User\\Desktop\\תכנות\\יד\\C#\\פרויקט\\hashdchanC-\\Common\\obj\\",
         "projectStyle": "PackageReference",
         "fallbackFolders": [
           "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages"
@@ -75,14 +75,14 @@
         }
       }
     },
-    "C:\\Users\\User\\Desktop\\תכנות\\יד\\C#\\פרויקט C# השדכן\\hashadchan\\hashadchan\\hashadchan.csproj": {
+    "C:\\Users\\User\\Desktop\\תכנות\\יד\\C#\\פרויקט\\hashdchanC-\\hashadchan\\hashadchan.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\Users\\User\\Desktop\\תכנות\\יד\\C#\\פרויקט C# השדכן\\hashadchan\\hashadchan\\hashadchan.csproj",
+        "projectUniqueName": "C:\\Users\\User\\Desktop\\תכנות\\יד\\C#\\פרויקט\\hashdchanC-\\hashadchan\\hashadchan.csproj",
         "projectName": "hashadchan",
-        "projectPath": "C:\\Users\\User\\Desktop\\תכנות\\יד\\C#\\פרויקט C# השדכן\\hashadchan\\hashadchan\\hashadchan.csproj",
+        "projectPath": "C:\\Users\\User\\Desktop\\תכנות\\יד\\C#\\פרויקט\\hashdchanC-\\hashadchan\\hashadchan.csproj",
         "packagesPath": "C:\\Users\\User\\.nuget\\packages\\",
-        "outputPath": "C:\\Users\\User\\Desktop\\תכנות\\יד\\C#\\פרויקט C# השדכן\\hashadchan\\hashadchan\\obj\\",
+        "outputPath": "C:\\Users\\User\\Desktop\\תכנות\\יד\\C#\\פרויקט\\hashdchanC-\\hashadchan\\obj\\",
         "projectStyle": "PackageReference",
         "fallbackFolders": [
           "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages"
@@ -103,11 +103,11 @@
           "net7.0": {
             "targetAlias": "net7.0",
             "projectReferences": {
-              "C:\\Users\\User\\Desktop\\תכנות\\יד\\C#\\פרויקט C# השדכן\\hashadchan\\Mock\\Mock.csproj": {
-                "projectPath": "C:\\Users\\User\\Desktop\\תכנות\\יד\\C#\\פרויקט C# השדכן\\hashadchan\\Mock\\Mock.csproj"
+              "C:\\Users\\User\\Desktop\\תכנות\\יד\\C#\\פרויקט\\hashdchanC-\\Mock\\Mock.csproj": {
+                "projectPath": "C:\\Users\\User\\Desktop\\תכנות\\יד\\C#\\פרויקט\\hashdchanC-\\Mock\\Mock.csproj"
               },
-              "C:\\Users\\User\\Desktop\\תכנות\\יד\\C#\\פרויקט C# השדכן\\hashadchan\\Service\\Service.csproj": {
-                "projectPath": "C:\\Users\\User\\Desktop\\תכנות\\יד\\C#\\פרויקט C# השדכן\\hashadchan\\Service\\Service.csproj"
+              "C:\\Users\\User\\Desktop\\תכנות\\יד\\C#\\פרויקט\\hashdchanC-\\Service\\Service.csproj": {
+                "projectPath": "C:\\Users\\User\\Desktop\\תכנות\\יד\\C#\\פרויקט\\hashdchanC-\\Service\\Service.csproj"
               }
             }
           }
@@ -160,14 +160,14 @@
         }
       }
     },
-    "C:\\Users\\User\\Desktop\\תכנות\\יד\\C#\\פרויקט C# השדכן\\hashadchan\\Mock\\Mock.csproj": {
+    "C:\\Users\\User\\Desktop\\תכנות\\יד\\C#\\פרויקט\\hashdchanC-\\Mock\\Mock.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\Users\\User\\Desktop\\תכנות\\יד\\C#\\פרויקט C# השדכן\\hashadchan\\Mock\\Mock.csproj",
+        "projectUniqueName": "C:\\Users\\User\\Desktop\\תכנות\\יד\\C#\\פרויקט\\hashdchanC-\\Mock\\Mock.csproj",
         "projectName": "Mock",
-        "projectPath": "C:\\Users\\User\\Desktop\\תכנות\\יד\\C#\\פרויקט C# השדכן\\hashadchan\\Mock\\Mock.csproj",
+        "projectPath": "C:\\Users\\User\\Desktop\\תכנות\\יד\\C#\\פרויקט\\hashdchanC-\\Mock\\Mock.csproj",
         "packagesPath": "C:\\Users\\User\\.nuget\\packages\\",
-        "outputPath": "C:\\Users\\User\\Desktop\\תכנות\\יד\\C#\\פרויקט C# השדכן\\hashadchan\\Mock\\obj\\",
+        "outputPath": "C:\\Users\\User\\Desktop\\תכנות\\יד\\C#\\פרויקט\\hashdchanC-\\Mock\\obj\\",
         "projectStyle": "PackageReference",
         "fallbackFolders": [
           "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages"
@@ -188,8 +188,8 @@
           "net7.0": {
             "targetAlias": "net7.0",
             "projectReferences": {
-              "C:\\Users\\User\\Desktop\\תכנות\\יד\\C#\\פרויקט C# השדכן\\hashadchan\\Repository\\Repository.csproj": {
-                "projectPath": "C:\\Users\\User\\Desktop\\תכנות\\יד\\C#\\פרויקט C# השדכן\\hashadchan\\Repository\\Repository.csproj"
+              "C:\\Users\\User\\Desktop\\תכנות\\יד\\C#\\פרויקט\\hashdchanC-\\Repository\\Repository.csproj": {
+                "projectPath": "C:\\Users\\User\\Desktop\\תכנות\\יד\\C#\\פרויקט\\hashdchanC-\\Repository\\Repository.csproj"
               }
             }
           }
@@ -247,14 +247,14 @@
         }
       }
     },
-    "C:\\Users\\User\\Desktop\\תכנות\\יד\\C#\\פרויקט C# השדכן\\hashadchan\\Repository\\Repository.csproj": {
+    "C:\\Users\\User\\Desktop\\תכנות\\יד\\C#\\פרויקט\\hashdchanC-\\Repository\\Repository.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\Users\\User\\Desktop\\תכנות\\יד\\C#\\פרויקט C# השדכן\\hashadchan\\Repository\\Repository.csproj",
+        "projectUniqueName": "C:\\Users\\User\\Desktop\\תכנות\\יד\\C#\\פרויקט\\hashdchanC-\\Repository\\Repository.csproj",
         "projectName": "Repository",
-        "projectPath": "C:\\Users\\User\\Desktop\\תכנות\\יד\\C#\\פרויקט C# השדכן\\hashadchan\\Repository\\Repository.csproj",
+        "projectPath": "C:\\Users\\User\\Desktop\\תכנות\\יד\\C#\\פרויקט\\hashdchanC-\\Repository\\Repository.csproj",
         "packagesPath": "C:\\Users\\User\\.nuget\\packages\\",
-        "outputPath": "C:\\Users\\User\\Desktop\\תכנות\\יד\\C#\\פרויקט C# השדכן\\hashadchan\\Repository\\obj\\",
+        "outputPath": "C:\\Users\\User\\Desktop\\תכנות\\יד\\C#\\פרויקט\\hashdchanC-\\Repository\\obj\\",
         "projectStyle": "PackageReference",
         "fallbackFolders": [
           "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages"
@@ -318,14 +318,14 @@
         }
       }
     },
-    "C:\\Users\\User\\Desktop\\תכנות\\יד\\C#\\פרויקט C# השדכן\\hashadchan\\Service\\Service.csproj": {
+    "C:\\Users\\User\\Desktop\\תכנות\\יד\\C#\\פרויקט\\hashdchanC-\\Service\\Service.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\Users\\User\\Desktop\\תכנות\\יד\\C#\\פרויקט C# השדכן\\hashadchan\\Service\\Service.csproj",
+        "projectUniqueName": "C:\\Users\\User\\Desktop\\תכנות\\יד\\C#\\פרויקט\\hashdchanC-\\Service\\Service.csproj",
         "projectName": "Service",
-        "projectPath": "C:\\Users\\User\\Desktop\\תכנות\\יד\\C#\\פרויקט C# השדכן\\hashadchan\\Service\\Service.csproj",
+        "projectPath": "C:\\Users\\User\\Desktop\\תכנות\\יד\\C#\\פרויקט\\hashdchanC-\\Service\\Service.csproj",
         "packagesPath": "C:\\Users\\User\\.nuget\\packages\\",
-        "outputPath": "C:\\Users\\User\\Desktop\\תכנות\\יד\\C#\\פרויקט C# השדכן\\hashadchan\\Service\\obj\\",
+        "outputPath": "C:\\Users\\User\\Desktop\\תכנות\\יד\\C#\\פרויקט\\hashdchanC-\\Service\\obj\\",
         "projectStyle": "PackageReference",
         "fallbackFolders": [
           "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages"
@@ -346,11 +346,11 @@
           "net7.0": {
             "targetAlias": "net7.0",
             "projectReferences": {
-              "C:\\Users\\User\\Desktop\\תכנות\\יד\\C#\\פרויקט C# השדכן\\hashadchan\\Common\\Common.csproj": {
-                "projectPath": "C:\\Users\\User\\Desktop\\תכנות\\יד\\C#\\פרויקט C# השדכן\\hashadchan\\Common\\Common.csproj"
+              "C:\\Users\\User\\Desktop\\תכנות\\יד\\C#\\פרויקט\\hashdchanC-\\Common\\Common.csproj": {
+                "projectPath": "C:\\Users\\User\\Desktop\\תכנות\\יד\\C#\\פרויקט\\hashdchanC-\\Common\\Common.csproj"
               },
-              "C:\\Users\\User\\Desktop\\תכנות\\יד\\C#\\פרויקט C# השדכן\\hashadchan\\Repository\\Repository.csproj": {
-                "projectPath": "C:\\Users\\User\\Desktop\\תכנות\\יד\\C#\\פרויקט C# השדכן\\hashadchan\\Repository\\Repository.csproj"
+              "C:\\Users\\User\\Desktop\\תכנות\\יד\\C#\\פרויקט\\hashdchanC-\\Repository\\Repository.csproj": {
+                "projectPath": "C:\\Users\\User\\Desktop\\תכנות\\יד\\C#\\פרויקט\\hashdchanC-\\Repository\\Repository.csproj"
               }
             }
           }

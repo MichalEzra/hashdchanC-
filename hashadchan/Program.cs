@@ -14,12 +14,13 @@ builder.Services.AddControllers();
 // Learn more about configuring Swagger/OpenAPI at https://aka.ms/aspnetcore/swashbuckle
 builder.Services.AddEndpointsApiExplorer();
 builder.Services.AddSwaggerGen();
+builder.Services.AddServices();
 
-builder.Services.AddScoped<IService<CandidateDto>, CanditateService>();
-builder.Services.AddScoped<IService<UserDto>, UserService>();
-builder.Services.AddScoped<IRepository<Candidate>, CandidateRepository>();
-builder.Services.AddScoped<IRepository<User>, UserRepository>();
-builder.Services.AddAutoMapper(typeof(MyMapper));
+//builder.Services.AddScoped<IService<CandidateDto>, CanditateService>();
+//builder.Services.AddScoped<IService<UserDto>, UserService>();
+//builder.Services.AddScoped<IRepository<Candidate>, CandidateRepository>();
+//builder.Services.AddScoped<IRepository<User>, UserRepository>();
+//builder.Services.AddAutoMapper(typeof(MyMapper));
 builder.Services.AddDbContext<IContext, Database>();
 
 
