@@ -17,40 +17,39 @@ namespace hashadchan.Controllers
             this.service = service;
         }
 
-        // GET: api/<CandidateController>
         [HttpGet]
         public async Task<List<CandidateDto>> Get()
         {
             return await service.GetAll();
         }
 
-        // GET api/<CandidateController>/5
         [HttpGet("{id}")]
         public async Task<CandidateDto> Get(int id)
         {
             return await service.GetById(id);
         }
 
-        // POST api/<CandidateController>
         [HttpPost]
         public async Task<CandidateDto> Post([FromForm] CandidateDto candidate)
         {
             UploadImage(candidate.fileImage);
-            //service.AddItem(candidate);
             return await service.AddItem(candidate);
         }
 
-        // PUT api/<CandidateController>/5
+        // עדכון מועמד 
         [HttpPut("{id}")]
-        public async Task Put(int id, [FromBody] string value)
+        public async Task Put(int id, [FromBody] CandidateDto updatedCandidate)
         {
+            await service.UpdateItem(id, updatedCandidate);
         }
 
-        // DELETE api/<CandidateController>/5
+        // מחיקת מועמד
         [HttpDelete("{id}")]
         public async Task Delete(int id)
         {
+            await service.DeleteItem(id);
         }
+
         private void UploadImage(IFormFile file)
         {
             //ניתוב לתמונה 

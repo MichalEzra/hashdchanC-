@@ -19,6 +19,10 @@ namespace Service.Services
             // הוספת המיפוי בין User ל-UserDto
             CreateMap<User, UserDto>();
             CreateMap<UserDto, User>();
+            CreateMap<Matchmaker, MatchmakerDto>();
+            CreateMap<MatchmakerDto, Matchmaker>();
+
+
 
         }
     }

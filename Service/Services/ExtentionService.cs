@@ -15,7 +15,7 @@ namespace Service.Services
         public static IServiceCollection AddServices(this IServiceCollection services)
         {
             services.AddScoped<IService<CandidateDto>, CanditateService>();
-          //  services.AddScoped<IService<MatchmakerDto>, MatchmakerService>();
+            services.AddScoped<IService<MatchmakerDto>, MatchmakerService>();
             services.AddScoped<IService<UserDto>, UserService>();
             services.AddAutoMapper(typeof(MyMapper));
             return services;
