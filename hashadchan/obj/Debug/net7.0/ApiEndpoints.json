@@ -523,6 +523,32 @@
     ]
   },
   {
+    "ContainingType": "hashadchan.Controllers.UserController",
+    "Method": "Login",
+    "RelativePath": "api/User/login",
+    "HttpMethod": "POST",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "value",
+        "Type": "Common.Dto.UserLogin",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": [
+      {
+        "Type": "System.String",
+        "MediaTypes": [
+          "text/plain",
+          "application/json",
+          "text/json"
+        ],
+        "StatusCode": 200
+      }
+    ]
+  },
+  {
     "ContainingType": "hashadchan.Controllers.WeatherForecastController",
     "Method": "Get",
     "RelativePath": "WeatherForecast",

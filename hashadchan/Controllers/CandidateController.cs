@@ -2,6 +2,7 @@
 using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 using Service.Interfasces;
+using System.Security.Claims;
 
 // For more information on enabling Web API for empty projects, visit https://go.microsoft.com/fwlink/?LinkID=397860
 
@@ -32,9 +33,12 @@ namespace hashadchan.Controllers
         [HttpPost]
         public async Task<CandidateDto> Post([FromForm] CandidateDto candidate)
         {
+            // מחזירה משתמש מהטוקן בצורה אסינכרונית
+            UserDto user = await GetCurrentUser();
             UploadImage(candidate.fileImage);
             return await service.AddItem(candidate);
         }
+
 
         // עדכון מועמד 
         [HttpPut("{id}")]
@@ -58,6 +62,23 @@ namespace hashadchan.Controllers
             {
                 file.CopyTo(stream);
             }
+        }
+        private async Task<UserDto> GetCurrentUser()
+        {
+            return await Task.Run(() =>
+            {
+                var identity = HttpContext.User.Identity as ClaimsIdentity;
+                if (identity != null)
+                {
+                    var userClaims = identity.Claims;
+                    return new UserDto()
+                    {
+                        Email = userClaims.FirstOrDefault(x => x.Type == ClaimTypes.Email)?.Value,
+                        Password = userClaims.FirstOrDefault(x => x.Type == ClaimTypes.PostalCode)?.Value
+                    };
+                }
+                return null;
+            });
         }
     }
 }

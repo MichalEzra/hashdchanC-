@@ -11,7 +11,7 @@ using System.Threading.Tasks;
 
 namespace Service.Services
 {
-    public class CanditateService:IService<CandidateDto>
+    public class CanditateService : IService<CandidateDto>
     {
         private readonly IRepository<Candidate> repository;
         private readonly IMapper mapper;
@@ -43,7 +43,7 @@ namespace Service.Services
 
         public async Task UpdateItem(int id, CandidateDto item)
         {
-           await repository.UpdateItem(id, mapper.Map<CandidateDto, Candidate>(item));
+            await repository.UpdateItem(id, mapper.Map<CandidateDto, Candidate>(item));
         }
     }
 }

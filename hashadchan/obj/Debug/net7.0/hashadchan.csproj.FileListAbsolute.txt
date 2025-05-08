@@ -170,3 +170,4 @@ C:\Users\User\Desktop\תכנות\יד\C#\פרויקט\hashdchanC-\hashadchan\obj
 C:\Users\User\Desktop\תכנות\יד\C#\פרויקט\hashdchanC-\hashadchan\obj\Debug\net7.0\hashadchan.csproj.Up2Date
 C:\Users\User\Desktop\תכנות\יד\C#\פרויקט\hashdchanC-\hashadchan\obj\Debug\net7.0\hashadchan.genruntimeconfig.cache
 C:\Users\User\Desktop\תכנות\יד\C#\פרויקט\hashdchanC-\hashadchan\obj\Debug\net7.0\ref\hashadchan.dll
+C:\Users\User\Desktop\תכנות\יד\C#\פרויקט\hashdchanC-\hashadchan\bin\Debug\net7.0\Microsoft.AspNetCore.Authentication.JwtBearer.dll
