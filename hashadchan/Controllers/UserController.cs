@@ -57,16 +57,17 @@ namespace hashadchan.Controllers
         [HttpPut("{id}")]
         public async Task Put(int id, [FromBody] UserDto updatedUser)
         {
-            service.UpdateItem(id, updatedUser); // עדכון פרטי המשתמש
+            await service.UpdateItem(id, updatedUser);
         }
-        
+
 
 
         [HttpDelete("{id}")]
         public async Task Delete(int id)
         {
-            service.DeleteItem(id); // מחיקת משתמש
+            await service.DeleteItem(id); // ← חשוב!
         }
+
 
         private async Task<UserDto> Authenticate(UserLogin value)
         {
