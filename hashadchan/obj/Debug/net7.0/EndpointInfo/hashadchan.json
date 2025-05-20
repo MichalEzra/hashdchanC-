@@ -56,11 +56,11 @@
                     "type": "integer",
                     "format": "int32"
                   },
-                  "CandidateId": {
+                  "UserId": {
                     "type": "integer",
                     "format": "int32"
                   },
-                  "UserId": {
+                  "CandidateId": {
                     "type": "integer",
                     "format": "int32"
                   },
@@ -166,10 +166,10 @@
                 "Id": {
                   "style": "form"
                 },
-                "CandidateId": {
+                "UserId": {
                   "style": "form"
                 },
-                "UserId": {
+                "CandidateId": {
                   "style": "form"
                 },
                 "FirstName": {
@@ -867,11 +867,11 @@
             "type": "integer",
             "format": "int32"
           },
-          "candidateId": {
+          "userId": {
             "type": "integer",
             "format": "int32"
           },
-          "userId": {
+          "candidateId": {
             "type": "integer",
             "format": "int32"
           },
@@ -1065,10 +1065,6 @@
             "type": "integer",
             "format": "int32"
           },
-          "matchmakerId": {
-            "type": "integer",
-            "format": "int32"
-          },
           "userId": {
             "type": "integer",
             "format": "int32"
@@ -1127,45 +1123,6 @@
           },
           "religiousOpenness": {
             "$ref": "#/components/schemas/Openness"
-          },
-          "bankName": {
-            "type": "string",
-            "nullable": true
-          },
-          "branchNumber": {
-            "type": "string",
-            "nullable": true
-          },
-          "accountNumber": {
-            "type": "string",
-            "nullable": true
-          },
-          "accountName": {
-            "type": "string",
-            "nullable": true
-          },
-          "recommendedMatchmaker1": {
-            "type": "string",
-            "nullable": true
-          },
-          "recommendedMatchmaker2": {
-            "type": "string",
-            "nullable": true
-          },
-          "matchFeeFirstMarriage": {
-            "type": "number",
-            "format": "double",
-            "nullable": true
-          },
-          "matchFeeSecondMarriage": {
-            "type": "number",
-            "format": "double",
-            "nullable": true
-          },
-          "matchFeeAbove30": {
-            "type": "number",
-            "format": "double",
-            "nullable": true
           },
           "phoneNumber": {
             "type": "string",
@@ -1295,6 +1252,10 @@
             "type": "integer",
             "format": "int32"
           },
+          "fullName": {
+            "type": "string",
+            "nullable": true
+          },
           "email": {
             "type": "string",
             "nullable": true
@@ -1303,20 +1264,12 @@
             "type": "string",
             "nullable": true
           },
+          "phoneNumber": {
+            "type": "string",
+            "nullable": true
+          },
           "userType": {
             "$ref": "#/components/schemas/UserType"
-          },
-          "contactPersonFirstName": {
-            "type": "string",
-            "nullable": true
-          },
-          "contactPersonLastName": {
-            "type": "string",
-            "nullable": true
-          },
-          "contactPersonPhone": {
-            "type": "string",
-            "nullable": true
           }
         },
         "additionalProperties": false

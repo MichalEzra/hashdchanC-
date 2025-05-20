@@ -34,3 +34,21 @@ C:\Users\User\Desktop\תכנות\יד\C#\פרויקט\hashdchanC-\Mock\obj\Debug
 C:\Users\User\Desktop\תכנות\יד\C#\פרויקט\hashdchanC-\Mock\obj\Debug\net7.0\Mock.pdb
 C:\Users\User\Desktop\תכנות\יד\C#\פרויקט\hashdchanC-\Mock\obj\Debug\net7.0\Mock.genruntimeconfig.cache
 C:\Users\User\Desktop\תכנות\יד\C#\פרויקט\hashdchanC-\Mock\obj\Debug\net7.0\ref\Mock.dll
+C:\Users\User\Desktop\תכנות\יד\C#\פרויקט C# השדכן\hashdchanC-\Mock\bin\Debug\net7.0\Mock.deps.json
+C:\Users\User\Desktop\תכנות\יד\C#\פרויקט C# השדכן\hashdchanC-\Mock\bin\Debug\net7.0\Mock.runtimeconfig.json
+C:\Users\User\Desktop\תכנות\יד\C#\פרויקט C# השדכן\hashdchanC-\Mock\bin\Debug\net7.0\Mock.dll
+C:\Users\User\Desktop\תכנות\יד\C#\פרויקט C# השדכן\hashdchanC-\Mock\bin\Debug\net7.0\Mock.pdb
+C:\Users\User\Desktop\תכנות\יד\C#\פרויקט C# השדכן\hashdchanC-\Mock\bin\Debug\net7.0\Repository.dll
+C:\Users\User\Desktop\תכנות\יד\C#\פרויקט C# השדכן\hashdchanC-\Mock\bin\Debug\net7.0\Repository.pdb
+C:\Users\User\Desktop\תכנות\יד\C#\פרויקט C# השדכן\hashdchanC-\Mock\obj\Debug\net7.0\Mock.csproj.AssemblyReference.cache
+C:\Users\User\Desktop\תכנות\יד\C#\פרויקט C# השדכן\hashdchanC-\Mock\obj\Debug\net7.0\Mock.GeneratedMSBuildEditorConfig.editorconfig
+C:\Users\User\Desktop\תכנות\יד\C#\פרויקט C# השדכן\hashdchanC-\Mock\obj\Debug\net7.0\Mock.AssemblyInfoInputs.cache
+C:\Users\User\Desktop\תכנות\יד\C#\פרויקט C# השדכן\hashdchanC-\Mock\obj\Debug\net7.0\Mock.AssemblyInfo.cs
+C:\Users\User\Desktop\תכנות\יד\C#\פרויקט C# השדכן\hashdchanC-\Mock\obj\Debug\net7.0\Mock.csproj.CoreCompileInputs.cache
+C:\Users\User\Desktop\תכנות\יד\C#\פרויקט C# השדכן\hashdchanC-\Mock\obj\Debug\net7.0\Mock.sourcelink.json
+C:\Users\User\Desktop\תכנות\יד\C#\פרויקט C# השדכן\hashdchanC-\Mock\obj\Debug\net7.0\Mock.csproj.Up2Date
+C:\Users\User\Desktop\תכנות\יד\C#\פרויקט C# השדכן\hashdchanC-\Mock\obj\Debug\net7.0\Mock.dll
+C:\Users\User\Desktop\תכנות\יד\C#\פרויקט C# השדכן\hashdchanC-\Mock\obj\Debug\net7.0\refint\Mock.dll
+C:\Users\User\Desktop\תכנות\יד\C#\פרויקט C# השדכן\hashdchanC-\Mock\obj\Debug\net7.0\Mock.pdb
+C:\Users\User\Desktop\תכנות\יד\C#\פרויקט C# השדכן\hashdchanC-\Mock\obj\Debug\net7.0\Mock.genruntimeconfig.cache
+C:\Users\User\Desktop\תכנות\יד\C#\פרויקט C# השדכן\hashdchanC-\Mock\obj\Debug\net7.0\ref\Mock.dll

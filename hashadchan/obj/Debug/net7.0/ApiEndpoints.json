@@ -33,12 +33,12 @@
         "IsRequired": false
       },
       {
-        "Name": "CandidateId",
+        "Name": "UserId",
         "Type": "System.Int32",
         "IsRequired": false
       },
       {
-        "Name": "UserId",
+        "Name": "CandidateId",
         "Type": "System.Int32",
         "IsRequired": false
       },

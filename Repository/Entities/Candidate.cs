@@ -11,10 +11,12 @@ namespace Repository.Entities
 {
     public class Candidate
     {
-        [ForeignKey("User")] // קישור למשתמש מפתח זר
-        public int UserId { get; set; }
         [Key]
         public int Id { get; set; }
+
+        [ForeignKey("User")]
+        public int UserId { get; set; }
+        public User User { get; set; }
         public int CandidateId { get; set; }
         public string FirstName { get; set; }
         public string LastName { get; set; }
@@ -46,7 +48,7 @@ namespace Repository.Entities
         public bool Beard { get; set; }//זקן
         public Smoking SmokingStatus { get; set; } // עישון
         public bool License { get; set; }//רשיון
-       //public virtual User user { get; set; }
+        //public virtual User user { get; set; }
         ////פרטי משפחה
         //public FamilyStyle FamilyStyle { get; set; }//סגנון משפחה
 

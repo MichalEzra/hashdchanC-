@@ -1,4 +1,5 @@
 ﻿using Common.Dto;
+using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.IdentityModel.Tokens;
 using Service.Interfasces;
@@ -27,19 +28,50 @@ namespace hashadchan.Controllers
             return await service.GetAll();
         }
 
-        
+
         // החזרת משתמש ספציפי לפי ID
         [HttpGet("{id}")]
         public async Task<UserDto> Get(int id)
         {
-           return await service.GetById(id);
+            return await service.GetById(id);
         }
 
+        //[Authorize] 
+        //[HttpPost]
+        //public async Task<IActionResult> Post([FromBody] UserDto user)
+        //{
+        //    // שליפת סוג המשתמש מתוך הטוקן
+        //    var userTypeFromToken = User.Claims.FirstOrDefault(c => c.Type == ClaimTypes.Role)?.Value;
 
+        //    if (user.UserType.ToString() == "Admin" && userTypeFromToken != "Admin")
+        //    {
+        //        return Forbid("Only an Admin can create another Admin");
+        //    }
+
+        //    var newUser = await service.AddItem(user);
+        //    return Ok(newUser);
+        //}
+        // [Authorize]   ← לא נשים את זה
         [HttpPost]
-        public async Task<UserDto> Post([FromBody] UserDto user)
+        public async Task<ActionResult<UserDto>> Post([FromBody] UserDto user)
         {
-            return await service.AddItem(user); // הוספת המשתמש
+            if (user.UserType == UserType.MATCHMAKER)
+            {
+                var userTypeClaim = User.Claims.FirstOrDefault(c => c.Type == ClaimTypes.Role)?.Value;
+
+                if (string.IsNullOrEmpty(userTypeClaim) || userTypeClaim != "ADMIN")
+                {
+                    return Unauthorized("רק מנהל רשאי להוסיף שדכן.");
+                }
+            }
+
+            if (user.UserType == UserType.ADMIN)
+            {
+                return Unauthorized("לא ניתן להוסיף מנהלים דרך המערכת.");
+            }
+
+            var newUser = await service.AddItem(user);
+            return Ok(newUser);
         }
 
         [HttpPost("login")]
@@ -72,7 +104,7 @@ namespace hashadchan.Controllers
         private async Task<UserDto> Authenticate(UserLogin value)
         {
             // נניח ש-service.GetAll() מחזיר Task<List<UserDto>> או שהוא עטוף כך:
-            var users = await Task.Run(() => service.GetAll());
+            var users = await service.GetAll();
             UserDto user = users.FirstOrDefault(x => x.Password == value.Password && x.Email == value.Email);
             if (user != null)
                 return user;
@@ -80,16 +112,21 @@ namespace hashadchan.Controllers
         }
         private string Generate(UserDto user)
         {
-            var securitykey = new SymmetricSecurityKey(Encoding.UTF8.GetBytes(config["Jwt:Key"]));
-            var credentials = new SigningCredentials(securitykey, SecurityAlgorithms.HmacSha256);
-            var claims = new[] {
+            var securityKey = new SymmetricSecurityKey(Encoding.UTF8.GetBytes(config["Jwt:Key"]));
+            var credentials = new SigningCredentials(securityKey, SecurityAlgorithms.HmacSha256);
+
+            var claims = new[]
+            {
         new Claim(ClaimTypes.Email, user.Email),
-        new Claim(ClaimTypes.PostalCode, user.Password),
+        new Claim(ClaimTypes.Name, user.FullName),
+        new Claim(ClaimTypes.Role, user.UserType.ToString()) // מוסיפים את התפקיד
     };
+
             var token = new JwtSecurityToken(config["Jwt:Issuer"], config["Jwt:Audience"],
                 claims,
                 expires: DateTime.Now.AddMinutes(15),
                 signingCredentials: credentials);
+
             return new JwtSecurityTokenHandler().WriteToken(token);
         }
     }

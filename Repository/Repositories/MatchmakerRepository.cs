@@ -67,22 +67,6 @@ namespace Repository.Repositories
             matchmaker.MatchesClosed = item.MatchesClosed;
             matchmaker.Languages = item.Languages;
             matchmaker.ReligiousOpenness = item.ReligiousOpenness;
-
-            // פרטי בנק
-            matchmaker.BankName = item.BankName;
-            matchmaker.BranchNumber = item.BranchNumber;
-            matchmaker.AccountNumber = item.AccountNumber;
-            matchmaker.AccountName = item.AccountName;
-
-            // המלצות
-            matchmaker.RecommendedMatchmaker1 = item.RecommendedMatchmaker1;
-            matchmaker.RecommendedMatchmaker2 = item.RecommendedMatchmaker2;
-
-            // דמי שידוך
-            matchmaker.MatchFeeFirstMarriage = item.MatchFeeFirstMarriage;
-            matchmaker.MatchFeeSecondMarriage = item.MatchFeeSecondMarriage;
-            matchmaker.MatchFeeAbove30 = item.MatchFeeAbove30;
-
             matchmaker.PhoneNumber = item.PhoneNumber;
 
             await context.Save();

@@ -90,7 +90,7 @@ if (app.Environment.IsDevelopment())
 //GPT
 app.UseCors("AllowReactApp");
 
-
+app.UseAuthentication();
 app.UseAuthorization();
 
 app.MapControllers();

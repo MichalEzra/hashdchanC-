@@ -10,18 +10,23 @@ namespace Repository.Entities
 {
     public enum UserType
     {
-        PARENT,CANDIDATE,MATCHMAKER
+        ADMIN, MATCHMAKER, PARENT
     }
     public class User
     {
-        [Key] //  מפתח ראשי
-        public int Id{ get; set; }
+        [Key]
+        public int Id { get; set; }
+
+        public string FullName { get; set; }
+
         public string Email { get; set; }
+
         public string Password { get; set; }
+
+        public string? PhoneNumber { get; set; }  // הטלפון של היוזר עצמו
+
         public UserType UserType { get; set; }
-        public string? ContactPersonFirstName { get; set; }
-        public string? ContactPersonLastName { get; set; }
-        public string? ContactPersonPhone { get; set; }
-        public List<Candidate> CandidatesList { get; set; } = new List<Candidate>();
+
+        public Candidate? Candidate { get; set; }  // למקרה שהיוזר הוא הורה ויש לו מועמד אחד
     }
 }

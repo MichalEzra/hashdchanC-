@@ -10,40 +10,37 @@ namespace Common.Dto
     public class MatchmakerDto
     {
         public int Id { get; set; }
-        public int MatchmakerId { get; set; }
+
         public int UserId { get; set; }
 
-        public string FirstName { get; set; } // שם פרטי
-        public string LastName { get; set; } // שם משפחה
-        public DateTime BirthDate { get; set; } // תאריך לידה
-        public Gender MatchmakerGender { get; set; } // מגדר
-        public string IdentityNumber { get; set; } // מספר זהות
-        public DateTime? MarriageDate { get; set; } // תאריך נישואין
-        public string? Country { get; set; } // מדינה
-        public string? City { get; set; } // עיר
-        public Sector MatchmakerSector { get; set; } // מגזר
-        public string? SubSector { get; set; } // תת מגזר
-        public int? YearsOfExperience { get; set; } // שנות ותק בשדכנות
-        public int? MatchesClosed { get; set; } // מספר שידוכים שסגרתי
-        public Language Languages { get; set; }  // שפות
-        public Openness ReligiousOpenness { get; set; } // פתיחות
+        public string FirstName { get; set; }
 
-        // פרטי בנק
-        public string? BankName { get; set; } // בנק
-        public string? BranchNumber { get; set; } // מספר סניף
-        public string? AccountNumber { get; set; } // מספר חשבון
-        public string? AccountName { get; set; } // שם החשבון
+        public string LastName { get; set; }
 
-        // המלצות
-        public string? RecommendedMatchmaker1 { get; set; } // שדכן ממליץ 1
-        public string? RecommendedMatchmaker2 { get; set; } // שדכן ממליץ 2
+        public DateTime BirthDate { get; set; }
 
-        // דמי שידוך
-        public double? MatchFeeFirstMarriage { get; set; } // דמי שידוך פרק א'
-        public double? MatchFeeSecondMarriage { get; set; } // דמי שידוך פרק ב'
-        public double? MatchFeeAbove30 { get; set; } // דמי שידוך לבני 30+
+        public Gender MatchmakerGender { get; set; }
 
-        public string PhoneNumber { get; set; } // מספר טלפון
+        public string IdentityNumber { get; set; }
 
+        public DateTime? MarriageDate { get; set; }
+
+        public string? Country { get; set; }
+
+        public string? City { get; set; }
+
+        public Sector MatchmakerSector { get; set; }
+
+        public string? SubSector { get; set; }
+
+        public int? YearsOfExperience { get; set; }
+
+        public int? MatchesClosed { get; set; }
+
+        public Language Languages { get; set; }
+
+        public Openness ReligiousOpenness { get; set; }
+
+        public string PhoneNumber { get; set; }
     }
 }

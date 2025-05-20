@@ -9,17 +9,23 @@ namespace Common.Dto
 {
     public enum UserType
     {
-        PARENT, CANDIDATE, MATCHMAKER
+        ADMIN, MATCHMAKER, PARENT
     }
+
     public class UserDto
     {
-        [Key] //  מפתח ראשי
         public int Id { get; set; }
+
+        public string FullName { get; set; }
+
         public string Email { get; set; }
+
         public string Password { get; set; }
+
+        public string? PhoneNumber { get; set; }
+
         public UserType UserType { get; set; }
-        public string? ContactPersonFirstName { get; set; }
-        public string? ContactPersonLastName { get; set; }
-        public string? ContactPersonPhone { get; set; }
+
     }
+
 }
