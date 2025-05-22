@@ -38,7 +38,7 @@ namespace hashadchan.Controllers
         }
 
         // הוספת מועמד
-        [Authorize]
+
         [HttpPost]
         public async Task<ActionResult<CandidateDto>> Post([FromForm] CandidateDto candidate)
         {

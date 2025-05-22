@@ -37,7 +37,7 @@ namespace hashadchan.Controllers
             return await service.GetById(id);
         }
 
-        [Authorize]
+        
         [HttpPost]
         public async Task<ActionResult<UserDto>> Post([FromBody] UserDto user)
         {

@@ -36,7 +36,7 @@ namespace hashadchan.Controllers
         {
             return await mService.GetById(id);
         }
-        [Authorize]
+
         [HttpPost]
         public async Task<ActionResult<MatchmakerDto>> Post([FromBody] MatchmakerDto matchmaker)
         {
