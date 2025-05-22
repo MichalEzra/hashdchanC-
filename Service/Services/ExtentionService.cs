@@ -18,6 +18,7 @@ namespace Service.Services
             services.AddRepositorys();
             services.AddScoped<IService<CandidateDto>, CanditateService>();
             services.AddScoped<IService<MatchmakerDto>, MatchmakerService>();
+            services.AddScoped<IUserLinkedService<MatchmakerDto>, MatchmakerService>();
             services.AddScoped<IService<UserDto>, UserService>();
             services.AddAutoMapper(typeof(MyMapper));
             return services;

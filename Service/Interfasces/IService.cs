@@ -1,4 +1,5 @@
-﻿using System;
+﻿using Common.Dto;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -13,5 +14,9 @@ namespace Service.Interfasces
         Task<T> AddItem(T item);
         Task DeleteItem(int id);
         Task UpdateItem(int id, T item);
+    }
+    public interface IUserLinkedService<T>
+    {
+        Task<T?> GetByUserId(int userId);
     }
 }

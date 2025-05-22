@@ -106,6 +106,9 @@
                     "type": "string",
                     "format": "binary"
                   },
+                  "ImageUrl": {
+                    "type": "string"
+                  },
                   "Origin": {
                     "type": "string"
                   },
@@ -209,6 +212,9 @@
                   "style": "form"
                 },
                 "fileImage": {
+                  "style": "form"
+                },
+                "ImageUrl": {
                   "style": "form"
                 },
                 "Origin": {
@@ -920,6 +926,10 @@
           "fileImage": {
             "type": "string",
             "format": "binary",
+            "nullable": true
+          },
+          "imageUrl": {
+            "type": "string",
             "nullable": true
           },
           "origin": {

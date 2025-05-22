@@ -22,6 +22,7 @@ namespace hashadchan.Controllers
             this.config = config;
         }
         // החזרת כל המשתמשים
+        [Authorize(Roles = "ADMIN")]
         [HttpGet]
         public async Task<List<UserDto>> Get()
         {
@@ -36,38 +37,30 @@ namespace hashadchan.Controllers
             return await service.GetById(id);
         }
 
-        //[Authorize] 
-        //[HttpPost]
-        //public async Task<IActionResult> Post([FromBody] UserDto user)
-        //{
-        //    // שליפת סוג המשתמש מתוך הטוקן
-        //    var userTypeFromToken = User.Claims.FirstOrDefault(c => c.Type == ClaimTypes.Role)?.Value;
-
-        //    if (user.UserType.ToString() == "Admin" && userTypeFromToken != "Admin")
-        //    {
-        //        return Forbid("Only an Admin can create another Admin");
-        //    }
-
-        //    var newUser = await service.AddItem(user);
-        //    return Ok(newUser);
-        //}
-        // [Authorize]   ← לא נשים את זה
+        [Authorize]
         [HttpPost]
         public async Task<ActionResult<UserDto>> Post([FromBody] UserDto user)
         {
-            if (user.UserType == UserType.MATCHMAKER)
+            // בדיקה שהערך שנשלח הוא Enum חוקי
+            if (!Enum.IsDefined(typeof(UserType), user.UserType))
             {
-                var userTypeClaim = User.Claims.FirstOrDefault(c => c.Type == ClaimTypes.Role)?.Value;
-
-                if (string.IsNullOrEmpty(userTypeClaim) || userTypeClaim != "ADMIN")
-                {
-                    return Unauthorized("רק מנהל רשאי להוסיף שדכן.");
-                }
+                return BadRequest("סוג המשתמש אינו חוקי.");
             }
 
+            // מניעת יצירת משתמש מסוג ADMIN
             if (user.UserType == UserType.ADMIN)
             {
                 return Unauthorized("לא ניתן להוסיף מנהלים דרך המערכת.");
+            }
+
+            // מניעת יצירת שדכנים על ידי מי שאינו ADMIN
+            if (user.UserType == UserType.MATCHMAKER)
+            {
+                var userTypeClaim = User.Claims.FirstOrDefault(c => c.Type == ClaimTypes.Role)?.Value;
+                if (userTypeClaim != UserType.ADMIN.ToString())
+                {
+                    return Unauthorized("רק מנהל רשאי להוסיף שדכן.");
+                }
             }
 
             var newUser = await service.AddItem(user);
@@ -91,8 +84,6 @@ namespace hashadchan.Controllers
         {
             await service.UpdateItem(id, updatedUser);
         }
-
-
 
         [HttpDelete("{id}")]
         public async Task Delete(int id)
@@ -119,7 +110,8 @@ namespace hashadchan.Controllers
             {
         new Claim(ClaimTypes.Email, user.Email),
         new Claim(ClaimTypes.Name, user.FullName),
-        new Claim(ClaimTypes.Role, user.UserType.ToString()) // מוסיפים את התפקיד
+        new Claim(ClaimTypes.Role, user.UserType.ToString()),
+        new Claim(ClaimTypes.NameIdentifier, user.Id.ToString()) // ✅ חשוב!
     };
 
             var token = new JwtSecurityToken(config["Jwt:Issuer"], config["Jwt:Audience"],

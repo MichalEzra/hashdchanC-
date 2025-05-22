@@ -108,6 +108,11 @@
         "IsRequired": false
       },
       {
+        "Name": "ImageUrl",
+        "Type": "System.String",
+        "IsRequired": false
+      },
+      {
         "Name": "Origin",
         "Type": "System.String",
         "IsRequired": false
@@ -250,13 +255,7 @@
         "IsRequired": true
       }
     ],
-    "ReturnTypes": [
-      {
-        "Type": "System.Void",
-        "MediaTypes": [],
-        "StatusCode": 200
-      }
-    ]
+    "ReturnTypes": []
   },
   {
     "ContainingType": "hashadchan.Controllers.CandidateController",
@@ -272,13 +271,7 @@
         "IsRequired": true
       }
     ],
-    "ReturnTypes": [
-      {
-        "Type": "System.Void",
-        "MediaTypes": [],
-        "StatusCode": 200
-      }
-    ]
+    "ReturnTypes": []
   },
   {
     "ContainingType": "hashadchan.Controllers.MatchmakerController",

@@ -41,6 +41,7 @@ namespace Common.Dto
 
         public byte[]? ArrImage { get; set; } // תמונה
         public IFormFile? fileImage { get; set; }
+        public string? ImageUrl { get; set; }
         public string Origin { get; set; }
 
         public Language Languages { get; set; }

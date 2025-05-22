@@ -11,7 +11,7 @@ using System.Threading.Tasks;
 
 namespace Service.Services
 {
-    public class MatchmakerService : IService<MatchmakerDto>
+    public class MatchmakerService : IService<MatchmakerDto>, IUserLinkedService<MatchmakerDto>
     {
         private readonly IRepository<Matchmaker> repository;
         private readonly IMapper mapper;
@@ -45,6 +45,12 @@ namespace Service.Services
         public async Task UpdateItem(int id, MatchmakerDto item)
         {
             await repository.UpdateItem(id, mapper.Map<MatchmakerDto, Matchmaker>(item));
+        }
+        public async Task<MatchmakerDto?> GetByUserId(int userId)
+        {
+            var all = await repository.GetAll();
+            var matchmaker = all.FirstOrDefault(m => m.UserId == userId);
+            return matchmaker == null ? null : mapper.Map<MatchmakerDto>(matchmaker);
         }
     }
 

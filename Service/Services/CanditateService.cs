@@ -11,7 +11,7 @@ using System.Threading.Tasks;
 
 namespace Service.Services
 {
-    public class CanditateService : IService<CandidateDto>
+    public class CanditateService : IService<CandidateDto>, IUserLinkedService<CandidateDto>
     {
         private readonly IRepository<Candidate> repository;
         private readonly IMapper mapper;
@@ -44,6 +44,12 @@ namespace Service.Services
         public async Task UpdateItem(int id, CandidateDto item)
         {
             await repository.UpdateItem(id, mapper.Map<CandidateDto, Candidate>(item));
+        }
+        public async Task<CandidateDto?> GetByUserId(int userId)
+        {
+            var candidate = await repository.GetAll(); // או GetByPredicate אם יש
+            var found = candidate.FirstOrDefault(c => c.UserId == userId);
+            return mapper.Map<CandidateDto>(found);
         }
     }
 }
