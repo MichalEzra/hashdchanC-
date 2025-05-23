@@ -992,81 +992,74 @@
       },
       "CandidateStatus": {
         "enum": [
-          0,
-          1,
-          2,
-          3,
-          4
+          "SINGLE",
+          "DIVORCED",
+          "WIDOWED",
+          "DIVORCED_WITH_KIDS",
+          "WIDOWED_WITH_KIDS"
         ],
-        "type": "integer",
-        "format": "int32"
+        "type": "string"
       },
       "ClothingStyle": {
         "enum": [
-          0,
-          1,
-          2,
-          3,
-          4,
-          5
+          "MODERN",
+          "TRENDY",
+          "ELEGANT",
+          "CLASSIC",
+          "SIMPLE",
+          "VERY_SIMPLE"
         ],
-        "type": "integer",
-        "format": "int32"
+        "type": "string"
       },
       "EducationInstitution": {
         "enum": [
-          0,
-          1,
-          2,
-          3,
-          4,
-          5,
-          6
+          "YESHIVA_KTANA",
+          "YESHIVA_GDOLA",
+          "KIBBUTZ",
+          "HIGH_SCHOOL",
+          "COLLEGE",
+          "UNIVERSITY",
+          "KOLLEL"
         ],
-        "type": "integer",
-        "format": "int32"
+        "type": "string"
       },
       "Gender": {
         "enum": [
-          0,
-          1
+          "MALE",
+          "FEMALE"
         ],
-        "type": "integer",
-        "format": "int32"
+        "type": "string"
       },
       "HairColor": {
         "enum": [
-          0,
-          1,
-          2,
-          3,
-          4
+          "BROWN",
+          "BLACK",
+          "DIRTY_BLONDE",
+          "BLONDE",
+          "REDHEAD"
         ],
-        "type": "integer",
-        "format": "int32"
+        "type": "string"
       },
       "HeadCovering": {
         "enum": [
-          0,
-          1,
-          2,
-          3,
-          4
+          "WIG_ONLY",
+          "SCARF_ONLY",
+          "WIG_WITH_COVER",
+          "TOP_LACE_WIG",
+          "FLEXIBLE"
         ],
-        "type": "integer",
-        "format": "int32"
+        "type": "string"
       },
       "Language": {
         "enum": [
-          0,
-          1,
-          2,
-          3,
-          4,
-          5
+          "ENGLISH",
+          "HEBREW",
+          "YIDDISH",
+          "FRENCH",
+          "SPANISH",
+          "RUSSIAN"
         ],
-        "type": "integer",
-        "format": "int32"
+        "type": "string"
       },
       "MatchmakerDto": {
         "type": "object",
@@ -1143,117 +1136,107 @@
       },
       "Occupation": {
         "enum": [
-          0,
-          1
+          "STUDENT",
+          "WORKING"
         ],
-        "type": "integer",
-        "format": "int32"
+        "type": "string"
       },
       "Openness": {
         "enum": [
-          0,
-          1,
-          2,
-          3,
-          4,
-          5,
-          6
+          "VERY_STRICT",
+          "CONSERVATIVE",
+          "TRADITIONAL",
+          "OPEN_TRADITIONAL",
+          "OPEN",
+          "MODERN",
+          "VERY_MODERN"
         ],
-        "type": "integer",
-        "format": "int32"
+        "type": "string"
       },
       "ParentsStatus": {
         "enum": [
-          0,
-          1,
-          2,
-          3,
-          4
+          "MARRIED",
+          "DIVORCED",
+          "FATHER_DECEASED",
+          "MOTHER_DECEASED",
+          "BOTH_DECEASED"
         ],
-        "type": "integer",
-        "format": "int32"
+        "type": "string"
       },
       "PhoneType": {
         "enum": [
-          0,
-          1,
-          2,
-          3,
-          4,
-          5,
-          6
+          "KOSHER",
+          "SUPPORTS_KOSHER",
+          "SECURE_DEVICE",
+          "SMARTPHONE",
+          "BUTTON_PHONE_SMS",
+          "WORK_PHONE",
+          "TWO_PHONES"
         ],
-        "type": "integer",
-        "format": "int32"
+        "type": "string"
       },
       "Physique": {
         "enum": [
-          0,
-          1,
-          2,
-          3
+          "VERY_THIN",
+          "THIN",
+          "AVERAGE",
+          "FULL"
         ],
-        "type": "integer",
-        "format": "int32"
+        "type": "string"
       },
       "Sector": {
         "enum": [
-          0,
-          1,
-          2,
-          3,
-          4,
-          5,
-          6
+          "HASIDI",
+          "LITAI",
+          "SEFARDI",
+          "TEIMANI",
+          "CHABAD",
+          "HALF_HALF",
+          "OTHER"
         ],
-        "type": "integer",
-        "format": "int32"
+        "type": "string"
       },
       "SkinTone": {
         "enum": [
-          0,
-          1,
-          2,
-          3,
-          4
+          "FAIR",
+          "FAIR_TO_MEDIUM",
+          "TAN",
+          "MEDIUM_TO_DARK",
+          "DARK"
         ],
-        "type": "integer",
-        "format": "int32"
+        "type": "string"
       },
       "Smoking": {
         "enum": [
-          0,
-          1,
-          2,
-          3
+          "SMOKER",
+          "OCCASIONAL_SMOKER",
+          "NON_SMOKER",
+          "ELECTRONIC_CIGARETTE"
         ],
-        "type": "integer",
-        "format": "int32"
+        "type": "string"
       },
       "SubSector": {
         "enum": [
-          0,
-          1,
-          2,
-          3,
-          4,
-          5,
-          6,
-          7,
-          8,
-          9
+          "YESHIVISH",
+          "BNEI_TORAH_ETZ",
+          "BALEI_TSHUVA",
+          "YERUSHALMI",
+          "MODERN_HAREDI",
+          "CHUTZNIKIM",
+          "CHAZON_ISH",
+          "ZILBERMAN",
+          "CHASIDIC_BACKGROUND",
+          "OTHER"
         ],
-        "type": "integer",
-        "format": "int32"
+        "type": "string"
       },
       "TorahStudy": {
         "enum": [
-          0,
-          1,
-          2
+          "FULL_TIME",
+          "HALF_HALF",
+          "PART_TIME"
         ],
-        "type": "integer",
-        "format": "int32"
+        "type": "string"
       },
       "UserDto": {
         "type": "object",
@@ -1300,12 +1283,11 @@
       },
       "UserType": {
         "enum": [
-          0,
-          1,
-          2
+          "ADMIN",
+          "MATCHMAKER",
+          "PARENT"
         ],
-        "type": "integer",
-        "format": "int32"
+        "type": "string"
       },
       "WeatherForecast": {
         "type": "object",
