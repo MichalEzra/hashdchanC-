@@ -1,8 +1,10 @@
 ﻿using Common.Dto;
 using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
+using Repository.Entities;
 using Service.Interfasces;
 using System.Security.Claims;
+using UserType = Common.Dto.UserType;
 
 namespace hashadchan.Controllers
 {
@@ -42,36 +44,35 @@ namespace hashadchan.Controllers
         [HttpPost]
         public async Task<ActionResult<CandidateDto>> Post([FromForm] CandidateDto candidate)
         {
-            // שליפת מזהה המשתמש המחובר מה-JWT
             var userIdClaim = User.Claims.FirstOrDefault(c => c.Type == ClaimTypes.NameIdentifier)?.Value;
             if (string.IsNullOrEmpty(userIdClaim) || !int.TryParse(userIdClaim, out int userId))
                 return Unauthorized("משתמש לא מזוהה.");
 
-            // שליפת המשתמש מהמערכת
             var user = await userService.GetById(userId);
             if (user == null)
                 return Unauthorized("משתמש לא קיים במערכת.");
 
-            // רק משתמש שהוא הורה יכול להוסיף מועמד
             if (user.UserType != UserType.PARENT)
                 return Forbid("רק הורה יכול להוסיף מועמד.");
 
-            // בדיקה אם כבר קיים מועמד למשתמש הזה
             var existingCandidate = await candidateService.GetByUserId(userId);
             if (existingCandidate != null)
                 return BadRequest("כבר קיים מועמד המשויך ליוזר הזה.");
 
-            // שיוך המועמד ליוזר
             candidate.UserId = userId;
 
             // שמירת תמונה אם קיימת
             if (candidate.fileImage != null)
             {
-                UploadImage(candidate.fileImage);
-                var imageFileName = candidate.fileImage?.FileName;
+                candidate.ImageUrl = await UploadImage(candidate.fileImage);
             }
 
-            // הוספה למערכת
+            // שמירת קובץ רזומה אם קיים
+            if (candidate.RezumehFile != null)
+            {
+                candidate.RezumehName = await SaveResume(candidate.RezumehFile);
+            }
+
             var created = await service.AddItem(candidate);
             return Ok(created);
         }
@@ -93,11 +94,31 @@ namespace hashadchan.Controllers
             return NoContent();
         }
 
-        private void UploadImage(IFormFile file)
+        private async Task<string> UploadImage(IFormFile file)
         {
-            var path = Path.Combine(Environment.CurrentDirectory, "Images/", file.FileName);
-            using var stream = new FileStream(path, FileMode.Create);
-            file.CopyTo(stream);
+            var path = Path.Combine(Environment.CurrentDirectory, "Images", file.FileName);
+            var directory = Path.GetDirectoryName(path);
+            if (!Directory.Exists(directory))
+                Directory.CreateDirectory(directory);
+
+            await using var stream = new FileStream(path, FileMode.Create);
+            await file.CopyToAsync(stream);
+
+            return file.FileName; // מחזירים את שם הקובץ כדי לעדכן את השדה
         }
+
+        private async Task<string> SaveResume(IFormFile file)
+        {
+            var path = Path.Combine(Environment.CurrentDirectory, "Resumes", file.FileName);
+            var directory = Path.GetDirectoryName(path);
+            if (!Directory.Exists(directory))
+                Directory.CreateDirectory(directory);
+
+            await using var stream = new FileStream(path, FileMode.Create);
+            await file.CopyToAsync(stream);
+
+            return file.FileName; // מחזירים את שם הקובץ כדי לעדכן את השדה
+        }
+
     }
 }

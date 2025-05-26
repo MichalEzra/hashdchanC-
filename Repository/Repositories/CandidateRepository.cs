@@ -83,7 +83,8 @@ namespace Repository.Repositories
             candidate.Beard = item.Beard; // זקן
             candidate.SmokingStatus = item.SmokingStatus; // עישון
             candidate.License = item.License; // רישיון
-
+            candidate.RezumehName = item.RezumehName;
+            candidate.Rezumeh = item.Rezumeh;
             await context.Save();
         }
     }

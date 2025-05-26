@@ -51,5 +51,6 @@ namespace Service.Services
             var found = candidate.FirstOrDefault(c => c.UserId == userId);
             return mapper.Map<CandidateDto>(found);
         }
+
     }
 }

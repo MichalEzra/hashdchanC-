@@ -162,6 +162,17 @@
                   },
                   "License": {
                     "type": "boolean"
+                  },
+                  "RezumehArr": {
+                    "type": "string",
+                    "format": "byte"
+                  },
+                  "RezumehFile": {
+                    "type": "string",
+                    "format": "binary"
+                  },
+                  "RezumehName": {
+                    "type": "string"
                   }
                 }
               },
@@ -266,6 +277,15 @@
                   "style": "form"
                 },
                 "License": {
+                  "style": "form"
+                },
+                "RezumehArr": {
+                  "style": "form"
+                },
+                "RezumehFile": {
+                  "style": "form"
+                },
+                "RezumehName": {
                   "style": "form"
                 }
               }
@@ -986,6 +1006,20 @@
           },
           "license": {
             "type": "boolean"
+          },
+          "rezumehArr": {
+            "type": "string",
+            "format": "byte",
+            "nullable": true
+          },
+          "rezumehFile": {
+            "type": "string",
+            "format": "binary",
+            "nullable": true
+          },
+          "rezumehName": {
+            "type": "string",
+            "nullable": true
           }
         },
         "additionalProperties": false

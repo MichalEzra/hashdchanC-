@@ -109,6 +109,12 @@ namespace Mock.Migrations
                     b.Property<int>("ReligiousOpenness")
                         .HasColumnType("int");
 
+                    b.Property<byte[]>("Rezumeh")
+                        .HasColumnType("varbinary(max)");
+
+                    b.Property<string>("RezumehName")
+                        .HasColumnType("nvarchar(max)");
+
                     b.Property<int>("SkinTone")
                         .HasColumnType("int");
 

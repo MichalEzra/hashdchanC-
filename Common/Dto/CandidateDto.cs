@@ -75,7 +75,9 @@ namespace Common.Dto
         public Smoking SmokingStatus { get; set; }
 
         public bool License { get; set; }
-
+        public byte[]? RezumehArr { get; set; }         // רזומה - תוכן בבייטים
+        public IFormFile? RezumehFile { get; set; }     // רזומה - קובץ מהקליינט
+        public string? RezumehName { get; set; }        // רזומה - שם קובץ
     }
 }
 
