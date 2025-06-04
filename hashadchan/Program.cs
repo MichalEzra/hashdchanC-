@@ -50,8 +50,6 @@ builder.Services.AddSwaggerGen(option =>
     });
 });
 builder.Services.AddServices();
-
-
 builder.Services.AddDbContext<IContext, Database>();
 builder.Services.AddAuthentication(JwtBearerDefaults.AuthenticationScheme)
               .AddJwtBearer(option =>
@@ -68,7 +66,7 @@ builder.Services.AddAuthentication(JwtBearerDefaults.AuthenticationScheme)
 
               });
 
-//GPT
+
 builder.Services.AddCors(options =>
 {
     options.AddPolicy("AllowReactApp",
@@ -79,7 +77,8 @@ builder.Services.AddCors(options =>
                    .AllowAnyMethod();
         });
 });
-
+//API
+builder.Services.AddSingleton<TextAnalyticsService>();
 
 var app = builder.Build();
 

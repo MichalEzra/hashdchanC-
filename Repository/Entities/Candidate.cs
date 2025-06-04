@@ -49,23 +49,9 @@ namespace Repository.Entities
         public Smoking SmokingStatus { get; set; } // עישון
         public bool License { get; set; }//רשיון
 
-        public string? RezumehName { get; set; }        // שם קובץ רזומה
-        public byte[]? Rezumeh { get; set; }             // תוכן רזומה בבייטים
-        ////פרטי משפחה
-        //public FamilyStyle FamilyStyle { get; set; }//סגנון משפחה
-
-        //public FamilyOpenness FamilyOpenness { get; set; }//רמת פתיחות
-        //public string FatherName { get; set; }
-        //public string FatherOccupation { get; set; }
-        //public string MotherName { get; set; }
-        //public string NameFromHome { get; set; }
-        //public string MotherOccupation { get; set; }
-        ////אחים ואחיות
-        //public List<Brother> Brothers { get; set; }
-        //public string DescriptionFind { get; set; }
-        //public List<Inquiries> Inquiries { get; set; }//טלפונים לבירורים
-        //public string ImageUrl { get; set; }
-        //public bool Status { get; set; }
-
+        public string? RezumehName { get; set; } // שם קובץ רזומה
+        public byte[]? Rezumeh { get; set; } // תוכן רזומה בבייטים
+        public string DescriptionSelf { get; set; } // תיאור עצמי של המועמד
+        public string DescriptionFind { get; set; } // תיאור של מה שהוא מחפש 
     }
 }

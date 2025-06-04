@@ -78,6 +78,8 @@ namespace Common.Dto
         public byte[]? RezumehArr { get; set; }         // רזומה - תוכן בבייטים
         public IFormFile? RezumehFile { get; set; }     // רזומה - קובץ מהקליינט
         public string? RezumehName { get; set; }        // רזומה - שם קובץ
+        public string DescriptionSelf { get; set; } // תיאור עצמי של המועמד
+        public string DescriptionFind { get; set; } // תיאור של מה שהוא מחפש 
     }
 }
 

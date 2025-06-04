@@ -57,7 +57,7 @@ namespace Repository.Repositories
             user.PhoneNumber = updatedUser.PhoneNumber;
             user.UserType = updatedUser.UserType;
             user.Candidate = updatedUser.Candidate;
-
+            
             await context.Save();
         }
     }

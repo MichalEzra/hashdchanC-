@@ -173,6 +173,12 @@
                   },
                   "RezumehName": {
                     "type": "string"
+                  },
+                  "DescriptionSelf": {
+                    "type": "string"
+                  },
+                  "DescriptionFind": {
+                    "type": "string"
                   }
                 }
               },
@@ -286,6 +292,12 @@
                   "style": "form"
                 },
                 "RezumehName": {
+                  "style": "form"
+                },
+                "DescriptionSelf": {
+                  "style": "form"
+                },
+                "DescriptionFind": {
                   "style": "form"
                 }
               }
@@ -1018,6 +1030,14 @@
             "nullable": true
           },
           "rezumehName": {
+            "type": "string",
+            "nullable": true
+          },
+          "descriptionSelf": {
+            "type": "string",
+            "nullable": true
+          },
+          "descriptionFind": {
             "type": "string",
             "nullable": true
           }

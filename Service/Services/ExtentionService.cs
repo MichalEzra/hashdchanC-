@@ -16,11 +16,12 @@ namespace Service.Services
         public static IServiceCollection AddServices(this IServiceCollection services)
         {
             services.AddRepositorys();
-            services.AddScoped<IService<CandidateDto>, CanditateService>();
-            services.AddScoped<IUserLinkedService<CandidateDto>, CanditateService>();
+            services.AddScoped<IService<CandidateDto>, CandidateService>();
+            services.AddScoped<IUserLinkedService<CandidateDto>, CandidateService>();
             services.AddScoped<IService<MatchmakerDto>, MatchmakerService>();
             services.AddScoped<IUserLinkedService<MatchmakerDto>, MatchmakerService>();
             services.AddScoped<IService<UserDto>, UserService>();
+
             services.AddAutoMapper(typeof(MyMapper));
             return services;
         }

@@ -211,6 +211,16 @@
         "Name": "RezumehName",
         "Type": "System.String",
         "IsRequired": false
+      },
+      {
+        "Name": "DescriptionSelf",
+        "Type": "System.String",
+        "IsRequired": false
+      },
+      {
+        "Name": "DescriptionFind",
+        "Type": "System.String",
+        "IsRequired": false
       }
     ],
     "ReturnTypes": [

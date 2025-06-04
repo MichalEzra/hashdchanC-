@@ -85,6 +85,8 @@ namespace Repository.Repositories
             candidate.License = item.License; // רישיון
             candidate.RezumehName = item.RezumehName;
             candidate.Rezumeh = item.Rezumeh;
+            candidate.DescriptionFind = item.DescriptionFind;
+            candidate.DescriptionSelf = item.DescriptionSelf;
             await context.Save();
         }
     }
