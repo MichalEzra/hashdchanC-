@@ -72,5 +72,7 @@ namespace Service.Services
                 candidate.AvailableForProposals)
                 .ToArray();
         }
+
+
     }
 }
