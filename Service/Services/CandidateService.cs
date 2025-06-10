@@ -53,26 +53,43 @@ namespace Service.Services
             var found = candidate.FirstOrDefault(c => c.UserId == userId);
             return mapper.Map<CandidateDto>(found);
         }
-        public async Task<CandidateDto[]> GetFemaleCandidatesAsync()
-        {
-            var allCandidates = await GetAll();
+        //public async Task<CandidateDto[]> GetFemaleCandidatesAsync()
+        //{
+        //    var allCandidates = await GetAll();
 
+        //    return allCandidates
+        //        .Where(candidate => candidate.CandidateGender == Gender.FEMALE &&
+        //        candidate.AvailableForProposals)
+        //        .ToArray();
+        //}
+
+        //public async Task<CandidateDto[]> GetMaleCandidatesAsync()
+        //{
+        //    var allCandidates = await GetAll();
+
+        //    return allCandidates
+        //        .Where(candidate => candidate.CandidateGender == Gender.MALE &&
+        //        candidate.AvailableForProposals)
+        //        .ToArray();
+        //}
+        // החזרת מועמדות נשים
+        public async Task<Candidate[]> GetFemaleCandidatesAsync()
+        {
+            var allCandidates = await repository.GetAll();
             return allCandidates
-                .Where(candidate => candidate.CandidateGender == Gender.FEMALE &&
-                candidate.AvailableForProposals)
+                .Where(candidate => candidate.CandidateGender.Equals(Gender.FEMALE) &&
+                                  candidate.AvailableForProposals)
                 .ToArray();
         }
 
-        public async Task<CandidateDto[]> GetMaleCandidatesAsync()
+        public async Task<Candidate[]> GetMaleCandidatesAsync()
         {
-            var allCandidates = await GetAll();
-
+            var allCandidates = await repository.GetAll();
             return allCandidates
-                .Where(candidate => candidate.CandidateGender == Gender.MALE &&
-                candidate.AvailableForProposals)
+                .Where(candidate => candidate.CandidateGender.Equals(Gender.MALE) &&
+                                  candidate.AvailableForProposals)
                 .ToArray();
         }
-
 
     }
 }

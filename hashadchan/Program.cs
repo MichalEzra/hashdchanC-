@@ -77,8 +77,7 @@ builder.Services.AddCors(options =>
                    .AllowAnyMethod();
         });
 });
-//API
-builder.Services.AddSingleton<TextAnalyticsService>();
+
 
 var app = builder.Build();
 

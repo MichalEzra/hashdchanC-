@@ -9,6 +9,7 @@
       "Service/1.0.0": {
         "dependencies": {
           "AutoMapper.Extensions.Microsoft.DependencyInjection": "12.0.1",
+          "Azure.AI.TextAnalytics": "5.3.0",
           "Common": "1.0.0",
           "Repository": "1.0.0"
         },
@@ -39,7 +40,20 @@
           }
         }
       },
-      "Azure.Core/1.24.0": {
+      "Azure.AI.TextAnalytics/5.3.0": {
+        "dependencies": {
+          "Azure.Core": "1.33.0",
+          "Microsoft.Bcl.AsyncInterfaces": "1.1.1",
+          "System.Text.Json": "4.7.2"
+        },
+        "runtime": {
+          "lib/netstandard2.0/Azure.AI.TextAnalytics.dll": {
+            "assemblyVersion": "5.3.0.0",
+            "fileVersion": "5.300.23.31903"
+          }
+        }
+      },
+      "Azure.Core/1.33.0": {
         "dependencies": {
           "Microsoft.Bcl.AsyncInterfaces": "1.1.1",
           "System.Diagnostics.DiagnosticSource": "5.0.0",
@@ -50,15 +64,15 @@
           "System.Threading.Tasks.Extensions": "4.5.4"
         },
         "runtime": {
-          "lib/net5.0/Azure.Core.dll": {
-            "assemblyVersion": "1.24.0.0",
-            "fileVersion": "1.2400.22.20404"
+          "lib/net6.0/Azure.Core.dll": {
+            "assemblyVersion": "1.33.0.0",
+            "fileVersion": "1.3300.23.31609"
           }
         }
       },
       "Azure.Identity/1.6.0": {
         "dependencies": {
-          "Azure.Core": "1.24.0",
+          "Azure.Core": "1.33.0",
           "Microsoft.Identity.Client": "4.45.0",
           "Microsoft.Identity.Client.Extensions.Msal": "2.19.3",
           "System.Memory": "4.5.4",
@@ -695,12 +709,19 @@
       "path": "automapper.extensions.microsoft.dependencyinjection/12.0.1",
       "hashPath": "automapper.extensions.microsoft.dependencyinjection.12.0.1.nupkg.sha512"
     },
-    "Azure.Core/1.24.0": {
+    "Azure.AI.TextAnalytics/5.3.0": {
       "type": "package",
       "serviceable": true,
-      "sha512": "sha512-+/qI1j2oU1S4/nvxb2k/wDsol00iGf1AyJX5g3epV7eOpQEP/2xcgh/cxgKMeFgn3U2fmgSiBnQZdkV+l5y0Uw==",
-      "path": "azure.core/1.24.0",
-      "hashPath": "azure.core.1.24.0.nupkg.sha512"
+      "sha512": "sha512-QFGaADxfpEcvUPGqIo2CaXUiR00JN1sU14cgmo4wLgizP7v5WGJT9DYqFrzOBPO/tDYaup9mE4secRahe5xVcw==",
+      "path": "azure.ai.textanalytics/5.3.0",
+      "hashPath": "azure.ai.textanalytics.5.3.0.nupkg.sha512"
+    },
+    "Azure.Core/1.33.0": {
+      "type": "package",
+      "serviceable": true,
+      "sha512": "sha512-p06/5ueyCwKe09zqz7bPR6vbWRGrDy6Ot4aqjrjnowhFlXUBoljUdH+abDZP2vUuSZrOSstF4h860hBHWh8uHg==",
+      "path": "azure.core/1.33.0",
+      "hashPath": "azure.core.1.33.0.nupkg.sha512"
     },
     "Azure.Identity/1.6.0": {
       "type": "package",
