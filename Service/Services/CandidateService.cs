@@ -63,6 +63,7 @@ namespace Service.Services
                 .ToArray();
         }
 
+
         public async Task<CandidateDto[]> GetMaleCandidatesAsync()
         {
             var allCandidates = await GetAll();
@@ -72,5 +73,7 @@ namespace Service.Services
                 candidate.AvailableForProposals)
                 .ToArray();
         }
-    }
-}
+
+
+
+
