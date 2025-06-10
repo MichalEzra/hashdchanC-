@@ -1,4 +1,4 @@
-﻿using AutoMapper;
+using AutoMapper;
 using Common.Dto;
 using Repository.Entities;
 using Repository.Interfaces;
@@ -11,28 +11,18 @@ using System.Threading.Tasks;
 
 namespace Service.Services
 {
-    public class CandidateService : IService<CandidateDto>, IUserLinkedService<CandidateDto>
+    public class CandidateService : IService<CandidateDto>, ICandidatesDetails<Candidate>, IUserLinkedService<CandidateDto>
     {
         private readonly IRepository<Candidate> repository;
         private readonly IMapper mapper;
-        private readonly TextAnalyticsService _textAnalytics; // שירות ניתוח טקסט
-        public CandidateService(IRepository<Candidate> repository, IMapper mapper, TextAnalyticsService textAnalytics)
+        public CandidateService(IRepository<Candidate> repository, IMapper mapper)
         {
             this.repository = repository;
             this.mapper = mapper;
-            this._textAnalytics = textAnalytics;
         }
 
         public async Task<CandidateDto> AddItem(CandidateDto item)
         {
-            // מחלץ מילות מפתח מתוך התיאור העצמי
-            var selfKeywords = _textAnalytics.ExtractKeyPhrases(item.DescriptionSelf);
-            item.DescriptionSelf = string.Join(',', selfKeywords);
-
-            // מחלץ מילות מפתח מתוך תיאור מה שהוא מחפש
-            var findKeywords = _textAnalytics.ExtractKeyPhrases(item.DescriptionFind);
-            item.DescriptionFind = string.Join(',', findKeywords);
-
             var addedCandidate = await repository.AddItem(mapper.Map<CandidateDto, Candidate>(item));
             return mapper.Map<Candidate, CandidateDto>(addedCandidate);
         }
@@ -54,14 +44,6 @@ namespace Service.Services
 
         public async Task UpdateItem(int id, CandidateDto item)
         {
-            // מחלץ מילות מפתח מתוך התיאור העצמי
-            var selfKeywords = _textAnalytics.ExtractKeyPhrases(item.DescriptionSelf);
-            item.DescriptionSelf = string.Join(',', selfKeywords);
-
-            // מחלץ מילות מפתח מתוך תיאור מה שהוא מחפש
-            var findKeywords = _textAnalytics.ExtractKeyPhrases(item.DescriptionFind);
-            item.DescriptionFind = string.Join(',', findKeywords);
-
             await repository.UpdateItem(id, mapper.Map<CandidateDto, Candidate>(item));
         }
 
@@ -71,6 +53,24 @@ namespace Service.Services
             var found = candidate.FirstOrDefault(c => c.UserId == userId);
             return mapper.Map<CandidateDto>(found);
         }
+        public async Task<CandidateDto[]> GetFemaleCandidatesAsync()
+        {
+            var allCandidates = await GetAll();
 
+            return allCandidates
+                .Where(candidate => candidate.CandidateGender == Gender.FEMALE &&
+                candidate.AvailableForProposals)
+                .ToArray();
+        }
+
+        public async Task<CandidateDto[]> GetMaleCandidatesAsync()
+        {
+            var allCandidates = await GetAll();
+
+            return allCandidates
+                .Where(candidate => candidate.CandidateGender == Gender.MALE &&
+                candidate.AvailableForProposals)
+                .ToArray();
+        }
     }
 }
