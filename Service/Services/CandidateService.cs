@@ -1,4 +1,4 @@
-﻿using AutoMapper;
+using AutoMapper;
 using Common.Dto;
 using Repository.Entities;
 using Repository.Interfaces;
@@ -83,6 +83,7 @@ namespace Service.Services
         }
 
         public async Task<Candidate[]> GetMaleCandidatesAsync()
+
         {
             var allCandidates = await repository.GetAll();
             return allCandidates
@@ -91,5 +92,11 @@ namespace Service.Services
                 .ToArray();
         }
 
+
     }
 }
+
+
+
+
+
