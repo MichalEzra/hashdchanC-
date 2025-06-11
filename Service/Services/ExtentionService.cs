@@ -3,6 +3,7 @@ using Microsoft.Extensions.DependencyInjection;
 using Repository.Entities;
 using Repository.Repositories;
 using Service.Interfasces;
+using Service.Service;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -21,6 +22,10 @@ namespace Service.Services
             services.AddScoped<IService<MatchmakerDto>, MatchmakerService>();
             services.AddScoped<IUserLinkedService<MatchmakerDto>, MatchmakerService>();
             services.AddScoped<IService<UserDto>, UserService>();
+            services.AddScoped<IService<MatchDto>, MatchService>();
+
+
+
 
             services.AddAutoMapper(typeof(MyMapper));
             return services;

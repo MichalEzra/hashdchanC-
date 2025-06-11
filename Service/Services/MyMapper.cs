@@ -29,6 +29,8 @@ namespace Service.Services
             CreateMap<UserDto, User>();
             CreateMap<Matchmaker, MatchmakerDto>();
             CreateMap<MatchmakerDto, Matchmaker>();
+            CreateMap<Match, MatchDto>();
+            CreateMap<MatchDto, Match>();
         }
         private byte[] ConvertIFormFileToBytes(IFormFile file)
         {

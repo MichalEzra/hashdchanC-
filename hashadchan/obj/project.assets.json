@@ -293,6 +293,19 @@
           }
         }
       },
+      "HungarianAlgorithm/2.3.3": {
+        "type": "package",
+        "compile": {
+          "lib/netstandard2.1/HungarianAlgorithm.dll": {
+            "related": ".xml"
+          }
+        },
+        "runtime": {
+          "lib/netstandard2.1/HungarianAlgorithm.dll": {
+            "related": ".xml"
+          }
+        }
+      },
       "Microsoft.AspNetCore.Authentication.JwtBearer/7.0.0": {
         "type": "package",
         "dependencies": {
@@ -923,6 +936,19 @@
           }
         }
       },
+      "Portable.BouncyCastle/1.9.0": {
+        "type": "package",
+        "compile": {
+          "lib/netstandard2.0/BouncyCastle.Crypto.dll": {
+            "related": ".xml"
+          }
+        },
+        "runtime": {
+          "lib/netstandard2.0/BouncyCastle.Crypto.dll": {
+            "related": ".xml"
+          }
+        }
+      },
       "Swashbuckle.AspNetCore/6.5.0": {
         "type": "package",
         "dependencies": {
@@ -1533,6 +1559,8 @@
           "AutoMapper.Extensions.Microsoft.DependencyInjection": "12.0.1",
           "Azure.AI.TextAnalytics": "5.3.0",
           "Common": "1.0.0",
+          "HungarianAlgorithm": "2.3.3",
+          "Portable.BouncyCastle": "1.9.0",
           "Repository": "1.0.0"
         },
         "compile": {
@@ -1949,6 +1977,23 @@
         "lib/netstandard2.1/Grpc.Net.Common.pdb",
         "lib/netstandard2.1/Grpc.Net.Common.xml",
         "packageIcon.png"
+      ]
+    },
+    "HungarianAlgorithm/2.3.3": {
+      "sha512": "oGW/FaG3GS9UxFSB5QAMrLpBFFL3j0WNGyd0oiS/rQF8QY24Ep1y2zYvaUZnzucoBUYfIecEOy0v+eiZdNlPOQ==",
+      "type": "package",
+      "path": "hungarianalgorithm/2.3.3",
+      "files": [
+        ".nupkg.metadata",
+        ".signature.p7s",
+        "LICENSE",
+        "README.md",
+        "hungarianalgorithm.2.3.3.nupkg.sha512",
+        "hungarianalgorithm.nuspec",
+        "lib/netstandard2.0/HungarianAlgorithm.dll",
+        "lib/netstandard2.0/HungarianAlgorithm.xml",
+        "lib/netstandard2.1/HungarianAlgorithm.dll",
+        "lib/netstandard2.1/HungarianAlgorithm.xml"
       ]
     },
     "Microsoft.AspNetCore.Authentication.JwtBearer/7.0.0": {
@@ -3111,6 +3156,21 @@
         "newtonsoft.json.13.0.3.nupkg.sha512",
         "newtonsoft.json.nuspec",
         "packageIcon.png"
+      ]
+    },
+    "Portable.BouncyCastle/1.9.0": {
+      "sha512": "eZZBCABzVOek+id9Xy04HhmgykF0wZg9wpByzrWN7q8qEI0Qen9b7tfd7w8VA3dOeesumMG7C5ZPy0jk7PSRHw==",
+      "type": "package",
+      "path": "portable.bouncycastle/1.9.0",
+      "files": [
+        ".nupkg.metadata",
+        ".signature.p7s",
+        "lib/net40/BouncyCastle.Crypto.dll",
+        "lib/net40/BouncyCastle.Crypto.xml",
+        "lib/netstandard2.0/BouncyCastle.Crypto.dll",
+        "lib/netstandard2.0/BouncyCastle.Crypto.xml",
+        "portable.bouncycastle.1.9.0.nupkg.sha512",
+        "portable.bouncycastle.nuspec"
       ]
     },
     "Swashbuckle.AspNetCore/6.5.0": {
@@ -4580,6 +4640,7 @@
   "projectFileDependencyGroups": {
     "net7.0": [
       "Google.Cloud.Language.V1 >= 3.7.0",
+      "HungarianAlgorithm >= 2.3.3",
       "Microsoft.AspNetCore.OpenApi >= 7.0.19",
       "Mock >= 1.0.0",
       "Service >= 1.0.0",
@@ -4646,6 +4707,10 @@
           "Google.Cloud.Language.V1": {
             "target": "Package",
             "version": "[3.7.0, )"
+          },
+          "HungarianAlgorithm": {
+            "target": "Package",
+            "version": "[2.3.3, )"
           },
           "Microsoft.AspNetCore.OpenApi": {
             "target": "Package",

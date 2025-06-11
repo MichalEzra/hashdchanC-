@@ -11,7 +11,7 @@ using System.Threading.Tasks;
 
 namespace Service.Services
 {
-    public class CandidateService : IService<CandidateDto>, ICandidatesDetails<Candidate>, IUserLinkedService<CandidateDto>
+    public class CandidateService : IService<CandidateDto>, IMyDetails<Candidate>, IUserLinkedService<CandidateDto>
     {
         private readonly IRepository<Candidate> repository;
         private readonly IMapper mapper;
@@ -53,26 +53,6 @@ namespace Service.Services
             var found = candidate.FirstOrDefault(c => c.UserId == userId);
             return mapper.Map<CandidateDto>(found);
         }
-        //public async Task<CandidateDto[]> GetFemaleCandidatesAsync()
-        //{
-        //    var allCandidates = await GetAll();
-
-        //    return allCandidates
-        //        .Where(candidate => candidate.CandidateGender == Gender.FEMALE &&
-        //        candidate.AvailableForProposals)
-        //        .ToArray();
-        //}
-
-        //public async Task<CandidateDto[]> GetMaleCandidatesAsync()
-        //{
-        //    var allCandidates = await GetAll();
-
-        //    return allCandidates
-        //        .Where(candidate => candidate.CandidateGender == Gender.MALE &&
-        //        candidate.AvailableForProposals)
-        //        .ToArray();
-        //}
-        // החזרת מועמדות נשים
         public async Task<Candidate[]> GetFemaleCandidatesAsync()
         {
             var allCandidates = await repository.GetAll();
@@ -83,7 +63,6 @@ namespace Service.Services
         }
 
         public async Task<Candidate[]> GetMaleCandidatesAsync()
-
         {
             var allCandidates = await repository.GetAll();
             return allCandidates

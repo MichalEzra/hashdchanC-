@@ -132,6 +132,10 @@
               "target": "Package",
               "version": "[3.7.0, )"
             },
+            "HungarianAlgorithm": {
+              "target": "Package",
+              "version": "[2.3.3, )"
+            },
             "Microsoft.AspNetCore.OpenApi": {
               "target": "Package",
               "version": "[7.0.19, )"
@@ -390,6 +394,14 @@
             "Azure.AI.TextAnalytics": {
               "target": "Package",
               "version": "[5.3.0, )"
+            },
+            "HungarianAlgorithm": {
+              "target": "Package",
+              "version": "[2.3.3, )"
+            },
+            "Portable.BouncyCastle": {
+              "target": "Package",
+              "version": "[1.9.0, )"
             }
           },
           "imports": [

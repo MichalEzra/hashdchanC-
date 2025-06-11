@@ -15,8 +15,5 @@ namespace Service.Interfasces
         Task DeleteItem(int id);
         Task UpdateItem(int id, T item);
     }
-    public interface IUserLinkedService<T>
-    {
-        Task<T?> GetByUserId(int userId);
-    }
+    
 }

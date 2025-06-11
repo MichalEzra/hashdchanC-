@@ -1,5 +1,6 @@
 ﻿using Microsoft.EntityFrameworkCore;
 using Repository.Entities;
+using Repository.Entities.Enums;
 using Repository.Interfaces;
 using System;
 using System.Collections.Generic;
@@ -89,5 +90,37 @@ namespace Repository.Repositories
             candidate.DescriptionSelf = item.DescriptionSelf;
             await context.Save();
         }
+        public async Task<Candidate[]> GetFemaleCandidatesAsync()
+        {
+            return await context.Candidates
+                .Where(c => c.CandidateGender == Gender.FEMALE && c.AvailableForProposals)
+                .ToArrayAsync();
+        }
+
+        public async Task<Candidate[]> GetMaleCandidatesAsync()
+        {
+            return await context.Candidates
+                .Where(c => c.CandidateGender == Gender.MALE && c.AvailableForProposals)
+                .ToArrayAsync();
+        }
+
+        public async Task<Candidate> GetCandidateByIdAsync(int id)
+        {
+            return await context.Candidates.FindAsync(id);
+        }
+
+        public async Task<Candidate[]> GetAllCandidatesAsync()
+        {
+            return await context.Candidates
+                .Where(c => c.AvailableForProposals)
+                .ToArrayAsync();
+        }
+
+        public async Task<int> GetCandidatesCountAsync(Gender gender)
+        {
+            return await context.Candidates
+                .CountAsync(c => c.CandidateGender == gender && c.AvailableForProposals);
+        }
     }
 }
+
