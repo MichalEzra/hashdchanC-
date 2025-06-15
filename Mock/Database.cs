@@ -14,6 +14,7 @@ namespace Mock
         public DbSet<Candidate> Candidates { get; set; }
         public DbSet<Matchmaker> Matchmakers { get; set; }
         public DbSet<User> Users { get; set; }
+        public DbSet<Match> Matches { get; set; }
 
         public async Task Save()
         {

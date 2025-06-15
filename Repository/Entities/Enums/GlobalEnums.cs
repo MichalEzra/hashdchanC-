@@ -9,7 +9,7 @@ namespace Repository.Entities.Enums
     public enum Gender // מגדר
     {
         MALE, // גבר
-        FEMALE // אישה
+        FEMALE, // אישה
     }
     public enum CandidateStatus //מצב אישי
     {

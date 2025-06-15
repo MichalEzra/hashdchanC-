@@ -149,6 +149,52 @@ namespace Mock.Migrations
                     b.ToTable("Candidates");
                 });
 
+            modelBuilder.Entity("Repository.Entities.Match", b =>
+                {
+                    b.Property<int>("Id")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("int");
+
+                    SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("Id"));
+
+                    b.Property<bool>("Active")
+                        .HasColumnType("bit");
+
+                    b.Property<bool>("ConfirmationGirl")
+                        .HasColumnType("bit");
+
+                    b.Property<bool>("ConfirmationGuy")
+                        .HasColumnType("bit");
+
+                    b.Property<DateTime>("DateMatch")
+                        .HasColumnType("datetime2");
+
+                    b.Property<int>("IdCandidateGirl")
+                        .HasColumnType("int");
+
+                    b.Property<int>("IdCandidateGuy")
+                        .HasColumnType("int");
+
+                    b.Property<int>("IdMatchmaker")
+                        .HasColumnType("int");
+
+                    b.Property<bool>("IsEngaged")
+                        .HasColumnType("bit");
+
+                    b.Property<bool>("Status")
+                        .HasColumnType("bit");
+
+                    b.HasKey("Id");
+
+                    b.HasIndex("IdCandidateGirl");
+
+                    b.HasIndex("IdCandidateGuy");
+
+                    b.HasIndex("IdMatchmaker");
+
+                    b.ToTable("Matches");
+                });
+
             modelBuilder.Entity("Repository.Entities.Matchmaker", b =>
                 {
                     b.Property<int>("Id")
@@ -256,6 +302,33 @@ namespace Mock.Migrations
                         .IsRequired();
 
                     b.Navigation("User");
+                });
+
+            modelBuilder.Entity("Repository.Entities.Match", b =>
+                {
+                    b.HasOne("Repository.Entities.Candidate", "girl")
+                        .WithMany()
+                        .HasForeignKey("IdCandidateGirl")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
+
+                    b.HasOne("Repository.Entities.Candidate", "guy")
+                        .WithMany()
+                        .HasForeignKey("IdCandidateGuy")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
+
+                    b.HasOne("Repository.Entities.Matchmaker", "matchmaker")
+                        .WithMany()
+                        .HasForeignKey("IdMatchmaker")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
+
+                    b.Navigation("girl");
+
+                    b.Navigation("guy");
+
+                    b.Navigation("matchmaker");
                 });
 
             modelBuilder.Entity("Repository.Entities.Matchmaker", b =>

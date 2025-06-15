@@ -1,14 +1,13 @@
-﻿using Common.Dto;
+﻿
+using Hangfire;
 using Microsoft.AspNetCore.Authentication.JwtBearer;
 using Microsoft.IdentityModel.Tokens;
 using Microsoft.OpenApi.Models;
 using Mock;
-using Repository.Entities;
 using Repository.Interfaces;
-using Repository.Repositories;
-using Service.Interfasces;
 using Service.Services;
 using System.Text;
+using WebApplication1.Controllers;
 
 var builder = WebApplication.CreateBuilder(args);
 
@@ -77,11 +76,13 @@ builder.Services.AddCors(options =>
                    .AllowAnyMethod();
         });
 });
-//API
-builder.Services.AddSingleton<TextAnalyticsService>();
+
+builder.Services.AddHangfire(config => config.UseSqlServerStorage(builder.Configuration.GetConnectionString("DefaultConnection")));
+builder.Services.AddHangfireServer();
 
 var app = builder.Build();
 
+app.UseHangfireDashboard();
 
 if (app.Environment.IsDevelopment())
 {
@@ -97,5 +98,11 @@ app.UseAuthentication();
 app.UseAuthorization();
 
 app.MapControllers();
+
+RecurringJob.AddOrUpdate<HungarianAlgorithmController>(
+    "monthly-HungarianAlgorithm",
+    algo => algo.Get(),
+    Cron.Monthly);
+
 
 app.Run();

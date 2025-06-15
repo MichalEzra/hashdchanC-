@@ -299,6 +299,66 @@
     "ReturnTypes": []
   },
   {
+    "ContainingType": "WebApplication1.Controllers.HungarianAlgorithmController",
+    "Method": "Get",
+    "RelativePath": "api/HungarianAlgorithm/all",
+    "HttpMethod": "GET",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [],
+    "ReturnTypes": [
+      {
+        "Type": "Common.Dto.CandidateDto[][]",
+        "MediaTypes": [
+          "text/plain",
+          "application/json",
+          "text/json"
+        ],
+        "StatusCode": 200
+      }
+    ]
+  },
+  {
+    "ContainingType": "WebApplication1.Controllers.HungarianAlgorithmController",
+    "Method": "Get10Female",
+    "RelativePath": "api/HungarianAlgorithm/female",
+    "HttpMethod": "GET",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [],
+    "ReturnTypes": [
+      {
+        "Type": "System.Collections.Generic.List\u00601[[Common.Dto.MatchResultsDto, Common, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null]]",
+        "MediaTypes": [
+          "text/plain",
+          "application/json",
+          "text/json"
+        ],
+        "StatusCode": 200
+      }
+    ]
+  },
+  {
+    "ContainingType": "WebApplication1.Controllers.HungarianAlgorithmController",
+    "Method": "Get10Male",
+    "RelativePath": "api/HungarianAlgorithm/male",
+    "HttpMethod": "GET",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [],
+    "ReturnTypes": [
+      {
+        "Type": "System.Collections.Generic.List\u00601[[Common.Dto.MatchResultsDto, Common, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null]]",
+        "MediaTypes": [
+          "text/plain",
+          "application/json",
+          "text/json"
+        ],
+        "StatusCode": 200
+      }
+    ]
+  },
+  {
     "ContainingType": "hashadchan.Controllers.MatchmakerController",
     "Method": "Get",
     "RelativePath": "api/Matchmaker",
@@ -565,26 +625,5 @@
         "StatusCode": 200
       }
     ]
-  },
-  {
-    "ContainingType": "hashadchan.Controllers.WeatherForecastController",
-    "Method": "Get",
-    "RelativePath": "WeatherForecast",
-    "HttpMethod": "GET",
-    "IsController": true,
-    "Order": 0,
-    "Parameters": [],
-    "ReturnTypes": [
-      {
-        "Type": "System.Collections.Generic.IEnumerable\u00601[[hashadchan.WeatherForecast, hashadchan, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null]]",
-        "MediaTypes": [
-          "text/plain",
-          "application/json",
-          "text/json"
-        ],
-        "StatusCode": 200
-      }
-    ],
-    "EndpointName": "GetWeatherForecast"
   }
 ]
