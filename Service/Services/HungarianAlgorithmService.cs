@@ -27,28 +27,24 @@ public class HungarianAlgorithmService : IHungarianAlgorithm
     public int[,] CostMatrixFemale { get; set; }
 
     private int[] assignments;
-    private static Random _random = new Random();
+    private static Random _random ;
 
     public HungarianAlgorithmService(IMyDetails<Candidate> candidateService, IService<MatchDto> matchService, IMapper mapper)
     {
         _candidateService = candidateService;
         _matchService = matchService;
         _mapper = mapper;
+        _random = new Random();
     }
 
     public async Task InitializeCandidatesAsync()
     {
-        femaleCandidates = (await _candidateService.GetFemaleCandidatesAsync())
-            .Where(c => c.CandidateGender == Gender.FEMALE)
-            .ToArray();
-
-        maleCandidates = (await _candidateService.GetMaleCandidatesAsync())
-            .Where(c => c.CandidateGender == Gender.MALE)
-            .ToArray();
-
+        femaleCandidates = (await _candidateService.GetFemaleCandidatesAsync());
+        maleCandidates = (await _candidateService.GetMaleCandidatesAsync());
+        Console.WriteLine($"מספר מועמדות: {femaleCandidates.Length}");
+        Console.WriteLine($"מספר מועמדים: {maleCandidates.Length}");
         femaleCount = femaleCandidates.Length;
         maleCount = maleCandidates.Length;
-
         CostMatrix = new int[maleCount, femaleCount];
         CostMatrixMale = new int[Math.Min(10, maleCount), femaleCount];
         CostMatrixFemale = new int[maleCount, Math.Min(10, femaleCount)];

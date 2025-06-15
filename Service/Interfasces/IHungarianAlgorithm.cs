@@ -10,6 +10,7 @@ namespace Service.Interfaces
     public interface IHungarianAlgorithm
     {
         // ממשק לאלגוריתם ההונגרי
+        Task InitializeCandidatesAsync();
         public int[,] CostMatrix { get; set; }
         public int[,] CostMatrixMale { get; set; }
         public int[,] CostMatrixFemale { get; set; }

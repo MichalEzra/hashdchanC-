@@ -21,8 +21,10 @@ namespace WebApplication1.Controllers
         }
 
         [HttpGet("all")]
-        public ActionResult<CandidateDto[][]> Get()
+        public async Task<ActionResult<CandidateDto[][]>> Get()
         {
+            await _matchingService.InitializeCandidatesAsync();
+
             _matchingService.MatrixFilling(_matchingService.CostMatrix);
 
             if (_matchingService.CostMatrix == null)
@@ -47,8 +49,9 @@ namespace WebApplication1.Controllers
         }
 
         [HttpGet("male")]
-        public ActionResult<List<MatchResultsDto>> Get10Male()
+        public async Task<ActionResult<List<MatchResultsDto>>> Get10Male()
         {
+            await _matchingService.InitializeCandidatesAsync();
             _matchingService.MatrixFilling(_matchingService.CostMatrixMale);
 
             if (_matchingService.CostMatrixMale == null)
@@ -71,8 +74,9 @@ namespace WebApplication1.Controllers
         }
 
         [HttpGet("female")]
-        public ActionResult<List<MatchResultsDto>> Get10Female()
+        public async Task<ActionResult<List<MatchResultsDto>>> Get10Female()
         {
+            await _matchingService.InitializeCandidatesAsync();
             _matchingService.MatrixFilling(_matchingService.CostMatrixFemale);
 
             if (_matchingService.CostMatrixFemale == null)

@@ -132,6 +132,18 @@
               "target": "Package",
               "version": "[3.7.0, )"
             },
+            "Hangfire.AspNetCore": {
+              "target": "Package",
+              "version": "[1.8.20, )"
+            },
+            "Hangfire.Core": {
+              "target": "Package",
+              "version": "[1.8.20, )"
+            },
+            "Hangfire.SqlServer": {
+              "target": "Package",
+              "version": "[1.8.20, )"
+            },
             "HungarianAlgorithm": {
               "target": "Package",
               "version": "[2.3.3, )"

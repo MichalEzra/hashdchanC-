@@ -55,23 +55,37 @@ namespace Service.Services
         }
         public async Task<Candidate[]> GetFemaleCandidatesAsync()
         {
-            var allCandidates = await repository.GetAll();
-            return allCandidates
-                .Where(candidate => candidate.CandidateGender.Equals(Gender.FEMALE) &&
+            List<Candidate> allCandidates  = await repository.GetAll();
+            List<Candidate> femaleCandidates = new List<Candidate>();
+
+            foreach (Candidate candidate in allCandidates)
+            {
+                if (candidate.CandidateGender == Repository.Entities.Enums.Gender.FEMALE &&
                                   candidate.AvailableForProposals)
-                .ToArray();
+                {
+                    femaleCandidates.Add(candidate);
+
+                }
+            }
+            return femaleCandidates.ToArray();
         }
 
         public async Task<Candidate[]> GetMaleCandidatesAsync()
         {
-            var allCandidates = await repository.GetAll();
-            return allCandidates
-                .Where(candidate => candidate.CandidateGender.Equals(Gender.MALE) &&
+            List<Candidate> allCandidates = await repository.GetAll();
+            List<Candidate> maleCandidates = new List<Candidate>();
+
+            foreach (Candidate candidate in allCandidates)
+            {
+                if (candidate.CandidateGender== Repository.Entities.Enums.Gender.MALE &&
                                   candidate.AvailableForProposals)
-                .ToArray();
+                {
+                    maleCandidates.Add(candidate);
+
+                }
+            }
+            return maleCandidates.ToArray();
         }
-
-
     }
 }
 

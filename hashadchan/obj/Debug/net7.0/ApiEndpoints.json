@@ -308,7 +308,7 @@
     "Parameters": [],
     "ReturnTypes": [
       {
-        "Type": "Repository.Entities.Candidate[][]",
+        "Type": "Common.Dto.CandidateDto[][]",
         "MediaTypes": [
           "text/plain",
           "application/json",

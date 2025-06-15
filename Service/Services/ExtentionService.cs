@@ -2,6 +2,7 @@
 using Microsoft.Extensions.DependencyInjection;
 using Repository.Entities;
 using Repository.Repositories;
+using Service.Interfaces;
 using Service.Interfasces;
 using Service.Service;
 using System;
@@ -23,6 +24,9 @@ namespace Service.Services
             services.AddScoped<IUserLinkedService<MatchmakerDto>, MatchmakerService>();
             services.AddScoped<IService<UserDto>, UserService>();
             services.AddScoped<IService<MatchDto>, MatchService>();
+            services.AddScoped<IServiceMatch, MatchService>();
+            services.AddScoped<IMyDetails<Candidate>, CandidateService>();
+            services.AddScoped<IHungarianAlgorithm, HungarianAlgorithmService>();
 
 
 
