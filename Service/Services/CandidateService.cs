@@ -55,6 +55,7 @@ namespace Service.Services
         }
         public async Task<Candidate[]> GetFemaleCandidatesAsync()
         {
+
             List<Candidate> allCandidates  = await repository.GetAll();
             List<Candidate> femaleCandidates = new List<Candidate>();
 
@@ -85,6 +86,7 @@ namespace Service.Services
                 }
             }
             return maleCandidates.ToArray();
+
         }
     }
 }
