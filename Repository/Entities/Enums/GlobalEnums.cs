@@ -54,6 +54,7 @@ namespace Repository.Entities.Enums
         YESHIVA_GDOLA, // ישיבה גדולה
         KIBBUTZ, // קיבוץ
         HIGH_SCHOOL, // תיכון
+        SHMINAR, //סמינר
         COLLEGE, // מכללה
         UNIVERSITY, // אוניברסיטה
         KOLLEL // כולל

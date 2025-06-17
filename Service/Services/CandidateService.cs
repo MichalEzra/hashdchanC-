@@ -88,6 +88,91 @@ namespace Service.Services
             return maleCandidates.ToArray();
 
         }
+
+        public async Task<string> GetAllCandidateInfoAsync(Candidate candidate)
+        {
+            if (candidate == null)
+                return "???? ?????? ???? ??????";
+
+            StringBuilder generalInfo = new StringBuilder();
+
+            generalInfo.AppendLine($"?? ???: {candidate.FirstName} {candidate.LastName}\n");
+            generalInfo.AppendLine($"????: {candidate.CandidateGender}\n");
+            generalInfo.AppendLine($"??? ????: {candidate.Status}\n");
+            generalInfo.AppendLine($"???: {candidate.Age}\n");
+            generalInfo.AppendLine($"???: {candidate.City}\n");
+            generalInfo.AppendLine($"????: {candidate.CandidateSector}\n");
+            generalInfo.AppendLine($"?? ????: {candidate.SubSector}\n");
+            generalInfo.AppendLine($"??? ????? ????: {candidate.TorahLearning}\n");
+            generalInfo.AppendLine($"???? ???????: {candidate.Education}\n");
+            generalInfo.AppendLine($"?? ???? ???????: {candidate.StudyPlaceName}\n");
+            generalInfo.AppendLine($"?????: {candidate.JobOrStudies}\n");
+            generalInfo.AppendLine($"????: {candidate.Origin}\n");
+            generalInfo.AppendLine($"????: {candidate.Languages}\n");
+            generalInfo.AppendLine($"?????? ????: {candidate.ReligiousOpenness}\n");
+            generalInfo.AppendLine($"????? ????: {candidate.ClothingStyle}\n");
+            generalInfo.AppendLine($"????: {candidate.Height} ?\"?\n");
+            generalInfo.AppendLine($"???? ???: {candidate.Physique}\n");
+            generalInfo.AppendLine($"??? ???: {candidate.SkinTone}\n");
+            generalInfo.AppendLine($"??? ????: {candidate.HairColor}\n");
+            generalInfo.AppendLine($"??? ????: {candidate.Giving}\n");
+            generalInfo.AppendLine($"??? ???? ????: {candidate.Expecting}\n");
+            generalInfo.AppendLine($"??? ?????? ?????: {candidate.FamilyStatus}\n");
+            generalInfo.AppendLine($"???? ??????: {(candidate.AvailableForProposals ? "??" : "??")}\n");
+            generalInfo.AppendLine($"????? ??? ?????: {candidate.PreferredHeadCovering}\n");
+            generalInfo.AppendLine($"??? ?????: {candidate.CandidatePhoneType}\n");
+
+            if (candidate.CandidateGender == Repository.Entities.Enums.Gender.MALE)
+            {
+                generalInfo.AppendLine($"?????? ?????: {(candidate.License ? "??" : "??")}\n");
+                generalInfo.AppendLine($"???: {(candidate.Beard ? "??" : "??")}\n");
+                generalInfo.AppendLine($"????? ?????: {candidate.SmokingStatus}\n");
+            }
+
+            generalInfo.AppendLine($"?? ???? ????? ????: {candidate.RezumehName ?? "???"}\n");
+            generalInfo.AppendLine($"????? ????: {candidate.DescriptionSelf}\n");
+            generalInfo.AppendLine($"?? ????: {candidate.DescriptionFind}\n");
+
+            return generalInfo.ToString();
+        }
+
+        public async Task<string> GetGeneralCandidateInfoAsync(Candidate candidate)
+        {
+            if (candidate == null)
+                return "???? ?????? ???? ??????";
+
+            StringBuilder generalInfo = new StringBuilder();
+
+            generalInfo.AppendLine($"???: {candidate.Age}\n");
+            generalInfo.AppendLine($"???: {candidate.City}\n");
+            generalInfo.AppendLine($"??? ????: {candidate.Status}\n");
+            generalInfo.AppendLine($"????: {candidate.CandidateSector}\n");
+            generalInfo.AppendLine($"?? ????: {candidate.SubSector}\n");
+            generalInfo.AppendLine($"????: {candidate.Origin}\n");
+            generalInfo.AppendLine($"?????? ????: {candidate.ReligiousOpenness}\n");
+            generalInfo.AppendLine($"????? ????: {candidate.ClothingStyle}\n");
+            generalInfo.AppendLine($"?????: {candidate.JobOrStudies}\n");
+            generalInfo.AppendLine($"???? ???????: {candidate.Education}\n");
+            generalInfo.AppendLine($"?? ???? ????????: {candidate.StudyPlaceName}\n");
+            if (candidate.CandidateGender == Repository.Entities.Enums.Gender.FEMALE)
+            {
+                generalInfo.AppendLine($"?????/???????: {candidate.JobOrStudies}\n");
+                generalInfo.AppendLine($"????? ??? ?????: {candidate.PreferredHeadCovering}\n");
+            }
+            else
+            {
+                generalInfo.AppendLine($"??? ????? ????: {candidate.TorahLearning}\n");
+                generalInfo.AppendLine($"?????? ?????: {(candidate.License ? "??" : "??")}\n");
+                generalInfo.AppendLine($"???: {(candidate.Beard ? "??" : "??")}\n");
+                generalInfo.AppendLine($"????? ?????: {candidate.SmokingStatus}\n");
+            }
+
+            generalInfo.AppendLine($"?? ??? ????: {candidate.DescriptionFind}\n");
+
+            return generalInfo.ToString();
+        }
+
+        
     }
 }
 

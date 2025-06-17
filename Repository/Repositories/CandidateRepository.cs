@@ -64,6 +64,7 @@ namespace Repository.Repositories
             candidate.SubSector = item.SubSector; // תת מגזר
             candidate.TorahLearning = item.TorahLearning; // לימוד תורה
             candidate.Education = item.Education; // מוסד לימודים
+            candidate.StudyPlaceName = item.StudyPlaceName; //שם מובד הלימודים
             candidate.JobOrStudies = item.JobOrStudies; // עיסוק
             candidate.City = item.City; // עיר
             candidate.ImageUrl = item.ImageUrl; // תמונה

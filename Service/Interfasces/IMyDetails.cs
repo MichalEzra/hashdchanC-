@@ -16,8 +16,8 @@ namespace Service.Interfasces
         Task<T[]> GetMaleCandidatesAsync();
 
         // פונקציות נוספות שיכולות להיות שימושיות
-    //    Task<T> GetCandidateByIdAsync(int id);
-   //     Task<T[]> GetAllCandidatesAsync();
-  //      Task<int> GetCandidatesCountAsync(Gender gender);
+        //    Task<T> GetCandidateByIdAsync(int id);
+        Task<string> GetGeneralCandidateInfoAsync(Candidate candidate);
+        Task<string> GetAllCandidateInfoAsync(Candidate candidate);
     }
 }

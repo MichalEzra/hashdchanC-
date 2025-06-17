@@ -55,28 +55,34 @@ public class HungarianAlgorithmService : IHungarianAlgorithm
         int score = 0;
 
         if (c1.SubSector == c2.SubSector) score += 10; // // אותו מגזר (חסידי / ליטאי / ספרדי וכו')
+        
         if (c1.SubSector == c2.SubSector) score += 5; // // אותו תת-מגזר (לדוגמה: גור / ויז'ניץ וכו')
+        
+        int opennessDiff = Math.Abs((int)c1.ReligiousOpenness - (int)c2.ReligiousOpenness);
+        score += (6 - opennessDiff) * 3;
+        
+        int clothingStyleDiff = Math.Abs((int)c1.ClothingStyle - (int)c2.ClothingStyle);
+        score += (5 - clothingStyleDiff) * 2;// סגנון לבוש זהה – מקבלים ניקוד מלא
+        
+        int PhysiqueDiff = Math.Abs((int)c1.Physique - (int)c2.Physique);//מבנה גוף 
 
-        if (c1.ReligiousOpenness == c2.ReligiousOpenness)
-            score += 15; // פתיחות זהה – ניקוד מקסימלי
 
-        if (c1.ClothingStyle == c2.ClothingStyle)
-            score += 10; // סגנון לבוש זהה – מקבלים ניקוד מלא
-
-        if (c1.SkinTone == c2.SkinTone) // גוון עור – = ניקוד גבוה
-            score += 4;
+        int SkinToneDiff = Math.Abs((int)c1.SkinTone - (int)c2.SkinTone);
+        score += (4 - PhysiqueDiff);// גוון עור – = ניקוד גבוה
+   
+        
         double heightDifference = Math.Abs((double)c1.Height - (double)c2.Height);
         score += (int)(5 / (1 + Math.Log(1 + heightDifference))); // // פער בגובה – ניקוד יורד ככל שההפרש גדול יותר
 
 
-
-
         if (c1.FamilyStatus == c2.FamilyStatus) score += 10; // // מצב משפחתי של ההורים (נשואים / גרושים וכו')
-
         
         if (c1.CandidatePhoneType == c2.CandidatePhoneType) score += 4; // // אם יש או אין פלאפון – זהה = ניקוד
+        
         if (c1.License == c2.License) score += 3; // // רישיון נהיגה – אם יש לשניהם או לאף אחד, ניקוד
+        
         if (c1.JobOrStudies == c2.JobOrStudies) score += 8; // // מקצוע זהה – ניקוד גבוה
+        
         if (c1.SmokingStatus == c2.SmokingStatus) score += 3; // // שניהם מעשנים או לא מעשנים – ניקוד
 
         score += 5; // // תוספת בסיסית על כך שזהו חיבור חדש (אין בדיקה על Match קודם כרגע)

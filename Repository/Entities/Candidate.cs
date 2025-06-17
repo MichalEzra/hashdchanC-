@@ -27,6 +27,7 @@ namespace Repository.Entities
         public SubSector SubSector { get; set; }//תת מגזר
         public TorahStudy TorahLearning { get; set; } // לימוד תורה
         public EducationInstitution Education { get; set; } // מוסד לימודים
+        public string? StudyPlaceName { get; set; }  // שם מוסד הלימודים
         public Occupation JobOrStudies { get; set; } // עיסוק
         public string City { get; set; } // עיר
         public string? ImageUrl { get; set; } // תמונה
