@@ -1,4 +1,4 @@
-using AutoMapper;
+﻿using AutoMapper;
 using Common.Dto;
 using Repository.Entities;
 using Repository.Interfaces;
@@ -89,90 +89,88 @@ namespace Service.Services
 
         }
 
+        
         public async Task<string> GetAllCandidateInfoAsync(Candidate candidate)
         {
             if (candidate == null)
-                return "???? ?????? ???? ??????";
+                return "פרטי המועמד אינם זמינים";
 
             StringBuilder generalInfo = new StringBuilder();
 
-            generalInfo.AppendLine($"?? ???: {candidate.FirstName} {candidate.LastName}\n");
-            generalInfo.AppendLine($"????: {candidate.CandidateGender}\n");
-            generalInfo.AppendLine($"??? ????: {candidate.Status}\n");
-            generalInfo.AppendLine($"???: {candidate.Age}\n");
-            generalInfo.AppendLine($"???: {candidate.City}\n");
-            generalInfo.AppendLine($"????: {candidate.CandidateSector}\n");
-            generalInfo.AppendLine($"?? ????: {candidate.SubSector}\n");
-            generalInfo.AppendLine($"??? ????? ????: {candidate.TorahLearning}\n");
-            generalInfo.AppendLine($"???? ???????: {candidate.Education}\n");
-            generalInfo.AppendLine($"?? ???? ???????: {candidate.StudyPlaceName}\n");
-            generalInfo.AppendLine($"?????: {candidate.JobOrStudies}\n");
-            generalInfo.AppendLine($"????: {candidate.Origin}\n");
-            generalInfo.AppendLine($"????: {candidate.Languages}\n");
-            generalInfo.AppendLine($"?????? ????: {candidate.ReligiousOpenness}\n");
-            generalInfo.AppendLine($"????? ????: {candidate.ClothingStyle}\n");
-            generalInfo.AppendLine($"????: {candidate.Height} ?\"?\n");
-            generalInfo.AppendLine($"???? ???: {candidate.Physique}\n");
-            generalInfo.AppendLine($"??? ???: {candidate.SkinTone}\n");
-            generalInfo.AppendLine($"??? ????: {candidate.HairColor}\n");
-            generalInfo.AppendLine($"??? ????: {candidate.Giving}\n");
-            generalInfo.AppendLine($"??? ???? ????: {candidate.Expecting}\n");
-            generalInfo.AppendLine($"??? ?????? ?????: {candidate.FamilyStatus}\n");
-            generalInfo.AppendLine($"???? ??????: {(candidate.AvailableForProposals ? "??" : "??")}\n");
-            generalInfo.AppendLine($"????? ??? ?????: {candidate.PreferredHeadCovering}\n");
-            generalInfo.AppendLine($"??? ?????: {candidate.CandidatePhoneType}\n");
+            generalInfo.AppendLine($"שם מלא: {candidate.FirstName} {candidate.LastName}\n");
+            generalInfo.AppendLine($"מגדר: {candidate.CandidateGender}\n");
+            generalInfo.AppendLine($"מצב אישי: {candidate.Status}\n");
+            generalInfo.AppendLine($"גיל: {candidate.Age}\n");
+            generalInfo.AppendLine($"עיר: {candidate.City}\n");
+            generalInfo.AppendLine($"מגזר: {candidate.CandidateSector}\n");
+            generalInfo.AppendLine($"תת מגזר: {candidate.SubSector}\n");
+            generalInfo.AppendLine($"רמת לימוד תורה: {candidate.TorahLearning}\n");
+            generalInfo.AppendLine($"מוסד לימודים: {candidate.Education}\n");
+            generalInfo.AppendLine($"שם מוסד לימודים: {candidate.StudyPlaceName}\n");
+            generalInfo.AppendLine($"עיסוק: {candidate.JobOrStudies}\n");
+            generalInfo.AppendLine($"מוצא: {candidate.Origin}\n");
+            generalInfo.AppendLine($"שפות: {candidate.Languages}\n");
+            generalInfo.AppendLine($"פתיחות דתית: {candidate.ReligiousOpenness}\n");
+            generalInfo.AppendLine($"סגנון לבוש: {candidate.ClothingStyle}\n");
+            generalInfo.AppendLine($"גובה: {candidate.Height} ס\"מ\n");
+            generalInfo.AppendLine($"מבנה גוף: {candidate.Physique}\n");
+            generalInfo.AppendLine($"צבע עור: {candidate.SkinTone}\n");
+            generalInfo.AppendLine($"צבע שיער: {candidate.HairColor}\n");
+            generalInfo.AppendLine($"כמה נותן: {candidate.Giving}\n");
+            generalInfo.AppendLine($"כמה מצפה לקבל: {candidate.Expecting}\n");
+            generalInfo.AppendLine($"מצב משפחתי הורים: {candidate.FamilyStatus}\n");
+            generalInfo.AppendLine($"פנוי להצעות: {(candidate.AvailableForProposals ? "כן" : "לא")}\n");
+            generalInfo.AppendLine($"כיסוי ראש מועדף: {candidate.PreferredHeadCovering}\n");
+            generalInfo.AppendLine($"סוג טלפון: {candidate.CandidatePhoneType}\n");
 
             if (candidate.CandidateGender == Repository.Entities.Enums.Gender.MALE)
             {
-                generalInfo.AppendLine($"?????? ?????: {(candidate.License ? "??" : "??")}\n");
-                generalInfo.AppendLine($"???: {(candidate.Beard ? "??" : "??")}\n");
-                generalInfo.AppendLine($"????? ?????: {candidate.SmokingStatus}\n");
+                generalInfo.AppendLine($"רישיון נהיגה: {(candidate.License ? "כן" : "לא")}\n");
+                generalInfo.AppendLine($"זקן: {(candidate.Beard ? "כן" : "לא")}\n");
+                generalInfo.AppendLine($"סטטוס עישון: {candidate.SmokingStatus}\n");
             }
 
-            generalInfo.AppendLine($"?? ???? ????? ????: {candidate.RezumehName ?? "???"}\n");
-            generalInfo.AppendLine($"????? ????: {candidate.DescriptionSelf}\n");
-            generalInfo.AppendLine($"?? ????: {candidate.DescriptionFind}\n");
+            generalInfo.AppendLine($"שם קובץ קורות חיים: {candidate.RezumehName ?? "אין"}\n");
+            generalInfo.AppendLine($"תיאור עצמי: {candidate.DescriptionSelf}\n");
+            generalInfo.AppendLine($"מה מחפש: {candidate.DescriptionFind}\n");
 
             return generalInfo.ToString();
         }
-
         public async Task<string> GetGeneralCandidateInfoAsync(Candidate candidate)
         {
             if (candidate == null)
-                return "???? ?????? ???? ??????";
+                return "פרטי המועמד אינם זמינים";
 
             StringBuilder generalInfo = new StringBuilder();
 
-            generalInfo.AppendLine($"???: {candidate.Age}\n");
-            generalInfo.AppendLine($"???: {candidate.City}\n");
-            generalInfo.AppendLine($"??? ????: {candidate.Status}\n");
-            generalInfo.AppendLine($"????: {candidate.CandidateSector}\n");
-            generalInfo.AppendLine($"?? ????: {candidate.SubSector}\n");
-            generalInfo.AppendLine($"????: {candidate.Origin}\n");
-            generalInfo.AppendLine($"?????? ????: {candidate.ReligiousOpenness}\n");
-            generalInfo.AppendLine($"????? ????: {candidate.ClothingStyle}\n");
-            generalInfo.AppendLine($"?????: {candidate.JobOrStudies}\n");
-            generalInfo.AppendLine($"???? ???????: {candidate.Education}\n");
-            generalInfo.AppendLine($"?? ???? ????????: {candidate.StudyPlaceName}\n");
+            generalInfo.AppendLine($"גיל: {candidate.Age}\n");
+            generalInfo.AppendLine($"עיר: {candidate.City}\n");
+            generalInfo.AppendLine($"מצב אישי: {candidate.Status}\n");
+            generalInfo.AppendLine($"מגזר: {candidate.CandidateSector}\n");
+            generalInfo.AppendLine($"תת מגזר: {candidate.SubSector}\n");
+            generalInfo.AppendLine($"מוצא: {candidate.Origin}\n");
+            generalInfo.AppendLine($"פתיחות דתית: {candidate.ReligiousOpenness}\n");
+            generalInfo.AppendLine($"סגנון לבוש: {candidate.ClothingStyle}\n");
+            generalInfo.AppendLine($"עיסוק/לימודים: {candidate.JobOrStudies}\n");
+            generalInfo.AppendLine($"מוסד לימודים: {candidate.Education}\n");
+            generalInfo.AppendLine($"שם מוסד הלימודים: {candidate.StudyPlaceName}\n");
+
             if (candidate.CandidateGender == Repository.Entities.Enums.Gender.FEMALE)
             {
-                generalInfo.AppendLine($"?????/???????: {candidate.JobOrStudies}\n");
-                generalInfo.AppendLine($"????? ??? ?????: {candidate.PreferredHeadCovering}\n");
+                generalInfo.AppendLine($"כיסוי ראש מועדף: {candidate.PreferredHeadCovering}\n");
             }
             else
             {
-                generalInfo.AppendLine($"??? ????? ????: {candidate.TorahLearning}\n");
-                generalInfo.AppendLine($"?????? ?????: {(candidate.License ? "??" : "??")}\n");
-                generalInfo.AppendLine($"???: {(candidate.Beard ? "??" : "??")}\n");
-                generalInfo.AppendLine($"????? ?????: {candidate.SmokingStatus}\n");
+                generalInfo.AppendLine($"רמת לימוד תורה: {candidate.TorahLearning}\n");
+                generalInfo.AppendLine($"רישיון נהיגה: {(candidate.License ? "כן" : "לא")}\n");
+                generalInfo.AppendLine($"זקן: {(candidate.Beard ? "כן" : "לא")}\n");
+                generalInfo.AppendLine($"סטטוס עישון: {candidate.SmokingStatus}\n");
             }
 
-            generalInfo.AppendLine($"?? ??? ????: {candidate.DescriptionFind}\n");
+            generalInfo.AppendLine($"מה הוא מחפש: {candidate.DescriptionFind}\n");
 
             return generalInfo.ToString();
         }
-
-        
     }
 }
 
