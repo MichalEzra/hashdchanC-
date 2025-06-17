@@ -27,7 +27,7 @@ namespace Service.Services
             services.AddScoped<IServiceMatch, MatchService>();
             services.AddScoped<IMyDetails<Candidate>, CandidateService>();
             services.AddScoped<IHungarianAlgorithm, HungarianAlgorithmService>();
-
+            services.AddScoped<IEmailService, SmtpEmailService>();
 
 
 
