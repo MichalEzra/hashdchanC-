@@ -60,23 +60,28 @@ namespace Service.Services
         // שליחת מייל כאשר יש התאמה בין שני מועמדים
         public async Task SendMatchEmailAsync(int idCandidate1, int idCandidate2)
         {
-            Candidate c1 = _mapper.Map<Candidate>(_candidateService.GetById(idCandidate1)); // ממפה את המועמד הראשון מה-DTO
-            Candidate c2 = _mapper.Map<Candidate>(_candidateService.GetById(idCandidate2)); // ממפה את המועמד השני מה-DTO
+            // המתנה לתוצאה מהשירות
+            var c1Dto = await _candidateService.GetById(idCandidate1);
+            var c2Dto = await _candidateService.GetById(idCandidate2);
 
-            if (c1 == null || c2 == null) // בדיקה ששני המועמדים קיימים
-                throw new Exception("One or both candidates were not found."); // זריקת שגיאה אם לא
+            // מיפוי ל־Entity
+            Candidate c1 = _mapper.Map<Candidate>(c1Dto);
+            Candidate c2 = _mapper.Map<Candidate>(c2Dto);
 
-            string baseUrl = "https://localhost:7242/api/Match/confirm"; // URL בסיסי להמשך טיפול בהתאמה
-            string callbackUrlC1 = $"{baseUrl}?candidateId={c1.Id}&matchId={c2.Id}"; // קישור עבור המועמד הראשון
-            string callbackUrlC2 = $"{baseUrl}?candidateId={c2.Id}&matchId={c1.Id}"; // קישור עבור המועמד השני
+            if (c1 == null || c2 == null)
+                throw new Exception("One or both candidates were not found.");
 
-            // יצירת גוף המייל בהתאמה אישית לשני המועמדים
-            string emailBodyC1 = EmailTemplateHelper.GenerateMatchEmailBody(_candidateMyDetails, c1, c2, callbackUrlC1);
-            string emailBodyC2 = EmailTemplateHelper.GenerateMatchEmailBody(_candidateMyDetails, c2, c1, callbackUrlC2);
+            string baseUrl = "https://localhost:7242/api/Match/confirm";
+            string callbackUrlC1 = $"{baseUrl}?candidateId={c1.Id}&matchId={c2.Id}";
+            string callbackUrlC2 = $"{baseUrl}?candidateId={c2.Id}&matchId={c1.Id}";
 
-            await SendEmailAsync(c1.User.Email, "הצעת שידוך", emailBodyC1); // שליחת מייל למועמד הראשון
-            await SendEmailAsync(c2.User.Email, "הצעת שידוך", emailBodyC2); // שליחת מייל למועמד השני
+            string emailBodyC1 = await EmailTemplateHelper.GenerateMatchEmailBody(_candidateMyDetails, c1, c2, callbackUrlC1);
+            string emailBodyC2 = await EmailTemplateHelper.GenerateMatchEmailBody(_candidateMyDetails, c2, c1, callbackUrlC2);
+
+            await SendEmailAsync(c1Dto.Email, "הצעת שידוך", emailBodyC1);
+            await SendEmailAsync(c2Dto.Email, "הצעת שידוך", emailBodyC2);
         }
+
 
         //// שליחת מייל לכל השדכנים הפעילים עם תזכורת לעדכון הצעות
         //public async Task sendEmailToMatchmakerActiveMatch()

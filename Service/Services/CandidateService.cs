@@ -61,7 +61,7 @@ namespace Service.Services
 
             foreach (Candidate candidate in allCandidates)
             {
-                if (candidate.CandidateGender == Repository.Entities.Enums.Gender.FEMALE &&
+                if (candidate.CandidateGender == Repository.Entities.Enums.Gender.נקבה &&
                                   candidate.AvailableForProposals)
                 {
                     femaleCandidates.Add(candidate);
@@ -78,7 +78,7 @@ namespace Service.Services
 
             foreach (Candidate candidate in allCandidates)
             {
-                if (candidate.CandidateGender== Repository.Entities.Enums.Gender.MALE &&
+                if (candidate.CandidateGender== Repository.Entities.Enums.Gender.זכר &&
                                   candidate.AvailableForProposals)
                 {
                     maleCandidates.Add(candidate);
@@ -123,7 +123,7 @@ namespace Service.Services
             generalInfo.AppendLine($"כיסוי ראש מועדף: {candidate.PreferredHeadCovering}\n");
             generalInfo.AppendLine($"סוג טלפון: {candidate.CandidatePhoneType}\n");
 
-            if (candidate.CandidateGender == Repository.Entities.Enums.Gender.MALE)
+            if (candidate.CandidateGender == Repository.Entities.Enums.Gender.זכר)
             {
                 generalInfo.AppendLine($"רישיון נהיגה: {(candidate.License ? "כן" : "לא")}\n");
                 generalInfo.AppendLine($"זקן: {(candidate.Beard ? "כן" : "לא")}\n");
@@ -155,7 +155,7 @@ namespace Service.Services
             generalInfo.AppendLine($"מוסד לימודים: {candidate.Education}\n");
             generalInfo.AppendLine($"שם מוסד הלימודים: {candidate.StudyPlaceName}\n");
 
-            if (candidate.CandidateGender == Repository.Entities.Enums.Gender.FEMALE)
+            if (candidate.CandidateGender == Repository.Entities.Enums.Gender.נקבה)
             {
                 generalInfo.AppendLine($"כיסוי ראש מועדף: {candidate.PreferredHeadCovering}\n");
             }

@@ -60,6 +60,9 @@
                     "type": "integer",
                     "format": "int32"
                   },
+                  "Email": {
+                    "type": "string"
+                  },
                   "CandidateId": {
                     "type": "integer",
                     "format": "int32"
@@ -91,6 +94,9 @@
                   },
                   "Education": {
                     "$ref": "#/components/schemas/EducationInstitution"
+                  },
+                  "StudyPlaceName": {
+                    "type": "string"
                   },
                   "JobOrStudies": {
                     "$ref": "#/components/schemas/Occupation"
@@ -189,6 +195,9 @@
                 "UserId": {
                   "style": "form"
                 },
+                "Email": {
+                  "style": "form"
+                },
                 "CandidateId": {
                   "style": "form"
                 },
@@ -217,6 +226,9 @@
                   "style": "form"
                 },
                 "Education": {
+                  "style": "form"
+                },
+                "StudyPlaceName": {
                   "style": "form"
                 },
                 "JobOrStudies": {
@@ -1306,6 +1318,10 @@
             "type": "integer",
             "format": "int32"
           },
+          "email": {
+            "type": "string",
+            "nullable": true
+          },
           "candidateId": {
             "type": "integer",
             "format": "int32"
@@ -1339,6 +1355,10 @@
           },
           "education": {
             "$ref": "#/components/schemas/EducationInstitution"
+          },
+          "studyPlaceName": {
+            "type": "string",
+            "nullable": true
           },
           "jobOrStudies": {
             "$ref": "#/components/schemas/Occupation"
@@ -1443,72 +1463,73 @@
       },
       "CandidateStatus": {
         "enum": [
-          "SINGLE",
-          "DIVORCED",
-          "WIDOWED",
-          "DIVORCED_WITH_KIDS",
-          "WIDOWED_WITH_KIDS"
+          "רווק_ה",
+          "גרוש_ה",
+          "אלמן_ה",
+          "גרוש_ה_עם_ילדים",
+          "אלמן_ה_עם_ילדים"
         ],
         "type": "string"
       },
       "ClothingStyle": {
         "enum": [
-          "MODERN",
-          "TRENDY",
-          "ELEGANT",
-          "CLASSIC",
-          "SIMPLE",
-          "VERY_SIMPLE"
+          "מודרני",
+          "עדכני",
+          "מכובד",
+          "קלאסי",
+          "פשוט",
+          "פשוט_מאוד"
         ],
         "type": "string"
       },
       "EducationInstitution": {
         "enum": [
-          "YESHIVA_KTANA",
-          "YESHIVA_GDOLA",
-          "KIBBUTZ",
-          "HIGH_SCHOOL",
-          "COLLEGE",
-          "UNIVERSITY",
-          "KOLLEL"
+          "ישיבה_קטנה",
+          "ישיבה_גדולה",
+          "קיבוץ",
+          "תיכון",
+          "סמינר",
+          "מכללה",
+          "אוניברסיטה",
+          "כולל"
         ],
         "type": "string"
       },
       "Gender": {
         "enum": [
-          "MALE",
-          "FEMALE"
+          "זכר",
+          "נקבה"
         ],
         "type": "string"
       },
       "HairColor": {
         "enum": [
-          "BROWN",
-          "BLACK",
-          "DIRTY_BLONDE",
-          "BLONDE",
-          "REDHEAD"
+          "חום",
+          "שחור",
+          "שטני",
+          "בלונדי",
+          "גינגי"
         ],
         "type": "string"
       },
       "HeadCovering": {
         "enum": [
-          "WIG_ONLY",
-          "SCARF_ONLY",
-          "WIG_WITH_COVER",
-          "TOP_LACE_WIG",
-          "FLEXIBLE"
+          "פאה_בלבד",
+          "מטפחת_בלבד",
+          "פאה_עם_כיסוי",
+          "טופ_לייס",
+          "גמיש"
         ],
         "type": "string"
       },
       "Language": {
         "enum": [
-          "ENGLISH",
-          "HEBREW",
-          "YIDDISH",
-          "FRENCH",
-          "SPANISH",
-          "RUSSIAN"
+          "אנגלית",
+          "עברית",
+          "אידיש",
+          "צרפתית",
+          "ספרדית",
+          "רוסית"
         ],
         "type": "string"
       },
@@ -1644,105 +1665,105 @@
       },
       "Occupation": {
         "enum": [
-          "STUDENT",
-          "WORKING"
+          "לומד",
+          "עובד"
         ],
         "type": "string"
       },
       "Openness": {
         "enum": [
-          "VERY_STRICT",
-          "CONSERVATIVE",
-          "TRADITIONAL",
-          "OPEN_TRADITIONAL",
-          "OPEN",
-          "MODERN",
-          "VERY_MODERN"
+          "שמור_מאוד",
+          "שמרן",
+          "מסורתי",
+          "שמור_וראש_פתוח",
+          "פתוח",
+          "מודרני",
+          "מודרני_מאוד"
         ],
         "type": "string"
       },
       "ParentsStatus": {
         "enum": [
-          "MARRIED",
-          "DIVORCED",
-          "FATHER_DECEASED",
-          "MOTHER_DECEASED",
-          "BOTH_DECEASED"
+          "נשואים",
+          "גרושים",
+          "אב_נפטר",
+          "אם_נפטרה",
+          "שניהם_נפטרו"
         ],
         "type": "string"
       },
       "PhoneType": {
         "enum": [
-          "KOSHER",
-          "SUPPORTS_KOSHER",
-          "SECURE_DEVICE",
-          "SMARTPHONE",
-          "BUTTON_PHONE_SMS",
-          "WORK_PHONE",
-          "TWO_PHONES"
+          "כשר",
+          "תומך_כשר",
+          "מכשיר_מוגן",
+          "סמארטפון",
+          "פלאפון_מקשים_עם_SMS",
+          "טלפון_מוגן_לעבודה",
+          "שני_טלפונים"
         ],
         "type": "string"
       },
       "Physique": {
         "enum": [
-          "VERY_THIN",
-          "THIN",
-          "AVERAGE",
-          "FULL"
+          "רזה_מאוד",
+          "רזה",
+          "ממוצע_ת",
+          "מלא_ה"
         ],
         "type": "string"
       },
       "Sector": {
         "enum": [
-          "HASIDI",
-          "LITAI",
-          "SEFARDI",
-          "TEIMANI",
-          "CHABAD",
-          "HALF_HALF",
-          "OTHER"
+          "חסידי",
+          "ליטאי",
+          "ספרדי",
+          "תימני",
+          "חבד",
+          "חצי_חצי",
+          "אחר"
         ],
         "type": "string"
       },
       "SkinTone": {
         "enum": [
-          "FAIR",
-          "FAIR_TO_MEDIUM",
-          "TAN",
-          "MEDIUM_TO_DARK",
-          "DARK"
+          "בהיר",
+          "נוטה_לבהיר",
+          "שזוף",
+          "נוטה_לכהה",
+          "כהה"
         ],
         "type": "string"
       },
       "Smoking": {
         "enum": [
-          "SMOKER",
-          "OCCASIONAL_SMOKER",
-          "NON_SMOKER",
-          "ELECTRONIC_CIGARETTE"
+          "מעשן",
+          "מעשן_לעיתים_רחוקות",
+          "לא_מעשן",
+          "סיגריה_אלקטרונית"
         ],
         "type": "string"
       },
       "SubSector": {
         "enum": [
-          "YESHIVISH",
-          "BNEI_TORAH_ETZ",
-          "BALEI_TSHUVA",
-          "YERUSHALMI",
-          "MODERN_HAREDI",
-          "CHUTZNIKIM",
-          "CHAZON_ISH",
-          "ZILBERMAN",
-          "CHASIDIC_BACKGROUND",
-          "OTHER"
+          "ישיבתי",
+          "בני_תורה_עץ",
+          "בעלי_תשובה",
+          "ירושלמי",
+          "חרדי_מודרני",
+          "חוצניקים",
+          "חזונאישניק",
+          "זילברמן",
+          "רקע_חסידי",
+          "אחר"
         ],
         "type": "string"
       },
       "TorahStudy": {
         "enum": [
-          "FULL_TIME",
-          "HALF_HALF",
-          "PART_TIME"
+          "תורתו_אומנותו",
+          "חצי_עובד_חצי_לומד",
+          "קובע_עיתים"
         ],
         "type": "string"
       },

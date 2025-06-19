@@ -13,9 +13,8 @@ namespace Repository.Entities
     {
         [Key]
         public int Id { get; set; }
-
-        [ForeignKey("User")]
         public int UserId { get; set; }
+        [ForeignKey("UserId")]
         public User User { get; set; }
         public int CandidateId { get; set; }
         public string FirstName { get; set; }

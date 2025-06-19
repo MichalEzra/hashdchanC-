@@ -6,150 +6,164 @@ using System.Threading.Tasks;
 
 namespace Common.Dto
 {
+
     public enum Gender // מגדר
     {
-        MALE, // גבר
-        FEMALE // אישה
+        זכר,
+        נקבה
     }
-    public enum CandidateStatus //מצב אישי
+
+    public enum CandidateStatus // מצב אישי
     {
-        SINGLE, // רווק
-        DIVORCED, // גרוש
-        WIDOWED, // אלמן
-        DIVORCED_WITH_KIDS, // גרוש עם ילדים
-        WIDOWED_WITH_KIDS // אלמן עם ילדים
+        רווק_ה,
+        גרוש_ה,
+        אלמן_ה,
+        גרוש_ה_עם_ילדים,
+        אלמן_ה_עם_ילדים
     }
-    public enum Sector //מגזר 
+
+    public enum Sector // מגזר
     {
-        HASIDI, // חסידי
-        LITAI, // ליטאי
-        SEFARDI, // ספרדי
-        TEIMANI, // תימני
-        CHABAD, // חבד
-        HALF_HALF, // חצי חצי
-        OTHER // אחר
+        חסידי,
+        ליטאי,
+        ספרדי,
+        תימני,
+        חבד,
+        חצי_חצי,
+        אחר
     }
-    public enum SubSector
+
+    public enum SubSector // תת מגזר
     {
-        YESHIVISH, // ישיבתי
-        BNEI_TORAH_ETZ, // בני תורה עץ
-        BALEI_TSHUVA, // בעלי תשובה
-        YERUSHALMI, // ירושלמי
-        MODERN_HAREDI, // חרדי מודרני
-        CHUTZNIKIM, // חוצניקים
-        CHAZON_ISH, // חזונאישניקים
-        ZILBERMAN, // זילברמן
-        CHASIDIC_BACKGROUND, // רקע חסידי
-        OTHER // אחר
+        ישיבתי,
+        בני_תורה_עץ,
+        בעלי_תשובה,
+        ירושלמי,
+        חרדי_מודרני,
+        חוצניקים,
+        חזונאישניק,
+        זילברמן,
+        רקע_חסידי,
+        אחר
     }
-    public enum TorahStudy //לימוד תורה 
+
+    public enum TorahStudy // לימוד תורה
     {
-        FULL_TIME, // תורתו אומנתו
-        HALF_HALF, // חצי עובד חצי לומד
-        PART_TIME // קובע עיתים לתורה
+        תורתו_אומנותו,
+        חצי_עובד_חצי_לומד,
+        קובע_עיתים
     }
-    public enum EducationInstitution //מוסד לימודים
+
+    public enum EducationInstitution // מוסד לימודים
     {
-        YESHIVA_KTANA, // ישיבה קטנה
-        YESHIVA_GDOLA, // ישיבה גדולה
-        KIBBUTZ, // קיבוץ
-        HIGH_SCHOOL, // תיכון
-        COLLEGE, // מכללה
-        UNIVERSITY, // אוניברסיטה
-        KOLLEL // כולל
+        ישיבה_קטנה,
+        ישיבה_גדולה,
+        קיבוץ,
+        תיכון,
+        סמינר,
+        מכללה,
+        אוניברסיטה,
+        כולל
     }
+
     public enum Occupation // עיסוק
     {
-        STUDENT, // לימודים
-        WORKING // עבודה
+        לומד,
+        עובד
     }
-    public enum Language //שפה
+
+    public enum Language // שפה
     {
-        ENGLISH, // אנגלית
-        HEBREW, // עברית
-        YIDDISH, // אידיש
-        FRENCH, // צרפתית
-        SPANISH, // ספרדית
-        RUSSIAN // רוסית
+        אנגלית,
+        עברית,
+        אידיש,
+        צרפתית,
+        ספרדית,
+        רוסית
     }
-    public enum Openness //פתיחות לשנות שמות למשתנים
+
+    public enum Openness // פתיחות
     {
-        VERY_STRICT, // שמור מאד
-        CONSERVATIVE, // שמרן
-        TRADITIONAL, // שמור
-        OPEN_TRADITIONAL, // שמור וראש פתוח
-        OPEN, // פתוח
-        MODERN, // מודרני
-        VERY_MODERN // מודרני מאד
+        שמור_מאוד,
+        שמרן,
+        מסורתי,
+        שמור_וראש_פתוח,
+        פתוח,
+        מודרני,
+        מודרני_מאוד
     }
+
     public enum HeadCovering // כיסוי ראש
     {
-        WIG_ONLY, // עקרוני - פאה
-        SCARF_ONLY, // עקרוני - מטפחת
-        WIG_WITH_COVER, // פאה + כיסוי מעל
-        TOP_LACE_WIG, // פאה טופ לייס
-        FLEXIBLE // גמיש - מטפחת או פאה
+        פאה_בלבד,
+        מטפחת_בלבד,
+        פאה_עם_כיסוי,
+        טופ_לייס,
+        גמיש
     }
+
     public enum PhoneType // סוג טלפון
     {
-        KOSHER, // כשר
-        SUPPORTS_KOSHER, // תומך כשר
-        SECURE_DEVICE, // מכשיר מוגן (הדרן וכדומה)
-        SMARTPHONE, // מכשיר חכם
-        BUTTON_PHONE_SMS, // פלאפון מקשים עם SMS בלבד
-        WORK_PHONE, // פלאפון מוגן לצרכי עבודה
-        TWO_PHONES // שני טלפונים
+        כשר,
+        תומך_כשר,
+        מכשיר_מוגן,
+        סמארטפון,
+        פלאפון_מקשים_עם_SMS,
+        טלפון_מוגן_לעבודה,
+        שני_טלפונים
     }
-    public enum ParentsStatus // מצב משפחתי
+
+    public enum ParentsStatus // מצב משפחתי של ההורים
     {
-        MARRIED, // נשואים
-        DIVORCED, // גרושים
-        FATHER_DECEASED, // אב נפטר
-        MOTHER_DECEASED, // אם נפטרה
-        BOTH_DECEASED // אינם בין החיים
+        נשואים,
+        גרושים,
+        אב_נפטר,
+        אם_נפטרה,
+        שניהם_נפטרו
     }
+
     public enum Smoking // עישון
     {
-        SMOKER, // מעשן
-        OCCASIONAL_SMOKER, // מעשן רק באירועים מיוחדים - תדירות נמוכה
-        NON_SMOKER, // לא מעשן בכלל
-        ELECTRONIC_CIGARETTE // מעשן סיגריה אלקטרונית בלבד
+        מעשן,
+        מעשן_לעיתים_רחוקות,
+        לא_מעשן,
+        סיגריה_אלקטרונית
     }
-    public enum Physique
+
+    public enum Physique // מבנה גוף
     {
-        VERY_THIN, // רזה מאד
-        THIN, // רזה
-        AVERAGE, // ממוצעת
-        FULL // מלאה
+        רזה_מאוד,
+        רזה,
+        ממוצע_ת,
+        מלא_ה
     }
 
-    public enum SkinTone
+    public enum SkinTone // גוון עור
     {
-        FAIR, // בהיר
-        FAIR_TO_MEDIUM, // נוטה לבהיר
-        TAN, // שזוף
-        MEDIUM_TO_DARK, // נוטה לכהה
-        DARK // כהה
+        בהיר,
+        נוטה_לבהיר,
+        שזוף,
+        נוטה_לכהה,
+        כהה
     }
 
-    public enum HairColor
+    public enum HairColor // צבע שיער
     {
-        BROWN, // חום
-        BLACK, // שחור
-        DIRTY_BLONDE, // שטני
-        BLONDE, // בלונדי
-        REDHEAD // ג'ינג'י
+        חום,
+        שחור,
+        שטני,
+        בלונדי,
+        גינגי
     }
 
-    public enum ClothingStyle
+    public enum ClothingStyle // סגנון לבוש
     {
-        MODERN, // מודרני
-        TRENDY, // עדכני
-        ELEGANT, // מכובד
-        CLASSIC, // קלאסי
-        SIMPLE, // פשוט
-        VERY_SIMPLE // פשוט מאד
+        מודרני,
+        עדכני,
+        מכובד,
+        קלאסי,
+        פשוט,
+        פשוט_מאוד
     }
-
-
 }
+

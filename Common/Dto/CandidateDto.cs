@@ -14,7 +14,7 @@ namespace Common.Dto
         public int Id { get; set; }
 
         public int UserId { get; set; }
-
+        public string Email { get; set; }
         public int CandidateId { get; set; }
 
         public string FirstName { get; set; }
@@ -34,6 +34,7 @@ namespace Common.Dto
         public TorahStudy TorahLearning { get; set; }
 
         public EducationInstitution Education { get; set; }
+        public string? StudyPlaceName { get; set; }  // שם מוסד הלימודים
 
         public Occupation JobOrStudies { get; set; }
 

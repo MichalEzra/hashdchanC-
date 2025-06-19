@@ -43,7 +43,7 @@ namespace Repository.Repositories
 
         public async Task<Candidate> GetById(int id)
         {
-            return await context.Candidates.FirstOrDefaultAsync(x => x.Id == id);
+            return await context.Candidates.Include(c => c.User).FirstOrDefaultAsync(x => x.Id == id);
         }
 
         public async Task UpdateItem(int id, Candidate item)
@@ -94,14 +94,14 @@ namespace Repository.Repositories
         public async Task<Candidate[]> GetFemaleCandidatesAsync()
         {
             return await context.Candidates
-                .Where(c => c.CandidateGender == Gender.FEMALE && c.AvailableForProposals)
+                .Where(c => c.CandidateGender == Gender.נקבה && c.AvailableForProposals)
                 .ToArrayAsync();
         }
 
         public async Task<Candidate[]> GetMaleCandidatesAsync()
         {
             return await context.Candidates
-                .Where(c => c.CandidateGender == Gender.MALE && c.AvailableForProposals)
+                .Where(c => c.CandidateGender == Gender.זכר && c.AvailableForProposals)
                 .ToArrayAsync();
         }
 

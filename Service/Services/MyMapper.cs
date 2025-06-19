@@ -17,7 +17,8 @@ namespace Service.Services
             // מיפוי Entity -> DTO כולל קריאה לתמונה מהדיסק ומיפוי של רזומה בתור מערך בתים
             CreateMap<Candidate, CandidateDto>()
                 .ForMember(dest => dest.ArrImage, opt => opt.MapFrom(src => File.ReadAllBytes(Path.Combine(path, src.ImageUrl))))
-                .ForMember(dest => dest.RezumehArr, opt => opt.MapFrom(src => src.Rezumeh));
+                .ForMember(dest => dest.RezumehArr, opt => opt.MapFrom(src => src.Rezumeh))
+                .ForMember(dest => dest.Email, opt => opt.MapFrom(src => src.User.Email)); 
 
             // מיפוי DTO -> Entity, כולל שמירת שם קובץ התמונה והמרת קובץ הרזומה לבייטים
             CreateMap<CandidateDto, Candidate>()

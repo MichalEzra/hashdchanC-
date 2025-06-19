@@ -66,7 +66,7 @@ namespace hashadchan.Controllers
 
         // שליפה לפי ID של שידוך מסוים
         [HttpGet("{id}")]
-        [Authorize(Roles = "admin,matchmaker")] // רק מנהל או שדכן יכול לראות
+        [Authorize(Roles = "ADMIN,MATCHMAKER")] // רק מנהל או שדכן יכול לראות
         public async Task<MatchDto> Get(int id)
         {
             return await _MatchDtoService.GetById(id);
@@ -74,7 +74,7 @@ namespace hashadchan.Controllers
 
         // שליפת שידוכים לפי ID של שדכן
         [HttpGet("GetMatchesByIdMatchmaker{id}")]
-        [Authorize(Roles = "admin,matchmaker")]
+        [Authorize(Roles = "ADMIN,MATCHMAKER")]
         public async Task<List<MatchDto>> GetMatchesByIdMatchmaker(int id)
         {
             return await _serviceMatch.GetMatchesByIdMatchmaker(id);
@@ -93,7 +93,7 @@ namespace hashadchan.Controllers
             };
 
             await _MatchDtoService.AddItem(_mapper.Map<MatchDto>(m)); // הוספה למסד
-            // await _emailService.SendMatchEmailAsync(idCandudate1, idCandudate2); // שליחת מייל (כרגע מבוטל)
+            await _emailService.SendMatchEmailAsync(idCandudate1, idCandudate2); // שליחת מייל (כרגע מבוטל)
             return Ok("Email Sent!");
         }
 
@@ -105,7 +105,7 @@ namespace hashadchan.Controllers
             Candidate c1 = _mapper.Map<Candidate>(candidateDto);
             Match match;
 
-            if (c1.CandidateGender == Repository.Entities.Enums.Gender.MALE) // אם מועמד הוא גבר
+            if (c1.CandidateGender == Repository.Entities.Enums.Gender.זכר) // אם מועמד הוא גבר
             {
                 match = _mapper.Map<Match>(await _serviceMatch.GetMatchByIdCandidates(candidateId, matchId));
                 if (match == null)
@@ -164,7 +164,7 @@ namespace hashadchan.Controllers
 
         // מחיקת שידוך לפי ID
         [HttpDelete("{id}")]
-        [Authorize(Roles = "admin")] // רק אדמין רשאי למחוק התאמה
+        [Authorize(Roles = "ADMIN")] // רק אדמין רשאי למחוק התאמה
         public async Task<IActionResult> Delete(int id)
         {
             await _MatchDtoService.DeleteItem(id); // מחיקה
