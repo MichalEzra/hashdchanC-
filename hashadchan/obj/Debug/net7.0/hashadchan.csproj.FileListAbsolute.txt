@@ -428,7 +428,6 @@ C:\Users\1\Documents\לימודים\לימודים שנה ב\פרויקט השד
 C:\Users\1\Documents\לימודים\לימודים שנה ב\פרויקט השדכן\hashdchanC-\hashadchan\obj\Debug\net7.0\staticwebassets\msbuild.buildMultiTargeting.hashadchan.props
 C:\Users\1\Documents\לימודים\לימודים שנה ב\פרויקט השדכן\hashdchanC-\hashadchan\obj\Debug\net7.0\staticwebassets\msbuild.buildTransitive.hashadchan.props
 C:\Users\1\Documents\לימודים\לימודים שנה ב\פרויקט השדכן\hashdchanC-\hashadchan\obj\Debug\net7.0\staticwebassets.pack.json
-C:\Users\1\Documents\לימודים\לימודים שנה ב\פרויקט השדכן\hashdchanC-\hashadchan\obj\Debug\net7.0\staticwebassets.upToDateCheck.txt
 C:\Users\1\Documents\לימודים\לימודים שנה ב\פרויקט השדכן\hashdchanC-\hashadchan\obj\Debug\net7.0\hashadchan.csproj.Up2Date
 C:\Users\1\Documents\לימודים\לימודים שנה ב\פרויקט השדכן\hashdchanC-\hashadchan\obj\Debug\net7.0\hashadchan.dll
 C:\Users\1\Documents\לימודים\לימודים שנה ב\פרויקט השדכן\hashdchanC-\hashadchan\obj\Debug\net7.0\refint\hashadchan.dll
