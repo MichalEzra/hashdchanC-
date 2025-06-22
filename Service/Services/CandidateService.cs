@@ -89,7 +89,7 @@ namespace Service.Services
 
         }
 
-        
+        //נותן את כל הפרטים על המועמד 
         public async Task<string> GetAllCandidateInfoAsync(Candidate candidate)
         {
             if (candidate == null)
@@ -136,13 +136,14 @@ namespace Service.Services
 
             return generalInfo.ToString();
         }
+        //נותן רק פרטים מקדימים 
         public async Task<string> GetGeneralCandidateInfoAsync(Candidate candidate)
         {
             if (candidate == null)
                 return "פרטי המועמד אינם זמינים";
 
             StringBuilder generalInfo = new StringBuilder();
-
+            generalInfo.AppendLine($"שם מוסד הלימודים: {candidate.StudyPlaceName}\n");
             generalInfo.AppendLine($"גיל: {candidate.Age}\n");
             generalInfo.AppendLine($"עיר: {candidate.City}\n");
             generalInfo.AppendLine($"מצב אישי: {candidate.Status}\n");
@@ -153,7 +154,6 @@ namespace Service.Services
             generalInfo.AppendLine($"סגנון לבוש: {candidate.ClothingStyle}\n");
             generalInfo.AppendLine($"עיסוק/לימודים: {candidate.JobOrStudies}\n");
             generalInfo.AppendLine($"מוסד לימודים: {candidate.Education}\n");
-            generalInfo.AppendLine($"שם מוסד הלימודים: {candidate.StudyPlaceName}\n");
 
             if (candidate.CandidateGender == Repository.Entities.Enums.Gender.נקבה)
             {

@@ -37,7 +37,7 @@ namespace hashadchan.Controllers
             return await service.GetById(id);
         }
 
-        
+
         [HttpPost]
         public async Task<ActionResult<UserDto>> Post([FromBody] UserDto user)
         {
@@ -115,9 +115,9 @@ namespace hashadchan.Controllers
     };
 
             var token = new JwtSecurityToken(config["Jwt:Issuer"], config["Jwt:Audience"],
-                claims,
-                expires: DateTime.Now.AddMinutes(15),
-                signingCredentials: credentials);
+    claims,
+    expires: DateTime.Now.AddHours(15),
+    signingCredentials: credentials);
 
             return new JwtSecurityTokenHandler().WriteToken(token);
         }

@@ -82,6 +82,7 @@ namespace hashadchan.Controllers
 
         // יצירת שידוך חדש
         [HttpPost]
+        [Authorize(Roles = "MATCHMAKER")]
         public async Task<IActionResult> Post(int idCandudate1, int idCandudate2, int idMatchmaker)
         {
             Match m = new() // יצירת אובייקט חדש
