@@ -63,6 +63,9 @@
                   "Email": {
                     "type": "string"
                   },
+                  "PhoneNumber": {
+                    "type": "string"
+                  },
                   "CandidateId": {
                     "type": "integer",
                     "format": "int32"
@@ -196,6 +199,9 @@
                   "style": "form"
                 },
                 "Email": {
+                  "style": "form"
+                },
+                "PhoneNumber": {
                   "style": "form"
                 },
                 "CandidateId": {
@@ -1322,6 +1328,10 @@
             "type": "string",
             "nullable": true
           },
+          "phoneNumber": {
+            "type": "string",
+            "nullable": true
+          },
           "candidateId": {
             "type": "integer",
             "format": "int32"
@@ -1606,6 +1616,10 @@
             "nullable": true
           },
           "lastName": {
+            "type": "string",
+            "nullable": true
+          },
+          "email": {
             "type": "string",
             "nullable": true
           },

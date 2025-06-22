@@ -18,7 +18,8 @@ namespace Service.Services
             CreateMap<Candidate, CandidateDto>()
                 .ForMember(dest => dest.ArrImage, opt => opt.MapFrom(src => File.ReadAllBytes(Path.Combine(path, src.ImageUrl))))
                 .ForMember(dest => dest.RezumehArr, opt => opt.MapFrom(src => src.Rezumeh))
-                .ForMember(dest => dest.Email, opt => opt.MapFrom(src => src.User.Email)); 
+                .ForMember(dest => dest.Email, opt => opt.MapFrom(src => src.User.Email))
+                .ForMember(dest => dest.PhoneNumber, opt => opt.MapFrom(src => src.User.PhoneNumber)); 
 
             // מיפוי DTO -> Entity, כולל שמירת שם קובץ התמונה והמרת קובץ הרזומה לבייטים
             CreateMap<CandidateDto, Candidate>()
@@ -28,7 +29,7 @@ namespace Service.Services
             // מיפוי נוסף של משתמשים ושדכנים (לפי מה שהוספת)
             CreateMap<User, UserDto>();
             CreateMap<UserDto, User>();
-            CreateMap<Matchmaker, MatchmakerDto>();
+            CreateMap<Matchmaker, MatchmakerDto>().ForMember(dest => dest.Email, opt => opt.MapFrom(src => src.User.Email));
             CreateMap<MatchmakerDto, Matchmaker>();
             CreateMap<Match, MatchDto>();
             CreateMap<MatchDto, Match>();

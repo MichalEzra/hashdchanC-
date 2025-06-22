@@ -9,7 +9,7 @@ namespace Service.Interfasces
     public interface IEmailService
     {
         // יממש כל מי ששולח אימייל
-        Task SendEmailAsync(string toEmail, string subject, string body);
+        Task SendEmailAsync(string toEmail, string subject, string body, byte[]? attachment = null, string? attachmentName = null);
         Task SendMatchEmailAsync(int idCandidate1, int idCandidate2);
     }
 }
