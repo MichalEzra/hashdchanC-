@@ -38,7 +38,7 @@ namespace hashadchan.Controllers
         }
 
         [HttpPost]
-        public async Task<ActionResult<MatchmakerDto>> Post([FromBody] MatchmakerDto matchmaker)
+        public async Task<ActionResult<MatchmakerDto>> Post([FromForm] MatchmakerDto matchmaker)
         {
             var userIdClaim = User.Claims.FirstOrDefault(c => c.Type == ClaimTypes.NameIdentifier)?.Value;
             if (string.IsNullOrEmpty(userIdClaim) || !int.TryParse(userIdClaim, out int userId))

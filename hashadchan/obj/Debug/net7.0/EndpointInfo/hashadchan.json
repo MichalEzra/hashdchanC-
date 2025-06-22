@@ -923,19 +923,121 @@
         ],
         "requestBody": {
           "content": {
-            "application/json": {
+            "multipart/form-data": {
               "schema": {
-                "$ref": "#/components/schemas/MatchmakerDto"
-              }
-            },
-            "text/json": {
-              "schema": {
-                "$ref": "#/components/schemas/MatchmakerDto"
-              }
-            },
-            "application/*+json": {
-              "schema": {
-                "$ref": "#/components/schemas/MatchmakerDto"
+                "type": "object",
+                "properties": {
+                  "Id": {
+                    "type": "integer",
+                    "format": "int32"
+                  },
+                  "UserId": {
+                    "type": "integer",
+                    "format": "int32"
+                  },
+                  "FirstName": {
+                    "type": "string"
+                  },
+                  "LastName": {
+                    "type": "string"
+                  },
+                  "BirthDate": {
+                    "type": "string",
+                    "format": "date-time"
+                  },
+                  "MatchmakerGender": {
+                    "$ref": "#/components/schemas/Gender"
+                  },
+                  "IdentityNumber": {
+                    "type": "string"
+                  },
+                  "MarriageDate": {
+                    "type": "string",
+                    "format": "date-time"
+                  },
+                  "Country": {
+                    "type": "string"
+                  },
+                  "City": {
+                    "type": "string"
+                  },
+                  "MatchmakerSector": {
+                    "$ref": "#/components/schemas/Sector"
+                  },
+                  "SubSector": {
+                    "$ref": "#/components/schemas/SubSector"
+                  },
+                  "YearsOfExperience": {
+                    "type": "integer",
+                    "format": "int32"
+                  },
+                  "MatchesClosed": {
+                    "type": "integer",
+                    "format": "int32"
+                  },
+                  "Languages": {
+                    "$ref": "#/components/schemas/Language"
+                  },
+                  "ReligiousOpenness": {
+                    "$ref": "#/components/schemas/Openness"
+                  },
+                  "PhoneNumber": {
+                    "type": "string"
+                  }
+                }
+              },
+              "encoding": {
+                "Id": {
+                  "style": "form"
+                },
+                "UserId": {
+                  "style": "form"
+                },
+                "FirstName": {
+                  "style": "form"
+                },
+                "LastName": {
+                  "style": "form"
+                },
+                "BirthDate": {
+                  "style": "form"
+                },
+                "MatchmakerGender": {
+                  "style": "form"
+                },
+                "IdentityNumber": {
+                  "style": "form"
+                },
+                "MarriageDate": {
+                  "style": "form"
+                },
+                "Country": {
+                  "style": "form"
+                },
+                "City": {
+                  "style": "form"
+                },
+                "MatchmakerSector": {
+                  "style": "form"
+                },
+                "SubSector": {
+                  "style": "form"
+                },
+                "YearsOfExperience": {
+                  "style": "form"
+                },
+                "MatchesClosed": {
+                  "style": "form"
+                },
+                "Languages": {
+                  "style": "form"
+                },
+                "ReligiousOpenness": {
+                  "style": "form"
+                },
+                "PhoneNumber": {
+                  "style": "form"
+                }
               }
             }
           }
@@ -1637,8 +1739,7 @@
             "$ref": "#/components/schemas/Sector"
           },
           "subSector": {
-            "type": "string",
-            "nullable": true
+            "$ref": "#/components/schemas/SubSector"
           },
           "yearsOfExperience": {
             "type": "integer",
