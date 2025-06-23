@@ -3,6 +3,7 @@ using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 using Repository.Entities;
 using Service.Interfasces;
+using Service.Services;
 using System.Security.Claims;
 using UserType = Common.Dto.UserType;
 
@@ -15,14 +16,18 @@ namespace hashadchan.Controllers
         private readonly IUserLinkedService<CandidateDto> candidateService;
         private readonly IService<UserDto> userService;
         private readonly IService<CandidateDto> service;
+        private readonly IMyDetails<Candidate> candidateDetails;
+
 
         public CandidateController(IUserLinkedService<CandidateDto> candidateService,
                                    IService<UserDto> userService,
-                                   IService<CandidateDto> service)
+                                   IService<CandidateDto> service,
+                                   IMyDetails<Candidate> candidateDetails) 
         {
             this.candidateService = candidateService;
             this.userService = userService;
             this.service = service;
+            this.candidateDetails = candidateDetails;
         }
 
         // החזרת כל המועמדים
@@ -118,6 +123,18 @@ namespace hashadchan.Controllers
             await file.CopyToAsync(stream);
 
             return file.FileName; // מחזירים את שם הקובץ כדי לעדכן את השדה
+        }
+
+        [HttpGet("males")]
+        public async Task<IActionResult> GetMales()
+        {
+            return Ok(await candidateDetails.GetMaleCandidatesAsync());
+        }
+
+        [HttpGet("females")]
+        public async Task<IActionResult> GetFemales()
+        {
+            return Ok(await candidateDetails.GetFemaleCandidatesAsync());
         }
 
     }

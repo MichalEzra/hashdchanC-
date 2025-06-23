@@ -1,10 +1,13 @@
 ﻿
+using Common.Dto;
 using Hangfire;
 using Microsoft.AspNetCore.Authentication.JwtBearer;
 using Microsoft.IdentityModel.Tokens;
 using Microsoft.OpenApi.Models;
 using Mock;
+using Repository.Entities;
 using Repository.Interfaces;
+using Service.Interfasces;
 using Service.Services;
 using System.Text;
 using WebApplication1.Controllers;
@@ -49,6 +52,7 @@ builder.Services.AddSwaggerGen(option =>
     });
 });
 builder.Services.AddServices();
+builder.Services.AddScoped<IMyDetails<Candidate>, CandidateService>();
 builder.Services.AddDbContext<IContext, Database>();
 builder.Services.AddAuthentication(JwtBearerDefaults.AuthenticationScheme)
               .AddJwtBearer(option =>
@@ -86,6 +90,7 @@ app.UseHangfireDashboard();
 
 if (app.Environment.IsDevelopment())
 {
+    app.UseDeveloperExceptionPage(); // מציג שגיאות מלאות
     app.UseSwagger();
     app.UseSwaggerUI();
 }
