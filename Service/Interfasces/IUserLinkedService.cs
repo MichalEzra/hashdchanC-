@@ -9,5 +9,6 @@ namespace Service.Interfasces
     public interface IUserLinkedService<T>
     {
         Task<T?> GetByUserId(int userId);
+
     }
 }

@@ -21,7 +21,7 @@ namespace Common.Dto
 
         public Gender MatchmakerGender { get; set; }
 
-        public string IdentityNumber { get; set; }
+        public string? IdentityNumber { get; set; }
 
         public DateTime? MarriageDate { get; set; }
 
@@ -31,7 +31,7 @@ namespace Common.Dto
 
         public Sector MatchmakerSector { get; set; }
 
-        public string? SubSector { get; set; }
+        public SubSector? SubSector { get; set; }
 
         public int? YearsOfExperience { get; set; }
 
@@ -41,6 +41,6 @@ namespace Common.Dto
 
         public Openness ReligiousOpenness { get; set; }
 
-        public string PhoneNumber { get; set; }
+        public string? PhoneNumber { get; set; }
     }
 }

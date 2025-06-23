@@ -314,6 +314,26 @@
     "ReturnTypes": []
   },
   {
+    "ContainingType": "hashadchan.Controllers.CandidateController",
+    "Method": "GetFemales",
+    "RelativePath": "api/Candidate/females",
+    "HttpMethod": "GET",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "hashadchan.Controllers.CandidateController",
+    "Method": "GetMales",
+    "RelativePath": "api/Candidate/males",
+    "HttpMethod": "GET",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [],
+    "ReturnTypes": []
+  },
+  {
     "ContainingType": "WebApplication1.Controllers.HungarianAlgorithmController",
     "Method": "Get",
     "RelativePath": "api/HungarianAlgorithm/all",
@@ -402,19 +422,9 @@
     "Order": 0,
     "Parameters": [
       {
-        "Name": "idCandudate1",
-        "Type": "System.Int32",
-        "IsRequired": false
-      },
-      {
-        "Name": "idCandudate2",
-        "Type": "System.Int32",
-        "IsRequired": false
-      },
-      {
-        "Name": "idMatchmaker",
-        "Type": "System.Int32",
-        "IsRequired": false
+        "Name": "request",
+        "Type": "hashadchan.Controllers.CreateMatchRequest",
+        "IsRequired": true
       }
     ],
     "ReturnTypes": []
@@ -584,9 +594,94 @@
     "Order": 0,
     "Parameters": [
       {
-        "Name": "matchmaker",
-        "Type": "Common.Dto.MatchmakerDto",
-        "IsRequired": true
+        "Name": "Id",
+        "Type": "System.Int32",
+        "IsRequired": false
+      },
+      {
+        "Name": "UserId",
+        "Type": "System.Int32",
+        "IsRequired": false
+      },
+      {
+        "Name": "FirstName",
+        "Type": "System.String",
+        "IsRequired": false
+      },
+      {
+        "Name": "LastName",
+        "Type": "System.String",
+        "IsRequired": false
+      },
+      {
+        "Name": "Email",
+        "Type": "System.String",
+        "IsRequired": false
+      },
+      {
+        "Name": "BirthDate",
+        "Type": "System.DateTime",
+        "IsRequired": false
+      },
+      {
+        "Name": "MatchmakerGender",
+        "Type": "Common.Dto.Gender",
+        "IsRequired": false
+      },
+      {
+        "Name": "IdentityNumber",
+        "Type": "System.String",
+        "IsRequired": false
+      },
+      {
+        "Name": "MarriageDate",
+        "Type": "System.Nullable\u00601[[System.DateTime, System.Private.CoreLib, Version=7.0.0.0, Culture=neutral, PublicKeyToken=7cec85d7bea7798e]]",
+        "IsRequired": false
+      },
+      {
+        "Name": "Country",
+        "Type": "System.String",
+        "IsRequired": false
+      },
+      {
+        "Name": "City",
+        "Type": "System.String",
+        "IsRequired": false
+      },
+      {
+        "Name": "MatchmakerSector",
+        "Type": "Common.Dto.Sector",
+        "IsRequired": false
+      },
+      {
+        "Name": "SubSector",
+        "Type": "System.Nullable\u00601[[Common.Dto.SubSector, Common, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null]]",
+        "IsRequired": false
+      },
+      {
+        "Name": "YearsOfExperience",
+        "Type": "System.Nullable\u00601[[System.Int32, System.Private.CoreLib, Version=7.0.0.0, Culture=neutral, PublicKeyToken=7cec85d7bea7798e]]",
+        "IsRequired": false
+      },
+      {
+        "Name": "MatchesClosed",
+        "Type": "System.Nullable\u00601[[System.Int32, System.Private.CoreLib, Version=7.0.0.0, Culture=neutral, PublicKeyToken=7cec85d7bea7798e]]",
+        "IsRequired": false
+      },
+      {
+        "Name": "Languages",
+        "Type": "Common.Dto.Language",
+        "IsRequired": false
+      },
+      {
+        "Name": "ReligiousOpenness",
+        "Type": "Common.Dto.Openness",
+        "IsRequired": false
+      },
+      {
+        "Name": "PhoneNumber",
+        "Type": "System.String",
+        "IsRequired": false
       }
     ],
     "ReturnTypes": [

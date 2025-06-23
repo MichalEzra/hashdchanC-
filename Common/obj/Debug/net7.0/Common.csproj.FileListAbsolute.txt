@@ -37,3 +37,16 @@ C:\Users\User\Desktop\תכנות\יד\C#\פרויקט C# השדכן\hashdchanC-\
 C:\Users\User\Desktop\תכנות\יד\C#\פרויקט C# השדכן\hashdchanC-\Common\obj\Debug\net7.0\refint\Common.dll
 C:\Users\User\Desktop\תכנות\יד\C#\פרויקט C# השדכן\hashdchanC-\Common\obj\Debug\net7.0\Common.pdb
 C:\Users\User\Desktop\תכנות\יד\C#\פרויקט C# השדכן\hashdchanC-\Common\obj\Debug\net7.0\ref\Common.dll
+C:\Users\1\Documents\לימודים\לימודים שנה ב\פרויקט השדכן\hashdchanC-\Common\bin\Debug\net7.0\Common.deps.json
+C:\Users\1\Documents\לימודים\לימודים שנה ב\פרויקט השדכן\hashdchanC-\Common\bin\Debug\net7.0\Common.dll
+C:\Users\1\Documents\לימודים\לימודים שנה ב\פרויקט השדכן\hashdchanC-\Common\bin\Debug\net7.0\Common.pdb
+C:\Users\1\Documents\לימודים\לימודים שנה ב\פרויקט השדכן\hashdchanC-\Common\obj\Debug\net7.0\Common.csproj.AssemblyReference.cache
+C:\Users\1\Documents\לימודים\לימודים שנה ב\פרויקט השדכן\hashdchanC-\Common\obj\Debug\net7.0\Common.GeneratedMSBuildEditorConfig.editorconfig
+C:\Users\1\Documents\לימודים\לימודים שנה ב\פרויקט השדכן\hashdchanC-\Common\obj\Debug\net7.0\Common.AssemblyInfoInputs.cache
+C:\Users\1\Documents\לימודים\לימודים שנה ב\פרויקט השדכן\hashdchanC-\Common\obj\Debug\net7.0\Common.AssemblyInfo.cs
+C:\Users\1\Documents\לימודים\לימודים שנה ב\פרויקט השדכן\hashdchanC-\Common\obj\Debug\net7.0\Common.csproj.CoreCompileInputs.cache
+C:\Users\1\Documents\לימודים\לימודים שנה ב\פרויקט השדכן\hashdchanC-\Common\obj\Debug\net7.0\Common.sourcelink.json
+C:\Users\1\Documents\לימודים\לימודים שנה ב\פרויקט השדכן\hashdchanC-\Common\obj\Debug\net7.0\Common.dll
+C:\Users\1\Documents\לימודים\לימודים שנה ב\פרויקט השדכן\hashdchanC-\Common\obj\Debug\net7.0\refint\Common.dll
+C:\Users\1\Documents\לימודים\לימודים שנה ב\פרויקט השדכן\hashdchanC-\Common\obj\Debug\net7.0\Common.pdb
+C:\Users\1\Documents\לימודים\לימודים שנה ב\פרויקט השדכן\hashdchanC-\Common\obj\Debug\net7.0\ref\Common.dll

@@ -14,6 +14,7 @@ namespace Service.Interfasces
         Task<T> AddItem(T item);
         Task DeleteItem(int id);
         Task UpdateItem(int id, T item);
+        //Task<bool> ExistsAsync(int idCandidate1);
     }
     
 }
