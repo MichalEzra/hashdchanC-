@@ -450,6 +450,56 @@
         }
       }
     },
+    "/api/Candidate/user/{userId}": {
+      "get": {
+        "tags": [
+          "Candidate"
+        ],
+        "parameters": [
+          {
+            "name": "userId",
+            "in": "path",
+            "required": true,
+            "style": "simple",
+            "schema": {
+              "type": "integer",
+              "format": "int32"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Success",
+            "content": {
+              "text/plain": {
+                "schema": {
+                  "type": "array",
+                  "items": {
+                    "$ref": "#/components/schemas/CandidateDto"
+                  }
+                }
+              },
+              "application/json": {
+                "schema": {
+                  "type": "array",
+                  "items": {
+                    "$ref": "#/components/schemas/CandidateDto"
+                  }
+                }
+              },
+              "text/json": {
+                "schema": {
+                  "type": "array",
+                  "items": {
+                    "$ref": "#/components/schemas/CandidateDto"
+                  }
+                }
+              }
+            }
+          }
+        }
+      }
+    },
     "/api/Candidate/males": {
       "get": {
         "tags": [
@@ -1941,6 +1991,13 @@
           },
           "userType": {
             "$ref": "#/components/schemas/UserType"
+          },
+          "candidates": {
+            "type": "array",
+            "items": {
+              "$ref": "#/components/schemas/CandidateDto"
+            },
+            "nullable": true
           }
         },
         "additionalProperties": false

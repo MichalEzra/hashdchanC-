@@ -45,7 +45,7 @@ namespace hashadchan.Controllers
         }
 
         // הוספת מועמד
-
+        [Authorize(Roles = "PARENT")]
         [HttpPost]
         public async Task<ActionResult<CandidateDto>> Post([FromForm] CandidateDto candidate)
         {
@@ -60,9 +60,9 @@ namespace hashadchan.Controllers
             if (user.UserType != UserType.PARENT)
                 return Forbid("רק הורה יכול להוסיף מועמד.");
 
-            var existingCandidate = await candidateService.GetByUserId(userId);
-            if (existingCandidate != null)
-                return BadRequest("כבר קיים מועמד המשויך ליוזר הזה.");
+            //var existingCandidate = await candidateService.GetByUserId(userId);
+            //if (existingCandidate != null)
+            //    return BadRequest("כבר קיים מועמד המשויך ליוזר הזה.");
 
             candidate.UserId = userId;
 
@@ -98,7 +98,17 @@ namespace hashadchan.Controllers
             await service.DeleteItem(id);
             return NoContent();
         }
-
+        //קבלת מועמדים לפי מזהה משתמש
+        [HttpGet("user/{userId}")]
+        public async Task<ActionResult<List<CandidateDto>>> GetCandidatesByUserId(int userId)
+        {
+            var candidates = await candidateService.GetAllByUserId(userId);
+            if (candidates == null || !candidates.Any())
+            {
+                return NotFound("לא נמצאו מועמדים עבור משתמש זה.");
+            }
+            return Ok(candidates);
+        }
         private async Task<string> UploadImage(IFormFile file)
         {
             var path = Path.Combine(Environment.CurrentDirectory, "Images", file.FileName);

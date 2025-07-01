@@ -27,8 +27,11 @@ namespace Service.Services
                 .ForMember(dest => dest.Rezumeh, opt => opt.MapFrom(src => ConvertIFormFileToBytes(src.RezumehFile)));
 
             // מיפוי נוסף של משתמשים ושדכנים (לפי מה שהוספת)
-            CreateMap<User, UserDto>();
-            CreateMap<UserDto, User>();
+            CreateMap<User, UserDto>()
+            .ForMember(dest => dest.Candidates, opt => opt.MapFrom(src => src.Candidates));
+            CreateMap<Candidate, CandidateDto>();
+
+            //CreateMap<UserDto, User>();
             CreateMap<Matchmaker, MatchmakerDto>().ForMember(dest => dest.Email, opt => opt.MapFrom(src => src.User.Email));
             CreateMap<MatchmakerDto, Matchmaker>();
             CreateMap<Match, MatchDto>();

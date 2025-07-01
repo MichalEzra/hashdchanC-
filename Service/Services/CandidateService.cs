@@ -47,12 +47,14 @@ namespace Service.Services
             await repository.UpdateItem(id, mapper.Map<CandidateDto, Candidate>(item));
         }
 
-        public async Task<CandidateDto?> GetByUserId(int userId)
+        public async Task<List<CandidateDto>> GetAllByUserId(int userId)
         {
-            var candidate = await repository.GetAll();
-            var found = candidate.FirstOrDefault(c => c.UserId == userId);
-            return mapper.Map<CandidateDto>(found);
+            var candidates = await repository.GetAll();
+            var filtered = candidates.Where(c => c.UserId == userId).ToList();
+            return mapper.Map<List<CandidateDto>>(filtered);
         }
+
+
         public async Task<Candidate[]> GetFemaleCandidatesAsync()
         {
 
@@ -171,6 +173,7 @@ namespace Service.Services
 
             return generalInfo.ToString();
         }
+
     }
 }
 

@@ -334,6 +334,32 @@
     "ReturnTypes": []
   },
   {
+    "ContainingType": "hashadchan.Controllers.CandidateController",
+    "Method": "GetCandidatesByUserId",
+    "RelativePath": "api/Candidate/user/{userId}",
+    "HttpMethod": "GET",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "userId",
+        "Type": "System.Int32",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": [
+      {
+        "Type": "System.Collections.Generic.List\u00601[[Common.Dto.CandidateDto, Common, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null]]",
+        "MediaTypes": [
+          "text/plain",
+          "application/json",
+          "text/json"
+        ],
+        "StatusCode": 200
+      }
+    ]
+  },
+  {
     "ContainingType": "WebApplication1.Controllers.HungarianAlgorithmController",
     "Method": "Get",
     "RelativePath": "api/HungarianAlgorithm/all",
