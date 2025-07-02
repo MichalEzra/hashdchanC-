@@ -84,8 +84,8 @@ namespace hashadchan.Controllers
 
         // עדכון פרטי מועמד
         [Authorize(Roles = "PARENT")]
-        [HttpPut("{id}")]
-        public async Task<IActionResult> Put(int id, [FromBody] CandidateDto updatedCandidate)
+        [HttpPost("{id}")]
+        public async Task<IActionResult> Put(int id, [FromForm] CandidateDto updatedCandidate)
         {
             await service.UpdateItem(id, updatedCandidate);
             return NoContent();

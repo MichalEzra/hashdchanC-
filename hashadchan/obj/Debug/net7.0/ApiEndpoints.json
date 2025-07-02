@@ -280,7 +280,7 @@
     "ContainingType": "hashadchan.Controllers.CandidateController",
     "Method": "Put",
     "RelativePath": "api/Candidate/{id}",
-    "HttpMethod": "PUT",
+    "HttpMethod": "POST",
     "IsController": true,
     "Order": 0,
     "Parameters": [
@@ -290,9 +290,214 @@
         "IsRequired": true
       },
       {
-        "Name": "updatedCandidate",
-        "Type": "Common.Dto.CandidateDto",
-        "IsRequired": true
+        "Name": "Id",
+        "Type": "System.Int32",
+        "IsRequired": false
+      },
+      {
+        "Name": "UserId",
+        "Type": "System.Int32",
+        "IsRequired": false
+      },
+      {
+        "Name": "Email",
+        "Type": "System.String",
+        "IsRequired": false
+      },
+      {
+        "Name": "PhoneNumber",
+        "Type": "System.String",
+        "IsRequired": false
+      },
+      {
+        "Name": "CandidateId",
+        "Type": "System.Int32",
+        "IsRequired": false
+      },
+      {
+        "Name": "FirstName",
+        "Type": "System.String",
+        "IsRequired": false
+      },
+      {
+        "Name": "LastName",
+        "Type": "System.String",
+        "IsRequired": false
+      },
+      {
+        "Name": "CandidateGender",
+        "Type": "Common.Dto.Gender",
+        "IsRequired": false
+      },
+      {
+        "Name": "Status",
+        "Type": "Common.Dto.CandidateStatus",
+        "IsRequired": false
+      },
+      {
+        "Name": "Age",
+        "Type": "System.Int32",
+        "IsRequired": false
+      },
+      {
+        "Name": "CandidateSector",
+        "Type": "Common.Dto.Sector",
+        "IsRequired": false
+      },
+      {
+        "Name": "SubSector",
+        "Type": "Common.Dto.SubSector",
+        "IsRequired": false
+      },
+      {
+        "Name": "TorahLearning",
+        "Type": "Common.Dto.TorahStudy",
+        "IsRequired": false
+      },
+      {
+        "Name": "Education",
+        "Type": "Common.Dto.EducationInstitution",
+        "IsRequired": false
+      },
+      {
+        "Name": "StudyPlaceName",
+        "Type": "System.String",
+        "IsRequired": false
+      },
+      {
+        "Name": "JobOrStudies",
+        "Type": "Common.Dto.Occupation",
+        "IsRequired": false
+      },
+      {
+        "Name": "City",
+        "Type": "System.String",
+        "IsRequired": false
+      },
+      {
+        "Name": "ArrImage",
+        "Type": "System.Byte[]",
+        "IsRequired": false
+      },
+      {
+        "Name": "fileImage",
+        "Type": "Microsoft.AspNetCore.Http.IFormFile",
+        "IsRequired": false
+      },
+      {
+        "Name": "ImageUrl",
+        "Type": "System.String",
+        "IsRequired": false
+      },
+      {
+        "Name": "Origin",
+        "Type": "System.String",
+        "IsRequired": false
+      },
+      {
+        "Name": "Languages",
+        "Type": "Common.Dto.Language",
+        "IsRequired": false
+      },
+      {
+        "Name": "ReligiousOpenness",
+        "Type": "Common.Dto.Openness",
+        "IsRequired": false
+      },
+      {
+        "Name": "ClothingStyle",
+        "Type": "Common.Dto.ClothingStyle",
+        "IsRequired": false
+      },
+      {
+        "Name": "Height",
+        "Type": "System.Double",
+        "IsRequired": false
+      },
+      {
+        "Name": "Physique",
+        "Type": "Common.Dto.Physique",
+        "IsRequired": false
+      },
+      {
+        "Name": "SkinTone",
+        "Type": "Common.Dto.SkinTone",
+        "IsRequired": false
+      },
+      {
+        "Name": "HairColor",
+        "Type": "Common.Dto.HairColor",
+        "IsRequired": false
+      },
+      {
+        "Name": "Giving",
+        "Type": "System.Double",
+        "IsRequired": false
+      },
+      {
+        "Name": "Expecting",
+        "Type": "System.Double",
+        "IsRequired": false
+      },
+      {
+        "Name": "FamilyStatus",
+        "Type": "Common.Dto.ParentsStatus",
+        "IsRequired": false
+      },
+      {
+        "Name": "AvailableForProposals",
+        "Type": "System.Boolean",
+        "IsRequired": false
+      },
+      {
+        "Name": "PreferredHeadCovering",
+        "Type": "Common.Dto.HeadCovering",
+        "IsRequired": false
+      },
+      {
+        "Name": "CandidatePhoneType",
+        "Type": "Common.Dto.PhoneType",
+        "IsRequired": false
+      },
+      {
+        "Name": "Beard",
+        "Type": "System.Boolean",
+        "IsRequired": false
+      },
+      {
+        "Name": "SmokingStatus",
+        "Type": "Common.Dto.Smoking",
+        "IsRequired": false
+      },
+      {
+        "Name": "License",
+        "Type": "System.Boolean",
+        "IsRequired": false
+      },
+      {
+        "Name": "RezumehArr",
+        "Type": "System.Byte[]",
+        "IsRequired": false
+      },
+      {
+        "Name": "RezumehFile",
+        "Type": "Microsoft.AspNetCore.Http.IFormFile",
+        "IsRequired": false
+      },
+      {
+        "Name": "RezumehName",
+        "Type": "System.String",
+        "IsRequired": false
+      },
+      {
+        "Name": "DescriptionSelf",
+        "Type": "System.String",
+        "IsRequired": false
+      },
+      {
+        "Name": "DescriptionFind",
+        "Type": "System.String",
+        "IsRequired": false
       }
     ],
     "ReturnTypes": []
@@ -538,6 +743,26 @@
       }
     ],
     "ReturnTypes": []
+  },
+  {
+    "ContainingType": "hashadchan.Controllers.MatchController",
+    "Method": "GetEngagedMatches",
+    "RelativePath": "api/Match/engaged",
+    "HttpMethod": "GET",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [],
+    "ReturnTypes": [
+      {
+        "Type": "System.Collections.Generic.List\u00601[[Common.Dto.EngagedMatchDto, Common, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null]]",
+        "MediaTypes": [
+          "text/plain",
+          "application/json",
+          "text/json"
+        ],
+        "StatusCode": 200
+      }
+    ]
   },
   {
     "ContainingType": "hashadchan.Controllers.MatchController",
