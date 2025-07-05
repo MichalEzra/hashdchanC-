@@ -39,8 +39,19 @@ namespace Service.Services
 
         public async Task<CandidateDto> GetById(int id)
         {
-            return mapper.Map<Candidate, CandidateDto>(await repository.GetById(id));
+            var candidate = await repository.GetById(id);
+            var dto = mapper.Map<CandidateDto>(candidate);
+
+            // טען את התמונה רק אם הקובץ קיים
+            var imagePath = Path.Combine(Environment.CurrentDirectory, "Images", candidate.ImageUrl);
+            if (File.Exists(imagePath))
+            {
+                dto.ArrImage = await File.ReadAllBytesAsync(imagePath);
+            }
+
+            return dto;
         }
+
 
         public async Task UpdateItem(int id, CandidateDto item)
         {
@@ -171,6 +182,48 @@ namespace Service.Services
 
             return generalInfo.ToString();
         }
+
+        public async Task<List<CandidateDto>> GetAllByUserId(int userId)
+        {
+            var candidates = await repository.GetAll();
+            var filteredCandidates = candidates.Where(c => c.UserId == userId).ToList();
+
+            var result = new List<CandidateDto>();
+
+            foreach (var candidate in filteredCandidates)
+            {
+                var dto = mapper.Map<CandidateDto>(candidate);
+
+                // תמונה
+                if (!string.IsNullOrEmpty(candidate.ImageUrl))
+                {
+                    var imagePath = Path.Combine(Environment.CurrentDirectory, "Images", candidate.ImageUrl);
+                    if (File.Exists(imagePath))
+                    {
+                        dto.ArrImage = await File.ReadAllBytesAsync(imagePath);
+                    }
+                }
+
+                // רזומה
+                if (candidate.Rezumeh != null && candidate.Rezumeh.Length > 0)
+                {
+                    dto.RezumehArr = candidate.Rezumeh;
+                }
+
+                // אימייל וטלפון (דרך ה־User)
+                if (candidate.User != null)
+                {
+                    dto.Email = candidate.User.Email;
+                    dto.PhoneNumber = candidate.User.PhoneNumber;
+                }
+
+                result.Add(dto);
+            }
+
+            return result;
+        }
+
+
     }
 }
 

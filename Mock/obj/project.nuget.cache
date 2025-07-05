@@ -1,8 +1,8 @@
 {
   "version": 2,
-  "dgSpecHash": "5IIHGVIgacs=",
+  "dgSpecHash": "5hZ32GOTqLQ=",
   "success": true,
-  "projectFilePath": "C:\\Users\\1\\Documents\\לימודים\\לימודים שנה ב\\פרויקט השדכן\\hashdchanC-\\Mock\\Mock.csproj",
+  "projectFilePath": "C:\\Users\\1\\Documents\\לימודים\\לימודים שנה ב\\hashdchanC-\\Mock\\Mock.csproj",
   "expectedPackageFiles": [
     "C:\\Users\\1\\.nuget\\packages\\azure.core\\1.24.0\\azure.core.1.24.0.nupkg.sha512",
     "C:\\Users\\1\\.nuget\\packages\\azure.identity\\1.6.0\\azure.identity.1.6.0.nupkg.sha512",

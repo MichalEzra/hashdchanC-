@@ -257,5 +257,27 @@ namespace hashadchan.Controllers
             await _MatchDtoService.DeleteItem(id); // מחיקה
             return Ok();
         }
+
+
+        [HttpGet("engaged")]
+        public async Task<ActionResult<List<EngagedMatchDto>>> GetEngagedMatches()
+        {
+            var engaged = await _context.Matches
+                .Where(m => m.IsEngaged)
+                .Include(static m => m.Guy)
+                .Include(m => m.Girl)
+                .Select(m => new EngagedMatchDto
+                {
+                    MatchId = m.Id,
+                    NameGuy = m.Guy.FirstName + " " + m.Guy.LastName,
+                    NameGirl = m.Girl.FirstName + " " + m.Girl.LastName,
+                    SeminaryGirl = m.Girl.StudyPlaceName,
+                    YeshivaGuy = m.Guy.StudyPlaceName,
+                    DateMatch = m.DateMatch
+                })
+                .ToListAsync();
+
+            return Ok(engaged);
+        }
     }
 }

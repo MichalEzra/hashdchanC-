@@ -315,6 +315,32 @@
   },
   {
     "ContainingType": "hashadchan.Controllers.CandidateController",
+    "Method": "GetCandidateGeneralInfo",
+    "RelativePath": "api/Candidate/{id}/general-info",
+    "HttpMethod": "GET",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "id",
+        "Type": "System.Int32",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": [
+      {
+        "Type": "System.String",
+        "MediaTypes": [
+          "text/plain",
+          "application/json",
+          "text/json"
+        ],
+        "StatusCode": 200
+      }
+    ]
+  },
+  {
+    "ContainingType": "hashadchan.Controllers.CandidateController",
     "Method": "GetFemales",
     "RelativePath": "api/Candidate/females",
     "HttpMethod": "GET",
@@ -332,6 +358,32 @@
     "Order": 0,
     "Parameters": [],
     "ReturnTypes": []
+  },
+  {
+    "ContainingType": "hashadchan.Controllers.CandidateController",
+    "Method": "GetCandidatesByUserId",
+    "RelativePath": "api/Candidate/user/{userId}",
+    "HttpMethod": "GET",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "userId",
+        "Type": "System.Int32",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": [
+      {
+        "Type": "System.Collections.Generic.List\u00601[[Common.Dto.CandidateDto, Common, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null]]",
+        "MediaTypes": [
+          "text/plain",
+          "application/json",
+          "text/json"
+        ],
+        "StatusCode": 200
+      }
+    ]
   },
   {
     "ContainingType": "WebApplication1.Controllers.HungarianAlgorithmController",
@@ -512,6 +564,26 @@
       }
     ],
     "ReturnTypes": []
+  },
+  {
+    "ContainingType": "hashadchan.Controllers.MatchController",
+    "Method": "GetEngagedMatches",
+    "RelativePath": "api/Match/engaged",
+    "HttpMethod": "GET",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [],
+    "ReturnTypes": [
+      {
+        "Type": "System.Collections.Generic.List\u00601[[Common.Dto.EngagedMatchDto, Common, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null]]",
+        "MediaTypes": [
+          "text/plain",
+          "application/json",
+          "text/json"
+        ],
+        "StatusCode": 200
+      }
+    ]
   },
   {
     "ContainingType": "hashadchan.Controllers.MatchController",

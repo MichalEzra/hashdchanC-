@@ -70,3 +70,39 @@ C:\Users\1\Documents\לימודים\לימודים שנה ב\פרויקט השד
 C:\Users\1\Documents\לימודים\לימודים שנה ב\פרויקט השדכן\hashdchanC-\Service\obj\Debug\net7.0\refint\Service.dll
 C:\Users\1\Documents\לימודים\לימודים שנה ב\פרויקט השדכן\hashdchanC-\Service\obj\Debug\net7.0\Service.pdb
 C:\Users\1\Documents\לימודים\לימודים שנה ב\פרויקט השדכן\hashdchanC-\Service\obj\Debug\net7.0\ref\Service.dll
+C:\Users\1\Documents\לימודים\hashdchanC-\Service\bin\Debug\net7.0\Service.deps.json
+C:\Users\1\Documents\לימודים\hashdchanC-\Service\bin\Debug\net7.0\Service.dll
+C:\Users\1\Documents\לימודים\hashdchanC-\Service\bin\Debug\net7.0\Service.pdb
+C:\Users\1\Documents\לימודים\hashdchanC-\Service\bin\Debug\net7.0\Common.dll
+C:\Users\1\Documents\לימודים\hashdchanC-\Service\bin\Debug\net7.0\Repository.dll
+C:\Users\1\Documents\לימודים\hashdchanC-\Service\bin\Debug\net7.0\Common.pdb
+C:\Users\1\Documents\לימודים\hashdchanC-\Service\bin\Debug\net7.0\Repository.pdb
+C:\Users\1\Documents\לימודים\hashdchanC-\Service\obj\Debug\net7.0\Service.csproj.AssemblyReference.cache
+C:\Users\1\Documents\לימודים\hashdchanC-\Service\obj\Debug\net7.0\Service.GeneratedMSBuildEditorConfig.editorconfig
+C:\Users\1\Documents\לימודים\hashdchanC-\Service\obj\Debug\net7.0\Service.AssemblyInfoInputs.cache
+C:\Users\1\Documents\לימודים\hashdchanC-\Service\obj\Debug\net7.0\Service.AssemblyInfo.cs
+C:\Users\1\Documents\לימודים\hashdchanC-\Service\obj\Debug\net7.0\Service.csproj.CoreCompileInputs.cache
+C:\Users\1\Documents\לימודים\hashdchanC-\Service\obj\Debug\net7.0\Service.sourcelink.json
+C:\Users\1\Documents\לימודים\hashdchanC-\Service\obj\Debug\net7.0\Service.csproj.Up2Date
+C:\Users\1\Documents\לימודים\hashdchanC-\Service\obj\Debug\net7.0\Service.dll
+C:\Users\1\Documents\לימודים\hashdchanC-\Service\obj\Debug\net7.0\refint\Service.dll
+C:\Users\1\Documents\לימודים\hashdchanC-\Service\obj\Debug\net7.0\Service.pdb
+C:\Users\1\Documents\לימודים\hashdchanC-\Service\obj\Debug\net7.0\ref\Service.dll
+C:\Users\1\Documents\לימודים\לימודים שנה ב\hashdchanC-\Service\bin\Debug\net7.0\Service.deps.json
+C:\Users\1\Documents\לימודים\לימודים שנה ב\hashdchanC-\Service\bin\Debug\net7.0\Service.dll
+C:\Users\1\Documents\לימודים\לימודים שנה ב\hashdchanC-\Service\bin\Debug\net7.0\Service.pdb
+C:\Users\1\Documents\לימודים\לימודים שנה ב\hashdchanC-\Service\bin\Debug\net7.0\Common.dll
+C:\Users\1\Documents\לימודים\לימודים שנה ב\hashdchanC-\Service\bin\Debug\net7.0\Repository.dll
+C:\Users\1\Documents\לימודים\לימודים שנה ב\hashdchanC-\Service\bin\Debug\net7.0\Common.pdb
+C:\Users\1\Documents\לימודים\לימודים שנה ב\hashdchanC-\Service\bin\Debug\net7.0\Repository.pdb
+C:\Users\1\Documents\לימודים\לימודים שנה ב\hashdchanC-\Service\obj\Debug\net7.0\Service.csproj.AssemblyReference.cache
+C:\Users\1\Documents\לימודים\לימודים שנה ב\hashdchanC-\Service\obj\Debug\net7.0\Service.GeneratedMSBuildEditorConfig.editorconfig
+C:\Users\1\Documents\לימודים\לימודים שנה ב\hashdchanC-\Service\obj\Debug\net7.0\Service.AssemblyInfoInputs.cache
+C:\Users\1\Documents\לימודים\לימודים שנה ב\hashdchanC-\Service\obj\Debug\net7.0\Service.AssemblyInfo.cs
+C:\Users\1\Documents\לימודים\לימודים שנה ב\hashdchanC-\Service\obj\Debug\net7.0\Service.csproj.CoreCompileInputs.cache
+C:\Users\1\Documents\לימודים\לימודים שנה ב\hashdchanC-\Service\obj\Debug\net7.0\Service.sourcelink.json
+C:\Users\1\Documents\לימודים\לימודים שנה ב\hashdchanC-\Service\obj\Debug\net7.0\Service.csproj.Up2Date
+C:\Users\1\Documents\לימודים\לימודים שנה ב\hashdchanC-\Service\obj\Debug\net7.0\Service.dll
+C:\Users\1\Documents\לימודים\לימודים שנה ב\hashdchanC-\Service\obj\Debug\net7.0\refint\Service.dll
+C:\Users\1\Documents\לימודים\לימודים שנה ב\hashdchanC-\Service\obj\Debug\net7.0\Service.pdb
+C:\Users\1\Documents\לימודים\לימודים שנה ב\hashdchanC-\Service\obj\Debug\net7.0\ref\Service.dll

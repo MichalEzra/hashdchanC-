@@ -21,11 +21,11 @@ namespace Repository.Entities
         public bool ConfirmationGirl { get; set; } = false; // האם הבחורה אישרה את ההצעה 
         public bool ConfirmationGuy { get; set; } = false; // האם הבחור אישר את ההצעה 
         [ForeignKey("IdCandidateGirl")]
-        public Candidate girl { get; set; }
+        public Candidate Girl { get; set; }
         [ForeignKey("IdCandidateGuy")]
-        public Candidate guy { get; set; }
+        public Candidate Guy { get; set; }
         [ForeignKey("IdMatchmaker")]
-        public Matchmaker matchmaker { get; set; }
+        public Matchmaker Matchmaker { get; set; }
 
     }
 
