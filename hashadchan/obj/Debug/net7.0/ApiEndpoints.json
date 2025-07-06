@@ -63,7 +63,7 @@
         "IsRequired": false
       },
       {
-        "Name": "CandidateGender",
+        "Name": "Gender",
         "Type": "Common.Dto.Gender",
         "IsRequired": false
       },

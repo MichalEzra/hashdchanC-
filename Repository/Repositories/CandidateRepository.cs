@@ -57,7 +57,7 @@ namespace Repository.Repositories
             candidate.CandidateId = item.CandidateId;
             candidate.FirstName = item.FirstName;
             candidate.LastName = item.LastName;
-            candidate.CandidateGender = item.CandidateGender;
+            candidate.Gender = item.Gender;
             candidate.Status = item.Status;
             candidate.Age = item.Age;
             candidate.CandidateSector = item.CandidateSector;
@@ -94,14 +94,14 @@ namespace Repository.Repositories
         public async Task<Candidate[]> GetFemaleCandidatesAsync()
         {
             return await context.Candidates
-                .Where(c => c.CandidateGender == Gender.נקבה && c.AvailableForProposals)
+                .Where(c => c.Gender == Gender.נקבה && c.AvailableForProposals)
                 .ToArrayAsync();
         }
 
         public async Task<Candidate[]> GetMaleCandidatesAsync()
         {
             return await context.Candidates
-                .Where(c => c.CandidateGender == Gender.זכר && c.AvailableForProposals)
+                .Where(c => c.Gender == Gender.זכר && c.AvailableForProposals)
                 .ToArrayAsync();
         }
 
@@ -120,7 +120,7 @@ namespace Repository.Repositories
         public async Task<int> GetCandidatesCountAsync(Gender gender)
         {
             return await context.Candidates
-                .CountAsync(c => c.CandidateGender == gender && c.AvailableForProposals);
+                .CountAsync(c => c.Gender == gender && c.AvailableForProposals);
         }
     }
 }

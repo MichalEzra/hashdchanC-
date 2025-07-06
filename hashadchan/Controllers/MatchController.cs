@@ -166,7 +166,7 @@ namespace hashadchan.Controllers
             Candidate c1 = _mapper.Map<Candidate>(candidateDto);
             Match match;
 
-            if (c1.CandidateGender == Repository.Entities.Enums.Gender.זכר)
+            if (c1.Gender == Repository.Entities.Enums.Gender.זכר)
             {
                 match = _mapper.Map<Match>(await _serviceMatch.GetMatchByIdCandidates(candidateId, matchId));
                 if (match == null)

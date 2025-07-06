@@ -1,23 +1,23 @@
 {
   "format": 1,
   "restore": {
-    "C:\\Users\\1\\Documents\\לימודים\\לימודים שנה ב\\hashdchanC-\\hashadchan\\hashadchan.csproj": {}
+    "C:\\Users\\User\\Desktop\\תכנות\\יד\\C#\\פרויקט C# השדכן\\hashdchanC-\\hashadchan\\hashadchan.csproj": {}
   },
   "projects": {
-    "C:\\Users\\1\\Documents\\לימודים\\לימודים שנה ב\\hashdchanC-\\Common\\Common.csproj": {
+    "C:\\Users\\User\\Desktop\\תכנות\\יד\\C#\\פרויקט C# השדכן\\hashdchanC-\\Common\\Common.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\Users\\1\\Documents\\לימודים\\לימודים שנה ב\\hashdchanC-\\Common\\Common.csproj",
+        "projectUniqueName": "C:\\Users\\User\\Desktop\\תכנות\\יד\\C#\\פרויקט C# השדכן\\hashdchanC-\\Common\\Common.csproj",
         "projectName": "Common",
-        "projectPath": "C:\\Users\\1\\Documents\\לימודים\\לימודים שנה ב\\hashdchanC-\\Common\\Common.csproj",
-        "packagesPath": "C:\\Users\\1\\.nuget\\packages\\",
-        "outputPath": "C:\\Users\\1\\Documents\\לימודים\\לימודים שנה ב\\hashdchanC-\\Common\\obj\\",
+        "projectPath": "C:\\Users\\User\\Desktop\\תכנות\\יד\\C#\\פרויקט C# השדכן\\hashdchanC-\\Common\\Common.csproj",
+        "packagesPath": "C:\\Users\\User\\.nuget\\packages\\",
+        "outputPath": "C:\\Users\\User\\Desktop\\תכנות\\יד\\C#\\פרויקט C# השדכן\\hashdchanC-\\Common\\obj\\",
         "projectStyle": "PackageReference",
         "fallbackFolders": [
           "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages"
         ],
         "configFilePaths": [
-          "C:\\Users\\1\\AppData\\Roaming\\NuGet\\NuGet.Config",
+          "C:\\Users\\User\\AppData\\Roaming\\NuGet\\NuGet.Config",
           "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.FallbackLocation.config",
           "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
         ],
@@ -26,7 +26,6 @@
         ],
         "sources": {
           "C:\\Program Files (x86)\\Microsoft SDKs\\NuGetPackages\\": {},
-          "C:\\Program Files\\dotnet\\library-packs": {},
           "https://api.nuget.org/v3/index.json": {}
         },
         "frameworks": {
@@ -45,7 +44,7 @@
           "auditLevel": "low",
           "auditMode": "direct"
         },
-        "SdkAnalysisLevel": "9.0.100"
+        "SdkAnalysisLevel": "9.0.200"
       },
       "frameworks": {
         "net7.0": {
@@ -72,24 +71,24 @@
               "privateAssets": "all"
             }
           },
-          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\9.0.102\\RuntimeIdentifierGraph.json"
+          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\9.0.200\\RuntimeIdentifierGraph.json"
         }
       }
     },
-    "C:\\Users\\1\\Documents\\לימודים\\לימודים שנה ב\\hashdchanC-\\hashadchan\\hashadchan.csproj": {
+    "C:\\Users\\User\\Desktop\\תכנות\\יד\\C#\\פרויקט C# השדכן\\hashdchanC-\\hashadchan\\hashadchan.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\Users\\1\\Documents\\לימודים\\לימודים שנה ב\\hashdchanC-\\hashadchan\\hashadchan.csproj",
+        "projectUniqueName": "C:\\Users\\User\\Desktop\\תכנות\\יד\\C#\\פרויקט C# השדכן\\hashdchanC-\\hashadchan\\hashadchan.csproj",
         "projectName": "hashadchan",
-        "projectPath": "C:\\Users\\1\\Documents\\לימודים\\לימודים שנה ב\\hashdchanC-\\hashadchan\\hashadchan.csproj",
-        "packagesPath": "C:\\Users\\1\\.nuget\\packages\\",
-        "outputPath": "C:\\Users\\1\\Documents\\לימודים\\לימודים שנה ב\\hashdchanC-\\hashadchan\\obj\\",
+        "projectPath": "C:\\Users\\User\\Desktop\\תכנות\\יד\\C#\\פרויקט C# השדכן\\hashdchanC-\\hashadchan\\hashadchan.csproj",
+        "packagesPath": "C:\\Users\\User\\.nuget\\packages\\",
+        "outputPath": "C:\\Users\\User\\Desktop\\תכנות\\יד\\C#\\פרויקט C# השדכן\\hashdchanC-\\hashadchan\\obj\\",
         "projectStyle": "PackageReference",
         "fallbackFolders": [
           "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages"
         ],
         "configFilePaths": [
-          "C:\\Users\\1\\AppData\\Roaming\\NuGet\\NuGet.Config",
+          "C:\\Users\\User\\AppData\\Roaming\\NuGet\\NuGet.Config",
           "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.FallbackLocation.config",
           "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
         ],
@@ -98,18 +97,17 @@
         ],
         "sources": {
           "C:\\Program Files (x86)\\Microsoft SDKs\\NuGetPackages\\": {},
-          "C:\\Program Files\\dotnet\\library-packs": {},
           "https://api.nuget.org/v3/index.json": {}
         },
         "frameworks": {
           "net7.0": {
             "targetAlias": "net7.0",
             "projectReferences": {
-              "C:\\Users\\1\\Documents\\לימודים\\לימודים שנה ב\\hashdchanC-\\Mock\\Mock.csproj": {
-                "projectPath": "C:\\Users\\1\\Documents\\לימודים\\לימודים שנה ב\\hashdchanC-\\Mock\\Mock.csproj"
+              "C:\\Users\\User\\Desktop\\תכנות\\יד\\C#\\פרויקט C# השדכן\\hashdchanC-\\Mock\\Mock.csproj": {
+                "projectPath": "C:\\Users\\User\\Desktop\\תכנות\\יד\\C#\\פרויקט C# השדכן\\hashdchanC-\\Mock\\Mock.csproj"
               },
-              "C:\\Users\\1\\Documents\\לימודים\\לימודים שנה ב\\hashdchanC-\\Service\\Service.csproj": {
-                "projectPath": "C:\\Users\\1\\Documents\\לימודים\\לימודים שנה ב\\hashdchanC-\\Service\\Service.csproj"
+              "C:\\Users\\User\\Desktop\\תכנות\\יד\\C#\\פרויקט C# השדכן\\hashdchanC-\\Service\\Service.csproj": {
+                "projectPath": "C:\\Users\\User\\Desktop\\תכנות\\יד\\C#\\פרויקט C# השדכן\\hashdchanC-\\Service\\Service.csproj"
               }
             }
           }
@@ -124,7 +122,7 @@
           "auditLevel": "low",
           "auditMode": "direct"
         },
-        "SdkAnalysisLevel": "9.0.100"
+        "SdkAnalysisLevel": "9.0.200"
       },
       "frameworks": {
         "net7.0": {
@@ -154,6 +152,12 @@
               "target": "Package",
               "version": "[7.0.19, )"
             },
+            "Microsoft.EntityFrameworkCore.Design": {
+              "include": "Runtime, Build, Native, ContentFiles, Analyzers, BuildTransitive",
+              "suppressParent": "All",
+              "target": "Package",
+              "version": "[7.0.0, )"
+            },
             "Swashbuckle.AspNetCore": {
               "target": "Package",
               "version": "[6.5.0, )"
@@ -178,24 +182,24 @@
               "privateAssets": "all"
             }
           },
-          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\9.0.102\\RuntimeIdentifierGraph.json"
+          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\9.0.200\\RuntimeIdentifierGraph.json"
         }
       }
     },
-    "C:\\Users\\1\\Documents\\לימודים\\לימודים שנה ב\\hashdchanC-\\Mock\\Mock.csproj": {
+    "C:\\Users\\User\\Desktop\\תכנות\\יד\\C#\\פרויקט C# השדכן\\hashdchanC-\\Mock\\Mock.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\Users\\1\\Documents\\לימודים\\לימודים שנה ב\\hashdchanC-\\Mock\\Mock.csproj",
+        "projectUniqueName": "C:\\Users\\User\\Desktop\\תכנות\\יד\\C#\\פרויקט C# השדכן\\hashdchanC-\\Mock\\Mock.csproj",
         "projectName": "Mock",
-        "projectPath": "C:\\Users\\1\\Documents\\לימודים\\לימודים שנה ב\\hashdchanC-\\Mock\\Mock.csproj",
-        "packagesPath": "C:\\Users\\1\\.nuget\\packages\\",
-        "outputPath": "C:\\Users\\1\\Documents\\לימודים\\לימודים שנה ב\\hashdchanC-\\Mock\\obj\\",
+        "projectPath": "C:\\Users\\User\\Desktop\\תכנות\\יד\\C#\\פרויקט C# השדכן\\hashdchanC-\\Mock\\Mock.csproj",
+        "packagesPath": "C:\\Users\\User\\.nuget\\packages\\",
+        "outputPath": "C:\\Users\\User\\Desktop\\תכנות\\יד\\C#\\פרויקט C# השדכן\\hashdchanC-\\Mock\\obj\\",
         "projectStyle": "PackageReference",
         "fallbackFolders": [
           "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages"
         ],
         "configFilePaths": [
-          "C:\\Users\\1\\AppData\\Roaming\\NuGet\\NuGet.Config",
+          "C:\\Users\\User\\AppData\\Roaming\\NuGet\\NuGet.Config",
           "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.FallbackLocation.config",
           "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
         ],
@@ -204,15 +208,14 @@
         ],
         "sources": {
           "C:\\Program Files (x86)\\Microsoft SDKs\\NuGetPackages\\": {},
-          "C:\\Program Files\\dotnet\\library-packs": {},
           "https://api.nuget.org/v3/index.json": {}
         },
         "frameworks": {
           "net7.0": {
             "targetAlias": "net7.0",
             "projectReferences": {
-              "C:\\Users\\1\\Documents\\לימודים\\לימודים שנה ב\\hashdchanC-\\Repository\\Repository.csproj": {
-                "projectPath": "C:\\Users\\1\\Documents\\לימודים\\לימודים שנה ב\\hashdchanC-\\Repository\\Repository.csproj"
+              "C:\\Users\\User\\Desktop\\תכנות\\יד\\C#\\פרויקט C# השדכן\\hashdchanC-\\Repository\\Repository.csproj": {
+                "projectPath": "C:\\Users\\User\\Desktop\\תכנות\\יד\\C#\\פרויקט C# השדכן\\hashdchanC-\\Repository\\Repository.csproj"
               }
             }
           }
@@ -227,7 +230,7 @@
           "auditLevel": "low",
           "auditMode": "direct"
         },
-        "SdkAnalysisLevel": "9.0.100"
+        "SdkAnalysisLevel": "9.0.200"
       },
       "frameworks": {
         "net7.0": {
@@ -274,24 +277,24 @@
               "privateAssets": "all"
             }
           },
-          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\9.0.102\\RuntimeIdentifierGraph.json"
+          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\9.0.200\\RuntimeIdentifierGraph.json"
         }
       }
     },
-    "C:\\Users\\1\\Documents\\לימודים\\לימודים שנה ב\\hashdchanC-\\Repository\\Repository.csproj": {
+    "C:\\Users\\User\\Desktop\\תכנות\\יד\\C#\\פרויקט C# השדכן\\hashdchanC-\\Repository\\Repository.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\Users\\1\\Documents\\לימודים\\לימודים שנה ב\\hashdchanC-\\Repository\\Repository.csproj",
+        "projectUniqueName": "C:\\Users\\User\\Desktop\\תכנות\\יד\\C#\\פרויקט C# השדכן\\hashdchanC-\\Repository\\Repository.csproj",
         "projectName": "Repository",
-        "projectPath": "C:\\Users\\1\\Documents\\לימודים\\לימודים שנה ב\\hashdchanC-\\Repository\\Repository.csproj",
-        "packagesPath": "C:\\Users\\1\\.nuget\\packages\\",
-        "outputPath": "C:\\Users\\1\\Documents\\לימודים\\לימודים שנה ב\\hashdchanC-\\Repository\\obj\\",
+        "projectPath": "C:\\Users\\User\\Desktop\\תכנות\\יד\\C#\\פרויקט C# השדכן\\hashdchanC-\\Repository\\Repository.csproj",
+        "packagesPath": "C:\\Users\\User\\.nuget\\packages\\",
+        "outputPath": "C:\\Users\\User\\Desktop\\תכנות\\יד\\C#\\פרויקט C# השדכן\\hashdchanC-\\Repository\\obj\\",
         "projectStyle": "PackageReference",
         "fallbackFolders": [
           "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages"
         ],
         "configFilePaths": [
-          "C:\\Users\\1\\AppData\\Roaming\\NuGet\\NuGet.Config",
+          "C:\\Users\\User\\AppData\\Roaming\\NuGet\\NuGet.Config",
           "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.FallbackLocation.config",
           "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
         ],
@@ -300,7 +303,6 @@
         ],
         "sources": {
           "C:\\Program Files (x86)\\Microsoft SDKs\\NuGetPackages\\": {},
-          "C:\\Program Files\\dotnet\\library-packs": {},
           "https://api.nuget.org/v3/index.json": {}
         },
         "frameworks": {
@@ -319,7 +321,7 @@
           "auditLevel": "low",
           "auditMode": "direct"
         },
-        "SdkAnalysisLevel": "9.0.100"
+        "SdkAnalysisLevel": "9.0.200"
       },
       "frameworks": {
         "net7.0": {
@@ -346,24 +348,24 @@
               "privateAssets": "all"
             }
           },
-          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\9.0.102\\RuntimeIdentifierGraph.json"
+          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\9.0.200\\RuntimeIdentifierGraph.json"
         }
       }
     },
-    "C:\\Users\\1\\Documents\\לימודים\\לימודים שנה ב\\hashdchanC-\\Service\\Service.csproj": {
+    "C:\\Users\\User\\Desktop\\תכנות\\יד\\C#\\פרויקט C# השדכן\\hashdchanC-\\Service\\Service.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\Users\\1\\Documents\\לימודים\\לימודים שנה ב\\hashdchanC-\\Service\\Service.csproj",
+        "projectUniqueName": "C:\\Users\\User\\Desktop\\תכנות\\יד\\C#\\פרויקט C# השדכן\\hashdchanC-\\Service\\Service.csproj",
         "projectName": "Service",
-        "projectPath": "C:\\Users\\1\\Documents\\לימודים\\לימודים שנה ב\\hashdchanC-\\Service\\Service.csproj",
-        "packagesPath": "C:\\Users\\1\\.nuget\\packages\\",
-        "outputPath": "C:\\Users\\1\\Documents\\לימודים\\לימודים שנה ב\\hashdchanC-\\Service\\obj\\",
+        "projectPath": "C:\\Users\\User\\Desktop\\תכנות\\יד\\C#\\פרויקט C# השדכן\\hashdchanC-\\Service\\Service.csproj",
+        "packagesPath": "C:\\Users\\User\\.nuget\\packages\\",
+        "outputPath": "C:\\Users\\User\\Desktop\\תכנות\\יד\\C#\\פרויקט C# השדכן\\hashdchanC-\\Service\\obj\\",
         "projectStyle": "PackageReference",
         "fallbackFolders": [
           "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages"
         ],
         "configFilePaths": [
-          "C:\\Users\\1\\AppData\\Roaming\\NuGet\\NuGet.Config",
+          "C:\\Users\\User\\AppData\\Roaming\\NuGet\\NuGet.Config",
           "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.FallbackLocation.config",
           "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
         ],
@@ -372,18 +374,17 @@
         ],
         "sources": {
           "C:\\Program Files (x86)\\Microsoft SDKs\\NuGetPackages\\": {},
-          "C:\\Program Files\\dotnet\\library-packs": {},
           "https://api.nuget.org/v3/index.json": {}
         },
         "frameworks": {
           "net7.0": {
             "targetAlias": "net7.0",
             "projectReferences": {
-              "C:\\Users\\1\\Documents\\לימודים\\לימודים שנה ב\\hashdchanC-\\Common\\Common.csproj": {
-                "projectPath": "C:\\Users\\1\\Documents\\לימודים\\לימודים שנה ב\\hashdchanC-\\Common\\Common.csproj"
+              "C:\\Users\\User\\Desktop\\תכנות\\יד\\C#\\פרויקט C# השדכן\\hashdchanC-\\Common\\Common.csproj": {
+                "projectPath": "C:\\Users\\User\\Desktop\\תכנות\\יד\\C#\\פרויקט C# השדכן\\hashdchanC-\\Common\\Common.csproj"
               },
-              "C:\\Users\\1\\Documents\\לימודים\\לימודים שנה ב\\hashdchanC-\\Repository\\Repository.csproj": {
-                "projectPath": "C:\\Users\\1\\Documents\\לימודים\\לימודים שנה ב\\hashdchanC-\\Repository\\Repository.csproj"
+              "C:\\Users\\User\\Desktop\\תכנות\\יד\\C#\\פרויקט C# השדכן\\hashdchanC-\\Repository\\Repository.csproj": {
+                "projectPath": "C:\\Users\\User\\Desktop\\תכנות\\יד\\C#\\פרויקט C# השדכן\\hashdchanC-\\Repository\\Repository.csproj"
               }
             }
           }
@@ -398,7 +399,7 @@
           "auditLevel": "low",
           "auditMode": "direct"
         },
-        "SdkAnalysisLevel": "9.0.100"
+        "SdkAnalysisLevel": "9.0.200"
       },
       "frameworks": {
         "net7.0": {
@@ -445,7 +446,7 @@
               "privateAssets": "all"
             }
           },
-          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\9.0.102\\RuntimeIdentifierGraph.json"
+          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\9.0.200\\RuntimeIdentifierGraph.json"
         }
       }
     }

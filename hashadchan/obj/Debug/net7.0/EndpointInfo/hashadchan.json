@@ -76,7 +76,7 @@
                   "LastName": {
                     "type": "string"
                   },
-                  "CandidateGender": {
+                  "Gender": {
                     "$ref": "#/components/schemas/Gender"
                   },
                   "Status": {
@@ -213,7 +213,7 @@
                 "LastName": {
                   "style": "form"
                 },
-                "CandidateGender": {
+                "Gender": {
                   "style": "form"
                 },
                 "Status": {
@@ -1595,7 +1595,7 @@
             "type": "string",
             "nullable": true
           },
-          "candidateGender": {
+          "gender": {
             "$ref": "#/components/schemas/Gender"
           },
           "status": {

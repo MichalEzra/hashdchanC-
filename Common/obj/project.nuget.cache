@@ -1,12 +1,12 @@
 {
   "version": 2,
-  "dgSpecHash": "tChNOj19/Vw=",
+  "dgSpecHash": "7xmZgLa//3U=",
   "success": true,
-  "projectFilePath": "C:\\Users\\1\\Documents\\לימודים\\לימודים שנה ב\\hashdchanC-\\Common\\Common.csproj",
+  "projectFilePath": "C:\\Users\\User\\Desktop\\תכנות\\יד\\C#\\פרויקט C# השדכן\\hashdchanC-\\Common\\Common.csproj",
   "expectedPackageFiles": [
-    "C:\\Users\\1\\.nuget\\packages\\microsoft.aspnetcore.http.features\\5.0.17\\microsoft.aspnetcore.http.features.5.0.17.nupkg.sha512",
-    "C:\\Users\\1\\.nuget\\packages\\microsoft.extensions.primitives\\5.0.1\\microsoft.extensions.primitives.5.0.1.nupkg.sha512",
-    "C:\\Users\\1\\.nuget\\packages\\system.io.pipelines\\5.0.2\\system.io.pipelines.5.0.2.nupkg.sha512"
+    "C:\\Users\\User\\.nuget\\packages\\microsoft.aspnetcore.http.features\\5.0.17\\microsoft.aspnetcore.http.features.5.0.17.nupkg.sha512",
+    "C:\\Users\\User\\.nuget\\packages\\microsoft.extensions.primitives\\5.0.1\\microsoft.extensions.primitives.5.0.1.nupkg.sha512",
+    "C:\\Users\\User\\.nuget\\packages\\system.io.pipelines\\5.0.2\\system.io.pipelines.5.0.2.nupkg.sha512"
   ],
   "logs": []
 }
