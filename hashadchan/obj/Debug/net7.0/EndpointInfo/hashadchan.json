@@ -707,7 +707,72 @@
         }
       }
     },
-    "/api/Candidate/user/{userId}": {
+    "/api/Candidate/males": {
+      "get": {
+        "tags": [
+          "Candidate"
+        ],
+        "responses": {
+          "200": {
+            "description": "Success"
+          }
+        }
+      }
+    },
+    "/api/Candidate/females": {
+      "get": {
+        "tags": [
+          "Candidate"
+        ],
+        "responses": {
+          "200": {
+            "description": "Success"
+          }
+        }
+      }
+    },
+    "/api/Candidate/{id}/general-info": {
+      "get": {
+        "tags": [
+          "Candidate"
+        ],
+        "parameters": [
+          {
+            "name": "id",
+            "in": "path",
+            "required": true,
+            "style": "simple",
+            "schema": {
+              "type": "integer",
+              "format": "int32"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Success",
+            "content": {
+              "text/plain": {
+                "schema": {
+                  "type": "string"
+                }
+              },
+              "application/json": {
+                "schema": {
+                  "type": "string"
+                }
+              },
+              "text/json": {
+                "schema": {
+                  "type": "string"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/api/Candidate/user/{userId}/all": {
       "get": {
         "tags": [
           "Candidate"
@@ -753,30 +818,6 @@
                 }
               }
             }
-          }
-        }
-      }
-    },
-    "/api/Candidate/males": {
-      "get": {
-        "tags": [
-          "Candidate"
-        ],
-        "responses": {
-          "200": {
-            "description": "Success"
-          }
-        }
-      }
-    },
-    "/api/Candidate/females": {
-      "get": {
-        "tags": [
-          "Candidate"
-        ],
-        "responses": {
-          "200": {
-            "description": "Success"
           }
         }
       }

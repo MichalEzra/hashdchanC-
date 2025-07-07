@@ -520,6 +520,32 @@
   },
   {
     "ContainingType": "hashadchan.Controllers.CandidateController",
+    "Method": "GetCandidateGeneralInfo",
+    "RelativePath": "api/Candidate/{id}/general-info",
+    "HttpMethod": "GET",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "id",
+        "Type": "System.Int32",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": [
+      {
+        "Type": "System.String",
+        "MediaTypes": [
+          "text/plain",
+          "application/json",
+          "text/json"
+        ],
+        "StatusCode": 200
+      }
+    ]
+  },
+  {
+    "ContainingType": "hashadchan.Controllers.CandidateController",
     "Method": "GetFemales",
     "RelativePath": "api/Candidate/females",
     "HttpMethod": "GET",
@@ -540,8 +566,8 @@
   },
   {
     "ContainingType": "hashadchan.Controllers.CandidateController",
-    "Method": "GetCandidatesByUserId",
-    "RelativePath": "api/Candidate/user/{userId}",
+    "Method": "GetAllByUserId",
+    "RelativePath": "api/Candidate/user/{userId}/all",
     "HttpMethod": "GET",
     "IsController": true,
     "Order": 0,

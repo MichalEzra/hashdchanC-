@@ -2,6 +2,8 @@
 using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 using Repository.Entities;
+using Repository.Interfaces;
+using Repository.Repositories;
 using Service.Interfasces;
 using Service.Services;
 using System.Security.Claims;
@@ -17,18 +19,33 @@ namespace hashadchan.Controllers
         private readonly IService<UserDto> userService;
         private readonly IService<CandidateDto> service;
         private readonly IMyDetails<Candidate> candidateDetails;
+        private readonly IRepository<Candidate> _repository;
 
-
-        public CandidateController(IUserLinkedService<CandidateDto> candidateService,
-                                   IService<UserDto> userService,
-                                   IService<CandidateDto> service,
-                                   IMyDetails<Candidate> candidateDetails) 
+        public CandidateController(
+            IUserLinkedService<CandidateDto> candidateService,
+            IService<UserDto> userService,
+            IService<CandidateDto> service,
+            IMyDetails<Candidate> candidateDetails,
+            IRepository<Candidate> repository)  // הוסף כאן
         {
             this.candidateService = candidateService;
             this.userService = userService;
             this.service = service;
             this.candidateDetails = candidateDetails;
+            this._repository = repository;    // שמור בשדה פרטי
         }
+
+
+        //public CandidateController(IUserLinkedService<CandidateDto> candidateService,
+        //                           IService<UserDto> userService,
+        //                           IService<CandidateDto> service,
+        //                           IMyDetails<Candidate> candidateDetails) 
+        //{
+        //    this.candidateService = candidateService;
+        //    this.userService = userService;
+        //    this.service = service;
+        //    this.candidateDetails = candidateDetails;
+        //}
 
         // החזרת כל המועמדים
         [HttpGet]
@@ -99,16 +116,16 @@ namespace hashadchan.Controllers
             return NoContent();
         }
         //קבלת מועמדים לפי מזהה משתמש
-        [HttpGet("user/{userId}")]
-        public async Task<ActionResult<List<CandidateDto>>> GetCandidatesByUserId(int userId)
-        {
-            var candidates = await candidateService.GetAllByUserId(userId);
-            if (candidates == null || !candidates.Any())
-            {
-                return NotFound("לא נמצאו מועמדים עבור משתמש זה.");
-            }
-            return Ok(candidates);
-        }
+        //[HttpGet("user/{userId}")]
+        //public async Task<ActionResult<List<CandidateDto>>> GetCandidatesByUserId(int userId)
+        //{
+        //    var candidates = await candidateService.GetAllByUserId(userId);
+        //    if (candidates == null || !candidates.Any())
+        //    {
+        //        return NotFound("לא נמצאו מועמדים עבור משתמש זה.");
+        //    }
+        //    return Ok(candidates);
+        //}
         private async Task<string> UploadImage(IFormFile file)
         {
             var path = Path.Combine(Environment.CurrentDirectory, "Images", file.FileName);
@@ -146,6 +163,28 @@ namespace hashadchan.Controllers
         {
             return Ok(await candidateDetails.GetFemaleCandidatesAsync());
         }
+        [HttpGet("{id}/general-info")]
+        public async Task<ActionResult<string>> GetCandidateGeneralInfo(int id)
+        {
+            var candidate = await _repository.GetById(id);
+            if (candidate == null)
+                return NotFound("מועמד לא נמצא");
+
+            var info = await candidateDetails.GetGeneralCandidateInfoAsync(candidate);
+            return Ok(info);
+        }
+
+        [HttpGet("user/{userId}/all")]
+        public async Task<ActionResult<List<CandidateDto>>> GetAllByUserId(int userId)
+        {
+            var candidates = await candidateService.GetAllByUserId(userId);
+            if (candidates == null || !candidates.Any())
+            {
+                return NotFound("לא נמצאו מועמדים עבור משתמש זה.");
+            }
+            return Ok(candidates);
+        }
+
 
     }
 }

@@ -53,6 +53,7 @@ builder.Services.AddSwaggerGen(option =>
 });
 builder.Services.AddServices();
 builder.Services.AddScoped<IMyDetails<Candidate>, CandidateService>();
+builder.Services.AddScoped<IUserLinkedService<CandidateDto>, CandidateService>();
 builder.Services.AddDbContext<IContext, Database>();
 builder.Services.AddAuthentication(JwtBearerDefaults.AuthenticationScheme)
               .AddJwtBearer(option =>
@@ -92,7 +93,10 @@ if (app.Environment.IsDevelopment())
 {
     app.UseDeveloperExceptionPage(); // מציג שגיאות מלאות
     app.UseSwagger();
-    app.UseSwaggerUI();
+    app.UseSwaggerUI(c =>
+    {
+        c.SwaggerEndpoint("/swagger/v1/swagger.json", "My API V1");
+    });
 }
 
 
