@@ -70,6 +70,8 @@ C:\Users\1\Documents\לימודים\לימודים שנה ב\פרויקט השד
 C:\Users\1\Documents\לימודים\לימודים שנה ב\פרויקט השדכן\hashdchanC-\Service\obj\Debug\net7.0\refint\Service.dll
 C:\Users\1\Documents\לימודים\לימודים שנה ב\פרויקט השדכן\hashdchanC-\Service\obj\Debug\net7.0\Service.pdb
 C:\Users\1\Documents\לימודים\לימודים שנה ב\פרויקט השדכן\hashdchanC-\Service\obj\Debug\net7.0\ref\Service.dll
+<<<<<<< HEAD
+=======
 C:\Users\1\Documents\לימודים\hashdchanC-\Service\bin\Debug\net7.0\Service.deps.json
 C:\Users\1\Documents\לימודים\hashdchanC-\Service\bin\Debug\net7.0\Service.dll
 C:\Users\1\Documents\לימודים\hashdchanC-\Service\bin\Debug\net7.0\Service.pdb
@@ -124,3 +126,4 @@ C:\Users\User\Desktop\תכנות\יד\C#\פרויקט\בדיקה\hashdchanC-\Ser
 C:\Users\User\Desktop\תכנות\יד\C#\פרויקט\בדיקה\hashdchanC-\Service\obj\Debug\net7.0\refint\Service.dll
 C:\Users\User\Desktop\תכנות\יד\C#\פרויקט\בדיקה\hashdchanC-\Service\obj\Debug\net7.0\Service.pdb
 C:\Users\User\Desktop\תכנות\יד\C#\פרויקט\בדיקה\hashdchanC-\Service\obj\Debug\net7.0\ref\Service.dll
+>>>>>>> c0ad84133a8aa652079eee6333ba9a477e5a3f30

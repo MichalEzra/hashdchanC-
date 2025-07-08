@@ -3,6 +3,7 @@ using System;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
 using Microsoft.EntityFrameworkCore.Metadata;
+using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 using Mock;
 
@@ -11,9 +12,11 @@ using Mock;
 namespace Mock.Migrations
 {
     [DbContext(typeof(Database))]
-    partial class DatabaseModelSnapshot : ModelSnapshot
+    [Migration("20250701033631_init8")]
+    partial class init8
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        /// <inheritdoc />
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder
@@ -38,6 +41,9 @@ namespace Mock.Migrations
 
                     b.Property<bool>("Beard")
                         .HasColumnType("bit");
+
+                    b.Property<int>("CandidateGender")
+                        .HasColumnType("int");
 
                     b.Property<int>("CandidateId")
                         .HasColumnType("int");
@@ -75,9 +81,6 @@ namespace Mock.Migrations
                     b.Property<string>("FirstName")
                         .IsRequired()
                         .HasColumnType("nvarchar(max)");
-
-                    b.Property<int>("Gender")
-                        .HasColumnType("int");
 
                     b.Property<double>("Giving")
                         .HasColumnType("float");
@@ -308,29 +311,29 @@ namespace Mock.Migrations
 
             modelBuilder.Entity("Repository.Entities.Match", b =>
                 {
-                    b.HasOne("Repository.Entities.Candidate", "Girl")
+                    b.HasOne("Repository.Entities.Candidate", "girl")
                         .WithMany()
                         .HasForeignKey("IdCandidateGirl")
                         .OnDelete(DeleteBehavior.Cascade)
                         .IsRequired();
 
-                    b.HasOne("Repository.Entities.Candidate", "Guy")
+                    b.HasOne("Repository.Entities.Candidate", "guy")
                         .WithMany()
                         .HasForeignKey("IdCandidateGuy")
                         .OnDelete(DeleteBehavior.Cascade)
                         .IsRequired();
 
-                    b.HasOne("Repository.Entities.Matchmaker", "Matchmaker")
+                    b.HasOne("Repository.Entities.Matchmaker", "matchmaker")
                         .WithMany()
                         .HasForeignKey("IdMatchmaker")
                         .OnDelete(DeleteBehavior.Cascade)
                         .IsRequired();
 
-                    b.Navigation("Girl");
+                    b.Navigation("girl");
 
-                    b.Navigation("Guy");
+                    b.Navigation("guy");
 
-                    b.Navigation("Matchmaker");
+                    b.Navigation("matchmaker");
                 });
 
             modelBuilder.Entity("Repository.Entities.Matchmaker", b =>

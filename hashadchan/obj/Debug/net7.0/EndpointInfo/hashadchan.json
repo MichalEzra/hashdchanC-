@@ -386,7 +386,7 @@
           }
         }
       },
-      "put": {
+      "post": {
         "tags": [
           "Candidate"
         ],
@@ -404,19 +404,276 @@
         ],
         "requestBody": {
           "content": {
-            "application/json": {
+            "multipart/form-data": {
               "schema": {
-                "$ref": "#/components/schemas/CandidateDto"
-              }
-            },
-            "text/json": {
-              "schema": {
-                "$ref": "#/components/schemas/CandidateDto"
-              }
-            },
-            "application/*+json": {
-              "schema": {
-                "$ref": "#/components/schemas/CandidateDto"
+                "type": "object",
+                "properties": {
+                  "Id": {
+                    "type": "integer",
+                    "format": "int32"
+                  },
+                  "UserId": {
+                    "type": "integer",
+                    "format": "int32"
+                  },
+                  "Email": {
+                    "type": "string"
+                  },
+                  "PhoneNumber": {
+                    "type": "string"
+                  },
+                  "CandidateId": {
+                    "type": "integer",
+                    "format": "int32"
+                  },
+                  "FirstName": {
+                    "type": "string"
+                  },
+                  "LastName": {
+                    "type": "string"
+                  },
+                  "CandidateGender": {
+                    "$ref": "#/components/schemas/Gender"
+                  },
+                  "Status": {
+                    "$ref": "#/components/schemas/CandidateStatus"
+                  },
+                  "Age": {
+                    "type": "integer",
+                    "format": "int32"
+                  },
+                  "CandidateSector": {
+                    "$ref": "#/components/schemas/Sector"
+                  },
+                  "SubSector": {
+                    "$ref": "#/components/schemas/SubSector"
+                  },
+                  "TorahLearning": {
+                    "$ref": "#/components/schemas/TorahStudy"
+                  },
+                  "Education": {
+                    "$ref": "#/components/schemas/EducationInstitution"
+                  },
+                  "StudyPlaceName": {
+                    "type": "string"
+                  },
+                  "JobOrStudies": {
+                    "$ref": "#/components/schemas/Occupation"
+                  },
+                  "City": {
+                    "type": "string"
+                  },
+                  "ArrImage": {
+                    "type": "string",
+                    "format": "byte"
+                  },
+                  "fileImage": {
+                    "type": "string",
+                    "format": "binary"
+                  },
+                  "ImageUrl": {
+                    "type": "string"
+                  },
+                  "Origin": {
+                    "type": "string"
+                  },
+                  "Languages": {
+                    "$ref": "#/components/schemas/Language"
+                  },
+                  "ReligiousOpenness": {
+                    "$ref": "#/components/schemas/Openness"
+                  },
+                  "ClothingStyle": {
+                    "$ref": "#/components/schemas/ClothingStyle"
+                  },
+                  "Height": {
+                    "type": "number",
+                    "format": "double"
+                  },
+                  "Physique": {
+                    "$ref": "#/components/schemas/Physique"
+                  },
+                  "SkinTone": {
+                    "$ref": "#/components/schemas/SkinTone"
+                  },
+                  "HairColor": {
+                    "$ref": "#/components/schemas/HairColor"
+                  },
+                  "Giving": {
+                    "type": "number",
+                    "format": "double"
+                  },
+                  "Expecting": {
+                    "type": "number",
+                    "format": "double"
+                  },
+                  "FamilyStatus": {
+                    "$ref": "#/components/schemas/ParentsStatus"
+                  },
+                  "AvailableForProposals": {
+                    "type": "boolean"
+                  },
+                  "PreferredHeadCovering": {
+                    "$ref": "#/components/schemas/HeadCovering"
+                  },
+                  "CandidatePhoneType": {
+                    "$ref": "#/components/schemas/PhoneType"
+                  },
+                  "Beard": {
+                    "type": "boolean"
+                  },
+                  "SmokingStatus": {
+                    "$ref": "#/components/schemas/Smoking"
+                  },
+                  "License": {
+                    "type": "boolean"
+                  },
+                  "RezumehArr": {
+                    "type": "string",
+                    "format": "byte"
+                  },
+                  "RezumehFile": {
+                    "type": "string",
+                    "format": "binary"
+                  },
+                  "RezumehName": {
+                    "type": "string"
+                  },
+                  "DescriptionSelf": {
+                    "type": "string"
+                  },
+                  "DescriptionFind": {
+                    "type": "string"
+                  }
+                }
+              },
+              "encoding": {
+                "Id": {
+                  "style": "form"
+                },
+                "UserId": {
+                  "style": "form"
+                },
+                "Email": {
+                  "style": "form"
+                },
+                "PhoneNumber": {
+                  "style": "form"
+                },
+                "CandidateId": {
+                  "style": "form"
+                },
+                "FirstName": {
+                  "style": "form"
+                },
+                "LastName": {
+                  "style": "form"
+                },
+                "CandidateGender": {
+                  "style": "form"
+                },
+                "Status": {
+                  "style": "form"
+                },
+                "Age": {
+                  "style": "form"
+                },
+                "CandidateSector": {
+                  "style": "form"
+                },
+                "SubSector": {
+                  "style": "form"
+                },
+                "TorahLearning": {
+                  "style": "form"
+                },
+                "Education": {
+                  "style": "form"
+                },
+                "StudyPlaceName": {
+                  "style": "form"
+                },
+                "JobOrStudies": {
+                  "style": "form"
+                },
+                "City": {
+                  "style": "form"
+                },
+                "ArrImage": {
+                  "style": "form"
+                },
+                "fileImage": {
+                  "style": "form"
+                },
+                "ImageUrl": {
+                  "style": "form"
+                },
+                "Origin": {
+                  "style": "form"
+                },
+                "Languages": {
+                  "style": "form"
+                },
+                "ReligiousOpenness": {
+                  "style": "form"
+                },
+                "ClothingStyle": {
+                  "style": "form"
+                },
+                "Height": {
+                  "style": "form"
+                },
+                "Physique": {
+                  "style": "form"
+                },
+                "SkinTone": {
+                  "style": "form"
+                },
+                "HairColor": {
+                  "style": "form"
+                },
+                "Giving": {
+                  "style": "form"
+                },
+                "Expecting": {
+                  "style": "form"
+                },
+                "FamilyStatus": {
+                  "style": "form"
+                },
+                "AvailableForProposals": {
+                  "style": "form"
+                },
+                "PreferredHeadCovering": {
+                  "style": "form"
+                },
+                "CandidatePhoneType": {
+                  "style": "form"
+                },
+                "Beard": {
+                  "style": "form"
+                },
+                "SmokingStatus": {
+                  "style": "form"
+                },
+                "License": {
+                  "style": "form"
+                },
+                "RezumehArr": {
+                  "style": "form"
+                },
+                "RezumehFile": {
+                  "style": "form"
+                },
+                "RezumehName": {
+                  "style": "form"
+                },
+                "DescriptionSelf": {
+                  "style": "form"
+                },
+                "DescriptionFind": {
+                  "style": "form"
+                }
               }
             }
           }
@@ -515,7 +772,52 @@
         }
       }
     },
+<<<<<<< HEAD
+    "/api/Candidate/{id}/general-info": {
+      "get": {
+        "tags": [
+          "Candidate"
+        ],
+        "parameters": [
+          {
+            "name": "id",
+            "in": "path",
+            "required": true,
+            "style": "simple",
+            "schema": {
+              "type": "integer",
+              "format": "int32"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Success",
+            "content": {
+              "text/plain": {
+                "schema": {
+                  "type": "string"
+                }
+              },
+              "application/json": {
+                "schema": {
+                  "type": "string"
+                }
+              },
+              "text/json": {
+                "schema": {
+                  "type": "string"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/api/Candidate/user/{userId}/all": {
+=======
     "/api/Candidate/user/{userId}": {
+>>>>>>> hashdchanc#
       "get": {
         "tags": [
           "Candidate"
@@ -1883,6 +2185,12 @@
           },
           "status": {
             "type": "boolean"
+          },
+          "maleCandidate": {
+            "$ref": "#/components/schemas/CandidateDto"
+          },
+          "femaleCandidate": {
+            "$ref": "#/components/schemas/CandidateDto"
           }
         },
         "additionalProperties": false
@@ -2108,6 +2416,13 @@
           },
           "userType": {
             "$ref": "#/components/schemas/UserType"
+          },
+          "candidates": {
+            "type": "array",
+            "items": {
+              "$ref": "#/components/schemas/CandidateDto"
+            },
+            "nullable": true
           }
         },
         "additionalProperties": false

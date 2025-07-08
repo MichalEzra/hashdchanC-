@@ -25,6 +25,8 @@ namespace Common.Dto
         public string? PhoneNumber { get; set; }
 
         public UserType UserType { get; set; }
+        public List<CandidateDto> Candidates { get; set; } = new List<CandidateDto>();
+
 
     }
 

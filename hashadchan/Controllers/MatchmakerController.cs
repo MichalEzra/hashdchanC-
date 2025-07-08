@@ -51,7 +51,7 @@ namespace hashadchan.Controllers
             if (user.UserType != UserType.MATCHMAKER)
                 return Forbid("רק שדכנים רשאים להירשם כשדכנים.");
 
-            var existing = await matchmakerService.GetByUserId(userId);
+            var existing = await matchmakerService.GetAllByUserId(userId);
             if (existing != null)
                 return BadRequest("כבר קיים שדכן עבור משתמש זה.");
 

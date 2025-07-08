@@ -5,6 +5,7 @@ using System.ComponentModel.DataAnnotations;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using Common.Dto;
 
 namespace Repository.Entities
 {
@@ -20,6 +21,9 @@ namespace Repository.Entities
         public bool ConfirmationGirl { get; set; }
         public DateTime DateMatch { get; set; }
         public bool Status { get; set; } // ההצעה הוצעה ?
+        public CandidateDto MaleCandidate { get; set; }
+        public CandidateDto FemaleCandidate { get; set; }
+
 
     }
 
