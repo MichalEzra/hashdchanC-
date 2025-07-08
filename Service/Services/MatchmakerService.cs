@@ -53,13 +53,7 @@ namespace Service.Services
             return mapper.Map<List<MatchmakerDto>>(matchmakers);
         }
 
-<<<<<<< HEAD
-=======
-        public Task<List<CandidateDto>> GetAllByUserId(int userId)
-        {
-            throw new NotImplementedException();
-        }
->>>>>>> hashdchanc#
+
     }
 
 }
