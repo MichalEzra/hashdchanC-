@@ -1,0 +1,265 @@
+[33mcommit 13ada7303ba070c7fb41b6514a14730a85ac26b0[m
+Author: MichalEzra <m0534185081@gmail.com>
+Date:   Sat Apr 26 23:57:48 2025 +0300
+
+    First commit
+
+[33mcommit fbe7877037662c01208ab07b005b4e4a752a0d52[m
+Author: תכנות תלמידות <s-sys@DOMAIN.LOCAL>
+Date:   Sun Apr 27 14:55:04 2025 +0300
+
+    Adding a user to the constructor and server
+
+[33mcommit d77154d754bd0045af6282e18ef9d29acb33c854[m
+Author: MichalEzra <m0534185081@gmail.com>
+Date:   Sun Apr 27 23:36:23 2025 +0300
+
+    user controller
+
+[33mcommit ac59ccb690eb5395edc328d97b31318e0cbc5ebe[m
+Author: MichalEzra <m0534185081@gmail.com>
+Date:   Sun May 4 17:12:59 2025 +0300
+
+    async
+
+[33mcommit fa461a623d5aa881625e42865e243e94f4fba77b[m
+Author: MichalEzra <m0534185081@gmail.com>
+Date:   Sun May 4 17:21:44 2025 +0300
+
+    Update .gitignore
+
+[33mcommit 16be80a558f7fbde71fb5a5dfd0c68e3711546c2[m
+Author: MichalEzra <m0534185081@gmail.com>
+Date:   Tue May 6 16:11:49 2025 +0300
+
+     add Extention to service and repository
+
+[33mcommit bbe9c8b500df4cb1440277d988f889d8f6240e19[m
+Author: MichalEzra <m0534185081@gmail.com>
+Date:   Tue May 6 21:40:34 2025 +0300
+
+     add Matchmaker
+
+[33mcommit 73b0e637133618c2c3ea4c963c9d482c8f3feaf8[m
+Author: MichalEzra <m0534185081@gmail.com>
+Date:   Tue May 6 22:33:28 2025 +0300
+
+     add updateItem
+
+[33mcommit dabffa93c6b0c12af8a4ceae5747bf848ab17322[m
+Author: MichalEzra <m0534185081@gmail.com>
+Date:   Fri May 9 01:12:38 2025 +0300
+
+    add log in and token
+
+[33mcommit 9d05e6fdcf63ef40f420e77f2bed2eb25657ee82[m
+Author: MichalEzra <m0534185081@gmail.com>
+Date:   Fri May 9 11:15:30 2025 +0300
+
+     fixe await
+
+[33mcommit 16b4555acf98f8782f5fbc4b71397bc3286e1848[m
+Author: MichalEzra <m0534185081@gmail.com>
+Date:   Wed May 21 01:24:45 2025 +0300
+
+    Added user permissions and blocked adding new admins
+
+[33mcommit 1925e4ca70d99f992b6629af78f5972a8bb2423a[m
+Author: MichalEzra <m0534185081@gmail.com>
+Date:   Thu May 22 20:18:01 2025 +0300
+
+    Add access permissions to all users
+
+[33mcommit 0d0af7ec2c8f0fd68ab9c2458d496f5e2120a109[m
+Author: MichalEzra <m0534185081@gmail.com>
+Date:   Thu May 22 20:59:00 2025 +0300
+
+    Adding access permissions to a candidate
+
+[33mcommit e595c1ae335494f28f673e367c1d859f1bc7f14b[m
+Author: MichalEzra <m0534185081@gmail.com>
+Date:   Fri May 23 12:27:46 2025 +0300
+
+    Added option to convert value from INT to STRING
+
+[33mcommit 693514dfc4c414f1b8b076cb0ddc3b1f544e248b[m
+Author: MichalEzra <m0534185081@gmail.com>
+Date:   Mon May 26 23:44:59 2025 +0300
+
+    Add a rezume for candidate
+
+[33mcommit 9a4b955e6b49930c0e711d630cc82ed72dfb3d76[m
+Author: MichalEzra <m0534185081@gmail.com>
+Date:   Wed Jun 4 12:12:22 2025 +0300
+
+    Integrated Azure Text Analytics API for extracting key phrases from candidate descriptions
+
+[33mcommit e585171276ecd88cf89712bd45a84697728ddc5e[m
+Author: MichalEzra <m0534185081@gmail.com>
+Date:   Tue Jun 10 13:19:24 2025 +0300
+
+    הוספת ממשקים של האלגוריתם ההונגרי
+
+[33mcommit 2cf063e14ff9583f3d574ea1a979ccf40f5b4df5[m
+Author: MichalEzra <m0534185081@gmail.com>
+Date:   Tue Jun 10 13:36:06 2025 +0300
+
+    Update CandidateService.cs
+
+[33mcommit d61932a6612709502b772f22cae2b636b39f1e0e[m
+Author: MichalEzra <m0534185081@gmail.com>
+Date:   Tue Jun 10 13:53:59 2025 +0300
+
+    Refactored project structure - moved interfaces and removed duplicate files
+
+[33mcommit 8b6724d78380620db57a70bd29fe149c44732aff[m
+Author: MichalEzra <m0534185081@gmail.com>
+Date:   Tue Jun 10 14:04:12 2025 +0300
+
+    Removed ConsoleApp1 project and updated build files
+
+[33mcommit d5fb6f42d238e59741812475b81caf48904a517a[m
+Merge: 8b6724d 2cf063e
+Author: MichalEzra <m0534185081@gmail.com>
+Date:   Tue Jun 10 14:07:49 2025 +0300
+
+    Merge branch 'hashdchanC#' into hashdchanC#-New
+
+[33mcommit f02bd8e5f42742c2205391c76cffa5d8588c5161[m
+Merge: 2cf063e d5fb6f4
+Author: MichalEzra <m0534185081@gmail.com>
+Date:   Tue Jun 10 14:08:02 2025 +0300
+
+    Merge pull request #1 from MichalEzra/hashdchanC#-New
+    
+    Hashdchan c# new
+
+[33mcommit 9f73a8b9b47c6ce07f007fdc53838ddc7ac744a7[m
+Author: MichalEzra <m0534185081@gmail.com>
+Date:   Tue Jun 10 14:10:54 2025 +0300
+
+    Update appsettings.json
+
+[33mcommit a3a10752964e3e32f49798d2d5891e8b935906aa[m
+Author: MichalEzra <m0534185081@gmail.com>
+Date:   Tue Jun 10 14:25:43 2025 +0300
+
+    מוספת פונ למועמד
+
+[33mcommit d2dc08ef3923f0f1ef0f92471d64424002f686d1[m
+Merge: a3a1075 d5fb6f4
+Author: MichalEzra <m0534185081@gmail.com>
+Date:   Tue Jun 10 14:32:34 2025 +0300
+
+    Resolved merge conflict in CandidateService
+
+[33mcommit ec91e817cc053d23aa7dba3aa1375d893086719d[m
+Author: MichalEzra <m0534185081@gmail.com>
+Date:   Tue Jun 10 14:34:32 2025 +0300
+
+    Update CandidateService.cs
+
+[33mcommit e5319bde7c5e6b0e46d6f19061536664f9a26574[m
+Author: MichalEzra <m0534185081@gmail.com>
+Date:   Thu Jun 12 02:34:59 2025 +0300
+
+    יצירת טבלה חדשה של התאמות בין מועמדים
+
+[33mcommit e462a3f9c3c56db13aaf732c2a6fb3d67c931420[m
+Author: MichalEzra <m0534185081@gmail.com>
+Date:   Sun Jun 15 23:57:44 2025 +0300
+
+    סידור האלגוריתם ההונגרי והרצתו בהצלחה
+
+[33mcommit 00ae01d2788721d16fa21e8c505d15d78a19e75d[m[33m ([m[1;31morigin/hashdchanC#-New[m[33m)[m
+Merge: e462a3f ec91e81
+Author: MichalEzra <m0534185081@gmail.com>
+Date:   Mon Jun 16 00:01:45 2025 +0300
+
+    Merge branch 'hashdchanC#' into hashdchanC#-New
+
+[33mcommit 15f2c3ff2fce4a77b2f9d18f28d886ae877f0269[m
+Merge: ec91e81 00ae01d
+Author: MichalEzra <m0534185081@gmail.com>
+Date:   Mon Jun 16 00:02:09 2025 +0300
+
+    Merge pull request #2 from MichalEzra/hashdchanC#-New
+    
+    Hashdchan c# new
+
+[33mcommit a6147811e4f19dacb09d1c726182de4a824ba512[m
+Author: MichalEzra <m0534185081@gmail.com>
+Date:   Tue Jun 17 17:07:26 2025 +0300
+
+    הוספת קונטרולר ל Match למחלקת התאמות
+
+[33mcommit 413fed3958f7265d4846e194bdeefc4473699527[m
+Author: MichalEzra <m0534185081@gmail.com>
+Date:   Tue Jun 17 17:33:58 2025 +0300
+
+    שיניתי לעיברית את הערכים ב פרוט המועמד
+
+[33mcommit 6d519377c8b582101cd3ebf1dd89a4c1d3910358[m
+Author: MichalEzra <m0534185081@gmail.com>
+Date:   Tue Jun 17 20:27:08 2025 +0300
+
+    הוספת אפשרות לשליחת מייל
+
+[33mcommit b6c69caeca77a7f6060ebad55a3969e0f8c1e8bd[m
+Author: MichalEzra <m0534185081@gmail.com>
+Date:   Thu Jun 19 15:42:49 2025 +0300
+
+    הוספת  מיגרציה חדשה INIT2
+
+[33mcommit f6bdda56d2f50d1b55e7533c629435948fc9b827[m
+Author: MichalEzra <m0534185081@gmail.com>
+Date:   Thu Jun 19 20:03:38 2025 +0300
+
+    בדקת כל הפונקציות של ההתאמה וסידור האינמים
+
+[33mcommit 8e466951de90b726afe5d6f427aa5450c3c15fa4[m
+Author: MichalEzra <m0534185081@gmail.com>
+Date:   Sun Jun 22 03:51:15 2025 +0300
+
+    סידור הטוקן
+
+[33mcommit 6235671d21c0b52eed85068ff45441da094ff38f[m
+Author: MichalEzra <m0534185081@gmail.com>
+Date:   Sun Jun 22 21:41:27 2025 +0300
+
+    אישור שידוך דרל לינק סידור הפונקציה
+
+[33mcommit 90b392200dea22b2e819f9a2f4f31348729e2b42[m
+Author: TamarGabay <g0556780416@gmail.com>
+Date:   Mon Jun 23 01:13:32 2025 +0300
+
+    change the enums
+
+[33mcommit 0211b40a1ca145cb16afe17284781a8f8c4cacf6[m
+Author: TamarGabay <g0556780416@gmail.com>
+Date:   Mon Jun 23 01:22:47 2025 +0300
+
+    change the enums
+
+[33mcommit b9336da546ff3d1b074fca45095c5d22ca11c1a8[m
+Author: TamarGabay <g0556780416@gmail.com>
+Date:   Mon Jun 23 05:03:37 2025 +0300
+
+    add functions to get the male and famale, and to make a match
+
+[33mcommit 98e8e9576d5151f6bdc6e5cb9a8c10e961d3ddac[m
+Merge: 6235671 b9336da
+Author: TamarGabay <G0556780416@GMAIL.COM>
+Date:   Mon Jun 23 05:06:29 2025 +0300
+
+    Merge pull request #3 from MichalEzra/match_candidates
+    
+    add functions to get the male and famale, and to make a match
+
+[33mcommit 5f716982be7e4da9439c76cfac2c41626067b01b[m
+Author: TamarGabay <g0556780416@gmail.com>
+Date:   Tue Jul 1 09:13:34 2025 +0300
+
+    create function for get candidates by userId
+
+[33mcommit bc01fb813debcdc3b9e1f34242b5d987c781bb18[m

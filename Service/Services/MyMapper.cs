@@ -19,29 +19,31 @@ public class MyMapper : Profile
             .ForMember(dest => dest.ImageUrl, opt => opt.MapFrom(src => src.fileImage))
             .ForMember(dest => dest.Rezumeh, opt => opt.MapFrom(src => ConvertIFormFileToBytes(src.RezumehFile)));
 
-            // מיפוי DTO -> Entity, כולל שמירת שם קובץ התמונה והמרת קובץ הרזומה לבייטים
-            CreateMap<CandidateDto, Candidate>()
-                .ForMember(dest => dest.ImageUrl, opt => opt.MapFrom(src => src.fileImage.FileName))
-                .ForMember(dest => dest.Rezumeh, opt => opt.MapFrom(src => ConvertIFormFileToBytes(src.RezumehFile)));
+        // מיפוי DTO -> Entity, כולל שמירת שם קובץ התמונה והמרת קובץ הרזומה לבייטים
+        CreateMap<CandidateDto, Candidate>()
+            .ForMember(dest => dest.ImageUrl, opt => opt.MapFrom(src => src.fileImage.FileName))
+            .ForMember(dest => dest.Rezumeh, opt => opt.MapFrom(src => ConvertIFormFileToBytes(src.RezumehFile)));
 
-            // מיפוי נוסף של משתמשים ושדכנים (לפי מה שהוספת)
-            CreateMap<User, UserDto>()
-            .ForMember(dest => dest.Candidates, opt => opt.MapFrom(src => src.Candidates));
-            CreateMap<Candidate, CandidateDto>();
+        // מיפוי נוסף של משתמשים ושדכנים (לפי מה שהוספת)
+        CreateMap<User, UserDto>()
+        .ForMember(dest => dest.Candidates, opt => opt.MapFrom(src => src.Candidates));
+        CreateMap<Candidate, CandidateDto>();
 
-            //CreateMap<UserDto, User>();
-            CreateMap<Matchmaker, MatchmakerDto>().ForMember(dest => dest.Email, opt => opt.MapFrom(src => src.User.Email));
-            CreateMap<MatchmakerDto, Matchmaker>();
-            CreateMap<Match, MatchDto>();
-            CreateMap<MatchDto, Match>();
-        }
-        private byte[] ConvertIFormFileToBytes(IFormFile file)
-        {
-            if (file == null) return null;
-            using var ms = new MemoryStream();
-            file.CopyTo(ms);
-            return ms.ToArray();
-        
+        //CreateMap<UserDto, User>();
+        CreateMap<User, UserDto>();
+        CreateMap<UserDto, User>();
+        CreateMap<Matchmaker, MatchmakerDto>().ForMember(dest => dest.Email, opt => opt.MapFrom(src => src.User.Email));
+        CreateMap<MatchmakerDto, Matchmaker>();
+        CreateMap<Match, MatchDto>();
+        CreateMap<MatchDto, Match>();
+    }
+    private byte[] ConvertIFormFileToBytes(IFormFile file)
+    {
+        if (file == null) return null;
+        using var ms = new MemoryStream();
+        file.CopyTo(ms);
+        return ms.ToArray();
+
         // שאר המיפויים
         //CreateMap<User, UserDto>();
         //CreateMap<UserDto, User>();
