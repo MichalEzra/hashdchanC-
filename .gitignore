@@ -125,3 +125,5 @@ _NCrunch*
 
 # Ignore Visual Studio .vs folder
 .vs/
+bin/
+obj/

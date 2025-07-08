@@ -41,7 +41,7 @@ namespace Repository.Repositories
 
         public async Task<Matchmaker> GetById(int id)
         {
-            return await context.Matchmakers.FirstOrDefaultAsync(x => x.Id == id);
+            return await context.Matchmakers.Include(m => m.User).FirstOrDefaultAsync(x => x.Id == id);
         }
 
         public async Task UpdateItem(int id, Matchmaker item)

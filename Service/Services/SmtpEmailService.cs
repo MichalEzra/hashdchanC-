@@ -12,6 +12,7 @@ using System.Linq;
 using MailKit.Net.Smtp;
 using System.Text;
 using System.Threading.Tasks;
+using System.Net.Mail;
 
 namespace Service.Services
 {
@@ -39,23 +40,64 @@ namespace Service.Services
             _serviceMatch = serviceMatch; // מאחסן את השירות של השידוכים
         }
 
-        // שליחת מייל כללי
-        public async Task SendEmailAsync(string toEmail, string subject, string body)
+        //// שליחת מייל כללי
+        //public async Task SendEmailAsync(string toEmail, string subject, string body ,byte[]? attachment = null, string? attachmentName = null)
+        //{
+        //    using var client = new SmtpClient(); // יוצר לקוח SMTP חדש
+        //    await client.ConnectAsync(_smtpServer, _port, SecureSocketOptions.StartTls); // מתחבר לשרת המייל בצורה מאובטחת
+        //    await client.AuthenticateAsync(_senderEmail, _appPassword); // מבצע התחברות עם השולח
+
+        //    var message = new MimeMessage(); // יוצר אובייקט מייל חדש
+        //    message.From.Add(new MailboxAddress("שידוכים פלוס", _senderEmail)); // מוסיף את כתובת השולח למייל
+        //    message.To.Add(new MailboxAddress(toEmail, toEmail)); // מוסיף את כתובת הנמען
+        //    message.Subject = subject; // נושא ההודעה
+        //    message.Body = new TextPart("html") { Text = body }; // גוף ההודעה בפורמט HTML
+
+        //    await client.SendAsync(message); // שולח את המייל
+        //    Console.WriteLine($"נשלח מייל אל: {toEmail}"); // מדפיס ללוג שהמייל נשלח
+        //    await client.DisconnectAsync(true); // מתנתק מהשרת
+        //}
+        public async Task SendEmailAsync(string toEmail, string subject, string body, byte[]? attachment = null, string? attachmentName = null)
         {
-            using var client = new SmtpClient(); // יוצר לקוח SMTP חדש
-            await client.ConnectAsync(_smtpServer, _port, SecureSocketOptions.StartTls); // מתחבר לשרת המייל בצורה מאובטחת
-            await client.AuthenticateAsync(_senderEmail, _appPassword); // מבצע התחברות עם השולח
+            using var client = new MailKit.Net.Smtp.SmtpClient();
+            await client.ConnectAsync(_smtpServer, _port, SecureSocketOptions.StartTls);
+            await client.AuthenticateAsync(_senderEmail, _appPassword);
 
-            var message = new MimeMessage(); // יוצר אובייקט מייל חדש
-            message.From.Add(new MailboxAddress("שידוכים פלוס", _senderEmail)); // מוסיף את כתובת השולח למייל
-            message.To.Add(new MailboxAddress(toEmail, toEmail)); // מוסיף את כתובת הנמען
-            message.Subject = subject; // נושא ההודעה
-            message.Body = new TextPart("html") { Text = body }; // גוף ההודעה בפורמט HTML
+            var message = new MimeMessage();
+            message.From.Add(new MailboxAddress("השדכן", _senderEmail));
+            message.To.Add(new MailboxAddress(toEmail, toEmail));
+            message.Subject = subject;
 
-            await client.SendAsync(message); // שולח את המייל
-            Console.WriteLine($"נשלח מייל אל: {toEmail}"); // מדפיס ללוג שהמייל נשלח
-            await client.DisconnectAsync(true); // מתנתק מהשרת
+            if (attachment != null && !string.IsNullOrEmpty(attachmentName))
+            {
+                var bodyPart = new TextPart("html")
+                {
+                    Text = body
+                };
+
+                var attachmentPart = new MimePart()
+                {
+                    Content = new MimeContent(new MemoryStream(attachment)),
+                    ContentDisposition = new ContentDisposition(ContentDisposition.Attachment),
+                    ContentTransferEncoding = ContentEncoding.Base64,
+                    FileName = attachmentName
+                };
+
+                var multipart = new Multipart("mixed");
+                multipart.Add(bodyPart);
+                multipart.Add(attachmentPart);
+
+                message.Body = multipart;
+            }
+            else
+            {
+                message.Body = new TextPart("html") { Text = body };
+            }
+
+            await client.SendAsync(message);
+            await client.DisconnectAsync(true);
         }
+
 
         // שליחת מייל כאשר יש התאמה בין שני מועמדים
         public async Task SendMatchEmailAsync(int idCandidate1, int idCandidate2)
@@ -71,7 +113,7 @@ namespace Service.Services
             if (c1 == null || c2 == null)
                 throw new Exception("One or both candidates were not found.");
 
-            string baseUrl = "https://localhost:7242/api/Match/confirm";
+            string baseUrl = "http://localhost:5245/api/Match/confirm";
             string callbackUrlC1 = $"{baseUrl}?candidateId={c1.Id}&matchId={c2.Id}";
             string callbackUrlC2 = $"{baseUrl}?candidateId={c2.Id}&matchId={c1.Id}";
 

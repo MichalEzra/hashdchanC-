@@ -1,13 +1,26 @@
-﻿using AutoMapper;
+﻿using System.Security.Claims;
+using AutoMapper;
 using Common.Dto;
+using Google.Cloud.Language.V1;
 using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
+using Microsoft.EntityFrameworkCore.Storage;
 using Repository.Entities;
+using Repository.Interfaces;
 using Service.Interfaces;
 using Service.Interfasces;
+using Service.Services;
+using Microsoft.EntityFrameworkCore;
+
 
 namespace hashadchan.Controllers
 {
+    public class CreateMatchRequest
+    {
+        public int IdCandidate1 { get; set; }
+        public int IdCandidate2 { get; set; }
+    }
+
     [Route("api/[controller]")]
     [ApiController]
     public class MatchController: ControllerBase
@@ -19,8 +32,8 @@ namespace hashadchan.Controllers
         private readonly IServiceMatch _serviceMatch;
         private readonly IService<MatchDto> _MatchDtoService;
         private readonly IMapper _mapper;
-
-        public MatchController(IService<MatchDto> matchDtoService, IService<CandidateDto> candidateService, IEmailService emailService, IService<MatchmakerDto> matchmakerService,   IMapper mapper, IServiceMatch serviceMatch, IMyDetails<Candidate> candidateDetails)
+        private readonly IContext _context;
+        public MatchController(IService<MatchDto> matchDtoService, IService<CandidateDto> candidateService, IEmailService emailService, IService<MatchmakerDto> matchmakerService,   IMapper mapper, IServiceMatch serviceMatch, IMyDetails<Candidate> candidateDetails, IContext context)
         {
             _MatchDtoService = matchDtoService;
             _candidateService = candidateService;
@@ -29,6 +42,7 @@ namespace hashadchan.Controllers
             _emailService = emailService;
             _mapper = mapper;
             _candidateDetails = candidateDetails;
+            _context = context;
         }
 
         // שליפת כל השידוכים הקיימים
@@ -80,25 +94,71 @@ namespace hashadchan.Controllers
             return await _serviceMatch.GetMatchesByIdMatchmaker(id);
         }
 
-        // יצירת שידוך חדש
+        //יצירת שידוך חדש
+        //[HttpPost]
+        //[Authorize(Roles = "MATCHMAKER")]
+        //public async Task<IActionResult> Post([FromBody] CreateMatchRequest request)
+        //{
+        //    var idMatchmakerString = User.FindFirst(ClaimTypes.NameIdentifier)?.Value;
+        //    if (!int.TryParse(idMatchmakerString, out int idMatchmaker))
+        //        return BadRequest("Invalid user ID");
+
+        //    var match = new Match
+        //    {
+        //        IdCandidateGuy = request.IdCandidate1,
+        //        IdCandidateGirl = request.IdCandidate2,
+        //        IdMatchmaker = idMatchmaker,
+        //        Status = true,
+        //        DateMatch = DateTime.Today,
+        //        Active = true,
+        //        IsEngaged = false,
+        //        ConfirmationGirl = false,
+        //        ConfirmationGuy = false
+        //    };
+
+        //    await _MatchDtoService.AddItem(_mapper.Map<MatchDto>(match));
+        //    await _emailService.SendMatchEmailAsync(request.IdCandidate1, request.IdCandidate2);
+
+        //    return Ok("Email Sent!");
+        //}
         [HttpPost]
         [Authorize(Roles = "MATCHMAKER")]
-        public async Task<IActionResult> Post(int idCandudate1, int idCandudate2, int idMatchmaker)
+        public async Task<IActionResult> Post([FromBody] CreateMatchRequest request)
         {
-            Match m = new() // יצירת אובייקט חדש
+            try
             {
-                IdCandidateGuy = idCandudate1,
-                IdCandidateGirl = idCandudate2,
-                IdMatchmaker = idMatchmaker,
-                Status = true // מצב פעיל
-            };
+                // 1. שליפת מזהה המשתמש מתוך הטוקן
+                var matchmakerUserId = int.Parse(User.FindFirst(ClaimTypes.NameIdentifier).Value);
 
-            await _MatchDtoService.AddItem(_mapper.Map<MatchDto>(m)); // הוספה למסד
-            await _emailService.SendMatchEmailAsync(idCandudate1, idCandudate2); // שליחת מייל (כרגע מבוטל)
-            return Ok("Email Sent!");
+                // 2. שליפת השדכן מתוך הטבלה לפי מזהה המשתמש
+                var matchmaker = await _context.Matchmakers
+                    .FirstOrDefaultAsync(m => m.UserId == matchmakerUserId);
+
+                if (matchmaker == null)
+                    return BadRequest("שדכן לא נמצא במסד הנתונים");
+
+                // 3. יצירת שידוך חדש
+                Match m = new()
+                {
+                    IdCandidateGuy = request.IdCandidate1,
+                    IdCandidateGirl = request.IdCandidate2,
+                    IdMatchmaker = matchmaker.Id, // כאן שימוש במזהה הנכון
+                    DateMatch = DateTime.UtcNow,
+                    Status = true
+                };
+
+                await _MatchDtoService.AddItem(_mapper.Map<MatchDto>(m));
+                await _emailService.SendMatchEmailAsync(request.IdCandidate1, request.IdCandidate2);
+                return Ok("שידוך נוצר בהצלחה!");
+            }
+            catch (Exception ex)
+            {
+                return StatusCode(500, $"שגיאה בשרת: {ex.Message}");
+            }
         }
 
-        // אישור שידוך דרך לינק במייל
+
+        // אישור שידוך דרך לינק במייל (GET עם פרמטרים candidateId ו-matchId)
         [HttpGet("confirm")]
         public async Task<IActionResult> ConfirmMatch([FromQuery] int candidateId, [FromQuery] int matchId)
         {
@@ -106,54 +166,80 @@ namespace hashadchan.Controllers
             Candidate c1 = _mapper.Map<Candidate>(candidateDto);
             Match match;
 
-            if (c1.CandidateGender == Repository.Entities.Enums.Gender.זכר) // אם מועמד הוא גבר
+            if (c1.Gender == Repository.Entities.Enums.Gender.זכר)
             {
                 match = _mapper.Map<Match>(await _serviceMatch.GetMatchByIdCandidates(candidateId, matchId));
                 if (match == null)
                     return NotFound("Match not found");
-
                 if (match.ConfirmationGuy)
                     return BadRequest("כבר אישרת את ההתאמה בעבר.");
-
-                match.ConfirmationGuy = true; // סימון כאילו אישר
+                match.ConfirmationGuy = true;
             }
             else
             {
                 match = _mapper.Map<Match>(await _serviceMatch.GetMatchByIdCandidates(matchId, candidateId));
                 if (match == null)
                     return NotFound("Match not found");
-
                 if (match.ConfirmationGirl)
                     return BadRequest("כבר אישרת את ההתאמה בעבר.");
-
                 match.ConfirmationGirl = true;
             }
 
-            await _MatchDtoService.UpdateItem(match.Id, _mapper.Map<MatchDto>(match)); // עדכון ההתאמה
+            await _MatchDtoService.UpdateItem(match.Id, _mapper.Map<MatchDto>(match));
 
-            if (match.ConfirmationGuy && match.ConfirmationGirl) // אם שניהם אישרו
+            if (match.ConfirmationGuy && match.ConfirmationGirl)
             {
                 var c2Dto = await _candidateService.GetById(matchId);
                 Candidate c2 = _mapper.Map<Candidate>(c2Dto);
                 var matchmakerDto = await _matchmakerService.GetById(match.IdMatchmaker);
-                Matchmaker matchmaker = _mapper.Map<Matchmaker>(matchmakerDto);
 
-                // יצירת טקסט עם פרטי שני המועמדים
-                string matchDetails = $"המועמדים אישרו את השידוך!\n" +
-                    $"פרטים:\n1. {_candidateDetails.GetAllCandidateInfoAsync(c1)}\nאימייל: {c1.User.Email}, טלפון: {c1.User.PhoneNumber}\n\n" +
-                    $"2. {_candidateDetails.GetAllCandidateInfoAsync(c2)}\nאימייל: {c2.User.Email}, טלפון: {c2.User.PhoneNumber}";
 
-                // שליחת מיילים לשני הצדדים ולשדכן
-                await _emailService.SendEmailAsync(matchmaker.User.Email, "שידוך מאושר!", matchDetails);
-                await _emailService.SendEmailAsync(c1.User.Email, "המשך פרטים", await _candidateDetails.GetAllCandidateInfoAsync(c2));
-                await _emailService.SendEmailAsync(c2.User.Email, "המשך פרטים", await _candidateDetails.GetAllCandidateInfoAsync(c1));
+                // יצירת גוף המייל המעוצב
+                string c1EmailBody = await EmailTemplateHelper.CreateEmailFullDetails(_candidateDetails, c2, c1, "");
+                string c2EmailBody = await EmailTemplateHelper.CreateEmailFullDetails(_candidateDetails, c1, c2, "");
 
-                match.Active = true; // הפיכת ההתאמה לפעילה
+
+                // שליחת מייל לשדכן (בלי עיצוב)
+                string matchDetails = $"המועמדים אישרו את השידוך!\n\n1. {c1.FirstName} {c1.LastName}\nאימייל: {candidateDto.Email}, טלפון: {candidateDto.PhoneNumber}\n\n2. {c2.FirstName} {c2.LastName}\nאימייל: {c2Dto.Email}, טלפון: {c2Dto.PhoneNumber}";
+                await _emailService.SendEmailAsync(matchmakerDto.Email, "שידוך מאושר!", matchDetails);
+
+                // שליחת מייל לכל מועמד עם הרזומה של הצד השני (אם יש)
+                await _emailService.SendEmailAsync(
+                    candidateDto.Email,
+                    "המשך פרטים",
+                    c2EmailBody,
+                    c2.Rezumeh,
+                    c2.RezumehName);
+
+                await _emailService.SendEmailAsync(
+                    c2Dto.Email,
+                    "המשך פרטים",
+                    c1EmailBody,
+                    c1.Rezumeh,
+                    c1.RezumehName);
+
+                //// שליחת מיילים עם קובץ הרזומה (אם קיים)
+                //if (c2.Rezumeh != null && !string.IsNullOrEmpty(c2.RezumehName))
+                //    await _emailService.SendEmailAsync(candidateDto.Email, "המשך פרטים", c2EmailBody, c2.Rezumeh, c2.RezumehName);
+                //else
+                //    await _emailService.SendEmailAsync(candidateDto.Email, "המשך פרטים", c2EmailBody);
+
+                //if (c1.Rezumeh != null && !string.IsNullOrEmpty(c1.RezumehName))
+                //    await _emailService.SendEmailAsync(c2Dto.Email, "המשך פרטים", c1EmailBody, c1.Rezumeh, c1.RezumehName);
+                //else
+                //    await _emailService.SendEmailAsync(c2Dto.Email, "המשך פרטים", c1EmailBody);
+
+                // הודעה פשוטה לשדכן
+                string matchmakerInfo = $"המועמדים {c1.FirstName} ו-{c2.FirstName} אישרו את השידוך.\n\n";
+                await _emailService.SendEmailAsync(matchmakerDto.Email, "שידוך מאושר!", matchmakerInfo);
+
+                match.Active = true;
                 await _MatchDtoService.UpdateItem(match.Id, _mapper.Map<MatchDto>(match));
             }
 
             return Ok("Match confirmed!");
         }
+
 
         // עדכון שידוך
         [HttpPut("{id}")]
@@ -170,6 +256,28 @@ namespace hashadchan.Controllers
         {
             await _MatchDtoService.DeleteItem(id); // מחיקה
             return Ok();
+        }
+
+
+        [HttpGet("engaged")]
+        public async Task<ActionResult<List<EngagedMatchDto>>> GetEngagedMatches()
+        {
+            var engaged = await _context.Matches
+                .Where(m => m.IsEngaged)
+                .Include(static m => m.Guy)
+                .Include(m => m.Girl)
+                .Select(m => new EngagedMatchDto
+                {
+                    MatchId = m.Id,
+                    NameGuy = m.Guy.FirstName + " " + m.Guy.LastName,
+                    NameGirl = m.Girl.FirstName + " " + m.Girl.LastName,
+                    SeminaryGirl = m.Girl.StudyPlaceName,
+                    YeshivaGuy = m.Guy.StudyPlaceName,
+                    DateMatch = m.DateMatch
+                })
+                .ToListAsync();
+
+            return Ok(engaged);
         }
     }
 }

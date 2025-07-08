@@ -39,9 +39,6 @@ namespace Mock.Migrations
                     b.Property<bool>("Beard")
                         .HasColumnType("bit");
 
-                    b.Property<int>("CandidateGender")
-                        .HasColumnType("int");
-
                     b.Property<int>("CandidateId")
                         .HasColumnType("int");
 
@@ -78,6 +75,9 @@ namespace Mock.Migrations
                     b.Property<string>("FirstName")
                         .IsRequired()
                         .HasColumnType("nvarchar(max)");
+
+                    b.Property<int>("Gender")
+                        .HasColumnType("int");
 
                     b.Property<double>("Giving")
                         .HasColumnType("float");
@@ -309,29 +309,29 @@ namespace Mock.Migrations
 
             modelBuilder.Entity("Repository.Entities.Match", b =>
                 {
-                    b.HasOne("Repository.Entities.Candidate", "girl")
+                    b.HasOne("Repository.Entities.Candidate", "Girl")
                         .WithMany()
                         .HasForeignKey("IdCandidateGirl")
                         .OnDelete(DeleteBehavior.Cascade)
                         .IsRequired();
 
-                    b.HasOne("Repository.Entities.Candidate", "guy")
+                    b.HasOne("Repository.Entities.Candidate", "Guy")
                         .WithMany()
                         .HasForeignKey("IdCandidateGuy")
                         .OnDelete(DeleteBehavior.Cascade)
                         .IsRequired();
 
-                    b.HasOne("Repository.Entities.Matchmaker", "matchmaker")
+                    b.HasOne("Repository.Entities.Matchmaker", "Matchmaker")
                         .WithMany()
                         .HasForeignKey("IdMatchmaker")
                         .OnDelete(DeleteBehavior.Cascade)
                         .IsRequired();
 
-                    b.Navigation("girl");
+                    b.Navigation("Girl");
 
-                    b.Navigation("guy");
+                    b.Navigation("Guy");
 
-                    b.Navigation("matchmaker");
+                    b.Navigation("Matchmaker");
                 });
 
             modelBuilder.Entity("Repository.Entities.Matchmaker", b =>

@@ -2,7 +2,9 @@
 using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 using Repository.Entities;
+using Repository.Interfaces;
 using Service.Interfasces;
+using Service.Services;
 using System.Security.Claims;
 using UserType = Common.Dto.UserType;
 
@@ -15,14 +17,22 @@ namespace hashadchan.Controllers
         private readonly IUserLinkedService<CandidateDto> candidateService;
         private readonly IService<UserDto> userService;
         private readonly IService<CandidateDto> service;
+        private readonly IMyDetails<Candidate> candidateDetails;
+        private readonly IRepository<Candidate> _repository;
+
+
 
         public CandidateController(IUserLinkedService<CandidateDto> candidateService,
                                    IService<UserDto> userService,
-                                   IService<CandidateDto> service)
+                                   IService<CandidateDto> service,
+                                   IMyDetails<Candidate> candidateDetails,
+                                   IRepository<Candidate> repository)
         {
             this.candidateService = candidateService;
             this.userService = userService;
             this.service = service;
+            this.candidateDetails = candidateDetails;
+            _repository = repository;
         }
 
         // החזרת כל המועמדים
@@ -37,6 +47,17 @@ namespace hashadchan.Controllers
         public async Task<CandidateDto> Get(int id)
         {
             return await service.GetById(id);
+        }
+
+        [HttpGet("{id}/general-info")]
+        public async Task<ActionResult<string>> GetCandidateGeneralInfo(int id)
+        {
+            var candidate = await _repository.GetById(id);
+            if (candidate == null)
+                return NotFound("מועמד לא נמצא");
+
+            var info = await candidateDetails.GetGeneralCandidateInfoAsync(candidate);
+            return Ok(info);
         }
 
         // הוספת מועמד
@@ -119,6 +140,31 @@ namespace hashadchan.Controllers
 
             return file.FileName; // מחזירים את שם הקובץ כדי לעדכן את השדה
         }
+
+        [HttpGet("males")]
+        public async Task<IActionResult> GetMales()
+        {
+            return Ok(await candidateDetails.GetMaleCandidatesAsync());
+        }
+
+        [HttpGet("females")]
+        public async Task<IActionResult> GetFemales()
+        {
+            return Ok(await candidateDetails.GetFemaleCandidatesAsync());
+        }
+        [HttpGet("user/{userId}")]
+        public async Task<ActionResult<List<CandidateDto>>> GetCandidatesByUserId(int userId)
+        {
+            var candidates = await candidateDetails.GetAllByUserId(userId);
+
+            if (candidates == null || !candidates.Any())
+            {
+                return NotFound("לא נמצאו מועמדים עבור משתמש זה.");
+            }
+
+            return Ok(candidates);
+        }
+
 
     }
 }

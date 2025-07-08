@@ -52,6 +52,11 @@ namespace Service.Services
             var matchmaker = all.FirstOrDefault(m => m.UserId == userId);
             return matchmaker == null ? null : mapper.Map<MatchmakerDto>(matchmaker);
         }
+
+        public Task<List<CandidateDto>> GetAllByUserId(int userId)
+        {
+            throw new NotImplementedException();
+        }
     }
 
 }

@@ -1,0 +1,2152 @@
+{
+  "openapi": "3.0.1",
+  "info": {
+    "title": "Demo API",
+    "version": "v1"
+  },
+  "paths": {
+    "/api/Candidate": {
+      "get": {
+        "tags": [
+          "Candidate"
+        ],
+        "responses": {
+          "200": {
+            "description": "Success",
+            "content": {
+              "text/plain": {
+                "schema": {
+                  "type": "array",
+                  "items": {
+                    "$ref": "#/components/schemas/CandidateDto"
+                  }
+                }
+              },
+              "application/json": {
+                "schema": {
+                  "type": "array",
+                  "items": {
+                    "$ref": "#/components/schemas/CandidateDto"
+                  }
+                }
+              },
+              "text/json": {
+                "schema": {
+                  "type": "array",
+                  "items": {
+                    "$ref": "#/components/schemas/CandidateDto"
+                  }
+                }
+              }
+            }
+          }
+        }
+      },
+      "post": {
+        "tags": [
+          "Candidate"
+        ],
+        "requestBody": {
+          "content": {
+            "multipart/form-data": {
+              "schema": {
+                "type": "object",
+                "properties": {
+                  "Id": {
+                    "type": "integer",
+                    "format": "int32"
+                  },
+                  "UserId": {
+                    "type": "integer",
+                    "format": "int32"
+                  },
+                  "Email": {
+                    "type": "string"
+                  },
+                  "PhoneNumber": {
+                    "type": "string"
+                  },
+                  "CandidateId": {
+                    "type": "integer",
+                    "format": "int32"
+                  },
+                  "FirstName": {
+                    "type": "string"
+                  },
+                  "LastName": {
+                    "type": "string"
+                  },
+                  "Gender": {
+                    "$ref": "#/components/schemas/Gender"
+                  },
+                  "Status": {
+                    "$ref": "#/components/schemas/CandidateStatus"
+                  },
+                  "Age": {
+                    "type": "integer",
+                    "format": "int32"
+                  },
+                  "CandidateSector": {
+                    "$ref": "#/components/schemas/Sector"
+                  },
+                  "SubSector": {
+                    "$ref": "#/components/schemas/SubSector"
+                  },
+                  "TorahLearning": {
+                    "$ref": "#/components/schemas/TorahStudy"
+                  },
+                  "Education": {
+                    "$ref": "#/components/schemas/EducationInstitution"
+                  },
+                  "StudyPlaceName": {
+                    "type": "string"
+                  },
+                  "JobOrStudies": {
+                    "$ref": "#/components/schemas/Occupation"
+                  },
+                  "City": {
+                    "type": "string"
+                  },
+                  "ArrImage": {
+                    "type": "string",
+                    "format": "byte"
+                  },
+                  "fileImage": {
+                    "type": "string",
+                    "format": "binary"
+                  },
+                  "ImageUrl": {
+                    "type": "string"
+                  },
+                  "Origin": {
+                    "type": "string"
+                  },
+                  "Languages": {
+                    "$ref": "#/components/schemas/Language"
+                  },
+                  "ReligiousOpenness": {
+                    "$ref": "#/components/schemas/Openness"
+                  },
+                  "ClothingStyle": {
+                    "$ref": "#/components/schemas/ClothingStyle"
+                  },
+                  "Height": {
+                    "type": "number",
+                    "format": "double"
+                  },
+                  "Physique": {
+                    "$ref": "#/components/schemas/Physique"
+                  },
+                  "SkinTone": {
+                    "$ref": "#/components/schemas/SkinTone"
+                  },
+                  "HairColor": {
+                    "$ref": "#/components/schemas/HairColor"
+                  },
+                  "Giving": {
+                    "type": "number",
+                    "format": "double"
+                  },
+                  "Expecting": {
+                    "type": "number",
+                    "format": "double"
+                  },
+                  "FamilyStatus": {
+                    "$ref": "#/components/schemas/ParentsStatus"
+                  },
+                  "AvailableForProposals": {
+                    "type": "boolean"
+                  },
+                  "PreferredHeadCovering": {
+                    "$ref": "#/components/schemas/HeadCovering"
+                  },
+                  "CandidatePhoneType": {
+                    "$ref": "#/components/schemas/PhoneType"
+                  },
+                  "Beard": {
+                    "type": "boolean"
+                  },
+                  "SmokingStatus": {
+                    "$ref": "#/components/schemas/Smoking"
+                  },
+                  "License": {
+                    "type": "boolean"
+                  },
+                  "RezumehArr": {
+                    "type": "string",
+                    "format": "byte"
+                  },
+                  "RezumehFile": {
+                    "type": "string",
+                    "format": "binary"
+                  },
+                  "RezumehName": {
+                    "type": "string"
+                  },
+                  "DescriptionSelf": {
+                    "type": "string"
+                  },
+                  "DescriptionFind": {
+                    "type": "string"
+                  }
+                }
+              },
+              "encoding": {
+                "Id": {
+                  "style": "form"
+                },
+                "UserId": {
+                  "style": "form"
+                },
+                "Email": {
+                  "style": "form"
+                },
+                "PhoneNumber": {
+                  "style": "form"
+                },
+                "CandidateId": {
+                  "style": "form"
+                },
+                "FirstName": {
+                  "style": "form"
+                },
+                "LastName": {
+                  "style": "form"
+                },
+                "Gender": {
+                  "style": "form"
+                },
+                "Status": {
+                  "style": "form"
+                },
+                "Age": {
+                  "style": "form"
+                },
+                "CandidateSector": {
+                  "style": "form"
+                },
+                "SubSector": {
+                  "style": "form"
+                },
+                "TorahLearning": {
+                  "style": "form"
+                },
+                "Education": {
+                  "style": "form"
+                },
+                "StudyPlaceName": {
+                  "style": "form"
+                },
+                "JobOrStudies": {
+                  "style": "form"
+                },
+                "City": {
+                  "style": "form"
+                },
+                "ArrImage": {
+                  "style": "form"
+                },
+                "fileImage": {
+                  "style": "form"
+                },
+                "ImageUrl": {
+                  "style": "form"
+                },
+                "Origin": {
+                  "style": "form"
+                },
+                "Languages": {
+                  "style": "form"
+                },
+                "ReligiousOpenness": {
+                  "style": "form"
+                },
+                "ClothingStyle": {
+                  "style": "form"
+                },
+                "Height": {
+                  "style": "form"
+                },
+                "Physique": {
+                  "style": "form"
+                },
+                "SkinTone": {
+                  "style": "form"
+                },
+                "HairColor": {
+                  "style": "form"
+                },
+                "Giving": {
+                  "style": "form"
+                },
+                "Expecting": {
+                  "style": "form"
+                },
+                "FamilyStatus": {
+                  "style": "form"
+                },
+                "AvailableForProposals": {
+                  "style": "form"
+                },
+                "PreferredHeadCovering": {
+                  "style": "form"
+                },
+                "CandidatePhoneType": {
+                  "style": "form"
+                },
+                "Beard": {
+                  "style": "form"
+                },
+                "SmokingStatus": {
+                  "style": "form"
+                },
+                "License": {
+                  "style": "form"
+                },
+                "RezumehArr": {
+                  "style": "form"
+                },
+                "RezumehFile": {
+                  "style": "form"
+                },
+                "RezumehName": {
+                  "style": "form"
+                },
+                "DescriptionSelf": {
+                  "style": "form"
+                },
+                "DescriptionFind": {
+                  "style": "form"
+                }
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "Success",
+            "content": {
+              "text/plain": {
+                "schema": {
+                  "$ref": "#/components/schemas/CandidateDto"
+                }
+              },
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/CandidateDto"
+                }
+              },
+              "text/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/CandidateDto"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/api/Candidate/{id}": {
+      "get": {
+        "tags": [
+          "Candidate"
+        ],
+        "parameters": [
+          {
+            "name": "id",
+            "in": "path",
+            "required": true,
+            "style": "simple",
+            "schema": {
+              "type": "integer",
+              "format": "int32"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Success",
+            "content": {
+              "text/plain": {
+                "schema": {
+                  "$ref": "#/components/schemas/CandidateDto"
+                }
+              },
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/CandidateDto"
+                }
+              },
+              "text/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/CandidateDto"
+                }
+              }
+            }
+          }
+        }
+      },
+      "put": {
+        "tags": [
+          "Candidate"
+        ],
+        "parameters": [
+          {
+            "name": "id",
+            "in": "path",
+            "required": true,
+            "style": "simple",
+            "schema": {
+              "type": "integer",
+              "format": "int32"
+            }
+          }
+        ],
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/CandidateDto"
+              }
+            },
+            "text/json": {
+              "schema": {
+                "$ref": "#/components/schemas/CandidateDto"
+              }
+            },
+            "application/*+json": {
+              "schema": {
+                "$ref": "#/components/schemas/CandidateDto"
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "Success"
+          }
+        }
+      },
+      "delete": {
+        "tags": [
+          "Candidate"
+        ],
+        "parameters": [
+          {
+            "name": "id",
+            "in": "path",
+            "required": true,
+            "style": "simple",
+            "schema": {
+              "type": "integer",
+              "format": "int32"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Success"
+          }
+        }
+      }
+    },
+    "/api/Candidate/{id}/general-info": {
+      "get": {
+        "tags": [
+          "Candidate"
+        ],
+        "parameters": [
+          {
+            "name": "id",
+            "in": "path",
+            "required": true,
+            "style": "simple",
+            "schema": {
+              "type": "integer",
+              "format": "int32"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Success",
+            "content": {
+              "text/plain": {
+                "schema": {
+                  "type": "string"
+                }
+              },
+              "application/json": {
+                "schema": {
+                  "type": "string"
+                }
+              },
+              "text/json": {
+                "schema": {
+                  "type": "string"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/api/Candidate/males": {
+      "get": {
+        "tags": [
+          "Candidate"
+        ],
+        "responses": {
+          "200": {
+            "description": "Success"
+          }
+        }
+      }
+    },
+    "/api/Candidate/females": {
+      "get": {
+        "tags": [
+          "Candidate"
+        ],
+        "responses": {
+          "200": {
+            "description": "Success"
+          }
+        }
+      }
+    },
+    "/api/Candidate/user/{userId}": {
+      "get": {
+        "tags": [
+          "Candidate"
+        ],
+        "parameters": [
+          {
+            "name": "userId",
+            "in": "path",
+            "required": true,
+            "style": "simple",
+            "schema": {
+              "type": "integer",
+              "format": "int32"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Success",
+            "content": {
+              "text/plain": {
+                "schema": {
+                  "type": "array",
+                  "items": {
+                    "$ref": "#/components/schemas/CandidateDto"
+                  }
+                }
+              },
+              "application/json": {
+                "schema": {
+                  "type": "array",
+                  "items": {
+                    "$ref": "#/components/schemas/CandidateDto"
+                  }
+                }
+              },
+              "text/json": {
+                "schema": {
+                  "type": "array",
+                  "items": {
+                    "$ref": "#/components/schemas/CandidateDto"
+                  }
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/api/HungarianAlgorithm/all": {
+      "get": {
+        "tags": [
+          "HungarianAlgorithm"
+        ],
+        "responses": {
+          "200": {
+            "description": "Success",
+            "content": {
+              "text/plain": {
+                "schema": {
+                  "type": "array",
+                  "items": {
+                    "type": "array",
+                    "items": {
+                      "$ref": "#/components/schemas/CandidateDto"
+                    }
+                  }
+                }
+              },
+              "application/json": {
+                "schema": {
+                  "type": "array",
+                  "items": {
+                    "type": "array",
+                    "items": {
+                      "$ref": "#/components/schemas/CandidateDto"
+                    }
+                  }
+                }
+              },
+              "text/json": {
+                "schema": {
+                  "type": "array",
+                  "items": {
+                    "type": "array",
+                    "items": {
+                      "$ref": "#/components/schemas/CandidateDto"
+                    }
+                  }
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/api/HungarianAlgorithm/male": {
+      "get": {
+        "tags": [
+          "HungarianAlgorithm"
+        ],
+        "responses": {
+          "200": {
+            "description": "Success",
+            "content": {
+              "text/plain": {
+                "schema": {
+                  "type": "array",
+                  "items": {
+                    "$ref": "#/components/schemas/MatchResultsDto"
+                  }
+                }
+              },
+              "application/json": {
+                "schema": {
+                  "type": "array",
+                  "items": {
+                    "$ref": "#/components/schemas/MatchResultsDto"
+                  }
+                }
+              },
+              "text/json": {
+                "schema": {
+                  "type": "array",
+                  "items": {
+                    "$ref": "#/components/schemas/MatchResultsDto"
+                  }
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/api/HungarianAlgorithm/female": {
+      "get": {
+        "tags": [
+          "HungarianAlgorithm"
+        ],
+        "responses": {
+          "200": {
+            "description": "Success",
+            "content": {
+              "text/plain": {
+                "schema": {
+                  "type": "array",
+                  "items": {
+                    "$ref": "#/components/schemas/MatchResultsDto"
+                  }
+                }
+              },
+              "application/json": {
+                "schema": {
+                  "type": "array",
+                  "items": {
+                    "$ref": "#/components/schemas/MatchResultsDto"
+                  }
+                }
+              },
+              "text/json": {
+                "schema": {
+                  "type": "array",
+                  "items": {
+                    "$ref": "#/components/schemas/MatchResultsDto"
+                  }
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/api/Match": {
+      "get": {
+        "tags": [
+          "Match"
+        ],
+        "responses": {
+          "200": {
+            "description": "Success",
+            "content": {
+              "text/plain": {
+                "schema": {
+                  "type": "array",
+                  "items": {
+                    "$ref": "#/components/schemas/MatchDto"
+                  }
+                }
+              },
+              "application/json": {
+                "schema": {
+                  "type": "array",
+                  "items": {
+                    "$ref": "#/components/schemas/MatchDto"
+                  }
+                }
+              },
+              "text/json": {
+                "schema": {
+                  "type": "array",
+                  "items": {
+                    "$ref": "#/components/schemas/MatchDto"
+                  }
+                }
+              }
+            }
+          }
+        }
+      },
+      "post": {
+        "tags": [
+          "Match"
+        ],
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/CreateMatchRequest"
+              }
+            },
+            "text/json": {
+              "schema": {
+                "$ref": "#/components/schemas/CreateMatchRequest"
+              }
+            },
+            "application/*+json": {
+              "schema": {
+                "$ref": "#/components/schemas/CreateMatchRequest"
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "Success"
+          }
+        }
+      }
+    },
+    "/api/Match/GetAllMatchById{id}": {
+      "get": {
+        "tags": [
+          "Match"
+        ],
+        "parameters": [
+          {
+            "name": "id",
+            "in": "path",
+            "required": true,
+            "style": "simple",
+            "schema": {
+              "type": "integer",
+              "format": "int32"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Success",
+            "content": {
+              "text/plain": {
+                "schema": {
+                  "type": "array",
+                  "items": {
+                    "type": "string"
+                  }
+                }
+              },
+              "application/json": {
+                "schema": {
+                  "type": "array",
+                  "items": {
+                    "type": "string"
+                  }
+                }
+              },
+              "text/json": {
+                "schema": {
+                  "type": "array",
+                  "items": {
+                    "type": "string"
+                  }
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/api/Match/{id}": {
+      "get": {
+        "tags": [
+          "Match"
+        ],
+        "parameters": [
+          {
+            "name": "id",
+            "in": "path",
+            "required": true,
+            "style": "simple",
+            "schema": {
+              "type": "integer",
+              "format": "int32"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Success",
+            "content": {
+              "text/plain": {
+                "schema": {
+                  "$ref": "#/components/schemas/MatchDto"
+                }
+              },
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/MatchDto"
+                }
+              },
+              "text/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/MatchDto"
+                }
+              }
+            }
+          }
+        }
+      },
+      "put": {
+        "tags": [
+          "Match"
+        ],
+        "parameters": [
+          {
+            "name": "id",
+            "in": "path",
+            "required": true,
+            "style": "simple",
+            "schema": {
+              "type": "integer",
+              "format": "int32"
+            }
+          }
+        ],
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/MatchDto"
+              }
+            },
+            "text/json": {
+              "schema": {
+                "$ref": "#/components/schemas/MatchDto"
+              }
+            },
+            "application/*+json": {
+              "schema": {
+                "$ref": "#/components/schemas/MatchDto"
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "Success"
+          }
+        }
+      },
+      "delete": {
+        "tags": [
+          "Match"
+        ],
+        "parameters": [
+          {
+            "name": "id",
+            "in": "path",
+            "required": true,
+            "style": "simple",
+            "schema": {
+              "type": "integer",
+              "format": "int32"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Success"
+          }
+        }
+      }
+    },
+    "/api/Match/GetMatchesByIdMatchmaker{id}": {
+      "get": {
+        "tags": [
+          "Match"
+        ],
+        "parameters": [
+          {
+            "name": "id",
+            "in": "path",
+            "required": true,
+            "style": "simple",
+            "schema": {
+              "type": "integer",
+              "format": "int32"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Success",
+            "content": {
+              "text/plain": {
+                "schema": {
+                  "type": "array",
+                  "items": {
+                    "$ref": "#/components/schemas/MatchDto"
+                  }
+                }
+              },
+              "application/json": {
+                "schema": {
+                  "type": "array",
+                  "items": {
+                    "$ref": "#/components/schemas/MatchDto"
+                  }
+                }
+              },
+              "text/json": {
+                "schema": {
+                  "type": "array",
+                  "items": {
+                    "$ref": "#/components/schemas/MatchDto"
+                  }
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/api/Match/confirm": {
+      "get": {
+        "tags": [
+          "Match"
+        ],
+        "parameters": [
+          {
+            "name": "candidateId",
+            "in": "query",
+            "style": "form",
+            "schema": {
+              "type": "integer",
+              "format": "int32"
+            }
+          },
+          {
+            "name": "matchId",
+            "in": "query",
+            "style": "form",
+            "schema": {
+              "type": "integer",
+              "format": "int32"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Success"
+          }
+        }
+      }
+    },
+    "/api/Match/engaged": {
+      "get": {
+        "tags": [
+          "Match"
+        ],
+        "responses": {
+          "200": {
+            "description": "Success",
+            "content": {
+              "text/plain": {
+                "schema": {
+                  "type": "array",
+                  "items": {
+                    "$ref": "#/components/schemas/EngagedMatchDto"
+                  }
+                }
+              },
+              "application/json": {
+                "schema": {
+                  "type": "array",
+                  "items": {
+                    "$ref": "#/components/schemas/EngagedMatchDto"
+                  }
+                }
+              },
+              "text/json": {
+                "schema": {
+                  "type": "array",
+                  "items": {
+                    "$ref": "#/components/schemas/EngagedMatchDto"
+                  }
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/api/Matchmaker": {
+      "get": {
+        "tags": [
+          "Matchmaker"
+        ],
+        "responses": {
+          "200": {
+            "description": "Success",
+            "content": {
+              "text/plain": {
+                "schema": {
+                  "type": "array",
+                  "items": {
+                    "$ref": "#/components/schemas/MatchmakerDto"
+                  }
+                }
+              },
+              "application/json": {
+                "schema": {
+                  "type": "array",
+                  "items": {
+                    "$ref": "#/components/schemas/MatchmakerDto"
+                  }
+                }
+              },
+              "text/json": {
+                "schema": {
+                  "type": "array",
+                  "items": {
+                    "$ref": "#/components/schemas/MatchmakerDto"
+                  }
+                }
+              }
+            }
+          }
+        }
+      },
+      "post": {
+        "tags": [
+          "Matchmaker"
+        ],
+        "requestBody": {
+          "content": {
+            "multipart/form-data": {
+              "schema": {
+                "type": "object",
+                "properties": {
+                  "Id": {
+                    "type": "integer",
+                    "format": "int32"
+                  },
+                  "UserId": {
+                    "type": "integer",
+                    "format": "int32"
+                  },
+                  "FirstName": {
+                    "type": "string"
+                  },
+                  "LastName": {
+                    "type": "string"
+                  },
+                  "Email": {
+                    "type": "string"
+                  },
+                  "BirthDate": {
+                    "type": "string",
+                    "format": "date-time"
+                  },
+                  "MatchmakerGender": {
+                    "$ref": "#/components/schemas/Gender"
+                  },
+                  "IdentityNumber": {
+                    "type": "string"
+                  },
+                  "MarriageDate": {
+                    "type": "string",
+                    "format": "date-time"
+                  },
+                  "Country": {
+                    "type": "string"
+                  },
+                  "City": {
+                    "type": "string"
+                  },
+                  "MatchmakerSector": {
+                    "$ref": "#/components/schemas/Sector"
+                  },
+                  "SubSector": {
+                    "$ref": "#/components/schemas/SubSector"
+                  },
+                  "YearsOfExperience": {
+                    "type": "integer",
+                    "format": "int32"
+                  },
+                  "MatchesClosed": {
+                    "type": "integer",
+                    "format": "int32"
+                  },
+                  "Languages": {
+                    "$ref": "#/components/schemas/Language"
+                  },
+                  "ReligiousOpenness": {
+                    "$ref": "#/components/schemas/Openness"
+                  },
+                  "PhoneNumber": {
+                    "type": "string"
+                  }
+                }
+              },
+              "encoding": {
+                "Id": {
+                  "style": "form"
+                },
+                "UserId": {
+                  "style": "form"
+                },
+                "FirstName": {
+                  "style": "form"
+                },
+                "LastName": {
+                  "style": "form"
+                },
+                "Email": {
+                  "style": "form"
+                },
+                "BirthDate": {
+                  "style": "form"
+                },
+                "MatchmakerGender": {
+                  "style": "form"
+                },
+                "IdentityNumber": {
+                  "style": "form"
+                },
+                "MarriageDate": {
+                  "style": "form"
+                },
+                "Country": {
+                  "style": "form"
+                },
+                "City": {
+                  "style": "form"
+                },
+                "MatchmakerSector": {
+                  "style": "form"
+                },
+                "SubSector": {
+                  "style": "form"
+                },
+                "YearsOfExperience": {
+                  "style": "form"
+                },
+                "MatchesClosed": {
+                  "style": "form"
+                },
+                "Languages": {
+                  "style": "form"
+                },
+                "ReligiousOpenness": {
+                  "style": "form"
+                },
+                "PhoneNumber": {
+                  "style": "form"
+                }
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "Success",
+            "content": {
+              "text/plain": {
+                "schema": {
+                  "$ref": "#/components/schemas/MatchmakerDto"
+                }
+              },
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/MatchmakerDto"
+                }
+              },
+              "text/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/MatchmakerDto"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/api/Matchmaker/{id}": {
+      "get": {
+        "tags": [
+          "Matchmaker"
+        ],
+        "parameters": [
+          {
+            "name": "id",
+            "in": "path",
+            "required": true,
+            "style": "simple",
+            "schema": {
+              "type": "integer",
+              "format": "int32"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Success",
+            "content": {
+              "text/plain": {
+                "schema": {
+                  "$ref": "#/components/schemas/MatchmakerDto"
+                }
+              },
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/MatchmakerDto"
+                }
+              },
+              "text/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/MatchmakerDto"
+                }
+              }
+            }
+          }
+        }
+      },
+      "put": {
+        "tags": [
+          "Matchmaker"
+        ],
+        "parameters": [
+          {
+            "name": "id",
+            "in": "path",
+            "required": true,
+            "style": "simple",
+            "schema": {
+              "type": "integer",
+              "format": "int32"
+            }
+          }
+        ],
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/MatchmakerDto"
+              }
+            },
+            "text/json": {
+              "schema": {
+                "$ref": "#/components/schemas/MatchmakerDto"
+              }
+            },
+            "application/*+json": {
+              "schema": {
+                "$ref": "#/components/schemas/MatchmakerDto"
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "Success"
+          }
+        }
+      },
+      "delete": {
+        "tags": [
+          "Matchmaker"
+        ],
+        "parameters": [
+          {
+            "name": "id",
+            "in": "path",
+            "required": true,
+            "style": "simple",
+            "schema": {
+              "type": "integer",
+              "format": "int32"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Success"
+          }
+        }
+      }
+    },
+    "/api/User": {
+      "get": {
+        "tags": [
+          "User"
+        ],
+        "responses": {
+          "200": {
+            "description": "Success",
+            "content": {
+              "text/plain": {
+                "schema": {
+                  "type": "array",
+                  "items": {
+                    "$ref": "#/components/schemas/UserDto"
+                  }
+                }
+              },
+              "application/json": {
+                "schema": {
+                  "type": "array",
+                  "items": {
+                    "$ref": "#/components/schemas/UserDto"
+                  }
+                }
+              },
+              "text/json": {
+                "schema": {
+                  "type": "array",
+                  "items": {
+                    "$ref": "#/components/schemas/UserDto"
+                  }
+                }
+              }
+            }
+          }
+        }
+      },
+      "post": {
+        "tags": [
+          "User"
+        ],
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/UserDto"
+              }
+            },
+            "text/json": {
+              "schema": {
+                "$ref": "#/components/schemas/UserDto"
+              }
+            },
+            "application/*+json": {
+              "schema": {
+                "$ref": "#/components/schemas/UserDto"
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "Success",
+            "content": {
+              "text/plain": {
+                "schema": {
+                  "$ref": "#/components/schemas/UserDto"
+                }
+              },
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/UserDto"
+                }
+              },
+              "text/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/UserDto"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/api/User/{id}": {
+      "get": {
+        "tags": [
+          "User"
+        ],
+        "parameters": [
+          {
+            "name": "id",
+            "in": "path",
+            "required": true,
+            "style": "simple",
+            "schema": {
+              "type": "integer",
+              "format": "int32"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Success",
+            "content": {
+              "text/plain": {
+                "schema": {
+                  "$ref": "#/components/schemas/UserDto"
+                }
+              },
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/UserDto"
+                }
+              },
+              "text/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/UserDto"
+                }
+              }
+            }
+          }
+        }
+      },
+      "put": {
+        "tags": [
+          "User"
+        ],
+        "parameters": [
+          {
+            "name": "id",
+            "in": "path",
+            "required": true,
+            "style": "simple",
+            "schema": {
+              "type": "integer",
+              "format": "int32"
+            }
+          }
+        ],
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/UserDto"
+              }
+            },
+            "text/json": {
+              "schema": {
+                "$ref": "#/components/schemas/UserDto"
+              }
+            },
+            "application/*+json": {
+              "schema": {
+                "$ref": "#/components/schemas/UserDto"
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "Success"
+          }
+        }
+      },
+      "delete": {
+        "tags": [
+          "User"
+        ],
+        "parameters": [
+          {
+            "name": "id",
+            "in": "path",
+            "required": true,
+            "style": "simple",
+            "schema": {
+              "type": "integer",
+              "format": "int32"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Success"
+          }
+        }
+      }
+    },
+    "/api/User/login": {
+      "post": {
+        "tags": [
+          "User"
+        ],
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/UserLogin"
+              }
+            },
+            "text/json": {
+              "schema": {
+                "$ref": "#/components/schemas/UserLogin"
+              }
+            },
+            "application/*+json": {
+              "schema": {
+                "$ref": "#/components/schemas/UserLogin"
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "Success",
+            "content": {
+              "text/plain": {
+                "schema": {
+                  "type": "string"
+                }
+              },
+              "application/json": {
+                "schema": {
+                  "type": "string"
+                }
+              },
+              "text/json": {
+                "schema": {
+                  "type": "string"
+                }
+              }
+            }
+          }
+        }
+      }
+    }
+  },
+  "components": {
+    "schemas": {
+      "CandidateDto": {
+        "type": "object",
+        "properties": {
+          "id": {
+            "type": "integer",
+            "format": "int32"
+          },
+          "userId": {
+            "type": "integer",
+            "format": "int32"
+          },
+          "email": {
+            "type": "string",
+            "nullable": true
+          },
+          "phoneNumber": {
+            "type": "string",
+            "nullable": true
+          },
+          "candidateId": {
+            "type": "integer",
+            "format": "int32"
+          },
+          "firstName": {
+            "type": "string",
+            "nullable": true
+          },
+          "lastName": {
+            "type": "string",
+            "nullable": true
+          },
+          "gender": {
+            "$ref": "#/components/schemas/Gender"
+          },
+          "status": {
+            "$ref": "#/components/schemas/CandidateStatus"
+          },
+          "age": {
+            "type": "integer",
+            "format": "int32"
+          },
+          "candidateSector": {
+            "$ref": "#/components/schemas/Sector"
+          },
+          "subSector": {
+            "$ref": "#/components/schemas/SubSector"
+          },
+          "torahLearning": {
+            "$ref": "#/components/schemas/TorahStudy"
+          },
+          "education": {
+            "$ref": "#/components/schemas/EducationInstitution"
+          },
+          "studyPlaceName": {
+            "type": "string",
+            "nullable": true
+          },
+          "jobOrStudies": {
+            "$ref": "#/components/schemas/Occupation"
+          },
+          "city": {
+            "type": "string",
+            "nullable": true
+          },
+          "arrImage": {
+            "type": "string",
+            "format": "byte",
+            "nullable": true
+          },
+          "fileImage": {
+            "type": "string",
+            "format": "binary",
+            "nullable": true
+          },
+          "imageUrl": {
+            "type": "string",
+            "nullable": true
+          },
+          "origin": {
+            "type": "string",
+            "nullable": true
+          },
+          "languages": {
+            "$ref": "#/components/schemas/Language"
+          },
+          "religiousOpenness": {
+            "$ref": "#/components/schemas/Openness"
+          },
+          "clothingStyle": {
+            "$ref": "#/components/schemas/ClothingStyle"
+          },
+          "height": {
+            "type": "number",
+            "format": "double"
+          },
+          "physique": {
+            "$ref": "#/components/schemas/Physique"
+          },
+          "skinTone": {
+            "$ref": "#/components/schemas/SkinTone"
+          },
+          "hairColor": {
+            "$ref": "#/components/schemas/HairColor"
+          },
+          "giving": {
+            "type": "number",
+            "format": "double"
+          },
+          "expecting": {
+            "type": "number",
+            "format": "double"
+          },
+          "familyStatus": {
+            "$ref": "#/components/schemas/ParentsStatus"
+          },
+          "availableForProposals": {
+            "type": "boolean"
+          },
+          "preferredHeadCovering": {
+            "$ref": "#/components/schemas/HeadCovering"
+          },
+          "candidatePhoneType": {
+            "$ref": "#/components/schemas/PhoneType"
+          },
+          "beard": {
+            "type": "boolean"
+          },
+          "smokingStatus": {
+            "$ref": "#/components/schemas/Smoking"
+          },
+          "license": {
+            "type": "boolean"
+          },
+          "rezumehArr": {
+            "type": "string",
+            "format": "byte",
+            "nullable": true
+          },
+          "rezumehFile": {
+            "type": "string",
+            "format": "binary",
+            "nullable": true
+          },
+          "rezumehName": {
+            "type": "string",
+            "nullable": true
+          },
+          "descriptionSelf": {
+            "type": "string",
+            "nullable": true
+          },
+          "descriptionFind": {
+            "type": "string",
+            "nullable": true
+          }
+        },
+        "additionalProperties": false
+      },
+      "CandidateStatus": {
+        "enum": [
+          "רווק_ה",
+          "גרוש_ה",
+          "אלמן_ה",
+          "גרוש_ה_עם_ילדים",
+          "אלמן_ה_עם_ילדים"
+        ],
+        "type": "string"
+      },
+      "ClothingStyle": {
+        "enum": [
+          "מודרני",
+          "עדכני",
+          "מכובד",
+          "קלאסי",
+          "פשוט",
+          "פשוט_מאוד"
+        ],
+        "type": "string"
+      },
+      "CreateMatchRequest": {
+        "type": "object",
+        "properties": {
+          "idCandidate1": {
+            "type": "integer",
+            "format": "int32"
+          },
+          "idCandidate2": {
+            "type": "integer",
+            "format": "int32"
+          }
+        },
+        "additionalProperties": false
+      },
+      "EducationInstitution": {
+        "enum": [
+          "ישיבה_קטנה",
+          "ישיבה_גדולה",
+          "קיבוץ",
+          "תיכון",
+          "סמינר",
+          "מכללה",
+          "אוניברסיטה",
+          "כולל"
+        ],
+        "type": "string"
+      },
+      "EngagedMatchDto": {
+        "type": "object",
+        "properties": {
+          "matchId": {
+            "type": "integer",
+            "format": "int32"
+          },
+          "nameGuy": {
+            "type": "string",
+            "nullable": true
+          },
+          "nameGirl": {
+            "type": "string",
+            "nullable": true
+          },
+          "yeshivaGuy": {
+            "type": "string",
+            "nullable": true
+          },
+          "seminaryGirl": {
+            "type": "string",
+            "nullable": true
+          },
+          "cityGuy": {
+            "type": "string",
+            "nullable": true
+          },
+          "cityGirl": {
+            "type": "string",
+            "nullable": true
+          },
+          "dateMatch": {
+            "type": "string",
+            "format": "date-time"
+          }
+        },
+        "additionalProperties": false
+      },
+      "Gender": {
+        "enum": [
+          "זכר",
+          "נקבה"
+        ],
+        "type": "string"
+      },
+      "HairColor": {
+        "enum": [
+          "חום",
+          "שחור",
+          "שטני",
+          "בלונדי",
+          "גינגי"
+        ],
+        "type": "string"
+      },
+      "HeadCovering": {
+        "enum": [
+          "פאה_בלבד",
+          "מטפחת_בלבד",
+          "פאה_עם_כיסוי",
+          "טופ_לייס",
+          "גמיש"
+        ],
+        "type": "string"
+      },
+      "Language": {
+        "enum": [
+          "אנגלית",
+          "עברית",
+          "אידיש",
+          "צרפתית",
+          "ספרדית",
+          "רוסית"
+        ],
+        "type": "string"
+      },
+      "MatchDto": {
+        "type": "object",
+        "properties": {
+          "id": {
+            "type": "integer",
+            "format": "int32"
+          },
+          "idCandidateGirl": {
+            "type": "integer",
+            "format": "int32"
+          },
+          "idCandidateGuy": {
+            "type": "integer",
+            "format": "int32"
+          },
+          "idMatchmaker": {
+            "type": "integer",
+            "format": "int32"
+          },
+          "isEngaged": {
+            "type": "boolean"
+          },
+          "active": {
+            "type": "boolean"
+          },
+          "confirmationGuy": {
+            "type": "boolean"
+          },
+          "confirmationGirl": {
+            "type": "boolean"
+          },
+          "dateMatch": {
+            "type": "string",
+            "format": "date-time"
+          },
+          "status": {
+            "type": "boolean"
+          }
+        },
+        "additionalProperties": false
+      },
+      "MatchResultsDto": {
+        "type": "object",
+        "properties": {
+          "male": {
+            "$ref": "#/components/schemas/CandidateDto"
+          },
+          "female": {
+            "$ref": "#/components/schemas/CandidateDto"
+          },
+          "score": {
+            "type": "integer",
+            "format": "int32"
+          }
+        },
+        "additionalProperties": false
+      },
+      "MatchmakerDto": {
+        "type": "object",
+        "properties": {
+          "id": {
+            "type": "integer",
+            "format": "int32"
+          },
+          "userId": {
+            "type": "integer",
+            "format": "int32"
+          },
+          "firstName": {
+            "type": "string",
+            "nullable": true
+          },
+          "lastName": {
+            "type": "string",
+            "nullable": true
+          },
+          "email": {
+            "type": "string",
+            "nullable": true
+          },
+          "birthDate": {
+            "type": "string",
+            "format": "date-time"
+          },
+          "matchmakerGender": {
+            "$ref": "#/components/schemas/Gender"
+          },
+          "identityNumber": {
+            "type": "string",
+            "nullable": true
+          },
+          "marriageDate": {
+            "type": "string",
+            "format": "date-time",
+            "nullable": true
+          },
+          "country": {
+            "type": "string",
+            "nullable": true
+          },
+          "city": {
+            "type": "string",
+            "nullable": true
+          },
+          "matchmakerSector": {
+            "$ref": "#/components/schemas/Sector"
+          },
+          "subSector": {
+            "$ref": "#/components/schemas/SubSector"
+          },
+          "yearsOfExperience": {
+            "type": "integer",
+            "format": "int32",
+            "nullable": true
+          },
+          "matchesClosed": {
+            "type": "integer",
+            "format": "int32",
+            "nullable": true
+          },
+          "languages": {
+            "$ref": "#/components/schemas/Language"
+          },
+          "religiousOpenness": {
+            "$ref": "#/components/schemas/Openness"
+          },
+          "phoneNumber": {
+            "type": "string",
+            "nullable": true
+          }
+        },
+        "additionalProperties": false
+      },
+      "Occupation": {
+        "enum": [
+          "לומד",
+          "עובד"
+        ],
+        "type": "string"
+      },
+      "Openness": {
+        "enum": [
+          "שמור_מאוד",
+          "שמרן",
+          "מסורתי",
+          "שמור_וראש_פתוח",
+          "פתוח",
+          "מודרני",
+          "מודרני_מאוד"
+        ],
+        "type": "string"
+      },
+      "ParentsStatus": {
+        "enum": [
+          "נשואים",
+          "גרושים",
+          "אב_נפטר",
+          "אם_נפטרה",
+          "שניהם_נפטרו"
+        ],
+        "type": "string"
+      },
+      "PhoneType": {
+        "enum": [
+          "כשר",
+          "תומך_כשר",
+          "מכשיר_מוגן",
+          "סמארטפון",
+          "פלאפון_מקשים_עם_SMS",
+          "טלפון_מוגן_לעבודה",
+          "שני_טלפונים"
+        ],
+        "type": "string"
+      },
+      "Physique": {
+        "enum": [
+          "רזה_מאוד",
+          "רזה",
+          "ממוצע_ת",
+          "מלא_ה"
+        ],
+        "type": "string"
+      },
+      "Sector": {
+        "enum": [
+          "חסידי",
+          "ליטאי",
+          "ספרדי",
+          "תימני",
+          "חבד",
+          "חצי_חצי",
+          "אחר"
+        ],
+        "type": "string"
+      },
+      "SkinTone": {
+        "enum": [
+          "בהיר",
+          "נוטה_לבהיר",
+          "שזוף",
+          "נוטה_לכהה",
+          "כהה"
+        ],
+        "type": "string"
+      },
+      "Smoking": {
+        "enum": [
+          "מעשן",
+          "מעשן_לעיתים_רחוקות",
+          "לא_מעשן",
+          "סיגריה_אלקטרונית"
+        ],
+        "type": "string"
+      },
+      "SubSector": {
+        "enum": [
+          "ישיבתי",
+          "בני_תורה_עץ",
+          "בעלי_תשובה",
+          "ירושלמי",
+          "חרדי_מודרני",
+          "חוצניקים",
+          "חזונאישניק",
+          "זילברמן",
+          "רקע_חסידי",
+          "אחר"
+        ],
+        "type": "string"
+      },
+      "TorahStudy": {
+        "enum": [
+          "תורתו_אומנותו",
+          "חצי_עובד_חצי_לומד",
+          "קובע_עיתים"
+        ],
+        "type": "string"
+      },
+      "UserDto": {
+        "type": "object",
+        "properties": {
+          "id": {
+            "type": "integer",
+            "format": "int32"
+          },
+          "fullName": {
+            "type": "string",
+            "nullable": true
+          },
+          "email": {
+            "type": "string",
+            "nullable": true
+          },
+          "password": {
+            "type": "string",
+            "nullable": true
+          },
+          "phoneNumber": {
+            "type": "string",
+            "nullable": true
+          },
+          "userType": {
+            "$ref": "#/components/schemas/UserType"
+          }
+        },
+        "additionalProperties": false
+      },
+      "UserLogin": {
+        "type": "object",
+        "properties": {
+          "email": {
+            "type": "string",
+            "nullable": true
+          },
+          "password": {
+            "type": "string",
+            "nullable": true
+          }
+        },
+        "additionalProperties": false
+      },
+      "UserType": {
+        "enum": [
+          "ADMIN",
+          "MATCHMAKER",
+          "PARENT"
+        ],
+        "type": "string"
+      }
+    },
+    "securitySchemes": {
+      "Bearer": {
+        "type": "http",
+        "description": "Please enter a valid token",
+        "scheme": "Bearer",
+        "bearerFormat": "JWT"
+      }
+    }
+  },
+  "security": [
+    {
+      "Bearer": [ ]
+    }
+  ]
+}
