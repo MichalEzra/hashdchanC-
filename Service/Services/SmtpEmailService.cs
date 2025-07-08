@@ -124,6 +124,24 @@ namespace Service.Services
             await SendEmailAsync(c2Dto.Email, "הצעת שידוך", emailBodyC2);
         }
 
+        public async Task SendSingleMatchEmailAsync(int senderId, int receiverId)
+        {
+            var senderDto = await _candidateService.GetById(senderId);
+            var receiverDto = await _candidateService.GetById(receiverId);
+
+            Candidate sender = _mapper.Map<Candidate>(senderDto);
+            Candidate receiver = _mapper.Map<Candidate>(receiverDto);
+
+            if (sender == null || receiver == null)
+                throw new Exception("אחד הצדדים לא נמצא");
+
+            string baseUrl = "http://localhost:5245/api/Match/confirm";
+            string callbackUrl = $"{baseUrl}?candidateId={receiver.Id}&matchId={sender.Id}";
+
+            string emailBody = await EmailTemplateHelper.GenerateMatchEmailBody(_candidateMyDetails, receiver, sender, callbackUrl);
+
+            await SendEmailAsync(receiverDto.Email, "הצעת שידוך חדשה", emailBody);
+        }
 
         //// שליחת מייל לכל השדכנים הפעילים עם תזכורת לעדכון הצעות
         //public async Task sendEmailToMatchmakerActiveMatch()

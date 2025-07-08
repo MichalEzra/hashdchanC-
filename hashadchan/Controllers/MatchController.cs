@@ -121,34 +121,138 @@ namespace hashadchan.Controllers
 
         //    return Ok("Email Sent!");
         //}
+        //[HttpPost]
+        //[Authorize(Roles = "MATCHMAKER")]
+        //public async Task<IActionResult> Post([FromBody] CreateMatchRequest request)
+        //{
+        //    try
+        //    {
+        //        // 1. שליפת מזהה המשתמש מתוך הטוקן
+        //        var matchmakerUserId = int.Parse(User.FindFirst(ClaimTypes.NameIdentifier).Value);
+
+        //        // 2. שליפת השדכן מתוך הטבלה לפי מזהה המשתמש
+        //        var matchmaker = await _context.Matchmakers
+        //            .FirstOrDefaultAsync(m => m.UserId == matchmakerUserId);
+
+        //        if (matchmaker == null)
+        //            return BadRequest("שדכן לא נמצא במסד הנתונים");
+
+        //        // 3. יצירת שידוך חדש
+        //        Match m = new()
+        //        {
+        //            IdCandidateGuy = request.IdCandidate1,
+        //            IdCandidateGirl = request.IdCandidate2,
+        //            IdMatchmaker = matchmaker.Id, // כאן שימוש במזהה הנכון
+        //            DateMatch = DateTime.UtcNow,
+        //            Status = true
+        //        };
+
+        //        await _MatchDtoService.AddItem(_mapper.Map<MatchDto>(m));
+        //        await _emailService.SendMatchEmailAsync(request.IdCandidate1, request.IdCandidate2);
+        //        return Ok("שידוך נוצר בהצלחה!");
+        //    }
+        //    catch (Exception ex)
+        //    {
+        //        return StatusCode(500, $"שגיאה בשרת: {ex.Message}");
+        //    }
+        //}
+        //[HttpPost]
+        //[Authorize(Roles = "MATCHMAKER,PARENT")]
+        //public async Task<IActionResult> Post([FromBody] CreateMatchRequest request)
+        //{
+        //    try
+        //    {
+        //        // שליפת מזהה המשתמש מתוך הטוקן
+        //        var userId = int.Parse(User.FindFirst(ClaimTypes.NameIdentifier).Value);
+        //        var userRole = User.FindFirst(ClaimTypes.Role)?.Value;
+
+        //        int? matchmakerId = null;
+
+        //        // אם שדכן - נביא את ה-Id שלו
+        //        if (userRole == "MATCHMAKER")
+        //        {
+        //            var matchmaker = await _context.Matchmakers.FirstOrDefaultAsync(m => m.UserId == userId);
+        //            if (matchmaker == null)
+        //                return BadRequest("שדכן לא נמצא");
+        //            matchmakerId = matchmaker.Id;
+        //        }
+
+        //        // יצירת שידוך
+        //        Match m = new()
+        //        {
+        //            IdCandidateGuy = request.IdCandidate1,
+        //            IdCandidateGirl = request.IdCandidate2,
+        //            IdMatchmaker = (int)matchmakerId,
+        //            DateMatch = DateTime.UtcNow,
+        //            Status = true
+        //        };
+
+        //        await _MatchDtoService.AddItem(_mapper.Map<MatchDto>(m));
+
+        //        // שליחת מייל לפי תפקיד
+        //        if (userRole == "MATCHMAKER")
+        //        {
+        //            // שלח מייל לשני הצדדים
+        //            await _emailService.SendMatchEmailAsync(request.IdCandidate1, request.IdCandidate2);
+        //        }
+        //        else if (userRole == "CANDIDATE" || userRole == "PARENT")
+        //        {
+        //            // שלח רק למועמד השני (בהנחה שהיוזר הוא IdCandidate1)
+        //            await _emailService.SendSingleMatchEmailAsync(request.IdCandidate1, request.IdCandidate2);
+        //        }
+
+        //        return Ok("שידוך נוצר בהצלחה!");
+        //    }
+        //    catch (Exception ex)
+        //    {
+        //        return StatusCode(500, $"שגיאה בשרת: {ex.Message}");
+        //    }
+        //}
         [HttpPost]
-        [Authorize(Roles = "MATCHMAKER")]
+        [Authorize(Roles = "MATCHMAKER,PARENT")]
         public async Task<IActionResult> Post([FromBody] CreateMatchRequest request)
         {
             try
             {
-                // 1. שליפת מזהה המשתמש מתוך הטוקן
-                var matchmakerUserId = int.Parse(User.FindFirst(ClaimTypes.NameIdentifier).Value);
+                var userId = int.Parse(User.FindFirst(ClaimTypes.NameIdentifier).Value);
+                var userRole = User.FindFirst(ClaimTypes.Role)?.Value;
 
-                // 2. שליפת השדכן מתוך הטבלה לפי מזהה המשתמש
-                var matchmaker = await _context.Matchmakers
-                    .FirstOrDefaultAsync(m => m.UserId == matchmakerUserId);
+                int matchmakerId;
 
-                if (matchmaker == null)
-                    return BadRequest("שדכן לא נמצא במסד הנתונים");
+                if (userRole == "MATCHMAKER")
+                {
+                    var matchmaker = await _context.Matchmakers.FirstOrDefaultAsync(m => m.UserId == userId);
+                    if (matchmaker == null)
+                        return BadRequest("שדכן לא נמצא");
 
-                // 3. יצירת שידוך חדש
+                    matchmakerId = matchmaker.Id; // מזהה השדכן האמיתי
+                }
+                else
+                {
+                    // אם היוזר הוא לא שדכן (למשל הורה או מועמד)
+                    matchmakerId = 1; // מזהה השדכן הדיפולטי שברצונך להשתמש בו
+                }
+
                 Match m = new()
                 {
                     IdCandidateGuy = request.IdCandidate1,
                     IdCandidateGirl = request.IdCandidate2,
-                    IdMatchmaker = matchmaker.Id, // כאן שימוש במזהה הנכון
+                    IdMatchmaker = matchmakerId, // תמיד יכיל ערך
                     DateMatch = DateTime.UtcNow,
                     Status = true
                 };
 
                 await _MatchDtoService.AddItem(_mapper.Map<MatchDto>(m));
-                await _emailService.SendMatchEmailAsync(request.IdCandidate1, request.IdCandidate2);
+
+                if (userRole == "MATCHMAKER")
+                {
+                    await _emailService.SendMatchEmailAsync(request.IdCandidate1, request.IdCandidate2);
+                }
+                else
+                {
+                    await _emailService.SendSingleMatchEmailAsync(request.IdCandidate1, request.IdCandidate2);
+                }
+
                 return Ok("שידוך נוצר בהצלחה!");
             }
             catch (Exception ex)
