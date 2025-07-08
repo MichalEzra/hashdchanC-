@@ -10,8 +10,8 @@
 [Dd]ebug/
 [Rr]elease/
 x64/
-[Bb]in/
-[Oo]bj/
+# [Bb]in/
+# [Oo]bj/
 
 # MSTest test Results
 [Tt]est[Rr]esult*/
@@ -22,7 +22,7 @@ x64/
 *_i.h
 *.ilk
 *.meta
-*.obj
+# *.obj
 *.pch
 *.pdb
 *.pgc
@@ -125,3 +125,6 @@ _NCrunch*
 
 # Ignore Visual Studio .vs folder
 .vs/
+**/bin/
+**/obj/
+

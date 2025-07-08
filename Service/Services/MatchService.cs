@@ -12,6 +12,7 @@ using System.Reflection.PortableExecutable;
 using System.Text;
 using System.Threading.Tasks;
 using Service.Interfasces;
+using Repository.Repositories;
 
 namespace Service.Service
 {
@@ -82,31 +83,6 @@ namespace Service.Service
             await _repository.UpdateItem(id, _mapper.Map<Match>(item));
         }
 
-        //public async Task<List<MatchDto>> GetAllEngagedment()
-        //{
-        //    var all = await GetAll();
-        //    return all.Where(x => x.IsEngaged == true).ToList();
-        //}
-
-        public async Task<List<Matchmaker>> GetAllMatchmakerActives()
-        {
-            var matches = await _repository.GetAll();
-            var matchmakers = new List<Matchmaker>();
-
-            foreach (var match in matches)
-            {
-                if (match.Active)
-                {
-                    var matchmaker = await _repositoryMatchmaker.GetById(match.IdMatchmaker);
-                    if (!matchmakers.Any(m => m.Id == matchmaker.Id))
-                        matchmakers.Add(matchmaker);
-                }
-            }
-
-            return matchmakers;
-        }
-
-
         public async Task<List<EngagedMatchDto>> GetAllEngagedment()
         {
             var all = await GetAll(); // מחזיר את כל ההתאמות (MatchDto)
@@ -134,5 +110,58 @@ namespace Service.Service
 
             return result;
         }
+        //public async Task<List<MatchDto>> GetAllEngagedment()
+        //{
+        //    var all = await GetAll();
+        //    return all.Where(x => x.IsEngaged == true).ToList();
+        //}
+
+
+        public async Task<List<Matchmaker>> GetAllMatchmakerActives()
+        {
+            var matches = await _repository.GetAll();
+            var matchmakers = new List<Matchmaker>();
+
+            foreach (var match in matches)
+            {
+                if (match.Active)
+                {
+                    var matchmaker = await _repositoryMatchmaker.GetById(match.IdMatchmaker);
+                    if (!matchmakers.Any(m => m.Id == matchmaker.Id))
+                        matchmakers.Add(matchmaker);
+                }
+            }
+
+            return matchmakers;
+        }
+
+
+        //public async Task<List<EngagedMatchDto>> GetAllEngagedment()
+        //{
+        //    var all = await GetAll(); // מחזיר את כל ההתאמות (MatchDto)
+
+        //    var engaged = all.Where(x => x.IsEngaged).ToList();
+
+        //    var result = new List<EngagedMatchDto>();
+
+        //    foreach (var match in engaged)
+        //    {
+        //        var guy = await _repositoryCandidate.GetById(match.IdCandidateGuy);
+        //        var girl = await _repositoryCandidate.GetById(match.IdCandidateGirl);
+
+        //        result.Add(new EngagedMatchDto
+        //        {
+        //            NameGuy = guy.FirstName + " " + guy.LastName,
+        //            NameGirl = girl.FirstName + " " + girl.LastName,
+        //            YeshivaGuy = guy.StudyPlaceName,
+        //            SeminaryGirl = girl.StudyPlaceName,
+        //            CityGuy = guy.City,
+        //            CityGirl = girl.City,
+        //            DateMatch = match.DateMatch
+        //        });
+        //    }
+
+        //    return result;
+        //}
     }
 }

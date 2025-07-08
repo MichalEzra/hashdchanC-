@@ -46,17 +46,14 @@ namespace Service.Services
         {
             await repository.UpdateItem(id, mapper.Map<MatchmakerDto, Matchmaker>(item));
         }
-        public async Task<MatchmakerDto?> GetByUserId(int userId)
+        public async Task<List<MatchmakerDto>> GetAllByUserId(int userId)
         {
             var all = await repository.GetAll();
-            var matchmaker = all.FirstOrDefault(m => m.UserId == userId);
-            return matchmaker == null ? null : mapper.Map<MatchmakerDto>(matchmaker);
+            var matchmakers = all.Where(m => m.UserId == userId).ToList();
+            return mapper.Map<List<MatchmakerDto>>(matchmakers);
         }
 
-        public Task<List<CandidateDto>> GetAllByUserId(int userId)
-        {
-            throw new NotImplementedException();
-        }
+
     }
 
 }

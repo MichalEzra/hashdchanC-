@@ -23,7 +23,8 @@ namespace Mock
 
         protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
         {
-            optionsBuilder.UseSqlServer("server=.;database=hashadchanDb;trusted_connection=true;TrustServerCertificate=True");
+            optionsBuilder.UseSqlServer("server=HPG101223;database=hashadchanDb;trusted_connection=true;TrustServerCertificate=True");
+
         }
     }
 }

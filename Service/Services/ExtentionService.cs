@@ -19,7 +19,7 @@ namespace Service.Services
         {
             services.AddRepositorys();
             services.AddScoped<IService<CandidateDto>, CandidateService>();
-            services.AddScoped<IUserLinkedService<CandidateDto>, CandidateService>();
+            //services.AddScoped<IUserLinkedService<CandidateDto>, CandidateService>();
             services.AddScoped<IService<MatchmakerDto>, MatchmakerService>();
             services.AddScoped<IUserLinkedService<MatchmakerDto>, MatchmakerService>();
             services.AddScoped<IService<UserDto>, UserService>();

@@ -37,8 +37,11 @@ namespace Repository.Repositories
 
         public async Task<List<User>> GetAll()
         {
-            return await context.Users.ToListAsync();
+            return await context.Users
+                .Include(u => u.Candidates) // חשוב - כלול את המועמדים
+                .ToListAsync();
         }
+
 
         public async Task<User> GetById(int id)
         {
@@ -56,7 +59,7 @@ namespace Repository.Repositories
             user.Password = updatedUser.Password;
             user.PhoneNumber = updatedUser.PhoneNumber;
             user.UserType = updatedUser.UserType;
-            user.Candidate = updatedUser.Candidate;
+            user.Candidates = updatedUser.Candidates;
             
             await context.Save();
         }

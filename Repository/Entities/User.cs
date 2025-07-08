@@ -27,6 +27,7 @@ namespace Repository.Entities
 
         public UserType UserType { get; set; }
 
-        public Candidate? Candidate { get; set; }  // למקרה שהיוזר הוא הורה ויש לו מועמד אחד
+        public List<Candidate> Candidates { get; set; } = new List<Candidate>();
+
     }
 }
