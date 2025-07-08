@@ -167,7 +167,7 @@ namespace hashadchan.Controllers
             Candidate c1 = _mapper.Map<Candidate>(candidateDto);
             Match match;
 
-            if (c1.CandidateGender == Repository.Entities.Enums.Gender.זכר)
+            if (c1.Gender == Repository.Entities.Enums.Gender.זכר)
             {
                 match = _mapper.Map<Match>(await _serviceMatch.GetMatchByIdCandidates(candidateId, matchId));
                 if (match == null)
@@ -259,12 +259,20 @@ namespace hashadchan.Controllers
             return Ok();
         }
 
+<<<<<<< HEAD
+=======
+
+>>>>>>> hashdchanc#
         [HttpGet("engaged")]
         public async Task<ActionResult<List<EngagedMatchDto>>> GetEngagedMatches()
         {
             var engaged = await _context.Matches
                 .Where(m => m.IsEngaged)
+<<<<<<< HEAD
                 .Include(m => m.Guy)
+=======
+                .Include(static m => m.Guy)
+>>>>>>> hashdchanc#
                 .Include(m => m.Girl)
                 .Select(m => new EngagedMatchDto
                 {
@@ -279,7 +287,10 @@ namespace hashadchan.Controllers
 
             return Ok(engaged);
         }
+<<<<<<< HEAD
 
 
+=======
+>>>>>>> hashdchanc#
     }
 }

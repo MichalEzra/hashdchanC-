@@ -19,5 +19,7 @@ namespace Service.Interfasces
         //    Task<T> GetCandidateByIdAsync(int id);
         Task<string> GetGeneralCandidateInfoAsync(Candidate candidate);
         Task<string> GetAllCandidateInfoAsync(Candidate candidate);
+        Task<List<CandidateDto>> GetAllByUserId(int userId);
+
     }
 }

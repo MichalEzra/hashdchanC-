@@ -3,6 +3,7 @@ using System;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
 using Microsoft.EntityFrameworkCore.Metadata;
+using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 using Mock;
 
@@ -11,9 +12,11 @@ using Mock;
 namespace Mock.Migrations
 {
     [DbContext(typeof(Database))]
-    partial class DatabaseModelSnapshot : ModelSnapshot
+    [Migration("20250705233240_UpdateGenderName")]
+    partial class UpdateGenderName
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        /// <inheritdoc />
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder
@@ -146,7 +149,8 @@ namespace Mock.Migrations
 
                     b.HasKey("Id");
 
-                    b.HasIndex("UserId");
+                    b.HasIndex("UserId")
+                        .IsUnique();
 
                     b.ToTable("Candidates");
                 });
@@ -298,8 +302,8 @@ namespace Mock.Migrations
             modelBuilder.Entity("Repository.Entities.Candidate", b =>
                 {
                     b.HasOne("Repository.Entities.User", "User")
-                        .WithMany("Candidates")
-                        .HasForeignKey("UserId")
+                        .WithOne("Candidate")
+                        .HasForeignKey("Repository.Entities.Candidate", "UserId")
                         .OnDelete(DeleteBehavior.Cascade)
                         .IsRequired();
 
@@ -346,7 +350,7 @@ namespace Mock.Migrations
 
             modelBuilder.Entity("Repository.Entities.User", b =>
                 {
-                    b.Navigation("Candidates");
+                    b.Navigation("Candidate");
                 });
 #pragma warning restore 612, 618
         }

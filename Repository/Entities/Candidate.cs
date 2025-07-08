@@ -19,7 +19,7 @@ namespace Repository.Entities
         public int CandidateId { get; set; }
         public string FirstName { get; set; }
         public string LastName { get; set; }
-        public Gender CandidateGender { get; set; } // מגדר
+        public Gender Gender { get; set; } // מגדר
         public CandidateStatus Status { get; set; } // מצב אישי
         public int Age { get; set; } // גיל
         public Sector CandidateSector { get; set; } // מגזר

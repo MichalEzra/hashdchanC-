@@ -3,7 +3,10 @@ using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 using Repository.Entities;
 using Repository.Interfaces;
+<<<<<<< HEAD
 using Repository.Repositories;
+=======
+>>>>>>> hashdchanc#
 using Service.Interfasces;
 using Service.Services;
 using System.Security.Claims;
@@ -20,6 +23,7 @@ namespace hashadchan.Controllers
         private readonly IService<CandidateDto> service;
         private readonly IMyDetails<Candidate> candidateDetails;
         private readonly IRepository<Candidate> _repository;
+<<<<<<< HEAD
 
         public CandidateController(
             IUserLinkedService<CandidateDto> candidateService,
@@ -27,12 +31,26 @@ namespace hashadchan.Controllers
             IService<CandidateDto> service,
             IMyDetails<Candidate> candidateDetails,
             IRepository<Candidate> repository)  // הוסף כאן
+=======
+
+
+
+        public CandidateController(IUserLinkedService<CandidateDto> candidateService,
+                                   IService<UserDto> userService,
+                                   IService<CandidateDto> service,
+                                   IMyDetails<Candidate> candidateDetails,
+                                   IRepository<Candidate> repository)
+>>>>>>> hashdchanc#
         {
             this.candidateService = candidateService;
             this.userService = userService;
             this.service = service;
             this.candidateDetails = candidateDetails;
+<<<<<<< HEAD
             this._repository = repository;    // שמור בשדה פרטי
+=======
+            _repository = repository;
+>>>>>>> hashdchanc#
         }
 
 
@@ -59,6 +77,17 @@ namespace hashadchan.Controllers
         public async Task<CandidateDto> Get(int id)
         {
             return await service.GetById(id);
+        }
+
+        [HttpGet("{id}/general-info")]
+        public async Task<ActionResult<string>> GetCandidateGeneralInfo(int id)
+        {
+            var candidate = await _repository.GetById(id);
+            if (candidate == null)
+                return NotFound("מועמד לא נמצא");
+
+            var info = await candidateDetails.GetGeneralCandidateInfoAsync(candidate);
+            return Ok(info);
         }
 
         // הוספת מועמד
@@ -163,6 +192,7 @@ namespace hashadchan.Controllers
         {
             return Ok(await candidateDetails.GetFemaleCandidatesAsync());
         }
+<<<<<<< HEAD
         [HttpGet("{id}/general-info")]
         public async Task<ActionResult<string>> GetCandidateGeneralInfo(int id)
         {
@@ -178,10 +208,21 @@ namespace hashadchan.Controllers
         public async Task<ActionResult<List<CandidateDto>>> GetAllByUserId(int userId)
         {
             var candidates = await candidateService.GetAllByUserId(userId);
+=======
+        [HttpGet("user/{userId}")]
+        public async Task<ActionResult<List<CandidateDto>>> GetCandidatesByUserId(int userId)
+        {
+            var candidates = await candidateDetails.GetAllByUserId(userId);
+
+>>>>>>> hashdchanc#
             if (candidates == null || !candidates.Any())
             {
                 return NotFound("לא נמצאו מועמדים עבור משתמש זה.");
             }
+<<<<<<< HEAD
+=======
+
+>>>>>>> hashdchanc#
             return Ok(candidates);
         }
 

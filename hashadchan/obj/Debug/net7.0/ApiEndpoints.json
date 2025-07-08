@@ -63,7 +63,7 @@
         "IsRequired": false
       },
       {
-        "Name": "CandidateGender",
+        "Name": "Gender",
         "Type": "Common.Dto.Gender",
         "IsRequired": false
       },
@@ -566,8 +566,13 @@
   },
   {
     "ContainingType": "hashadchan.Controllers.CandidateController",
+<<<<<<< HEAD
     "Method": "GetAllByUserId",
     "RelativePath": "api/Candidate/user/{userId}/all",
+=======
+    "Method": "GetCandidatesByUserId",
+    "RelativePath": "api/Candidate/user/{userId}",
+>>>>>>> hashdchanc#
     "HttpMethod": "GET",
     "IsController": true,
     "Order": 0,

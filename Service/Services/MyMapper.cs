@@ -2,25 +2,24 @@
 using Common.Dto;
 using Microsoft.AspNetCore.Http;
 using Repository.Entities;
-using System;
-using System.IO;
 
-namespace Service.Services
+public class MyMapper : Profile
 {
-    public class MyMapper : Profile
+    public MyMapper()
     {
-        // נתיב לתיקיית התמונות
-        string path = Path.Combine(Environment.CurrentDirectory, "Images/");
+        // Entity → DTO (ללא טעינת תמונה)
+        CreateMap<Candidate, CandidateDto>()
+            .ForMember(dest => dest.ArrImage, opt => opt.Ignore()) // לא לקרוא תמונה כאן
+            .ForMember(dest => dest.RezumehArr, opt => opt.MapFrom(src => src.Rezumeh))
+            .ForMember(dest => dest.Email, opt => opt.MapFrom(src => src.User.Email))
+            .ForMember(dest => dest.PhoneNumber, opt => opt.MapFrom(src => src.User.PhoneNumber));
 
-        public MyMapper()
-        {
-            // מיפוי Entity -> DTO כולל קריאה לתמונה מהדיסק ומיפוי של רזומה בתור מערך בתים
-            CreateMap<Candidate, CandidateDto>()
-                .ForMember(dest => dest.ArrImage, opt => opt.MapFrom(src => File.ReadAllBytes(Path.Combine(path, src.ImageUrl))))
-                .ForMember(dest => dest.RezumehArr, opt => opt.MapFrom(src => src.Rezumeh))
-                .ForMember(dest => dest.Email, opt => opt.MapFrom(src => src.User.Email))
-                .ForMember(dest => dest.PhoneNumber, opt => opt.MapFrom(src => src.User.PhoneNumber)); 
+        // DTO → Entity (שמירת נתונים)
+        CreateMap<CandidateDto, Candidate>()
+            .ForMember(dest => dest.ImageUrl, opt => opt.MapFrom(src => src.fileImage))
+            .ForMember(dest => dest.Rezumeh, opt => opt.MapFrom(src => ConvertIFormFileToBytes(src.RezumehFile)));
 
+<<<<<<< HEAD
             // מיפוי DTO -> Entity, כולל שמירת שם קובץ התמונה והמרת קובץ הרזומה לבייטים
             CreateMap<CandidateDto, Candidate>()
                 .ForMember(dest => dest.ImageUrl, opt => opt.MapFrom(src => src.fileImage.FileName))
@@ -44,5 +43,22 @@ namespace Service.Services
             file.CopyTo(ms);
             return ms.ToArray();
         }
+=======
+        // שאר המיפויים
+        CreateMap<User, UserDto>();
+        CreateMap<UserDto, User>();
+        CreateMap<Matchmaker, MatchmakerDto>().ForMember(dest => dest.Email, opt => opt.MapFrom(src => src.User.Email));
+        CreateMap<MatchmakerDto, Matchmaker>();
+        CreateMap<Match, MatchDto>();
+        CreateMap<MatchDto, Match>();
+>>>>>>> hashdchanc#
+    }
+
+    private byte[] ConvertIFormFileToBytes(IFormFile file)
+    {
+        if (file == null) return null;
+        using var ms = new MemoryStream();
+        file.CopyTo(ms);
+        return ms.ToArray();
     }
 }

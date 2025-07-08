@@ -22,7 +22,7 @@ namespace Common.Dto
 
         public string LastName { get; set; }
 
-        public Gender CandidateGender { get; set; }
+        public Gender Gender { get; set; }
 
         public CandidateStatus Status { get; set; }
 

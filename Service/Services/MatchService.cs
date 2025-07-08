@@ -21,6 +21,10 @@ namespace Service.Service
         private readonly IRepository<Match> _repository;
         private readonly IRepository<Matchmaker> _repositoryMatchmaker;
         private readonly IRepository<Candidate> _repositoryCandidate;
+<<<<<<< HEAD
+=======
+
+>>>>>>> hashdchanc#
         private readonly IMapper _mapper;
 
         public MatchService(IRepository<Match> repository, IMapper mapper, IRepository<Matchmaker> repositoryMatchmaker)
@@ -82,6 +86,7 @@ namespace Service.Service
             await _repository.UpdateItem(id, _mapper.Map<Match>(item));
         }
 
+<<<<<<< HEAD
         public async Task<List<EngagedMatchDto>> GetAllEngagedment()
         {
             var all = await GetAll(); // מחזיר את כל ההתאמות (MatchDto)
@@ -109,6 +114,13 @@ namespace Service.Service
 
             return result;
         }
+=======
+        //public async Task<List<MatchDto>> GetAllEngagedment()
+        //{
+        //    var all = await GetAll();
+        //    return all.Where(x => x.IsEngaged == true).ToList();
+        //}
+>>>>>>> hashdchanc#
 
 
         public async Task<List<Matchmaker>> GetAllMatchmakerActives()
@@ -130,5 +142,32 @@ namespace Service.Service
         }
 
 
+        public async Task<List<EngagedMatchDto>> GetAllEngagedment()
+        {
+            var all = await GetAll(); // מחזיר את כל ההתאמות (MatchDto)
+
+            var engaged = all.Where(x => x.IsEngaged).ToList();
+
+            var result = new List<EngagedMatchDto>();
+
+            foreach (var match in engaged)
+            {
+                var guy = await _repositoryCandidate.GetById(match.IdCandidateGuy);
+                var girl = await _repositoryCandidate.GetById(match.IdCandidateGirl);
+
+                result.Add(new EngagedMatchDto
+                {
+                    NameGuy = guy.FirstName + " " + guy.LastName,
+                    NameGirl = girl.FirstName + " " + girl.LastName,
+                    YeshivaGuy = guy.StudyPlaceName,
+                    SeminaryGirl = girl.StudyPlaceName,
+                    CityGuy = guy.City,
+                    CityGirl = girl.City,
+                    DateMatch = match.DateMatch
+                });
+            }
+
+            return result;
+        }
     }
 }

@@ -12,6 +12,7 @@ using Service.Services;
 using System.Text;
 using WebApplication1.Controllers;
 
+Console.OutputEncoding = System.Text.Encoding.UTF8;
 var builder = WebApplication.CreateBuilder(args);
 
 // Add services to the container.
