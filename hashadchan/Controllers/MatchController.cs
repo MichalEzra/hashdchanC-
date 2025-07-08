@@ -259,20 +259,13 @@ namespace hashadchan.Controllers
             return Ok();
         }
 
-<<<<<<< HEAD
-=======
-
->>>>>>> hashdchanc#
         [HttpGet("engaged")]
         public async Task<ActionResult<List<EngagedMatchDto>>> GetEngagedMatches()
         {
             var engaged = await _context.Matches
                 .Where(m => m.IsEngaged)
-<<<<<<< HEAD
                 .Include(m => m.Guy)
-=======
                 .Include(static m => m.Guy)
->>>>>>> hashdchanc#
                 .Include(m => m.Girl)
                 .Select(m => new EngagedMatchDto
                 {
@@ -287,10 +280,5 @@ namespace hashadchan.Controllers
 
             return Ok(engaged);
         }
-<<<<<<< HEAD
-
-
-=======
->>>>>>> hashdchanc#
     }
 }

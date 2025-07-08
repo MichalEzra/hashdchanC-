@@ -9,11 +9,6 @@ namespace Service.Interfasces
 {
     public interface IUserLinkedService<T>
     {
-<<<<<<< HEAD
         Task<List<T>> GetAllByUserId(int userId);
-
-=======
-        Task<T?> GetByUserId(int userId);
->>>>>>> hashdchanc#
     }
 }
