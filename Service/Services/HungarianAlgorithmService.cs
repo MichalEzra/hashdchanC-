@@ -412,18 +412,22 @@ public class HungarianAlgorithmService : IHungarianAlgorithm
 
     public void MatrixFilling(int[,] costMatrix)
     {
+        // ✅ חשוב מאוד: ערבב את המועמדים לפני מילוי המטריצה!
+        ShuffleCandidates(maleCandidates);
+        ShuffleCandidates(femaleCandidates);
+
         for (int i = 0; i < costMatrix.GetLength(0); i++)
         {
             for (int j = 0; j < costMatrix.GetLength(1); j++)
             {
                 double score = CalculateMatchScore(maleCandidates[i], femaleCandidates[j]);
-                RawMatchScoresMatrix[i, j] = (int)score;
-                costMatrix[i, j] = (int)(100 - score);
+                RawMatchScoresMatrix[i, j] = (int)score; // שמירת הניקוד הגולמי
+                costMatrix[i, j] = (int)(100 - score); // הפיכת הניקוד לעלות
             }
         }
-        ShuffleCandidates(femaleCandidates);
-        ShuffleCandidates(maleCandidates);
+        
     }
+
 
     public (Candidate[,], int[]) RunHungarianAlgorithm(int[,] costMatrix)
     {
