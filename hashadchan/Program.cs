@@ -66,7 +66,7 @@ builder.Services.AddAuthentication(JwtBearerDefaults.AuthenticationScheme)
                   ValidateIssuerSigningKey = true,
                   ValidIssuer = builder.Configuration["Jwt:Issuer"],
                   ValidAudience = builder.Configuration["Jwt:Audience"],
-                  IssuerSigningKey = new 
+                  IssuerSigningKey = new
                   SymmetricSecurityKey(Encoding.UTF8.GetBytes(builder.Configuration["Jwt:Key"]))
 
               });
@@ -79,7 +79,9 @@ builder.Services.AddCors(options =>
         {
             builder.WithOrigins("http://localhost:3000") // כתובת הריאקט
                    .AllowAnyHeader()
-                   .AllowAnyMethod();
+                   .AllowAnyMethod()
+                          .AllowCredentials(); // חשוב מאוד!
+
         });
 });
 

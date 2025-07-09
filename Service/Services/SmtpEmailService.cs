@@ -13,6 +13,8 @@ using MailKit.Net.Smtp;
 using System.Text;
 using System.Threading.Tasks;
 using System.Net.Mail;
+using Repository.Repositories;
+using Repository.Interfaces;
 
 namespace Service.Services
 {
@@ -24,17 +26,19 @@ namespace Service.Services
         private readonly string _appPassword; // סיסמת האפליקציה (לא סיסמה רגילה) עבור האימייל
         private readonly IMapper _mapper; // Mapper של AutoMapper להמרת DTO ל-Entity
         private readonly IService<CandidateDto> _candidateService; // שירות לשליפת מועמדים לפי ID (DTO)
+        private readonly IService<UserDto> _userService; // שירות לשליפת משתמשים לפי ID (DTO)
         private readonly IMyDetails<Candidate> _candidateMyDetails; // שירות לשליפת פרטי מועמד
         private readonly IServiceMatch _serviceMatch; // שירות להתעסקות עם הצעות שידוך
 
         // קונסטרקטור שמקבל תלות בהגדרות ובשירותים הדרושים
-        public SmtpEmailService(IConfiguration configuration, IService<CandidateDto> candidateService, IMapper mapper, IMyDetails<Candidate> candidateMyDetails, IServiceMatch serviceMatch)
+        public SmtpEmailService(IConfiguration configuration, IService<CandidateDto> candidateService, IMapper mapper, IMyDetails<Candidate> candidateMyDetails, IServiceMatch serviceMatch, IService<UserDto> userService)
         {
             _smtpServer = configuration["Gmail:SmtpServer"]; // טוען את כתובת שרת ה-SMTP מה- appsettings
             _port = int.Parse(configuration["Gmail:Port"]); // טוען את הפורט מה- appsettings
             _senderEmail = configuration["Gmail:SenderEmail"]; // טוען את כתובת השולח
             _appPassword = configuration["Gmail:AppPassword"]; // טוען את סיסמת האפליקציה
             _candidateService = candidateService; // מאחסן את השירות של המועמדים
+            _userService = userService;
             _mapper = mapper; // מאחסן את הממפה
             _candidateMyDetails = candidateMyDetails; // מאחסן את השירות שמביא מידע נוסף על מועמדים
             _serviceMatch = serviceMatch; // מאחסן את השירות של השידוכים
@@ -123,25 +127,41 @@ namespace Service.Services
             await SendEmailAsync(c1Dto.Email, "הצעת שידוך", emailBodyC1);
             await SendEmailAsync(c2Dto.Email, "הצעת שידוך", emailBodyC2);
         }
-
         public async Task SendSingleMatchEmailAsync(int senderId, int receiverId)
         {
+
+            var receiverEntity = await _candidateService.GetById(receiverId);
+
+            if (receiverEntity == null)
+                throw new Exception($"מועמד עם מזהה {receiverId} לא נמצא.");
+
+
+            int userId = receiverEntity.UserId;
+            if (userId <= 0)
+                throw new Exception("מזהה המשתמש אינו תקין");
+
+            var userEntity = await _userService.GetById(userId);
+
+
+            if (string.IsNullOrWhiteSpace(userEntity.Email))
+                throw new Exception("למשתמש אין כתובת אימייל");
+
             var senderDto = await _candidateService.GetById(senderId);
-            var receiverDto = await _candidateService.GetById(receiverId);
+            var sender = _mapper.Map<Candidate>(senderDto);
+            Candidate receiver = _mapper.Map<Candidate>(receiverEntity);
 
-            Candidate sender = _mapper.Map<Candidate>(senderDto);
-            Candidate receiver = _mapper.Map<Candidate>(receiverDto);
-
-            if (sender == null || receiver == null)
-                throw new Exception("אחד הצדדים לא נמצא");
 
             string baseUrl = "http://localhost:5245/api/Match/confirm";
-            string callbackUrl = $"{baseUrl}?candidateId={receiver.Id}&matchId={sender.Id}";
+            string callbackUrl = $"{baseUrl}?candidateId={receiverEntity.Id}&matchId={sender.Id}";
 
             string emailBody = await EmailTemplateHelper.GenerateMatchEmailBody(_candidateMyDetails, receiver, sender, callbackUrl);
 
-            await SendEmailAsync(receiverDto.Email, "הצעת שידוך חדשה", emailBody);
+            Console.WriteLine($"שולח מייל אל: {userEntity.Email}");
+            await SendEmailAsync(userEntity.Email, "הצעת שידוך חדשה", emailBody);
+
         }
+
+
 
         //// שליחת מייל לכל השדכנים הפעילים עם תזכורת לעדכון הצעות
         //public async Task sendEmailToMatchmakerActiveMatch()

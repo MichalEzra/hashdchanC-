@@ -43,10 +43,18 @@ namespace Service.Services
             var dto = mapper.Map<CandidateDto>(candidate);
 
             // טען את התמונה רק אם הקובץ קיים
-            var imagePath = Path.Combine(Environment.CurrentDirectory, "Images", candidate.ImageUrl);
-            if (File.Exists(imagePath))
+            try
             {
-                dto.ArrImage = await File.ReadAllBytesAsync(imagePath);
+                if (!string.IsNullOrWhiteSpace(candidate.ImageUrl))
+                {
+                    var imagePath = Path.Combine(Environment.CurrentDirectory, "Images", candidate.ImageUrl);
+                    if (File.Exists(imagePath))
+                        dto.ArrImage = await File.ReadAllBytesAsync(imagePath);
+                }
+            }
+            catch (Exception ex)
+            {
+                Console.WriteLine($"[ERROR] Error loading image: {ex.Message}");
             }
 
             return dto;
@@ -156,31 +164,58 @@ namespace Service.Services
                 return "פרטי המועמד אינם זמינים";
 
             StringBuilder generalInfo = new StringBuilder();
-            generalInfo.AppendLine($"שם מוסד הלימודים: {candidate.StudyPlaceName}\n");
+
+            if (!string.IsNullOrWhiteSpace(candidate.StudyPlaceName))
+                generalInfo.AppendLine($"שם מוסד הלימודים: {candidate.StudyPlaceName}\n");
+
             generalInfo.AppendLine($"גיל: {candidate.Age}\n");
-            generalInfo.AppendLine($"עיר: {candidate.City}\n");
-            generalInfo.AppendLine($"מצב אישי: {candidate.Status}\n");
-            generalInfo.AppendLine($"מגזר: {candidate.CandidateSector}\n");
-            generalInfo.AppendLine($"תת מגזר: {candidate.SubSector}\n");
-            generalInfo.AppendLine($"מוצא: {candidate.Origin}\n");
-            generalInfo.AppendLine($"פתיחות דתית: {candidate.ReligiousOpenness}\n");
-            generalInfo.AppendLine($"סגנון לבוש: {candidate.ClothingStyle}\n");
-            generalInfo.AppendLine($"עיסוק/לימודים: {candidate.JobOrStudies}\n");
-            generalInfo.AppendLine($"מוסד לימודים: {candidate.Education}\n");
+
+            if (!string.IsNullOrWhiteSpace(candidate.City))
+                generalInfo.AppendLine($"עיר: {candidate.City}\n");
+
+            if (!string.IsNullOrWhiteSpace(candidate.Status.ToString()))
+                generalInfo.AppendLine($"מצב אישי: {candidate.Status}\n");
+
+            if (!string.IsNullOrWhiteSpace(candidate.CandidateSector.ToString()))
+                generalInfo.AppendLine($"מגזר: {candidate.CandidateSector}\n");
+
+            if (!string.IsNullOrWhiteSpace(candidate.SubSector.ToString()))
+                generalInfo.AppendLine($"תת מגזר: {candidate.SubSector}\n");
+
+            if (!string.IsNullOrWhiteSpace(candidate.Origin))
+                generalInfo.AppendLine($"מוצא: {candidate.Origin}\n");
+
+            if (!string.IsNullOrWhiteSpace(candidate.ReligiousOpenness.ToString()))
+                generalInfo.AppendLine($"פתיחות דתית: {candidate.ReligiousOpenness}\n");
+
+            if (!string.IsNullOrWhiteSpace(candidate.ClothingStyle.ToString()))
+                generalInfo.AppendLine($"סגנון לבוש: {candidate.ClothingStyle}\n");
+
+            if (!string.IsNullOrWhiteSpace(candidate.JobOrStudies.ToString()))
+                generalInfo.AppendLine($"עיסוק/לימודים: {candidate.JobOrStudies}\n");
+
+            if (!string.IsNullOrWhiteSpace(candidate.Education.ToString()))
+                generalInfo.AppendLine($"מוסד לימודים: {candidate.Education}\n");
 
             if (candidate.Gender == Repository.Entities.Enums.Gender.נקבה)
             {
-                generalInfo.AppendLine($"כיסוי ראש מועדף: {candidate.PreferredHeadCovering}\n");
+                if (!string.IsNullOrWhiteSpace(candidate.PreferredHeadCovering.ToString()))
+                    generalInfo.AppendLine($"כיסוי ראש מועדף: {candidate.PreferredHeadCovering}\n");
             }
             else
             {
-                generalInfo.AppendLine($"רמת לימוד תורה: {candidate.TorahLearning}\n");
+                if (!string.IsNullOrWhiteSpace(candidate.TorahLearning.ToString()))
+                    generalInfo.AppendLine($"רמת לימוד תורה: {candidate.TorahLearning}\n");
+
                 generalInfo.AppendLine($"רישיון נהיגה: {(candidate.License ? "כן" : "לא")}\n");
                 generalInfo.AppendLine($"זקן: {(candidate.Beard ? "כן" : "לא")}\n");
-                generalInfo.AppendLine($"סטטוס עישון: {candidate.SmokingStatus}\n");
+
+                if (!string.IsNullOrWhiteSpace(candidate.SmokingStatus.ToString()))
+                    generalInfo.AppendLine($"סטטוס עישון: {candidate.SmokingStatus}\n");
             }
 
-            generalInfo.AppendLine($"מה הוא מחפש: {candidate.DescriptionFind}\n");
+            if (!string.IsNullOrWhiteSpace(candidate.DescriptionFind))
+                generalInfo.AppendLine($"מה הוא מחפש: {candidate.DescriptionFind}\n");
 
             return generalInfo.ToString();
         }
@@ -198,14 +233,23 @@ namespace Service.Services
                 var dto = mapper.Map<CandidateDto>(candidate);
 
                 // תמונה
-                if (!string.IsNullOrEmpty(candidate.ImageUrl))
+                if (!string.IsNullOrEmpty(candidate.ImageUrl) && Path.GetFileName(candidate.ImageUrl) == candidate.ImageUrl)
                 {
-                    var imagePath = Path.Combine(Environment.CurrentDirectory, "Images", candidate.ImageUrl);
-                    if (File.Exists(imagePath))
+                    try
                     {
-                        dto.ArrImage = await File.ReadAllBytesAsync(imagePath);
+                        var imagePath = Path.Combine(Environment.CurrentDirectory, "Images", candidate.ImageUrl);
+                        Console.WriteLine($"ImageUrl: {candidate.ImageUrl ?? "NULL"}");
+                        if (File.Exists(imagePath))
+                        {
+                            dto.ArrImage = await File.ReadAllBytesAsync(imagePath);
+                        }
+                    }
+                    catch (Exception ex)
+                    {
+                        Console.WriteLine($"⚠️ שגיאה בקריאת תמונה למועמד {candidate.Id}: {ex.Message}");
                     }
                 }
+
 
                 // רזומה
                 if (candidate.Rezumeh != null && candidate.Rezumeh.Length > 0)
@@ -213,11 +257,11 @@ namespace Service.Services
                     dto.RezumehArr = candidate.Rezumeh;
                 }
 
-                // אימייל וטלפון (דרך ה־User)
+                // אימייל וטלפון
                 if (candidate.User != null)
                 {
-                    dto.Email = candidate.User.Email;
-                    dto.PhoneNumber = candidate.User.PhoneNumber;
+                    dto.Email = candidate.User.Email ?? "";
+                    dto.PhoneNumber = candidate.User.PhoneNumber ?? "";
                 }
 
                 result.Add(dto);
@@ -225,6 +269,7 @@ namespace Service.Services
 
             return result;
         }
+
 
 
     }

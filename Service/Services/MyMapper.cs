@@ -12,7 +12,9 @@ public class MyMapper : Profile
             .ForMember(dest => dest.ArrImage, opt => opt.Ignore()) // לא לקרוא תמונה כאן
             .ForMember(dest => dest.RezumehArr, opt => opt.MapFrom(src => src.Rezumeh))
             .ForMember(dest => dest.Email, opt => opt.MapFrom(src => src.User.Email))
-            .ForMember(dest => dest.PhoneNumber, opt => opt.MapFrom(src => src.User.PhoneNumber));
+            .ForMember(dest => dest.PhoneNumber, opt => opt.MapFrom(src => src.User.PhoneNumber))
+            .ForMember(dest => dest.UserId, opt => opt.MapFrom(src => src.UserId));
+
 
         // DTO → Entity (שמירת נתונים)
         CreateMap<CandidateDto, Candidate>()
@@ -27,10 +29,10 @@ public class MyMapper : Profile
         // מיפוי נוסף של משתמשים ושדכנים (לפי מה שהוספת)
         CreateMap<User, UserDto>()
         .ForMember(dest => dest.Candidates, opt => opt.MapFrom(src => src.Candidates));
-        CreateMap<Candidate, CandidateDto>();
+        //CreateMap<Candidate, CandidateDto>();
 
         //CreateMap<UserDto, User>();
-        CreateMap<User, UserDto>();
+        //CreateMap<User, UserDto>();
         CreateMap<UserDto, User>();
         CreateMap<Matchmaker, MatchmakerDto>().ForMember(dest => dest.Email, opt => opt.MapFrom(src => src.User.Email));
         CreateMap<MatchmakerDto, Matchmaker>();
