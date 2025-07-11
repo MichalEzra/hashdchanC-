@@ -1,5 +1,6 @@
 ﻿using AutoMapper;
 using Common.Dto;
+using Microsoft.EntityFrameworkCore;
 using Repository.Entities;
 using Repository.Interfaces;
 using Service.Interfasces;
@@ -8,13 +9,17 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using UserType = Common.Dto.UserType;
 
 namespace Service.Services
 {
-    public class UserService : IService<UserDto>
+    public class UserService : IService<UserDto>, IUserService<UserDto>
     {
         private readonly IRepository<User> repository;
+        private readonly IUserRepository<User> userRepository;
+
         private readonly IMapper mapper;
+
         public UserService(IRepository<User> repository, IMapper mapper)
         {
             this.repository = repository;
@@ -22,8 +27,14 @@ namespace Service.Services
         }
         public async Task<UserDto> AddItem(UserDto item)
         {
-            return mapper.Map<User, UserDto>(await repository.AddItem(mapper.Map<UserDto, User>(item)));
+            var userEntity = mapper.Map<User>(item);
+            var addedUser = await repository.AddItem(userEntity);
+            var resultDto = mapper.Map<UserDto>(addedUser);
+
+            return resultDto;
         }
+
+
 
         public async Task DeleteItem(int id)
         {
@@ -43,6 +54,19 @@ namespace Service.Services
         public async Task UpdateItem(int id, UserDto item)
         {
             await repository.UpdateItem(id, mapper.Map<UserDto, User>(item));
+        }
+
+
+        public async Task<List<UserDto>> GetUsersByType(UserType userType)
+        {
+            var entityType = (Repository.Entities.UserType)userType;
+            var users = await userRepository.GetUsersByTypeFromRepository(entityType);
+            return mapper.Map<List<UserDto>>(users);
+        }
+        public async Task<UserDto?> GetByEmail(string email)
+        {
+            var user = await userRepository.GetByEmail(email);
+            return user != null ? mapper.Map<UserDto>(user) : null;
         }
 
     }

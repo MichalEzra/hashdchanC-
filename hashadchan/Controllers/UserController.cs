@@ -1,11 +1,15 @@
 ﻿using Common.Dto;
 using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
+using Microsoft.EntityFrameworkCore;
 using Microsoft.IdentityModel.Tokens;
+using Repository.Entities;
 using Service.Interfasces;
+using Service.Services;
 using System.IdentityModel.Tokens.Jwt;
 using System.Security.Claims;
 using System.Text;
+using UserType = Common.Dto.UserType;
 
 namespace hashadchan.Controllers
 {
@@ -14,12 +18,16 @@ namespace hashadchan.Controllers
     public class UserController : ControllerBase
     {
         private readonly IService<UserDto> service;
+        private readonly IUserService<User> userService;
         private readonly IConfiguration config;
+        private readonly IEmailService _emailService;
 
-        public UserController(IService<UserDto> service, IConfiguration config)
+
+        public UserController(IService<UserDto> service, IConfiguration config, IEmailService emailService)
         {
             this.service = service;
             this.config = config;
+            _emailService = emailService;
         }
         // החזרת כל המשתמשים
         [Authorize(Roles = "ADMIN")]
@@ -39,7 +47,7 @@ namespace hashadchan.Controllers
 
 
         [HttpPost]
-        public async Task<ActionResult<UserDto>> Post([FromBody] UserDto user)
+        public async Task<ActionResult> Post([FromBody] UserDto user)
         {
             // בדיקה שהערך שנשלח הוא Enum חוקי
             if (!Enum.IsDefined(typeof(UserType), user.UserType))
@@ -53,18 +61,50 @@ namespace hashadchan.Controllers
                 return Unauthorized("לא ניתן להוסיף מנהלים דרך המערכת.");
             }
 
-            // מניעת יצירת שדכנים על ידי מי שאינו ADMIN
             if (user.UserType == UserType.MATCHMAKER)
             {
-                var userTypeClaim = User.Claims.FirstOrDefault(c => c.Type == ClaimTypes.Role)?.Value;
-                if (userTypeClaim != UserType.ADMIN.ToString())
-                {
-                    return Unauthorized("רק מנהל רשאי להוסיף שדכן.");
-                }
-            }
+                // סימון השדכן כממתין לאישור מנהל
+                user.IsApproved = false; // ודא ששדה זה קיים ב-UserDto וב-Entity שלך
 
-            var newUser = await service.AddItem(user);
-            return Ok(newUser);
+                var addedUser = await service.AddItem(user);
+
+                // שליחת מייל למנהל לאישור השדכן
+                await _emailService.SendEmailToAdminForMatchmakerApproval(
+                    addedUser.FullName,
+                    addedUser.Email,
+                    addedUser.PhoneNumber,
+                    addedUser.UserType
+                );
+
+                return Ok(new { message = "הרשמתך התקבלה וממתינה לאישור מנהל." });
+            }
+            else
+            {
+                // טיפול במשתמשים מסוגים אחרים - פשוט שמור ותחזיר
+                var addedUser = await service.AddItem(user);
+                return Ok(addedUser);
+            }
+        }
+
+        [HttpGet("approve-matchmaker")]
+        public async Task<IActionResult> ApproveMatchmaker([FromQuery] string email)
+        {
+            var user = await userService.GetByEmail(email); // תוודאי שיש פונקציה כזו
+
+            if (user == null)
+                return NotFound("שדכן לא נמצא");
+
+            if (user.IsApproved)
+                return BadRequest("השדכן כבר אושר");
+
+            user.IsApproved = true;
+            await service.UpdateItem(user.Id, user); // או קריאה לפונקציית עדכון מתאימה
+
+            // שליחת מייל לשדכן
+            await _emailService.SendApprovalEmailToMatchmaker(user.FullName, user.Email);
+
+            // החזרת הודעה למשתמש
+            return Content("<h2 style='font-family:sans-serif;color:green;'>✔️ השדכן אושר בהצלחה</h2>", "text/html");
         }
 
         [HttpPost("login")]
@@ -89,6 +129,27 @@ namespace hashadchan.Controllers
         public async Task Delete(int id)
         {
             await service.DeleteItem(id); // ← חשוב!
+        }
+
+        //פונקציה לאישור מנהל
+        //[Authorize(Roles = "Admin")]
+        //[HttpPut("approve/{id}")]
+        //public async Task<IActionResult> ApproveMatchmaker(int id)
+        //{
+        //    var user = await service.GetById(id);
+        //    if (user == null) return NotFound();
+
+        //    user.UserType = UserType.Matchmaker;
+        //    user.ApprovalStatus = ApprovalStatus.Approved;
+        //    await _dbContext.SaveChangesAsync();
+
+        //    return Ok("השדכן אושר בהצלחה");
+        //}
+        [HttpGet("type/{userType}")]
+        public async Task<ActionResult<List<UserDto>>> GetUsersByType(UserType userType)
+        {
+            var users = await userService.GetUsersByType(userType);
+            return Ok(users);
         }
 
 
@@ -122,4 +183,7 @@ namespace hashadchan.Controllers
             return new JwtSecurityTokenHandler().WriteToken(token);
         }
     }
+
+
+
 }

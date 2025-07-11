@@ -26,6 +26,7 @@ namespace Common.Dto
 
         public UserType UserType { get; set; }
         public List<CandidateDto> Candidates { get; set; } = new List<CandidateDto>();
+        public bool IsApproved { get; set; }
 
 
     }

@@ -7,6 +7,7 @@ using Microsoft.OpenApi.Models;
 using Mock;
 using Repository.Entities;
 using Repository.Interfaces;
+using Repository.Repositories;
 using Service.Interfasces;
 using Service.Services;
 using System.Text;
@@ -24,7 +25,6 @@ builder.Services.AddControllers()
     });
 // Learn more about configuring Swagger/OpenAPI at https://aka.ms/aspnetcore/swashbuckle
 builder.Services.AddEndpointsApiExplorer();
-builder.Services.AddSwaggerGen();
 builder.Services.AddSwaggerGen(option =>
 {
     option.SwaggerDoc("v1", new OpenApiInfo { Title = "Demo API", Version = "v1" });
@@ -55,6 +55,7 @@ builder.Services.AddSwaggerGen(option =>
 builder.Services.AddServices();
 builder.Services.AddScoped<IMyDetails<Candidate>, CandidateService>();
 builder.Services.AddScoped<IUserLinkedService<CandidateDto>, CandidateService>();
+builder.Services.AddScoped<IUserRepository<User>, UserRepository>();
 builder.Services.AddDbContext<IContext, Database>();
 builder.Services.AddAuthentication(JwtBearerDefaults.AuthenticationScheme)
               .AddJwtBearer(option =>
@@ -87,7 +88,6 @@ builder.Services.AddCors(options =>
 
 builder.Services.AddHangfire(config => config.UseSqlServerStorage(builder.Configuration.GetConnectionString("DefaultConnection")));
 builder.Services.AddHangfireServer();
-
 var app = builder.Build();
 
 app.UseHangfireDashboard();

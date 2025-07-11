@@ -30,7 +30,6 @@ namespace Service.Services
             services.AddScoped<IEmailService, SmtpEmailService>();
 
 
-
             services.AddAutoMapper(typeof(MyMapper));
             return services;
         }

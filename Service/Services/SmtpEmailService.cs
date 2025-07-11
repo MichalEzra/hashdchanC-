@@ -15,6 +15,7 @@ using System.Threading.Tasks;
 using System.Net.Mail;
 using Repository.Repositories;
 using Repository.Interfaces;
+using UserType = Common.Dto.UserType;
 
 namespace Service.Services
 {
@@ -29,19 +30,31 @@ namespace Service.Services
         private readonly IService<UserDto> _userService; // שירות לשליפת משתמשים לפי ID (DTO)
         private readonly IMyDetails<Candidate> _candidateMyDetails; // שירות לשליפת פרטי מועמד
         private readonly IServiceMatch _serviceMatch; // שירות להתעסקות עם הצעות שידוך
+        private readonly IUserRepository<User> _userRepository; // שירות להתעסקות עם הצעות שידוך
+
+        //private readonly Lazy<IService<UserDto>> _userService;
+
 
         // קונסטרקטור שמקבל תלות בהגדרות ובשירותים הדרושים
-        public SmtpEmailService(IConfiguration configuration, IService<CandidateDto> candidateService, IMapper mapper, IMyDetails<Candidate> candidateMyDetails, IServiceMatch serviceMatch, IService<UserDto> userService)
+        public SmtpEmailService(
+    IConfiguration configuration,
+    IService<CandidateDto> candidateService,
+    IMapper mapper,
+    IMyDetails<Candidate> candidateMyDetails,
+    IServiceMatch serviceMatch,
+    IService<UserDto> userService,
+    IUserRepository<User> userRepository)
         {
-            _smtpServer = configuration["Gmail:SmtpServer"]; // טוען את כתובת שרת ה-SMTP מה- appsettings
-            _port = int.Parse(configuration["Gmail:Port"]); // טוען את הפורט מה- appsettings
-            _senderEmail = configuration["Gmail:SenderEmail"]; // טוען את כתובת השולח
-            _appPassword = configuration["Gmail:AppPassword"]; // טוען את סיסמת האפליקציה
-            _candidateService = candidateService; // מאחסן את השירות של המועמדים
+            _smtpServer = configuration["Gmail:SmtpServer"];
+            _port = int.Parse(configuration["Gmail:Port"]);
+            _senderEmail = configuration["Gmail:SenderEmail"];
+            _appPassword = configuration["Gmail:AppPassword"];
+            _candidateService = candidateService;
+            _mapper = mapper;
+            _candidateMyDetails = candidateMyDetails;
+            _serviceMatch = serviceMatch;
             _userService = userService;
-            _mapper = mapper; // מאחסן את הממפה
-            _candidateMyDetails = candidateMyDetails; // מאחסן את השירות שמביא מידע נוסף על מועמדים
-            _serviceMatch = serviceMatch; // מאחסן את השירות של השידוכים
+            _userRepository = userRepository;
         }
 
         //// שליחת מייל כללי
@@ -160,6 +173,58 @@ namespace Service.Services
             await SendEmailAsync(userEntity.Email, "הצעת שידוך חדשה", emailBody);
 
         }
+        public async Task SendEmailToAdminForMatchmakerApproval(string fullName, string userEmail, string phoneNumber, UserType userType)
+        {
+            var admins = await _userRepository.GetUsersByTypeFromRepository(Repository.Entities.UserType.ADMIN);
+            var subject = "בקשה לאישור שדכן חדש";
+
+            var body = $@"
+        <div style='font-family:Arial,sans-serif;'>
+            <h2 style='color:#2c3e50;'>בקשה לאישור שדכן חדש</h2>
+            <p>התקבלה בקשה להירשם כ<strong>שדכן</strong>. להלן פרטי המשתמש:</p>
+            <ul>
+                <li><strong>שם מלא:</strong> {fullName}</li>
+                <li><strong>אימייל:</strong> {userEmail}</li>
+                <li><strong>טלפון:</strong> {phoneNumber}</li>
+            </ul>
+            <p>לאישור השדכן, לחצו על הכפתור הבא:</p>
+            <a href='https://your-domain.com/approve-matchmaker?email={Uri.EscapeDataString(userEmail)}' 
+               style='display:inline-block;padding:10px 20px;background-color:#28a745;color:white;
+                      text-decoration:none;border-radius:5px;font-weight:bold;'>
+                אשר שדכן
+            </a>
+            <p style='margin-top:20px;'>אם אינך מזהה בקשה זו, ניתן להתעלם מהמייל.</p>
+        </div>";
+
+            foreach (var admin in admins)
+            {
+                await SendEmailAsync(admin.Email, subject, body);
+            }
+        }
+        public async Task SendApprovalEmailToMatchmaker(string fullName, string email)
+        {
+            var subject = "האישור שלך התקבל!";
+            var body = $@"
+        <div style='font-family:Arial;'>
+            <h2 style='color:#28a745;'>שדכן יקר, בקשתך אושרה ✅</h2>
+            <p>שלום {fullName},</p>
+            <p>הבקשה שלך להירשם כשדכן אושרה על ידי המנהל. כעת באפשרותך להתחיל להשתמש במערכת.</p>
+            <p>בהצלחה!</p>
+        </div>";
+
+            await SendEmailAsync(email, subject, body);
+        }
+
+
+        //public async Task SendEmailToAdminForMatchmakerApproval(string matchmakerFullName, string matchmakerEmail)
+        //{
+        //    string subject = "בקשת הרשמה של שדכן חדש";
+        //    string body = EmailTemplateHelper.GenerateAdminApprovalTemplate(matchmakerFullName, matchmakerEmail);
+
+        //    string adminEmail = "g0556780416@gmail.com"; // שנה לכתובת המייל האמיתית של המנהל או טען מ־appsettings
+
+        //    await SendEmailAsync(adminEmail, subject, body);
+        //}
 
 
 

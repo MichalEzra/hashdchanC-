@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using Repository.Entities;
 
 namespace Repository.Interfaces
 {
@@ -14,5 +15,6 @@ namespace Repository.Interfaces
         Task<T> AddItem(T item);
         Task DeleteItem(int id);
         Task UpdateItem(int id, T item);
+
     }
 }

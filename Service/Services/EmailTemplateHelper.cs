@@ -176,6 +176,20 @@ namespace Service.Services
         }
 
 
+        public static string GenerateAdminApprovalTemplate(string fullName, string email)
+        {
+            return $@"
+    <html>
+    <body style='font-family: Arial; text-align: right; direction: rtl;'>
+        <h2>שדכן חדש נרשם למערכת</h2>
+        <p>שם: {fullName}</p>
+        <p>אימייל: {email}</p>
+        <p>עליך לבדוק ולאשר את הבקשה דרך מערכת הניהול.</p>
+        <br />
+        <p style='color: gray; font-size: 12px;'>הודעה זו נשלחה אוטומטית ממערכת השידוכים</p>
+    </body>
+    </html>";
+        }
 
     }
 

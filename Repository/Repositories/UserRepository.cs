@@ -6,10 +6,11 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using static Azure.Core.HttpHeader;
 
 namespace Repository.Repositories
 {
-    public class UserRepository : IRepository<User>
+    public class UserRepository : IRepository<User> , IUserRepository<User>
     {
         private readonly IContext context;
 
@@ -63,5 +64,24 @@ namespace Repository.Repositories
             
             await context.Save();
         }
+        public async Task<List<User>> GetUsersByTypeFromRepository(UserType dtoUserType)
+        {
+
+            var entityType = (Repository.Entities.UserType)dtoUserType;
+            return await context.Users
+                                 .Where(u => u.UserType == entityType)
+                                 .ToListAsync();
+        }
+
+        public async Task<User?> GetByEmail(string email)
+        {
+            return await context.Users.FirstOrDefaultAsync(u => u.Email == email);
+        }
+
+
+        //Task<List<User>> IUserRepository<User>.GetUsersByTypeFromRepository(UserType type)
+        //{
+        //    throw new NotImplementedException();
+        //}
     }
 }

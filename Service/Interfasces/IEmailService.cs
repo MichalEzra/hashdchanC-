@@ -12,5 +12,9 @@ namespace Service.Interfasces
         Task SendEmailAsync(string toEmail, string subject, string body, byte[]? attachment = null, string? attachmentName = null);
         Task SendMatchEmailAsync(int idCandidate1, int idCandidate2);
         Task SendSingleMatchEmailAsync(int senderId, int receiverId);
+        Task SendEmailToAdminForMatchmakerApproval(string fullName, string userEmail, string phoneNumber, Common.Dto.UserType userType);
+        Task SendApprovalEmailToMatchmaker(string fullName, string email);
+
+
     }
 }

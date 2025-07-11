@@ -8,6 +8,15 @@ using System.Threading.Tasks;
 
 namespace Repository.Entities
 {
+
+    //סטטוס לשדכן
+    public enum ApprovalStatus
+    {
+        Approved, //אושר
+        PendingApproval, //בהמתנה
+        Rejected  //סורב
+    }
+
     public enum UserType
     {
         ADMIN, MATCHMAKER, PARENT
@@ -28,6 +37,8 @@ namespace Repository.Entities
         public UserType UserType { get; set; }
 
         public List<Candidate> Candidates { get; set; } = new List<Candidate>();
+        public ApprovalStatus ApprovalStatus { get; set; } = ApprovalStatus.Approved; // ברירת מחדל
+
 
     }
 }
